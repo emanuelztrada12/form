@@ -56,11 +56,18 @@ export default [
     // [general_model.name]: yup.string(),
     // [general_brand.name]: yup.string(),
     // [general_age.name]: yup.string(),
-    vehicle: yup.array({
-      type: yup.object().shape({
-        [general_model.name]: yup.string(),
+    vehicle: yup.array({}).of(
+      yup.object().shape({
         [general_brand.name]: yup.string(),
-      }),
-    })
+        [general_model.name]: yup.string(),
+      })
+    ),
+    license: yup.array({}).of(
+      yup.object().shape({
+        [general_license.name]: yup.string(),
+        [general_license_type.name]: yup.string(),
+        [general_license_expire.name]: yup.string(),
+      })
+    ),
   }),
 ];

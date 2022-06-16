@@ -86,41 +86,43 @@ export default function CheckoutPage() {
 
   async function _submitForm(values, actions) {
     console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
-    // try {
-    //   const { data } = await newFormulario({
-    //     variables: {
-    //       input: {
-    //         //Informacion general
-    //         general_name: values.general_name,
-    //         // general_lastname: values.general_lastname,
-    //         // general_birth: values.general_birth,
-    //         // general_place_birth: values.general_place_birth,
-    //         // general_age: values.general_age,
-    //         // general_civil_status: values.general_civil_status,
-    //         // general_profession: values.general_profession,
-    //         // general_direction: values.general_direction,
-    //         // general_time_reside: values.general_time_reside,
-    //         // general_previous_direction: values.general_previous_direction,
-    //         // general_phone: values.general_phone,
-    //         // general_nit: values.general_nit,
-    //         // general_dpi:  values.general_dpi,
-    //         // general_email: values.general_email,
-    //         // general_emergency_phone: values.general_emergency_phone,
-    //         // general_emergency_name: values.general_emergency_name,
-    //         // general_irtra: values.general_irtra,
-    //         // general_igss: values.general_igss,
-    //         vehicle: values.vehicle,//[{general_brand: values.general_brand}],
-    //         license: [{ general_license: values.general_license,
-    //         general_license_expire: values.general_license_expire,
-    //         general_license_type: values.general_license_type}]
+    try {
+      const { data } = await newFormulario({
+        variables: {
+          input: {
+            //Informacion general
+            general_name: values.general_name,
+            // general_lastname: values.general_lastname,
+            // general_birth: values.general_birth,
+            // general_place_birth: values.general_place_birth,
+            // general_age: values.general_age,
+            // general_civil_status: values.general_civil_status,
+            // general_profession: values.general_profession,
+            // general_direction: values.general_direction,
+            // general_time_reside: values.general_time_reside,
+            // general_previous_direction: values.general_previous_direction,
+            // general_phone: values.general_phone,
+            // general_nit: values.general_nit,
+            // general_dpi:  values.general_dpi,
+            // general_email: values.general_email,
+            // general_emergency_phone: values.general_emergency_phone,
+            // general_emergency_name: values.general_emergency_name,
+            // general_irtra: values.general_irtra,
+            // general_igss: values.general_igss,
+            vehicle: values.vehicle,
+            license: values.license,
+            //[{general_brand: values.general_brand}],
+            // license: [{ general_license: values.general_license,
+            // general_license_expire: values.general_license_expire,
+            // general_license_type: values.general_license_type}]
 
-    //       }
-    //     }
-    //   });
-    //   console.log(`data ${data}`)
-    // } catch (error) {
-    //   console.log(error);
-    // }
+          }
+        }
+      });
+      console.log(`data ${data}`)
+    } catch (error) {
+      console.log(error);
+    }
 
     // await _sleep(1000);
     // alert(JSON.stringify(`values ${values.general_birth}`, null, 2));

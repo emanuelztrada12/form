@@ -47,4 +47,5 @@ export default {
   [general_model.name]: "",
   [general_brand.name]: "",
   vehicle: [],
+  license: [],
 };

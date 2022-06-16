@@ -43,10 +43,7 @@ export default function StatusCivilForm(props) {
     setDateYear(years);
   };
 
-  // licencia
-  // const [inputLicencia, setLicencia] = useState([
-  //     { general_license: '', general_license_type: '', general_license_expire: '' },
-  // ]);
+
 
   // const handleChangeInputLicencia = (index, event) => {
   //     const values = [...inputLicencia];
@@ -102,6 +99,11 @@ export default function StatusCivilForm(props) {
   // vehiculo
   const [inputVehiculos, setVehiculo] = useState([
     { general_model: "", general_brand: "" },
+  ]);
+
+  // licencia
+  const [inputLicense, setLicencia] = useState([
+    { general_license: "", general_license_type: "", general_license_expire: "" },
   ]);
 
   const handleChangeInput = (index, event, name) => {
@@ -344,16 +346,16 @@ export default function StatusCivilForm(props) {
                   name="vehicle"
                   render={(arrayHelpers) => (
                     <>
-                    <IconButton
-                            onClick={() =>
-                              arrayHelpers.push({
-                                [general_brand.name]: "",
-                                [general_model.name]: "",
-                              })
-                            }
-                          >
-                            <AddIcon />
-                          </IconButton>
+                      <IconButton
+                        onClick={() =>
+                          arrayHelpers.push({
+                            [general_brand.name]: "",
+                            [general_model.name]: "",
+                          })
+                        }
+                      >
+                        <AddIcon />
+                      </IconButton>
                       {(values.vehicle || []).map((_, index) => (
                         <Grid
                           key={`inputVehiculo_${index}`}
@@ -370,7 +372,7 @@ export default function StatusCivilForm(props) {
                           <InputField
                             name={`vehicle.${index}.${general_model.name}`}
                             label={general_model.label}
-                           
+
                             fullWidth
                           />
                           <label
@@ -381,7 +383,7 @@ export default function StatusCivilForm(props) {
                           <InputField
                             name={`vehicle.${index}.${general_brand.name}`}
                             label={general_brand.label}
-                           
+
                             fullWidth
                           />
                           <IconButton
@@ -401,6 +403,72 @@ export default function StatusCivilForm(props) {
                   label="Licencias"
                 />
               </Divider>
+
+              <Grid container style={{ paddingTop: "18px" }}>
+                <FieldArray
+                  name="license"
+                  render={(arrayHelpers) => (
+                    <>
+                      <IconButton
+                        onClick={() =>
+                          arrayHelpers.push({
+                            [general_license.name]: "",
+                            [general_license_type.name]: "",
+                            [general_license_expire.name]: "",
+                          })
+                        }
+                      >
+                        <AddIcon />
+                      </IconButton>
+                      {(values.license || []).map((_, index) => (
+                        <Grid
+                          key={`inputLicense${index}`}
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Licencia:
+                          </label>
+                          <InputField
+                            name={`license.${index}.${general_license.name}`}
+                            label={general_license.label}
+                            fullWidth
+                          />
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Tipo:
+                          </label>
+                          <InputField
+                            name={`license.${index}.${general_license_type.name}`}
+                            label={general_license_type.label}
+                            fullWidth
+                          />
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Fecha:
+                          </label>
+                          <DatePickerField
+                            name={`license.${index}.${general_license_expire.name}`}
+                            // label={general_license_expire.label}
+                            fullWidth
+                          />
+                          <IconButton
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
+                            <RemoveIcon />
+                          </IconButton>
+                        </Grid>
+                      ))}
+                    </>
+                  )}
+                />
+              </Grid>
               {/* <Grid container style={{ paddingTop: "18px" }}>
                             {
                                 inputLicencia.map((inputLicencia, index) => (
