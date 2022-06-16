@@ -9,7 +9,7 @@ export default function InputField(props) {
   // console.log(rest)
   // console.log(errorText)
   const [field, meta] = useField(props);
-  console.log(field)
+  // console.log(field)
   // console.log(meta)
 
   function _renderHelperText() {

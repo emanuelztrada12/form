@@ -1,171 +1,206 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Typography, Box, Paper, Divider, Chip } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import { InputField, SelectField, DatePickerField } from '../../FormFields';
-import {FieldArray } from 'formik';
-
+import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import { InputField, SelectField, DatePickerField } from "../../FormFields";
+import { FieldArray } from "formik";
 
 const civil = [
-    {
-        value: 'Soltero',
-        label: 'Soltero',
-    },
-    {
-        value: 'Casado',
-        label: 'Casado',
-    },
-    {
-        value: 'Divorciado',
-        label: 'Divorciado',
-    },
-    {
-        value: 'Viudo',
-        label: 'Viudo',
-    },
-    {
-        value: 'Unido',
-        label: 'Unido',
-    },
-    {
-        value: 'Otra',
-        label: 'Otra',
-    },
+  {
+    value: "Soltero",
+    label: "Soltero",
+  },
+  {
+    value: "Casado",
+    label: "Casado",
+  },
+  {
+    value: "Divorciado",
+    label: "Divorciado",
+  },
+  {
+    value: "Viudo",
+    label: "Viudo",
+  },
+  {
+    value: "Unido",
+    label: "Unido",
+  },
+  {
+    value: "Otra",
+    label: "Otra",
+  },
 ];
 
-
-
 export default function StatusCivilForm(props) {
-    const [dateYear, setDateYear] = useState("");
+  const [dateYear, setDateYear] = useState("");
 
-    const gettingDateYear = (e) => {
-        var years = new Date(new Date() - new Date(e.target.value)).getFullYear() - 1970;
-        setDateYear(years);
-    }
+  const gettingDateYear = (e) => {
+    var years =
+      new Date(new Date() - new Date(e.target.value)).getFullYear() - 1970;
+    setDateYear(years);
+  };
 
-    // licencia
-    // const [inputLicencia, setLicencia] = useState([
-    //     { general_license: '', general_license_type: '', general_license_expire: '' },
-    // ]);
+  // licencia
+  // const [inputLicencia, setLicencia] = useState([
+  //     { general_license: '', general_license_type: '', general_license_expire: '' },
+  // ]);
 
-    // const handleChangeInputLicencia = (index, event) => {
-    //     const values = [...inputLicencia];
-    //     values[index][event.target.name] = event.target.value;
-    //     setLicencia(values);
-    // }
+  // const handleChangeInputLicencia = (index, event) => {
+  //     const values = [...inputLicencia];
+  //     values[index][event.target.name] = event.target.value;
+  //     setLicencia(values);
+  // }
 
-    // const handleAddFieldsLicencia = () => {
-    //     setLicencia([...inputLicencia, { general_license: '', general_license_type: '', general_license_expire: '' }]);
-    // }
+  // const handleAddFieldsLicencia = () => {
+  //     setLicencia([...inputLicencia, { general_license: '', general_license_type: '', general_license_expire: '' }]);
+  // }
 
-    // const handleRemoveFieldsLicencia = (index) => {
-    //     const values = [...inputLicencia];
-    //     values.splice(index, 1);
-    //     setLicencia(values);
-    // }
+  // const handleRemoveFieldsLicencia = (index) => {
+  //     const values = [...inputLicencia];
+  //     values.splice(index, 1);
+  //     setLicencia(values);
+  // }
 
-    
+  const [isSSR, setIsSSR] = useState(true);
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
 
-    const [isSSR, setIsSSR] = useState(true);
-    useEffect(() => {
-        setIsSSR(false);
-    }, []);
+  const {
+    values,
+    formField: {
+      general_name,
+      general_lastname,
+      general_age,
+      general_birth,
+      general_place_birth,
+      general_civil_status,
+      general_profession,
+      general_direction,
+      general_time_reside,
+      general_emergency_name,
+      general_emergency_kinship,
+      general_previous_direction,
+      general_phone,
+      general_emergency_phone,
+      general_dpi,
+      general_nit,
+      general_igss,
+      general_irtra,
+      general_email,
+      general_license,
+      general_license_expire,
+      general_license_type,
+      general_brand,
+      general_model,
+    },
+  } = props;
 
-    const {
-        formField: {
-            general_name,
-            general_lastname,
-            general_age,
-            general_birth,
-            general_place_birth,
-            general_civil_status,
-            general_profession,
-            general_direction,
-            general_time_reside,
-            general_emergency_name,
-            general_emergency_kinship,
-            general_previous_direction,
-            general_phone,
-            general_emergency_phone,
-            general_dpi,
-            general_nit,
-            general_igss,
-            general_irtra,
-            general_email,
-            general_license,
-            general_license_expire,
-            general_license_type,
-            general_brand,
-            general_model, 
-        }
-    } = props;
+  // vehiculo
+  const [inputVehiculos, setVehiculo] = useState([
+    { general_model: "", general_brand: "" },
+  ]);
 
-   
-     // vehiculo
-     const [inputVehiculo, setVehiculo] = useState([
-        { general_model: '', general_brand: '' },
-    ]);
+  const handleChangeInput = (index, event, name) => {
+    const values = [...inputVehiculos];
+    values[index][name] = event.target.value;
+    setVehiculo(values);
+    // console.info(
+    //   `\n\n==> { inputVehiculos }\n`,
+    //   { inputVehiculos, values },
+    //   `\n`,
+    //   ``
+    // );
+  };
 
-    const handleChangeInput = (index, event) => {
-        const values = [...inputVehiculo];
-        console.log(values)
-        values[index][event.target.name] = event.target.value;
-        setVehiculo(values);
-    }
+  const handleAddFields = () => {
+    setVehiculo([...inputVehiculos, { general_model: "", general_brand: "" }]);
+  };
 
-    const handleAddFields = () => {
-        setVehiculo([...inputVehiculo, { general_model: '', general_brand: ''}]);
-    }
+  const handleRemoveFields = (index) => {
+    const values = [...inputVehiculos];
+    values.splice(index, 1);
+    setVehiculo(values);
+  };
 
-    const handleRemoveFields = (index) => {
-        const values = [...inputVehiculo];
-        values.splice(index, 1);
-        setVehiculo(values);
-    }
-
-    return !isSSR && (
-        <>
-            <Grid>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        "& > :not(style)": {
-                            m: 1,
-                            width: 1400,
-                            height: 1000,
-                        },
-                    }}
-                    display="flex"
-                    justifyContent="center"
-                    paddingTop={5}>
-                    <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}>
-                        <Typography variant="h6" gutterBottom style={{ display: "flex", justifyContent: "center", fontSize: "30px", fontWeight: "bold" }}>
-                            Información General
-                        </Typography>
-                        <Divider style={{ paddingTop: "20px" }}>
-                            <Chip
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
-                                label="Datos Personales"
-                            />
-                        </Divider>
-                        <Grid container spacing={0} style={{ paddingTop: "18px" }} >
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }} >
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Nombres:
-                                </label>
-                                <InputField name={general_name.name} label={general_name.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Apellidos:
-                                </label>
-                                <InputField name={general_lastname.name} label={general_lastname.label} fullWidth />
-                            </Grid>
-                        </Grid>
-                        {/* 
+  return (
+    !isSSR && (
+      <>
+        <Grid>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              "& > :not(style)": {
+                m: 1,
+                width: 1400,
+                height: 1000,
+              },
+            }}
+            display="flex"
+            justifyContent="center"
+            paddingTop={5}
+          >
+            <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  fontSize: "30px",
+                  fontWeight: "bold",
+                }}
+              >
+                Información General
+              </Typography>
+              <Divider style={{ paddingTop: "20px" }}>
+                <Chip
+                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  label="Datos Personales"
+                />
+              </Divider>
+              <Grid container spacing={0} style={{ paddingTop: "18px" }}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                >
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Nombres:
+                  </label>
+                  <InputField
+                    name={general_name.name}
+                    label={general_name.label}
+                    fullWidth
+                  />
+                  <InputField
+                    name={"new_field_on_fly"}
+                    label={general_name.label}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                >
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Apellidos:
+                  </label>
+                  <InputField
+                    name={general_lastname.name}
+                    label={general_lastname.label}
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+              {/* 
                         <Grid container style={{ paddingTop: "10px" }}>
                             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -298,46 +333,75 @@ export default function StatusCivilForm(props) {
                             </Grid>
                         </Grid> */}
 
-
-                        <Divider style={{ paddingTop: "20px" }}>
-                            <Chip
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
-                                label="Vehículos"
-                            />
-                        </Divider>
-                        <Grid container style={{ paddingTop: "18px" }}>
-                                {
-                                    inputVehiculo.map((inputVehiculo, index) => (
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Modelo:
-                                            </label>
-                                            <InputField name={general_model.name} label={general_model.label} value={inputVehiculo.general_model} onChange={event => handleChangeInput(index, event)} fullWidth />
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Marca:
-                                            </label>
-                                            <InputField name={general_brand.name} label={general_brand.label} value={inputVehiculo.general} onChange={event => handleChangeInput(index, event)} fullWidth />
-                                            <IconButton
-                                                onClick={() => handleRemoveFields(index)}
-                                            >
-                                                <RemoveIcon />
-                                            </IconButton>
-                                            <IconButton
-                                                onClick={() => handleAddFields()}
-                                            >
-                                                <AddIcon />
-                                            </IconButton>
-                                        </Grid>
-                                    ))
-                                }
+              <Divider style={{ paddingTop: "20px" }}>
+                <Chip
+                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  label="Vehículos"
+                />
+              </Divider>
+              <Grid container style={{ paddingTop: "18px" }}>
+                <FieldArray
+                  name="vehicle"
+                  render={(arrayHelpers) => (
+                    <>
+                    <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [general_brand.name]: "",
+                                [general_model.name]: "",
+                              })
+                            }
+                          >
+                            <AddIcon />
+                          </IconButton>
+                      {(values.vehicle || []).map((_, index) => (
+                        <Grid
+                          key={`inputVehiculo_${index}`}
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Modelo:
+                          </label>
+                          <InputField
+                            name={`vehicle.${index}.${general_model.name}`}
+                            label={general_model.label}
+                           
+                            fullWidth
+                          />
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Marca:
+                          </label>
+                          <InputField
+                            name={`vehicle.${index}.${general_brand.name}`}
+                            label={general_brand.label}
+                           
+                            fullWidth
+                          />
+                          <IconButton
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
+                            <RemoveIcon />
+                          </IconButton>
                         </Grid>
-                        <Divider style={{ paddingTop: "20px" }}>
-                            <Chip
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
-                                label="Licencias"
-                            />
-                        </Divider>
-                        {/* <Grid container style={{ paddingTop: "18px" }}>
+                      ))}
+                    </>
+                  )}
+                />
+              </Grid>
+              <Divider style={{ paddingTop: "20px" }}>
+                <Chip
+                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  label="Licencias"
+                />
+              </Divider>
+              {/* <Grid container style={{ paddingTop: "18px" }}>
                             {
                                 inputLicencia.map((inputLicencia, index) => (
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
@@ -367,9 +431,10 @@ export default function StatusCivilForm(props) {
                                 ))
                             }
                         </Grid> */}
-                    </Paper>
-                </Box>
-            </Grid>
-        </>
+            </Paper>
+          </Box>
+        </Grid>
+      </>
     )
+  );
 }

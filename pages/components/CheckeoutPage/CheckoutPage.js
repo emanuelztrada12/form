@@ -5,64 +5,64 @@ import {
   StepLabel,
   Button,
   Typography,
-  CircularProgress
-} from '@mui/material';
-import { Formik, Form, FieldArray } from 'formik';
+  CircularProgress,
+} from "@mui/material";
+import { Formik, Form, FieldArray } from "formik";
 import { useMutation, useQuery, gql } from "@apollo/client";
 import StatusCivilForm from "./Forms/StatusCivilForm";
-import validationSchema from './FormModel/validationSchema';
-import generalFormModel from './FormModel/generalFormModel';
-import formInitialValues from './FormModel/formInitialValues';
-import useStyles from './styles';
+import validationSchema from "./FormModel/validationSchema";
+import generalFormModel from "./FormModel/generalFormModel";
+import formInitialValues from "./FormModel/formInitialValues";
+import useStyles from "./styles";
 
 const QUERY = gql`
-query GetFormularioGolden {
-  getFormularioGolden {
-    tiene_deudas_economia
+  query GetFormularioGolden {
+    getFormularioGolden {
+      tiene_deudas_economia
+    }
   }
-}
 `;
 
 const FORMULARIO = gql`
-mutation newForm($input: FormInput) {
-  newForm(input: $input) {
-    general_name
-    # general_lastname
-    # general_birth
-    # general_place_birth
-    # general_age
-    # general_civil_status
-    # general_profession
-    # general_direction
-    # general_time_reside
-    # general_previous_direction
-    # general_phone
-    # general_nit
-    # general_dpi
-    # general_email
-    # general_emergency_phone
-    # general_emergency_name
-    # general_irtra
-    # general_igss
-    vehicle {
-      general_brand
-      general_model
-    }
-    license {
-      general_license
-      general_license_expire
-      general_license_type
+  mutation newForm($input: FormInput) {
+    newForm(input: $input) {
+      general_name
+      # general_lastname
+      # general_birth
+      # general_place_birth
+      # general_age
+      # general_civil_status
+      # general_profession
+      # general_direction
+      # general_time_reside
+      # general_previous_direction
+      # general_phone
+      # general_nit
+      # general_dpi
+      # general_email
+      # general_emergency_phone
+      # general_emergency_name
+      # general_irtra
+      # general_igss
+      vehicle {
+        general_brand
+        general_model
+      }
+      license {
+        general_license
+        general_license_expire
+        general_license_type
+      }
     }
   }
-}
 `;
 
-const steps = ['Informacion'];
+const steps = ["Informacion"];
 const { formId, formField } = generalFormModel;
-function _renderStepContent(step) {
+function _renderStepContent(step, values) {
   switch (step) {
     case 0:
-      return <StatusCivilForm formField={formField} />;
+      return <StatusCivilForm formField={formField} values={values} />;
     default:
       return <div>Not Found</div>;
   }
@@ -70,22 +70,22 @@ function _renderStepContent(step) {
 
 export default function CheckoutPage() {
   // const { data } = useQuery(QUERY);
-  // console.log(data); 
-  const [newFormulario] = useMutation(FORMULARIO)
+  // console.log(data);
+  const [newFormulario] = useMutation(FORMULARIO);
 
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
   // console.log(`isLastStep ${isLastStep}`);
-  // console.log(`currentValidationSchema ${Object.values(currentValidationSchema)}`) 
+  // console.log(`currentValidationSchema ${Object.values(currentValidationSchema)}`)
 
   function _sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   async function _submitForm(values, actions) {
-    console.log(values)
+    console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
     // try {
     //   const { data } = await newFormulario({
     //     variables: {
@@ -100,20 +100,20 @@ export default function CheckoutPage() {
     //         // general_profession: values.general_profession,
     //         // general_direction: values.general_direction,
     //         // general_time_reside: values.general_time_reside,
-    //         // general_previous_direction: values.general_previous_direction, 
+    //         // general_previous_direction: values.general_previous_direction,
     //         // general_phone: values.general_phone,
-    //         // general_nit: values.general_nit, 
+    //         // general_nit: values.general_nit,
     //         // general_dpi:  values.general_dpi,
     //         // general_email: values.general_email,
     //         // general_emergency_phone: values.general_emergency_phone,
     //         // general_emergency_name: values.general_emergency_name,
     //         // general_irtra: values.general_irtra,
     //         // general_igss: values.general_igss,
-    //         vehicle: [{general_brand: values.general_brand}],
+    //         vehicle: values.vehicle,//[{general_brand: values.general_brand}],
     //         license: [{ general_license: values.general_license,
     //         general_license_expire: values.general_license_expire,
     //         general_license_type: values.general_license_type}]
-           
+
     //       }
     //     }
     //   });
@@ -150,28 +150,27 @@ export default function CheckoutPage() {
         Checkout
       </Typography>
       <Stepper activeStep={activeStep} className={classes.stepper}>
-        {steps.map(label => (
+        {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
       <>
-
         <Formik
           initialValues={formInitialValues}
           validationSchema={currentValidationSchema}
           onSubmit={_handleSubmit}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, values }) => (
             <Form id={formId}>
-              {_renderStepContent(activeStep)}
-              
+              {_renderStepContent(activeStep, values)}
 
               <input
                 type="submit"
                 className="bg-gray-800 w-full mt-5 p-4 text-white uppercase hover:bg-gray-900"
-                value="Enviar Formulario" />
+                value="Enviar Formulario"
+              />
 
               {/* <div className={classes.buttons}>
                   {activeStep !== 0 && (
