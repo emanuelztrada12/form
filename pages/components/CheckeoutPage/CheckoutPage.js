@@ -24,37 +24,37 @@ const QUERY = gql`
 `;
 
 const FORMULARIO = gql`
-  mutation newForm($input: FormInput) {
-    newForm(input: $input) {
-      general_name
-      # general_lastname
-      # general_birth
-      # general_place_birth
-      # general_age
-      # general_civil_status
-      # general_profession
-      # general_direction
-      # general_time_reside
-      # general_previous_direction
-      # general_phone
-      # general_nit
-      # general_dpi
-      # general_email
-      # general_emergency_phone
-      # general_emergency_name
-      # general_irtra
-      # general_igss
-      vehicle {
-        general_brand
-        general_model
-      }
-      license {
-        general_license
-        general_license_expire
-        general_license_type
-      }
+ mutation newform_golden_input($input: form_golden_input) {
+  newform_golden_input(input: $input) {
+    general_name
+    general_lastname
+    general_birth
+    general_place_birth
+    general_age
+    general_civil_status
+    general_profession
+    general_direction
+    general_time_reside
+    general_previous_direction
+    general_phone
+    general_nit
+    general_dpi
+    general_email
+    general_emergency_phone
+    general_emergency_name
+    general_irtra
+    general_igss
+    vehicle {
+      general_brand
+      general_model
+    }
+    license {
+      general_license
+      general_license_expire
+      general_license_type
     }
   }
+}
 `;
 
 const steps = ["Informacion"];
@@ -92,30 +92,25 @@ export default function CheckoutPage() {
           input: {
             //Informacion general
             general_name: values.general_name,
-            // general_lastname: values.general_lastname,
-            // general_birth: values.general_birth,
-            // general_place_birth: values.general_place_birth,
-            // general_age: values.general_age,
-            // general_civil_status: values.general_civil_status,
-            // general_profession: values.general_profession,
-            // general_direction: values.general_direction,
-            // general_time_reside: values.general_time_reside,
-            // general_previous_direction: values.general_previous_direction,
-            // general_phone: values.general_phone,
-            // general_nit: values.general_nit,
-            // general_dpi:  values.general_dpi,
-            // general_email: values.general_email,
-            // general_emergency_phone: values.general_emergency_phone,
-            // general_emergency_name: values.general_emergency_name,
-            // general_irtra: values.general_irtra,
-            // general_igss: values.general_igss,
+            general_lastname: values.general_lastname,
+            general_birth: values.general_birth,
+            general_place_birth: values.general_place_birth,
+            general_age: values.general_age,
+            general_civil_status: values.general_civil_status,
+            general_profession: values.general_profession,
+            general_direction: values.general_direction,
+            general_time_reside: values.general_time_reside,
+            general_previous_direction: values.general_previous_direction,
+            general_phone: values.general_phone,
+            general_nit: values.general_nit,
+            general_dpi:  values.general_dpi,
+            general_email: values.general_email,
+            general_emergency_phone: values.general_emergency_phone,
+            general_emergency_name: values.general_emergency_name,
+            general_irtra: values.general_irtra,
+            general_igss: values.general_igss,
             vehicle: values.vehicle,
             license: values.license,
-            //[{general_brand: values.general_brand}],
-            // license: [{ general_license: values.general_license,
-            // general_license_expire: values.general_license_expire,
-            // general_license_type: values.general_license_type}]
-
           }
         }
       });
@@ -133,8 +128,6 @@ export default function CheckoutPage() {
   function _handleSubmit(values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
-      // console.log(`values ${Object.values(values)}`)
-      // console.log(`values ${Object.values(values)} actions ${Object.values(actions)}`)
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});

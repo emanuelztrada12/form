@@ -43,24 +43,6 @@ export default function StatusCivilForm(props) {
     setDateYear(years);
   };
 
-
-
-  // const handleChangeInputLicencia = (index, event) => {
-  //     const values = [...inputLicencia];
-  //     values[index][event.target.name] = event.target.value;
-  //     setLicencia(values);
-  // }
-
-  // const handleAddFieldsLicencia = () => {
-  //     setLicencia([...inputLicencia, { general_license: '', general_license_type: '', general_license_expire: '' }]);
-  // }
-
-  // const handleRemoveFieldsLicencia = (index) => {
-  //     const values = [...inputLicencia];
-  //     values.splice(index, 1);
-  //     setLicencia(values);
-  // }
-
   const [isSSR, setIsSSR] = useState(true);
   useEffect(() => {
     setIsSSR(false);
@@ -95,38 +77,6 @@ export default function StatusCivilForm(props) {
       general_model,
     },
   } = props;
-
-  // vehiculo
-  const [inputVehiculos, setVehiculo] = useState([
-    { general_model: "", general_brand: "" },
-  ]);
-
-  // licencia
-  const [inputLicense, setLicencia] = useState([
-    { general_license: "", general_license_type: "", general_license_expire: "" },
-  ]);
-
-  const handleChangeInput = (index, event, name) => {
-    const values = [...inputVehiculos];
-    values[index][name] = event.target.value;
-    setVehiculo(values);
-    // console.info(
-    //   `\n\n==> { inputVehiculos }\n`,
-    //   { inputVehiculos, values },
-    //   `\n`,
-    //   ``
-    // );
-  };
-
-  const handleAddFields = () => {
-    setVehiculo([...inputVehiculos, { general_model: "", general_brand: "" }]);
-  };
-
-  const handleRemoveFields = (index) => {
-    const values = [...inputVehiculos];
-    values.splice(index, 1);
-    setVehiculo(values);
-  };
 
   return (
     !isSSR && (
@@ -180,11 +130,11 @@ export default function StatusCivilForm(props) {
                     label={general_name.label}
                     fullWidth
                   />
-                  <InputField
+                  {/* <InputField
                     name={"new_field_on_fly"}
                     label={general_name.label}
                     fullWidth
-                  />
+                  /> */}
                 </Grid>
                 <Grid
                   item
@@ -202,138 +152,139 @@ export default function StatusCivilForm(props) {
                   />
                 </Grid>
               </Grid>
-              {/* 
-                        <Grid container style={{ paddingTop: "10px" }}>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Fecha de Nacimiento:
-                                </label>
-                                <DatePickerField name={general_birth.name} label={general_birth.label} onChange={(e) => { gettingDateYear(e) }} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Lugar de Nacimiento:
-                                </label>
-                                <InputField name={general_place_birth.name} label={general_place_birth.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Edad:
-                                </label>
-                                <InputField disabled name={general_age.name} label={general_age.label} value={dateYear} defaultValue={dateYear} fullWidth />
-                            </Grid>
 
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Estado civil:
-                                </label>
-                                <SelectField
-                                    name={general_civil_status.name}
-                                    label={general_civil_status.label}
-                                    data={civil}
-                                    fullWidth
-                                />
-                            </Grid>
+              <Grid container style={{ paddingTop: "10px" }}>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Fecha de Nacimiento:
+                  </label>
+                  <DatePickerField name={general_birth.name} label={general_birth.label} onChange={(e) => { gettingDateYear(e) }} fullWidth />
+                  <p>{dateYear}</p>
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Lugar de Nacimiento:
+                  </label>
+                  <InputField name={general_place_birth.name} label={general_place_birth.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Edad:
+                  </label>
+                  <InputField disabled name={general_age.name} label={general_age.label} value={dateYear}  fullWidth />
+                </Grid>
 
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Profesión u Oficio:
-                                </label>
-                                <InputField name={general_profession.name} label={general_profession.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Dirección de la vivienda:
-                                </label>
-                                <InputField name={general_direction.name} label={general_direction.label} fullWidth />
-                            </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Estado civil:
+                  </label>
+                  <SelectField
+                    name={general_civil_status.name}
+                    label={general_civil_status.label}
+                    data={civil}
+                    fullWidth
+                  />
+                </Grid>
 
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Tiempo de residir en la vivienda:
-                                </label>
-                                <InputField name={general_time_reside.name} label={general_time_reside.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Dirección anterior:
-                                </label>
-                                <InputField name={general_previous_direction.name} label={general_previous_direction.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Teléfono celular:
-                                </label>
-                                <InputField name={general_phone.name} label={general_phone.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    DPI:
-                                </label>
-                                <InputField name={general_dpi.name} label={general_dpi.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    NIT:
-                                </label>
-                                <InputField name={general_nit.name} label={general_nit.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Email:
-                                </label>
-                                <InputField name={general_email.name} label={general_email.label} fullWidth />
-                            </Grid>
-                        </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Profesión u Oficio:
+                  </label>
+                  <InputField name={general_profession.name} label={general_profession.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Dirección de la vivienda:
+                  </label>
+                  <InputField name={general_direction.name} label={general_direction.label} fullWidth />
+                </Grid>
 
-                        <Divider style={{ paddingTop: "20px" }}>
-                            <Chip
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
-                                label="En caso de emergencias"
-                            />
-                        </Divider>
-                        <Grid container style={{ paddingTop: "18px" }}>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Teléfono de emergencia:
-                                </label>
-                                <InputField name={general_emergency_phone.name} label={general_emergency_phone.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Nombre:
-                                </label>
-                                <InputField name={general_emergency_name.name} label={general_emergency_name.label} fullWidth />
-                            </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Tiempo de residir en la vivienda:
+                  </label>
+                  <InputField name={general_time_reside.name} label={general_time_reside.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Dirección anterior:
+                  </label>
+                  <InputField name={general_previous_direction.name} label={general_previous_direction.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Teléfono celular:
+                  </label>
+                  <InputField name={general_phone.name} label={general_phone.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    DPI:
+                  </label>
+                  <InputField name={general_dpi.name} label={general_dpi.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    NIT:
+                  </label>
+                  <InputField name={general_nit.name} label={general_nit.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Email:
+                  </label>
+                  <InputField name={general_email.name} label={general_email.label} fullWidth />
+                </Grid>
+              </Grid>
 
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Parentesco:
-                                </label>
-                                <InputField name={general_emergency_kinship.name} label={general_emergency_kinship.label} fullWidth />
-                            </Grid>
-                        </Grid>
+              <Divider style={{ paddingTop: "20px" }}>
+                <Chip
+                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  label="En caso de emergencias"
+                />
+              </Divider>
+              <Grid container style={{ paddingTop: "18px" }}>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Teléfono de emergencia:
+                  </label>
+                  <InputField name={general_emergency_phone.name} label={general_emergency_phone.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Nombre:
+                  </label>
+                  <InputField name={general_emergency_name.name} label={general_emergency_name.label} fullWidth />
+                </Grid>
 
-                        <Divider style={{ paddingTop: "20px" }}>
-                            <Chip
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
-                                label="Afilaciones"
-                            />
-                        </Divider>
-                        <Grid container style={{ paddingTop: "18px" }}>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Afilación IRTRA:
-                                </label>
-                                <InputField name={general_irtra.name} label={general_irtra.label} fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    Afilación IGSS:
-                                </label>
-                                <InputField name={general_igss.name} label={general_igss.label} fullWidth />
-                            </Grid>
-                        </Grid> */}
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Parentesco:
+                  </label>
+                  <InputField name={general_emergency_kinship.name} label={general_emergency_kinship.label} fullWidth />
+                </Grid>
+              </Grid>
+
+              <Divider style={{ paddingTop: "20px" }}>
+                <Chip
+                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  label="Afilaciones"
+                />
+              </Divider>
+              <Grid container style={{ paddingTop: "18px" }}>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Afilación IRTRA:
+                  </label>
+                  <InputField name={general_irtra.name} label={general_irtra.label} fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Afilación IGSS:
+                  </label>
+                  <InputField name={general_igss.name} label={general_igss.label} fullWidth />
+                </Grid>
+              </Grid>
 
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
@@ -469,36 +420,6 @@ export default function StatusCivilForm(props) {
                   )}
                 />
               </Grid>
-              {/* <Grid container style={{ paddingTop: "18px" }}>
-                            {
-                                inputLicencia.map((inputLicencia, index) => (
-                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Licencia:
-                                        </label>
-                                        <InputField name={general_license.name} label={general_license.label} value={inputLicencia.license} onChange={event => handleChangeInputLicencia(index, event)} fullWidth />
-                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Tipo:
-                                        </label>
-                                        <InputField name={general_license_type.name} label={general_license_type.label} value={inputLicencia.license_type} onChange={event => handleChangeInputLicencia(index, event)} fullWidth />
-                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Fecha de vencimiento:
-                                        </label>
-                                        <DatePickerField name={general_license_expire.name} label={general_license_expire.label} value={inputLicencia.license_expire} onChange={event => handleChangeInputLicencia(index, event)} fullWidth />
-                                        <IconButton
-                                            onClick={() => handleRemoveFieldsLicencia(index)}
-                                        >
-                                            <RemoveIcon />
-                                        </IconButton>
-                                        <IconButton
-                                            onClick={() => handleAddFieldsLicencia()}
-                                        >
-                                            <AddIcon />
-                                        </IconButton>
-                                    </Grid>
-                                ))
-                            }
-                        </Grid> */}
             </Paper>
           </Box>
         </Grid>
