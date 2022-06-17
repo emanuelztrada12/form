@@ -158,7 +158,7 @@ export default function StatusCivilForm(props) {
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Fecha de Nacimiento:
                   </label>
-                  <DatePickerField name={general_birth.name} label={general_birth.label} onChange={(e) => { gettingDateYear(e) }} fullWidth />
+                  <DatePickerField name={general_birth.name} label={general_birth.label} onChange={gettingDateYear} fullWidth />
                   <p>{dateYear}</p>
                 </Grid>
                 <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
