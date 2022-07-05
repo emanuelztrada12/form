@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
-import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 
@@ -34,7 +33,7 @@ const civil = [
   },
 ];
 
-export default function StatusCivilForm(props) {
+export default function General(props) {
   const [dateYear, setDateYear] = useState("");
 
   const gettingDateYear = (e) => {
@@ -105,6 +104,7 @@ export default function StatusCivilForm(props) {
                   justifyContent: "center",
                   fontSize: "30px",
                   fontWeight: "bold",
+                  paddingTop: "15px"
                 }}
               >
                 Información General
@@ -159,7 +159,6 @@ export default function StatusCivilForm(props) {
                     Fecha de Nacimiento:
                   </label>
                   <DatePickerField name={general_birth.name} label={general_birth.label} onChange={gettingDateYear} fullWidth />
-                  <p>{dateYear}</p>
                 </Grid>
                 <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -171,7 +170,7 @@ export default function StatusCivilForm(props) {
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Edad:
                   </label>
-                  <InputField disabled name={general_age.name} label={general_age.label} value={dateYear}  fullWidth />
+                  <InputField disabled name={general_age.name} label={general_age.label} value={dateYear} data={dateYear} fullWidth />
                 </Grid>
 
                 <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -292,7 +291,9 @@ export default function StatusCivilForm(props) {
                   label="Vehículos"
                 />
               </Divider>
-              <Grid container style={{ paddingTop: "18px" }}>
+              <p style={{ paddingLeft: "15px", paddingTop: "10px", fontSize: "20px", display: "flex", justifyContent: "center" }}>Ingrese si posee algun vehículo</p>
+
+              <Grid container style={{ paddingTop: "18px", display: "flex", justifyContent: "center" }}>
                 <FieldArray
                   name="vehicle"
                   render={(arrayHelpers) => (
@@ -305,7 +306,8 @@ export default function StatusCivilForm(props) {
                           })
                         }
                       >
-                        <AddIcon />
+                        <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                        {/* <p style={{ color: "black", fontSize: "20px" }}> Agregar  </p> */}
                       </IconButton>
                       {(values.vehicle || []).map((_, index) => (
                         <Grid
@@ -340,7 +342,7 @@ export default function StatusCivilForm(props) {
                           <IconButton
                             onClick={() => arrayHelpers.remove(index)}
                           >
-                            <RemoveIcon />
+                            <RemoveCircleIcon sx={{ color: "red" }} />
                           </IconButton>
                         </Grid>
                       ))}
@@ -354,8 +356,8 @@ export default function StatusCivilForm(props) {
                   label="Licencias"
                 />
               </Divider>
-
-              <Grid container style={{ paddingTop: "18px" }}>
+              <p style={{ paddingLeft: "15px", paddingTop: "10px", fontSize: "20px", display: "flex", justifyContent: "center" }}>Ingrese si posee alguna licencia</p>
+              <Grid container style={{ paddingTop: "18px", display: "flex", justifyContent: "center" }}>
                 <FieldArray
                   name="license"
                   render={(arrayHelpers) => (
@@ -369,7 +371,8 @@ export default function StatusCivilForm(props) {
                           })
                         }
                       >
-                        <AddIcon />
+                        <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                        {/* <p style={{ color: "black", fontSize: "20px" }}> Agregar  </p> */}
                       </IconButton>
                       {(values.license || []).map((_, index) => (
                         <Grid
@@ -382,7 +385,7 @@ export default function StatusCivilForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Licencia:
+                            No. licencia:
                           </label>
                           <InputField
                             name={`license.${index}.${general_license.name}`}
@@ -392,7 +395,7 @@ export default function StatusCivilForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Tipo:
+                            Tipo de licencia:
                           </label>
                           <InputField
                             name={`license.${index}.${general_license_type.name}`}
@@ -402,17 +405,17 @@ export default function StatusCivilForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Fecha:
+                            Fecha de vencimiento:
                           </label>
                           <DatePickerField
                             name={`license.${index}.${general_license_expire.name}`}
-                            // label={general_license_expire.label}
                             fullWidth
                           />
                           <IconButton
+                            style={{paddingBottom: "20px"}}
                             onClick={() => arrayHelpers.remove(index)}
                           >
-                            <RemoveIcon />
+                            <RemoveCircleIcon sx={{ color: "red" }} />
                           </IconButton>
                         </Grid>
                       ))}

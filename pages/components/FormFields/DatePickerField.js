@@ -5,14 +5,7 @@ import { TextField, Alert, Stack } from "@mui/material";
 
 export default function DatePickerField(props) {
   const { errorText, ...rest } = props;
-  // console.log(props)
-  // console.log(errorText)
   const [field, meta] = useField(props);
-  // const { setFieldValue } = useFormikContext();
-  // console.info(`\n\n==> { field }\n`, field, `\n`, ``);
-  // console.info(`\n\n==> { meta }\n`, meta, `\n`, ``);
-  // console.info(`\n\n==> { props }\n`, props, `\n`, ``);
-  // console.log(meta)
 
   function _renderHelperText() {
     const [touched, error] = at(meta, "touched", "error");

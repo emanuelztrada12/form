@@ -32,9 +32,14 @@ export default function InputField(props) {
       type="text"
       error={meta.touched && meta.error && true}
       helperText={_renderHelperText()}
-      // value={rest.value}
       {...field}
       {...rest}
+      onChange={(val) => {
+        try {
+          if (field.onChange) field.onChange(val);
+        } catch (error) {}
+        if (props.onChange) props.onChange(val, { field, meta });
+      }}
     />
     
   );
