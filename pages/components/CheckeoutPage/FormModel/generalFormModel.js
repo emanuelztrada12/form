@@ -154,68 +154,68 @@ export default {
             name: 'family_dad_name',
             label: 'Ingrese el nombre del padre*',
             requiredErrorMsg: 'El nombre del padre es requerido'
-        }, 
+        },
         family_dad_age: {
-            name: 'family_dad_age', 
-            label: 'Ingrese la edad del padre*', 
+            name: 'family_dad_age',
+            label: 'Ingrese la edad del padre*',
             requiredErrorMsg: 'La edad del padre es requerida'
-        }, 
+        },
         family_dad_status: {
-            name: 'family_dad_status', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_dad_status',
+            label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'El estado civil del padre es requerida'
-        }, 
+        },
         family_dad_place: {
-            name: 'family_dad_place', 
+            name: 'family_dad_place',
             label: 'Ingrese el puesto del padre*',
             requiredErrorMsg: 'El puesto del padre es requerida'
         },
         family_dad_company: {
-            name: 'family_dad_company', 
+            name: 'family_dad_company',
             label: 'Ingrese la empresa en que labora el padre*',
             requiredErrorMsg: 'La empresa del padre es requerida'
-        }, 
+        },
         family_dad_financial_income: {
-            name: 'family_dad_financial_income', 
-            label: 'Ingresos promedio del padre', 
+            name: 'family_dad_financial_income',
+            label: 'Ingresos promedio del padre',
             requiredErrorMsg: 'Los ingresos promedio del padre es requerida'
         },
         family_dad_phone: {
-            name: 'family_dad_phone', 
-            label: 'Ingrese el teléfono del padre', 
+            name: 'family_dad_phone',
+            label: 'Ingrese el teléfono del padre',
             requiredErrorMsg: 'El teléfono del padre es requerida'
         },
         family_dad_no_phone: {
-            name: 'family_dad_no_phone', 
-            label: 'Ingrese el por qué no tiene teléfono el padre', 
+            name: 'family_dad_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono el padre',
             requiredErrorMsg: 'El motivo del padre es requerida'
         },
         family_dad_depend: {
-            name: 'family_dad_depend', 
-            label: 'De quien depende economicamente el padre', 
+            name: 'family_dad_depend',
+            label: 'De quien depende economicamente el padre',
             requiredErrorMsg: 'De quien depende economicamente es obligatoria'
         },
         family_dad_time_died: {
-            name: 'family_dad_time_died', 
-            label: 'Ingrese desde hace cuanto tiempo falleció su padre', 
+            name: 'family_dad_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció su padre',
             requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
         },
         family_dad_reason_died: {
-            name: 'family_dad_reason_died', 
-            label: 'Ingrese la razón por la cual falleció su padre', 
+            name: 'family_dad_reason_died',
+            label: 'Ingrese la razón por la cual falleció su padre',
             requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
         },
         family_dad_life: {
-            name: 'family_dad_life', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_dad_life',
+            label: 'Seleccione una de las opciones*',
         },
         family_dad_phone_val: {
-            name: 'family_dad_phone_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_dad_phone_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_dad_working_val: {
-            name: 'family_dad_working_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_dad_working_val',
+            label: 'Seleccione una de las opciones*',
         },
 
         //mom
@@ -223,145 +223,189 @@ export default {
             name: 'family_mom_name',
             label: 'Ingrese el nombre de la madre*',
             requiredErrorMsg: 'El nombre de la madre es requerido'
-        }, 
+        },
         family_mom_age: {
-            name: 'family_mom_age', 
-            label: 'Ingrese la edad de la madre*', 
+            name: 'family_mom_age',
+            label: 'Ingrese la edad de la madre*',
             requiredErrorMsg: 'La edad de la madre es requerida'
-        }, 
+        },
         family_mom_status: {
-            name: 'family_mom_status', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_mom_status',
+            label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'El estado civil de la madre es requerida'
-        }, 
+        },
         family_mom_place: {
-            name: 'family_mom_place', 
+            name: 'family_mom_place',
             label: 'Ingrese el puesto de la madre*',
             requiredErrorMsg: 'El puesto de la madre es requerida'
         },
         family_mom_company: {
-            name: 'family_mom_company', 
+            name: 'family_mom_company',
             label: 'Ingrese la empresa en que labora la madre*',
             requiredErrorMsg: 'La empresa de la madre es requerida'
-        }, 
+        },
         family_mom_financial_income: {
-            name: 'family_mom_financial_income', 
-            label: 'Ingresos promedio de la madre', 
+            name: 'family_mom_financial_income',
+            label: 'Ingresos promedio de la madre',
             requiredErrorMsg: 'Los ingresos promedio de la madre es requerida'
         },
         family_mom_phone: {
-            name: 'family_mom_phone', 
-            label: 'Ingrese el teléfono de la madre', 
+            name: 'family_mom_phone',
+            label: 'Ingrese el teléfono de la madre',
             requiredErrorMsg: 'El teléfono de la madre es requerida'
         },
         family_mom_depend: {
-            name: 'family_mom_depend', 
-            label: 'De quien depende economicamente la madre', 
+            name: 'family_mom_depend',
+            label: 'De quien depende economicamente la madre',
             requiredErrorMsg: 'De quien depende economicamente es obligatoria'
         },
         family_mom_no_phone: {
-            name: 'family_mom_no_phone', 
-            label: 'Ingrese el por qué no tiene teléfono la madre', 
+            name: 'family_mom_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono la madre',
             requiredErrorMsg: 'El motivo del porque no tiene teléfono la madre es requerida'
         },
         family_mom_time_died: {
-            name: 'family_mom_time_died', 
-            label: 'Ingrese desde hace cuanto tiempo falleció su madre', 
+            name: 'family_mom_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció su madre',
             requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
         },
         family_mom_reason_died: {
-            name: 'family_mom_reason_died', 
-            label: 'Ingrese la razón por la cual falleció su madre', 
+            name: 'family_mom_reason_died',
+            label: 'Ingrese la razón por la cual falleció su madre',
             requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
         },
         family_mom_life: {
-            name: 'family_mom_life', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_mom_life',
+            label: 'Seleccione una de las opciones*',
         },
         family_mom_phone_val: {
-            name: 'family_mom_phone_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_mom_phone_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_mom_working_val: {
-            name: 'family_mom_working_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_mom_working_val',
+            label: 'Seleccione una de las opciones*',
         },
+
+        //validate the inputs
+        family_validate_stepparents: {
+            name: 'family_validate_stepparents',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_validate_son: {
+            name: 'family_validate_son',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_validate_brothers: {
+            name: 'family_validate_brothers',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_validate_stepbrother: {
+            name: 'family_validate_stepbrother',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_validate_conyugue: {
+            name: 'family_validate_conyugue',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        //validate conyugue
+        family_conyugue_married_val: {
+            name: 'family_conyugue_married_val',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_conyugue_married: {
+            name: 'family_conyugue_married',
+            label: 'Ingrese el motivo*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_conyugue_partner_val: {
+            name: 'family_conyugue_partner_val',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+
 
         //stepFather
         family_stepfather_name: {
             name: 'family_stepfather_name',
             label: 'Ingrese el nombre del padrastro*',
             requiredErrorMsg: 'El nombre del padrastro es requerido'
-        }, 
+        },
         family_stepfather_age: {
-            name: 'family_stepfather_age', 
-            label: 'Ingrese la edad del padrastro*', 
+            name: 'family_stepfather_age',
+            label: 'Ingrese la edad del padrastro*',
             requiredErrorMsg: 'La edad del padrastro es requerida'
-        }, 
+        },
         family_stepfather_status: {
-            name: 'family_stepfather_status', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepfather_status',
+            label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'El estado civil del padrastro es requerida'
-        }, 
+        },
         family_stepfather_place: {
-            name: 'family_stepfather_place', 
+            name: 'family_stepfather_place',
             label: 'Ingrese el puesto del padrastro*',
             requiredErrorMsg: 'El puesto del padrastro es requerida'
         },
         family_stepfather_company: {
-            name: 'family_stepfather_company', 
+            name: 'family_stepfather_company',
             label: 'Ingrese la empresa en que labora el padrastro*',
             requiredErrorMsg: 'La empresa del padrastro es requerida'
-        }, 
+        },
         family_stepfather_financial_income: {
-            name: 'family_stepfather_financial_income', 
-            label: 'Ingresos promedio del padrastro', 
+            name: 'family_stepfather_financial_income',
+            label: 'Ingresos promedio del padrastro',
             requiredErrorMsg: 'Los ingresos promedio del padrastro es requerida'
         },
         family_stepfather_phone: {
-            name: 'family_stepfather_phone', 
-            label: 'Ingrese el teléfono del padrastro', 
+            name: 'family_stepfather_phone',
+            label: 'Ingrese el teléfono del padrastro',
             requiredErrorMsg: 'El teléfono del padrastro es requerida'
         },
         family_stepfather_depend: {
-            name: 'family_stepfather_depend', 
-            label: 'De quien depende economicamente el padrastro', 
+            name: 'family_stepfather_depend',
+            label: 'De quien depende economicamente el padrastro',
             requiredErrorMsg: 'De quien depende economicamente es obligatoria'
         },
         family_stepfather_no_phone: {
-            name: 'family_stepfather_no_phone', 
-            label: 'Ingrese el por qué no tiene teléfono el padrastro', 
+            name: 'family_stepfather_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono el padrastro',
             requiredErrorMsg: 'El motivo del porque no tiene teléfono el padrastro es requerida'
         },
         family_stepfather_time_died: {
-            name: 'family_stepfather_time_died', 
-            label: 'Ingrese desde hace cuanto tiempo falleció su padrastro', 
+            name: 'family_stepfather_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció su padrastro',
             requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
         },
         family_stepfather_reason_died: {
-            name: 'family_stepfather_reason_died', 
-            label: 'Ingrese la razón por la cual falleció su padrastro', 
+            name: 'family_stepfather_reason_died',
+            label: 'Ingrese la razón por la cual falleció su padrastro',
             requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
         },
         family_stepfather_info: {
-            name: 'family_stepfather_info', 
-            label: 'Seleccione una de las opciones', 
-            // requiredErrorMsg: 'La razón por la cual no tiene la información es obligatoria'
+            name: 'family_stepfather_info',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La razón por la cual no tiene la información es obligatoria'
         },
         family_stepfather_life: {
-            name: 'family_stepfather_life', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepfather_life',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepfather_phone_val: {
-            name: 'family_stepfather_phone_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepfather_phone_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepfather_working_val: {
-            name: 'family_stepfather_working_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepfather_working_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepfather_noInfo: {
-            name: 'family_stepfather_noInfo', 
+            name: 'family_stepfather_noInfo',
             label: 'Ingrese por qué no posee la información'
         },
         //stepMother
@@ -369,77 +413,77 @@ export default {
             name: 'family_stepmother_name',
             label: 'Ingrese el nombre de la madrastra*',
             requiredErrorMsg: 'El nombre de la madrastra es requerido'
-        }, 
+        },
         family_stepmother_age: {
-            name: 'family_stepmother_age', 
-            label: 'Ingrese la edad de la madrastra*', 
+            name: 'family_stepmother_age',
+            label: 'Ingrese la edad de la madrastra*',
             requiredErrorMsg: 'La edad de la madrastra es requerida'
-        }, 
+        },
         family_stepmother_status: {
-            name: 'family_stepmother_status', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepmother_status',
+            label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'El estado civil de la madrastra es requerida'
-        }, 
+        },
         family_stepmother_place: {
-            name: 'family_stepmother_place', 
+            name: 'family_stepmother_place',
             label: 'Ingrese el puesto de la madrastra*',
             requiredErrorMsg: 'El puesto de la madrastra es requerida'
         },
         family_stepmother_company: {
-            name: 'family_stepmother_company', 
+            name: 'family_stepmother_company',
             label: 'Ingrese la empresa en que labora la madrastra*',
             requiredErrorMsg: 'La empresa de la madrastra es requerida'
-        }, 
+        },
         family_stepmother_financial_income: {
-            name: 'family_stepmother_financial_income', 
-            label: 'Ingresos promedio de la madrastra', 
+            name: 'family_stepmother_financial_income',
+            label: 'Ingresos promedio de la madrastra',
             requiredErrorMsg: 'Los ingresos promedio de la madrastra es requerida'
         },
         family_stepmother_phone: {
-            name: 'family_stepmother_phone', 
-            label: 'Ingrese el teléfono de la madrastra', 
+            name: 'family_stepmother_phone',
+            label: 'Ingrese el teléfono de la madrastra',
             requiredErrorMsg: 'El teléfono de la madrastra es requerida'
         },
         family_stepmother_depend: {
-            name: 'family_stepmother_depend', 
-            label: 'De quien depende economicamente la madrastra', 
+            name: 'family_stepmother_depend',
+            label: 'De quien depende economicamente la madrastra',
             requiredErrorMsg: 'De quien depende economicamente es obligatoria'
         },
         family_stepmother_no_phone: {
-            name: 'family_stepmother_no_phone', 
-            label: 'Ingrese el por qué no tiene teléfono la madrastra', 
+            name: 'family_stepmother_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono la madrastra',
             requiredErrorMsg: 'El motivo del porque no tiene teléfono la madrastra es requerida'
         },
         family_stepmother_time_died: {
-            name: 'family_stepmother_time_died', 
-            label: 'Ingrese desde hace cuanto tiempo falleció su madrastra', 
+            name: 'family_stepmother_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció su madrastra',
             requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
         },
         family_stepmother_reason_died: {
-            name: 'family_stepmother_reason_died', 
-            label: 'Ingrese la razón por la cual falleció su madrastra', 
+            name: 'family_stepmother_reason_died',
+            label: 'Ingrese la razón por la cual falleció su madrastra',
             requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
         },
         family_stepmother_info: {
-            name: 'family_stepmother_info', 
-            label: 'Ingrese la razón por la cual no tiene la información de su madrastra', 
+            name: 'family_stepmother_info',
+            label: 'Ingrese la razón por la cual no tiene la información de su madrastra',
             requiredErrorMsg: 'La razón por la cual no tiene la información es obligatoria'
         },
         family_stepmother_life: {
-            name: 'family_stepmother_life', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepmother_life',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepmother_phone_val: {
-            name: 'family_stepmother_phone_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepmother_phone_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepmother_working_val: {
-            name: 'family_stepmother_working_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_stepmother_working_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_stepmother_noInfo: {
-            name: 'family_stepmother_noInfo', 
-            label: 'Ingrese por qué no posee la información', 
+            name: 'family_stepmother_noInfo',
+            label: 'Ingrese por qué no posee la información',
             requiredErrorMsg: 'Este campo es requerido'
         },
 
@@ -448,68 +492,355 @@ export default {
             name: 'family_son_name',
             label: 'Ingrese el nombre*',
             requiredErrorMsg: 'El nombre es requerido'
-        }, 
+        },
         family_son_age: {
-            name: 'family_son_age', 
-            label: 'Ingrese la edad*', 
+            name: 'family_son_age',
+            label: 'Ingrese la edad*',
             requiredErrorMsg: 'La edad es requerida'
-        }, 
+        },
         family_son_status: {
-            name: 'family_son_status', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_son_status',
+            label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'El estado civil es requerida'
-        }, 
+        },
         family_son_place: {
-            name: 'family_son_place', 
+            name: 'family_son_place',
             label: 'Ingrese el puesto*',
             requiredErrorMsg: 'El puesto es requerida'
         },
         family_son_company: {
-            name: 'family_son_company', 
+            name: 'family_son_company',
             label: 'Ingrese la empresa en que labora*',
             requiredErrorMsg: 'La empresa es requerida'
-        }, 
+        },
         family_son_financial_income: {
-            name: 'family_son_financial_income', 
-            label: 'Ingresos promedio', 
+            name: 'family_son_financial_income',
+            label: 'Ingresos promedio',
             requiredErrorMsg: 'Los ingresos promedio es requerida'
         },
         family_son_phone: {
-            name: 'family_son_phone', 
-            label: 'Ingrese el teléfono', 
+            name: 'family_son_phone',
+            label: 'Ingrese el teléfono',
             requiredErrorMsg: 'El teléfono es requerida'
         },
         family_son_no_phone: {
-            name: 'family_son_no_phone', 
-            label: 'Ingrese el por qué no tiene teléfono', 
+            name: 'family_son_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
             requiredErrorMsg: 'El motivo es requerida'
         },
         family_son_depend: {
-            name: 'family_son_depend', 
-            label: 'De quien depende economicamente', 
+            name: 'family_son_depend',
+            label: 'De quien depende economicamente',
             requiredErrorMsg: 'De quien depende economicamente es obligatoria'
         },
         family_son_time_died: {
-            name: 'family_son_time_died', 
-            label: 'Ingrese desde hace cuanto tiempo falleció', 
+            name: 'family_son_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
             requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
         },
         family_son_reason_died: {
-            name: 'family_son_reason_died', 
-            label: 'Ingrese la razón por la cual falleció', 
+            name: 'family_son_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
             requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
         },
         family_son_life: {
-            name: 'family_son_life', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_son_life',
+            label: 'Seleccione una de las opciones*',
         },
         family_son_phone_val: {
-            name: 'family_son_phone_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_son_phone_val',
+            label: 'Seleccione una de las opciones*',
         },
         family_son_working_val: {
-            name: 'family_son_working_val', 
-            label: 'Seleccione una de las opciones*', 
+            name: 'family_son_working_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_son_validate_age: {
+            name: 'family_son_validate_age',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
+        family_son_lookafther: {
+            name: 'family_son_lookafther',
+            label: 'Quién cuidara del menor*',
+            requiredErrorMsg: 'Esta información es requerida'
+
+        },
+
+        //Brothers
+        family_brothers_name: {
+            name: 'family_brothers_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_brothers_age: {
+            name: 'family_brothers_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_brothers_status: {
+            name: 'family_brothers_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_brothers_place: {
+            name: 'family_brothers_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_brothers_company: {
+            name: 'family_brothers_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_brothers_financial_income: {
+            name: 'family_brothers_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_brothers_phone: {
+            name: 'family_brothers_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_brothers_no_phone: {
+            name: 'family_brothers_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_brothers_depend: {
+            name: 'family_brothers_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_brothers_time_died: {
+            name: 'family_brothers_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_brothers_reason_died: {
+            name: 'family_brothers_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_brothers_life: {
+            name: 'family_brothers_life',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_brothers_phone_val: {
+            name: 'family_brothers_phone_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_brothers_working_val: {
+            name: 'family_brothers_working_val',
+            label: 'Seleccione una de las opciones*',
+        },
+
+        //stepBrother
+        family_stepbrother_name: {
+            name: 'family_stepbrother_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_stepbrother_age: {
+            name: 'family_stepbrother_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_stepbrother_status: {
+            name: 'family_stepbrother_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_stepbrother_place: {
+            name: 'family_stepbrother_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_stepbrother_company: {
+            name: 'family_stepbrother_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_stepbrother_financial_income: {
+            name: 'family_stepbrother_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_stepbrother_phone: {
+            name: 'family_stepbrother_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_stepbrother_no_phone: {
+            name: 'family_stepbrother_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_stepbrother_depend: {
+            name: 'family_stepbrother_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_stepbrother_time_died: {
+            name: 'family_stepbrother_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_stepbrother_reason_died: {
+            name: 'family_stepbrother_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_stepbrother_life: {
+            name: 'family_stepbrother_life',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_stepbrother_phone_val: {
+            name: 'family_stepbrother_phone_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_stepbrother_working_val: {
+            name: 'family_stepbrother_working_val',
+            label: 'Seleccione una de las opciones*',
+        },
+
+
+        //conyugue
+        family_conyugue_name: {
+            name: 'family_conyugue_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_conyugue_age: {
+            name: 'family_conyugue_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_conyugue_status: {
+            name: 'family_conyugue_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_conyugue_place: {
+            name: 'family_conyugue_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_conyugue_company: {
+            name: 'family_conyugue_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_conyugue_financial_income: {
+            name: 'family_conyugue_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_conyugue_phone: {
+            name: 'family_conyugue_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_conyugue_no_phone: {
+            name: 'family_conyugue_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_conyugue_depend: {
+            name: 'family_conyugue_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_conyugue_time_died: {
+            name: 'family_conyugue_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_conyugue_reason_died: {
+            name: 'family_conyugue_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_conyugue_life: {
+            name: 'family_conyugue_life',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_conyugue_phone_val: {
+            name: 'family_conyugue_phone_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_conyugue_working_val: {
+            name: 'family_conyugue_working_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        //conyugue pather
+        family_conyuguepat_name: {
+            name: 'family_conyuguepat_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_conyuguepat_age: {
+            name: 'family_conyuguepat_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_conyuguepat_status: {
+            name: 'family_conyuguepat_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_conyuguepat_place: {
+            name: 'family_conyuguepat_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_conyuguepat_company: {
+            name: 'family_conyuguepat_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_conyuguepat_financial_income: {
+            name: 'family_conyuguepat_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_conyuguepat_phone: {
+            name: 'family_conyuguepat_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_conyuguepat_no_phone: {
+            name: 'family_conyuguepat_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_conyuguepat_depend: {
+            name: 'family_conyuguepat_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_conyuguepat_time_died: {
+            name: 'family_conyuguepat_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_conyuguepat_reason_died: {
+            name: 'family_conyuguepat_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_conyuguepat_life: {
+            name: 'family_conyuguepat_life',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_conyuguepat_phone_val: {
+            name: 'family_conyuguepat_phone_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_conyuguepat_working_val: {
+            name: 'family_conyuguepat_working_val',
+            label: 'Seleccione una de las opciones*',
         },
     }
 }

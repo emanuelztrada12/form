@@ -111,7 +111,7 @@ export default function General(props) {
               </Typography>
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
                   label="Datos Personales"
                 />
               </Divider>
@@ -238,7 +238,7 @@ export default function General(props) {
 
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
                   label="En caso de emergencias"
                 />
               </Divider>
@@ -266,7 +266,7 @@ export default function General(props) {
 
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
                   label="Afilaciones"
                 />
               </Divider>
@@ -287,7 +287,7 @@ export default function General(props) {
 
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
                   label="Vehículos"
                 />
               </Divider>
@@ -352,7 +352,7 @@ export default function General(props) {
               </Grid>
               <Divider style={{ paddingTop: "20px" }}>
                 <Chip
-                  style={{ fontSize: "14px", fontWeight: "bold" }}
+                  style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
                   label="Licencias"
                 />
               </Divider>
@@ -412,7 +412,7 @@ export default function General(props) {
                             fullWidth
                           />
                           <IconButton
-                            style={{paddingBottom: "20px"}}
+                            style={{ paddingBottom: "20px" }}
                             onClick={() => arrayHelpers.remove(index)}
                           >
                             <RemoveCircleIcon sx={{ color: "red" }} />

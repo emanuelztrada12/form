@@ -55,7 +55,7 @@ const validate = [
     },
 ];
 
-export default function SonForm(props) {
+export default function StepBrothersForm(props) {
     let [valuess, setValue] = useState({});
     const gettingValue = (name, e) => {
         const nvalues = {
@@ -66,17 +66,7 @@ export default function SonForm(props) {
         setValue(nvalues);
     };
 
-    const [valueAge, setValueAge] = useState({});
-    const gettingValueAge = (name, e) => {
-        const nvalues = {
-            ...valueAge,
-            [name]: e.target.value,
-        };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
-        setValueAge(nvalues)
-    }
-
-    const [valuesPhone, setPhone] = useState("");
+    const [valuesPhone, setPhone] = useState({});
     const gettingPhone = (name, e) => {
         const nvalues = {
             ...valuesPhone,
@@ -86,7 +76,7 @@ export default function SonForm(props) {
         setPhone(nvalues);
     };
 
-    const [valuesWorking, setWorking] = useState("");
+    const [valuesWorking, setWorking] = useState({});
     const gettingWorking = (name, e) => {
         // let { value } = e.target;
         const nvalues = {
@@ -111,23 +101,21 @@ export default function SonForm(props) {
     const {
         values,
         formField: {
-            family_validate_son,
-            family_son_name,
-            family_son_age,
-            family_son_status,
-            family_son_place,
-            family_son_company,
-            family_son_financial_income,
-            family_son_phone,
-            family_son_depend,
-            family_son_no_phone,
-            family_son_time_died,
-            family_son_reason_died,
-            family_son_life,
-            family_son_phone_val,
-            family_son_working_val,
-            family_son_validate_age,
-            family_son_lookafther
+            family_validate_stepbrother,
+            family_stepbrother_name,
+            family_stepbrother_age,
+            family_stepbrother_status,
+            family_stepbrother_place,
+            family_stepbrother_company,
+            family_stepbrother_financial_income,
+            family_stepbrother_phone,
+            family_stepbrother_depend,
+            family_stepbrother_no_phone,
+            family_stepbrother_time_died,
+            family_stepbrother_reason_died,
+            family_stepbrother_life,
+            family_stepbrother_phone_val,
+            family_stepbrother_working_val,
         },
     } = props;
 
@@ -161,18 +149,18 @@ export default function SonForm(props) {
                                     paddingTop: "15px",
                                 }}
                             >
-                                Datos de los hijos
+                                Datos de los hermanastros
                             </Typography>
 
                             <Grid>
                                 <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Usted tiene hijos?:
+                                        ¿Usted tiene hermanastros?:
                                     </label>
                                     <SelectField
-                                        id="family_validate_son"
-                                        name={family_validate_son.name}
-                                        label={family_validate_son.label}
+                                        id="family_validate_stepbrother"
+                                        name={family_validate_stepbrother.name}
+                                        label={family_validate_stepbrother.label}
                                         data={validate}
                                         onChange={gettingValidate}
                                         fullWidth
@@ -182,7 +170,7 @@ export default function SonForm(props) {
                                             <Divider style={{ paddingTop: "20px" }}>
                                                 <Chip
                                                     style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                                    label="Información hijos"
+                                                    label="Información hermanastros"
                                                 />
                                             </Divider>
                                             <p
@@ -194,7 +182,7 @@ export default function SonForm(props) {
                                                     justifyContent: "center",
                                                 }}
                                             >
-                                                Ingrese la información de sus hijos
+                                                Ingrese la información de sus hermanastros
                                             </p>
 
                                             <Grid
@@ -206,35 +194,34 @@ export default function SonForm(props) {
                                                 }}
                                             >
                                                 <FieldArray
-                                                    name="son"
+                                                    name="stepbrother"
                                                     render={(arrayHelpers) => (
                                                         <>
                                                             <IconButton
                                                                 onClick={() =>
                                                                     arrayHelpers.push({
-                                                                        [family_son_name.name]: "",
-                                                                        [family_son_age.name]: "",
-                                                                        [family_son_status.name]: "",
-                                                                        [family_son_place.name]: "",
-                                                                        [family_son_company.name]: "",
-                                                                        [family_son_financial_income.name]: "",
-                                                                        [family_son_phone.name]: "",
-                                                                        [family_son_depend.name]: "",
-                                                                        [family_son_no_phone.name]: "",
-                                                                        [family_son_time_died.name]: "",
-                                                                        [family_son_reason_died.name]: "",
-                                                                        [family_son_life.name]: "",
-                                                                        [family_son_phone_val.name]: "",
-                                                                        [family_son_working_val.name]: "",
-                                                                        [family_son_validate_age.name]: "",
+                                                                        [family_stepbrother_name.name]: "",
+                                                                        [family_stepbrother_age.name]: "",
+                                                                        [family_stepbrother_status.name]: "",
+                                                                        [family_stepbrother_place.name]: "",
+                                                                        [family_stepbrother_company.name]: "",
+                                                                        [family_stepbrother_financial_income.name]: "",
+                                                                        [family_stepbrother_phone.name]: "",
+                                                                        [family_stepbrother_depend.name]: "",
+                                                                        [family_stepbrother_no_phone.name]: "",
+                                                                        [family_stepbrother_time_died.name]: "",
+                                                                        [family_stepbrother_reason_died.name]: "",
+                                                                        [family_stepbrother_life.name]: "",
+                                                                        [family_stepbrother_phone_val.name]: "",
+                                                                        [family_stepbrother_working_val.name]: "",
                                                                     })
                                                                 }
                                                             >
                                                                 <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
                                                             </IconButton>
-                                                            {(values.son || []).map((_, index) => (
+                                                            {(values.stepbrother || []).map((_, index) => (
                                                                 <Grid
-                                                                    key={`inputSon_${index}`}
+                                                                    key={`inputstepbrother_${index}`}
                                                                     item
                                                                     xs={12}
                                                                     sm={6}
@@ -257,13 +244,13 @@ export default function SonForm(props) {
                                                                                 ¿Aún Vive?:
                                                                             </label>
                                                                             <SelectField
-                                                                                key={`inputSon_${index}`}
-                                                                                name={`son.${index}.${family_son_life.name}`}
-                                                                                label={family_son_life.label}
+                                                                                key={`inputstepbrother_${index}`}
+                                                                                name={`stepbrother.${index}.${family_stepbrother_life.name}`}
+                                                                                label={family_stepbrother_life.label}
                                                                                 data={life}
                                                                                 onChange={(e) => {
                                                                                     gettingValue(
-                                                                                        `son.${index}.${family_son_life.name}`,
+                                                                                        `stepbrother.${index}.${family_stepbrother_life.name}`,
                                                                                         e
                                                                                     );
                                                                                 }}
@@ -271,7 +258,7 @@ export default function SonForm(props) {
                                                                             />
 
                                                                             {valuess[
-                                                                                `son.${index}.${family_son_life.name}`
+                                                                                `stepbrother.${index}.${family_stepbrother_life.name}`
                                                                             ] === "Si" && (
                                                                                     <div>
                                                                                         <div>
@@ -279,70 +266,21 @@ export default function SonForm(props) {
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                     Nombre:
                                                                                                 </label>
-                                                                                                <InputField name={`son.${index}.${family_son_name.name}`} label={family_son_name.label} fullWidth />
+                                                                                                <InputField name={`stepbrother.${index}.${family_stepbrother_name.name}`} label={family_stepbrother_name.label} fullWidth />
                                                                                             </div>
-                                                                                            <div>
-                                                                                                <label
-                                                                                                    style={{ fontSize: "18px", fontWeight: "bold" }}
-                                                                                                >
-                                                                                                    ¿Es menor de edad?:
+                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                    Edad:
                                                                                                 </label>
-                                                                                                <SelectField
-                                                                                                    key={`inputSon_${index}`}
-                                                                                                    name={`son.${index}.${family_son_validate_age.name}`}
-                                                                                                    label={family_son_validate_age.label}
-                                                                                                    data={life}
-                                                                                                    onChange={(e) => {
-                                                                                                        gettingValueAge(
-                                                                                                            `son.${index}.${family_son_validate_age.name}`,
-                                                                                                            e
-                                                                                                        );
-                                                                                                    }}
-                                                                                                    fullWidth
-                                                                                                />
-
-                                                                                                {valueAge[
-                                                                                                    `son.${index}.${family_son_validate_age.name}`
-                                                                                                ] === "Si" && (
-
-                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                                Edad:
-                                                                                                            </label>
-                                                                                                            <InputField name={`son.${index}.${family_son_age.name}`} label={family_son_age.label} fullWidth />
-
-                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                                ¿Quién cuidara de el?:
-                                                                                                            </label>
-                                                                                                            <InputField name={`son.${index}.${family_son_lookafther.name}`} label={family_son_lookafther.label} fullWidth />
-                                                                                                        </div>
-
-                                                                                                    )}
-
-                                                                                                {valueAge[
-                                                                                                    `son.${index}.${family_son_validate_age.name}`
-                                                                                                ] === "No" && (
-
-                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                                Edad:
-                                                                                                            </label>
-                                                                                                            <InputField name={`son.${index}.${family_son_age.name}`} label={family_son_age.label} fullWidth />
-                                                                                                        </div>
-
-                                                                                                    )}
-
-
+                                                                                                <InputField name={`stepbrother.${index}.${family_stepbrother_age.name}`} label={family_stepbrother_age.label} fullWidth />
                                                                                             </div>
-
-
                                                                                             <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                     Estado civil:
                                                                                                 </label>
                                                                                                 <SelectField
-                                                                                                    name={`son.${index}.${family_son_status.name}`}
-                                                                                                    label={family_son_status.label}
+                                                                                                    name={`stepbrother.${index}.${family_stepbrother_status.name}`}
+                                                                                                    label={family_stepbrother_status.label}
                                                                                                     data={civil}
                                                                                                     fullWidth
                                                                                                 />
@@ -352,12 +290,12 @@ export default function SonForm(props) {
                                                                                                     ¿Tiene teléfono?:
                                                                                                 </label>
                                                                                                 <SelectField
-                                                                                                    name={`son.${index}.${family_son_phone_val.name}`}
-                                                                                                    label={family_son_phone_val.label}
+                                                                                                    name={`stepbrother.${index}.${family_stepbrother_phone_val.name}`}
+                                                                                                    label={family_stepbrother_phone_val.label}
                                                                                                     data={validate}
                                                                                                     onChange={(e) => {
                                                                                                         gettingPhone(
-                                                                                                            `son.${index}.${family_son_phone_val.name}`,
+                                                                                                            `stepbrother.${index}.${family_stepbrother_phone_val.name}`,
                                                                                                             e
                                                                                                         );
                                                                                                     }}
@@ -365,26 +303,26 @@ export default function SonForm(props) {
                                                                                                 />
                                                                                                 <div>
                                                                                                     {valuesPhone[
-                                                                                                        `son.${index}.${family_son_phone_val.name}`
+                                                                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
                                                                                                     ] === "Si" && (
                                                                                                             <div style={{ paddingTop: "10px" }}>
                                                                                                                 <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Teléfono:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_phone.name}`} label={family_son_phone.label} fullWidth />
+                                                                                                                    <InputField name={`stepbrother.${index}.${family_stepbrother_phone.name}`} label={family_stepbrother_phone.label} fullWidth />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         )}
 
                                                                                                     {valuesPhone[
-                                                                                                        `son.${index}.${family_son_phone_val.name}`
+                                                                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
                                                                                                     ] === "No" && (
                                                                                                             <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                     ¿Motivo del por qué no tiene teléfono?:
                                                                                                                 </label>
-                                                                                                                <InputField name={`son.${index}.${family_son_no_phone.name}`} label={family_son_no_phone.label} fullWidth />
+                                                                                                                <InputField name={`stepbrother.${index}.${family_stepbrother_no_phone.name}`} label={family_stepbrother_no_phone.label} fullWidth />
                                                                                                             </div>
 
                                                                                                         )}
@@ -396,12 +334,12 @@ export default function SonForm(props) {
                                                                                                     ¿Labora?:
                                                                                                 </label>
                                                                                                 <SelectField
-                                                                                                    name={`son.${index}.${family_son_working_val.name}`}
-                                                                                                    label={family_son_working_val.label}
+                                                                                                    name={`stepbrother.${index}.${family_stepbrother_working_val.name}`}
+                                                                                                    label={family_stepbrother_working_val.label}
                                                                                                     data={validate}
                                                                                                     onChange={(e) => {
                                                                                                         gettingWorking(
-                                                                                                            `son.${index}.${family_son_working_val.name}`,
+                                                                                                            `stepbrother.${index}.${family_stepbrother_working_val.name}`,
                                                                                                             e
                                                                                                         )
                                                                                                     }
@@ -410,38 +348,38 @@ export default function SonForm(props) {
                                                                                                 />
                                                                                                 <div>
                                                                                                     {valuesWorking[
-                                                                                                        `son.${index}.${family_son_working_val.name}`
+                                                                                                        `stepbrother.${index}.${family_stepbrother_working_val.name}`
                                                                                                     ] === "Si" && (
                                                                                                             <div style={{ paddingTop: "10px" }}>
                                                                                                                 <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Puesto donde labora:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_place.name}`} label={family_son_place.label} fullWidth />
+                                                                                                                    <InputField name={`stepbrother.${index}.${family_stepbrother_place.name}`} label={family_stepbrother_place.label} fullWidth />
                                                                                                                 </div>
                                                                                                                 <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Empresa donde labora:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_company.name}`} label={family_son_company.label} fullWidth />
+                                                                                                                    <InputField name={`stepbrother.${index}.${family_stepbrother_company.name}`} label={family_stepbrother_company.label} fullWidth />
                                                                                                                 </div>
                                                                                                                 <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Ingresos promedio:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_financial_income.name}`} label={family_son_financial_income.label} fullWidth />
+                                                                                                                    <InputField name={`stepbrother.${index}.${family_stepbrother_financial_income.name}`} label={family_stepbrother_financial_income.label} fullWidth />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         )}
 
                                                                                                     {valuesWorking[
-                                                                                                        `son.${index}.${family_son_working_val.name}`
+                                                                                                        `stepbrother.${index}.${family_stepbrother_working_val.name}`
                                                                                                     ] === "No" && (
                                                                                                             <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                     ¿De quién depende económicamente?:
                                                                                                                 </label>
-                                                                                                                <InputField name={`son.${index}.${family_son_depend.name}`} label={family_son_depend.label} fullWidth />
+                                                                                                                <InputField name={`stepbrother.${index}.${family_stepbrother_depend.name}`} label={family_stepbrother_depend.label} fullWidth />
                                                                                                             </div>
                                                                                                         )}
                                                                                                 </div>
@@ -451,20 +389,20 @@ export default function SonForm(props) {
                                                                                 )}
 
                                                                             {valuess[
-                                                                                `son.${index}.${family_son_life.name}`
+                                                                                `stepbrother.${index}.${family_stepbrother_life.name}`
                                                                             ] === "No" && (
                                                                                     <div>
                                                                                         <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                 ¿Tiempo fallecido?:
                                                                                             </label>
-                                                                                            <InputField name={`son.${index}.${family_son_time_died.name}`} label={family_son_time_died.label} fullWidth />
+                                                                                            <InputField name={`stepbrother.${index}.${family_stepbrother_time_died.name}`} label={family_stepbrother_time_died.label} fullWidth />
                                                                                         </div>
                                                                                         <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                 ¿Razón de fallecimiento?:
                                                                                             </label>
-                                                                                            <InputField name={`son.${index}.${family_son_reason_died.name}`} label={family_son_reason_died.label} fullWidth />
+                                                                                            <InputField name={`stepbrother.${index}.${family_stepbrother_reason_died.name}`} label={family_stepbrother_reason_died.label} fullWidth />
                                                                                         </div>
                                                                                     </div>
                                                                                 )}
@@ -485,6 +423,7 @@ export default function SonForm(props) {
                                     )}
                                 </Grid>
                             </Grid>
+
                         </Paper>
                     </Box>
                 </Grid>

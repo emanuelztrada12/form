@@ -33,7 +33,12 @@ const {
     family_dad_life,
     family_dad_phone_val,
     family_dad_working_val,
-    
+
+    family_validate_stepparents,
+    family_validate_son,
+    family_validate_brothers,
+    family_validate_stepbrother,
+    family_validate_conyugue,
 
     family_mom_name,
     family_mom_age,
@@ -84,6 +89,41 @@ const {
     family_stepmother_phone_val,
     family_stepmother_working_val,
     family_stepmother_noInfo,
+
+    //conyugue
+    family_conyugue_name,
+    family_conyugue_age,
+    family_conyugue_status,
+    family_conyugue_place,
+    family_conyugue_company,
+    family_conyugue_financial_income,
+    family_conyugue_phone,
+    family_conyugue_depend,
+    family_conyugue_no_phone,
+    family_conyugue_time_died,
+    family_conyugue_reason_died,
+    family_conyugue_life,
+    family_conyugue_phone_val,
+
+    family_conyugue_working_val,
+    family_conyugue_married_val,
+    family_conyugue_married,
+    family_conyugue_partner_val,
+
+    family_conyuguepat_name,
+    family_conyuguepat_age,
+    family_conyuguepat_status,
+    family_conyuguepat_place,
+    family_conyuguepat_company,
+    family_conyuguepat_financial_income,
+    family_conyuguepat_phone,
+    family_conyuguepat_depend,
+    family_conyuguepat_no_phone,
+    family_conyuguepat_time_died,
+    family_conyuguepat_reason_died,
+    family_conyuguepat_life,
+    family_conyuguepat_phone_val,
+
   },
 } = generalFormModel;
 
@@ -110,6 +150,13 @@ export default {
   vehicle: [],
   license: [],
 
+  //validate the inputs
+  [family_validate_stepparents.name]: "",
+  [family_validate_son.name]: "",
+  [family_validate_brothers.name]: "",
+  [family_validate_stepbrother.name]: "",
+  [family_validate_conyugue.name]: "",
+
   //dad
   [family_dad_name.name]: "a",
   [family_dad_age.name]: "a",
@@ -123,7 +170,7 @@ export default {
   [family_dad_time_died.name]: "a",
   [family_dad_reason_died.name]: "a",
   [family_dad_phone.name]: "a",
-  [family_dad_life.name] : "",
+  [family_dad_life.name]: "",
   [family_dad_phone_val.name]: "",
   [family_dad_working_val.name]: "",
 
@@ -138,7 +185,7 @@ export default {
   [family_mom_depend.name]: "a",
   [family_mom_no_phone.name]: "a",
   [family_mom_time_died.name]: "a",
-  [family_mom_life.name] : "",
+  [family_mom_life.name]: "",
   [family_mom_phone_val.name]: "",
   [family_mom_working_val.name]: "",
   [family_mom_reason_died.name]: "a",
@@ -154,9 +201,9 @@ export default {
   [family_stepfather_depend.name]: "a",
   [family_stepfather_no_phone.name]: "a",
   [family_stepfather_time_died.name]: "a",
-  [family_stepfather_reason_died.name]: "a" ,
-  [family_stepfather_info.name]: "a",
-  [family_stepfather_life.name] : "a",
+  [family_stepfather_reason_died.name]: "a",
+  [family_stepfather_info.name]: "",
+  [family_stepfather_life.name]: "a",
   [family_stepfather_phone_val.name]: "",
   [family_stepfather_working_val.name]: "",
   [family_stepfather_noInfo.name]: "a",
@@ -173,12 +220,50 @@ export default {
   [family_stepmother_no_phone.name]: "a",
   [family_stepmother_time_died.name]: "a",
   [family_stepmother_reason_died.name]: "a",
-  [family_stepmother_info.name]: "a",
-  [family_stepmother_life.name] : "a",
+  [family_stepmother_info.name]: "",
+  [family_stepmother_life.name]: "a",
   [family_stepmother_phone_val.name]: "",
   [family_stepmother_working_val.name]: "a",
   [family_stepmother_noInfo.name]: "a",
 
   //son
   son: [],
+  //brothers
+  brothers: [],
+  //stepbrother
+  stepbrother: [],
+
+  //conyugue
+  [family_conyugue_name.name]: "",
+  [family_conyugue_age.name]: "",
+  [family_conyugue_status.name]: "",
+  [family_conyugue_place.name]: "",
+  [family_conyugue_company.name]: "",
+  [family_conyugue_financial_income.name]: "",
+  [family_conyugue_phone.name]: "",
+  [family_conyugue_depend.name]: "",
+  [family_conyugue_no_phone.name]: "",
+  [family_conyugue_time_died.name]: "",
+  [family_conyugue_reason_died.name]: "",
+  [family_conyugue_life.name]: "",
+  [family_conyugue_phone_val.name]: "",
+  [family_conyugue_working_val.name]: "",
+  [family_conyugue_married_val.name]: "",
+  [family_conyugue_married.name]: "",
+  [family_conyugue_partner_val.name]: "",
+
+  //conyuguepat
+  [family_conyuguepat_name.name]: "",
+  [family_conyuguepat_age.name]: "",
+  [family_conyuguepat_status.name]: "",
+  [family_conyuguepat_place.name]: "",
+  [family_conyuguepat_company.name]: "",
+  [family_conyuguepat_financial_income.name]: "",
+  [family_conyuguepat_phone.name]: "",
+  [family_conyuguepat_depend.name]: "",
+  [family_conyuguepat_no_phone.name]: "",
+  [family_conyuguepat_time_died.name]: "",
+  [family_conyuguepat_reason_died.name]: "",
+  [family_conyuguepat_life.name]: "",
+  [family_conyuguepat_phone_val.name]: "",
 };
