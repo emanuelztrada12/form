@@ -19,11 +19,13 @@ import SonForm from "./Forms/SonForm";
 import BrothersForm from "./Forms/BrothersForm";
 import StepBrothersForm from "./Forms/StepBrothersForm";
 import ConyugueForm from "./Forms/ConyugueForm";
+import GrandfatherForm from "./Forms/GrandfatherForm";
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
 import useStyles from "./styles";
+import EducacionalForm from "./Forms/EducacionalForm";
 
 const QUERY = gql`
   query GetFormularioGolden {
@@ -223,13 +225,61 @@ const FORMULARIO = gql`
       family_stepbrother_phone_val
       family_stepbrother_working_val
     }
+
+    #grandfather
+    grandfather {
+      family_grandfather_name
+      family_grandfather_age
+      family_grandfather_status
+      family_grandfather_place
+      family_grandfather_company
+      family_grandfather_financial_income
+      family_grandfather_phone
+      family_grandfather_depend
+      family_grandfather_no_phone
+      family_grandfather_time_died
+      family_grandfather_reason_died
+      family_grandfather_life
+      family_grandfather_phone_val
+      family_grandfather_working_val
+    }
+
+    #estudent
+    estudie_university_name
+    estudie_university_uniname
+    estudie_university_semester
+    estudie_university_val
+    estudie_university_title
+    estudie_university_sede
+    estudie_university_year_graduation
+    estudie_university_no_sede
+    estudie_university_hour
+
+    #diversificado
+    estudie_diversificado_sval
+    estudie_diversificado_name
+    estudie_diversificado_uniname
+    estudie_diversificado_desde
+    estudie_diversificado_hasta
+
+    #basic
+    estudie_basic_sval,
+    estudie_basic_uniname,
+    estudie_basic_desde,
+    estudie_basic_hasta,
+
+    #primary
+    estudie_primary_sval,
+    estudie_primary_uniname,
+    estudie_primary_desde,
+    estudie_primary_hasta,
   }
 }
 `;
 
 
 const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conyugue',
-  'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue', 'Datos conyugue'];
+  'Datos abuelos', 'Estudios'];
 const { formId, formField } = generalFormModel;
 
 function _renderStepContent(step, values) {
@@ -246,6 +296,10 @@ function _renderStepContent(step, values) {
       return <StepBrothersForm formField={formField} values={values} />;
     case 5:
       return <ConyugueForm formField={formField} />
+    case 6: 
+      return <GrandfatherForm formField={formField} values={values}/>; 
+    case 7: 
+      return <EducacionalForm formField={formField}/>
     default:
       return <div>Not Found</div>;
   }
@@ -257,10 +311,6 @@ export default function CheckoutPage() {
   const [newFormulario] = useMutation(FORMULARIO);
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
-  useEffect(() => {
-    console.log('changed step scrolling to top of window');
-    window.scrollTo(0, 0)
-  }, [activeStep])
 
   const currentValidationSchema = validationSchema[activeStep];
 
@@ -408,6 +458,36 @@ export default function CheckoutPage() {
             family_conyuguepat_no_phone: values.family_conyuguepat_no_phone,
             family_conyuguepat_phone_val: values.family_conyuguepat_phone_val,
             family_conyuguepat_working_val: values.family_conyuguepat_working_val,
+
+            grandfather: values.grandfather,
+            estudie_university_name: values.estudie_university_name,
+            estudie_university_uniname: values.estudie_university_uniname,
+            estudie_university_semester: values.estudie_university_semester,
+            estudie_university_val: values.estudie_university_val,
+            estudie_university_title: values.estudie_university_title,
+            estudie_university_sede: values.estudie_university_sede,
+            estudie_university_year_graduation: values.estudie_university_year_graduation,
+            estudie_university_no_sede: values.estudie_university_no_sede,
+            estudie_university_hour: values.estudie_university_hour,
+
+            estudie_diversificado_sval: values.estudie_diversificado_sval,
+            estudie_diversificado_name: values.estudie_diversificado_name,
+            estudie_diversificado_uniname: values.estudie_diversificado_uniname,
+            estudie_diversificado_desde: values.estudie_diversificado_desde,
+            estudie_diversificado_hasta: values.estudie_diversificado_hasta,
+
+            //#basic
+            estudie_basic_sval: values.estudie_basic_sval,
+            estudie_basic_uniname: values.estudie_basic_uniname,
+            estudie_basic_desde: values.estudie_basic_desde,
+            estudie_basic_hasta: values.estudie_basic_hasta,
+
+            //#primary
+            estudie_primary_sval: values.estudie_primary_sval,
+            estudie_primary_uniname: values.estudie_primary_uniname,
+            estudie_primary_desde: values.estudie_primary_desde,
+            estudie_primary_hasta: values.estudie_primary_hasta,
+
           }
         }
       });
@@ -435,41 +515,17 @@ export default function CheckoutPage() {
 
   return (
     <>
-      <Typography component="h1" variant="h4" align="center">
-        Checkout
+      <Typography component="h1" variant="h4" align="center" style={{paddingBottom: "20px", fontSize: "35px", fontWeight: "bold"}}>
+        Socioeconómico
       </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          "& > :not(style)": {
-            m: 1,
-            width: 1700,
-            height: 70,
-          },
-        }}
-        display="flex"
-        justifyContent="center"
-        paddingTop={5}
-      >
-        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}>
-          <Grid container>
-            <Grid item>
-              <Stepper activeStep={activeStep} className={classes.stepper}>
-                {steps.map(label => (
-                  <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
-            </Grid>
-          </Grid>
-        </Paper>
 
-      </Box>
-
-
-
+      <Stepper xs={12} sm={6} activeStep={activeStep} className={classes.stepper} alternativeLabel >
+        {steps.map(label => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
       <>
         {activeStep === steps.length ? (
           // <CheckoutSuccess />
@@ -484,19 +540,20 @@ export default function CheckoutPage() {
               <Form id={formId}>
                 {_renderStepContent(activeStep, values)}
 
-                <div className={classes.buttons}>
+                <div className={classes.buttons} style={{paddingTop: "20px"}}>
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>
                       Back
                     </Button>
                   )}
-                  <div className={classes.wrapper}>
+                  <div className={classes.wrapper} >
                     <Button
                       disabled={isSubmitting}
                       type="submit"
                       variant="contained"
                       color="primary"
                       className={classes.button}
+
                     >
                       {isLastStep ? 'Place order' : 'Next'}
                     </Button>

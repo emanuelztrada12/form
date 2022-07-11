@@ -135,7 +135,7 @@ export default function SonForm(props) {
         !isSSR && (
             <>
                 <Grid>
-                    <Box
+                    {/* <Box
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
@@ -149,20 +149,28 @@ export default function SonForm(props) {
                         justifyContent="center"
                         paddingTop={5}
                     >
-                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}>
+                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}> */}
                             <Typography
                                 variant="h6"
                                 gutterBottom
                                 style={{
                                     display: "flex",
-                                    justifyContent: "center",
-                                    fontSize: "30px",
+                                    justifyContent: "flex-start",
+                                    fontSize: "20px",
                                     fontWeight: "bold",
-                                    paddingTop: "15px",
+                                    paddingTop: "40px",
+                                    paddingLeft: "10px"
                                 }}
                             >
                                 Datos de los hijos
                             </Typography>
+
+                            <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
+                                <Chip
+                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                                    label="Información hijos"
+                                />
+                            </Divider>
 
                             <Grid>
                                 <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -485,8 +493,8 @@ export default function SonForm(props) {
                                     )}
                                 </Grid>
                             </Grid>
-                        </Paper>
-                    </Box>
+                        {/* </Paper>
+                    </Box> */}
                 </Grid>
             </>
         )

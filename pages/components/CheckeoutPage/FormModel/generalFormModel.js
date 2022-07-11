@@ -303,6 +303,11 @@ export default {
             label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'Esta información es requerida'
         },
+        family_validate_grandfather: {
+            name: 'family_validate_grandfather',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'Esta información es requerida'
+        },
         family_validate_stepbrother: {
             name: 'family_validate_stepbrother',
             label: 'Seleccione una de las opciones*',
@@ -842,5 +847,198 @@ export default {
             name: 'family_conyuguepat_working_val',
             label: 'Seleccione una de las opciones*',
         },
+
+        //grandfather
+        family_grandfather_name: {
+            name: 'family_grandfather_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_grandfather_age: {
+            name: 'family_grandfather_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_grandfather_status: {
+            name: 'family_grandfather_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_grandfather_place: {
+            name: 'family_grandfather_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_grandfather_company: {
+            name: 'family_grandfather_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_grandfather_financial_income: {
+            name: 'family_grandfather_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_grandfather_phone: {
+            name: 'family_grandfather_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_grandfather_no_phone: {
+            name: 'family_grandfather_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_grandfather_depend: {
+            name: 'family_grandfather_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_grandfather_time_died: {
+            name: 'family_grandfather_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_grandfather_reason_died: {
+            name: 'family_grandfather_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_grandfather_life: {
+            name: 'family_grandfather_life',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_grandfather_phone_val: {
+            name: 'family_grandfather_phone_val',
+            label: 'Seleccione una de las opciones*',
+        },
+        family_grandfather_working_val: {
+            name: 'family_grandfather_working_val',
+            label: 'Seleccione una de las opciones*',
+        },
+
+        //University
+        estudie_university_name: {
+            name: 'estudie_university_name',
+            label: 'Ingrese el nombre de su carrera*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_uniname: {
+            name: 'estudie_university_uniname',
+            label: 'Ingrese el nombre de su universidad*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_semester: {
+            name: 'estudie_university_semester',
+            label: 'Ingrese el semestre que esta cursando*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_val: {
+            name: 'estudie_university_val',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_title: {
+            name: 'estudie_university_title',
+            label: 'Ingrese su título*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_sede: {
+            name: 'estudie_university_sede',
+            label: 'Ingrese la sede donde estudio*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_year_graduation: {
+            name: 'estudie_university_year_graduation*',
+            label: 'Ingrese su año de graduación',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_no_sede: {
+            name: 'estudie_university_no_sede',
+            label: 'Ingrese la sede donde estudio*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_hour: {
+            name: 'estudie_university_hour',
+            label: 'Ingrese sus horarios de estudio*',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        estudie_university_sval: {
+            name: 'estudie_university_sval', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        
+        //Diversificado
+        estudie_diversificado_sval: {
+            name: 'estudie_diversificado_sval', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        estudie_diversificado_name: {
+            name: 'estudie_diversificado_name', 
+            label: 'Ingrese el nombre de su carrera',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_diversificado_uniname: {
+            name: 'estudie_diversificado_uniname', 
+            label: 'Ingrese el nombre de su escuela',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_diversificado_desde: {
+            name: 'estudie_diversificado_desde', 
+            label: 'Desde',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_diversificado_hasta: {
+            name: 'estudie_diversificado_hasta', 
+            label: 'Hasta',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+
+
+        //basico
+        estudie_basic_sval: {
+            name: 'estudie_basic_sval', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        estudie_basic_uniname: {
+            name: 'estudie_basic_uniname', 
+            label: 'Ingrese el nombre de su escuela',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_basic_desde: {
+            name: 'estudie_basic_desde', 
+            label: 'Desde',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_basic_hasta: {
+            name: 'estudie_basic_hasta', 
+            label: 'Hasta',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+
+        //primario
+        estudie_primary_sval: {
+            name: 'estudie_primary_sval', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        estudie_primary_uniname: {
+            name: 'estudie_primary_uniname', 
+            label: 'Ingrese el nombre de su escuela',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_primary_desde: {
+            name: 'estudie_primary_desde', 
+            label: 'Desde',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        estudie_primary_hasta: {
+            name: 'estudie_primary_hasta', 
+            label: 'Hasta',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
     }
 }

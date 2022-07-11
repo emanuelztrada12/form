@@ -39,6 +39,7 @@ const {
     family_validate_brothers,
     family_validate_stepbrother,
     family_validate_conyugue,
+    family_validate_grandfather,
 
     family_mom_name,
     family_mom_age,
@@ -124,6 +125,36 @@ const {
     family_conyuguepat_life,
     family_conyuguepat_phone_val,
 
+    //estudent 
+    estudie_university_name,
+    estudie_university_uniname,
+    estudie_university_semester,
+    estudie_university_val,
+    estudie_university_title,
+    estudie_university_sede,
+    estudie_university_year_graduation,
+    estudie_university_no_sede,
+    estudie_university_hour,
+    estudie_university_sval, 
+
+    //Diversificado
+    estudie_diversificado_sval,
+    estudie_diversificado_name,
+    estudie_diversificado_uniname,
+    estudie_diversificado_desde, 
+    estudie_diversificado_hasta, 
+
+    //basico
+    estudie_basic_sval,
+    estudie_basic_uniname,
+    estudie_basic_desde, 
+    estudie_basic_hasta, 
+
+    //primary
+    estudie_primary_sval,
+    estudie_primary_uniname,
+    estudie_primary_desde, 
+    estudie_primary_hasta,
   },
 } = generalFormModel;
 
@@ -156,6 +187,7 @@ export default {
   [family_validate_brothers.name]: "",
   [family_validate_stepbrother.name]: "",
   [family_validate_conyugue.name]: "",
+  [family_validate_grandfather.name]: "",
 
   //dad
   [family_dad_name.name]: "a",
@@ -232,6 +264,8 @@ export default {
   brothers: [],
   //stepbrother
   stepbrother: [],
+  //grandfather
+  grandfather: [], 
 
   //conyugue
   [family_conyugue_name.name]: "",
@@ -266,4 +300,29 @@ export default {
   [family_conyuguepat_reason_died.name]: "",
   [family_conyuguepat_life.name]: "",
   [family_conyuguepat_phone_val.name]: "",
+  
+  //estudent
+  [estudie_university_name.name]: "",
+  [estudie_university_uniname.name]: "",
+  [estudie_university_semester.name]: "",
+  [estudie_university_val.name]: "",
+  [estudie_university_title.name]: "",
+  [estudie_university_sede.name]: "",
+  [estudie_university_year_graduation.name]: "",
+  [estudie_university_no_sede.name]: "",
+  [estudie_university_hour.name]: "",
+  [estudie_university_sval.name]: "",
+
+  //Diversificado
+  [estudie_diversificado_sval.name]: "",
+  [estudie_diversificado_name.name]: "",
+  [estudie_diversificado_uniname.name]: "",
+  [estudie_diversificado_desde.name]: "", 
+  [estudie_diversificado_hasta.name]: "", 
+
+  //Basico
+  [estudie_primary_sval.name]: "",
+  [estudie_primary_uniname.name]: "",
+  [estudie_primary_desde.name]: "", 
+  [estudie_primary_hasta.name]: "", 
 };

@@ -152,7 +152,7 @@ export default function ConyugueForm(props) {
         !isSSR && (
             <>
                 <Grid>
-                    <Box
+                    {/* <Box
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
@@ -166,16 +166,17 @@ export default function ConyugueForm(props) {
                         justifyContent="center"
                         paddingTop={5}
                     >
-                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}>
+                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}> */}
                             <Typography
                                 variant="h6"
                                 gutterBottom
                                 style={{
                                     display: "flex",
-                                    justifyContent: "center",
-                                    fontSize: "30px",
+                                    justifyContent: "flex-start",
+                                    fontSize: "20px",
                                     fontWeight: "bold",
-                                    paddingTop: "15px"
+                                    paddingTop: "40px",
+                                    paddingLeft: "10px"
                                 }}
                             >
                                 Información Conyugue
@@ -183,7 +184,7 @@ export default function ConyugueForm(props) {
                             <Divider style={{ paddingTop: "20px" }}>
                                 <Chip
                                     style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                    label="Datos conyugue"
+                                    label="Información conyugue"
                                 />
                             </Divider>
                             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -545,8 +546,8 @@ export default function ConyugueForm(props) {
                                     </Grid>
                                 </Grid>
                             )}
-                        </Paper>
-                    </Box>
+                        {/* </Paper>
+                    </Box> */}
                 </Grid>
             </>
         )
