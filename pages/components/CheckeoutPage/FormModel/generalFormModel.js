@@ -1040,5 +1040,237 @@ export default {
             label: 'Hasta',
             requiredErrorMsg: 'La información es requerida'
         }, 
+
+        //working 
+        work_name: {
+            name: 'work_name', 
+            label: 'Ingrese el nombre de la empresa*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_position: {
+            name: 'work_position', 
+            label: 'Ingrese el que cargo que desempeño*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_entry: {
+            name: 'work_entry', 
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_withdrawal: {
+            name: 'work_withdrawal', 
+        },
+        work_salary: {
+            name: 'work_salary', 
+            label: 'Ingrese el salario devengado*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_boss: {
+            name: 'work_boss', 
+            label: 'Ingrese el nombre de su jefe inmediato*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_chiefposition: {
+            name: 'work_chiefposition', 
+            label: 'Ingrese el puesto de su jefe*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_phone: {
+            name: 'work_phone', 
+            label: 'Ingrese el número de la empresa*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_phone_boss: {
+            name: 'work_phone_boss', 
+            label: 'Ingrese el número de su jefe inmediato*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_withdrawalreason: {
+            name: 'work_withdrawalreason', 
+            label: 'Ingrese el motivo de su retiro',
+        },
+        work_phone_val: {
+            name: 'work_phone_val', 
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_phone_reason: {
+            name: 'work_phone_reason', 
+            label: 'Ingrese el motivo*',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_reference: {
+            name: 'work_reference',
+            label: 'Ingrese si posee constancia laboral',
+            requiredErrorMsg: 'La información es requerida'
+        },
+        work_reference_reason: {
+            name: 'work_reference_reason',
+            label: 'Ingrese la razón del porque no posee la constancia',
+            requiredErrorMsg: 'La información es requerida'
+        }, 
+        work_banrural: {
+            name: 'work_banrural',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+
+        work_valNe: {
+            name: 'work_valNe',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        work_ne_name: {
+            name: 'work_ne_name',
+            label: 'Ingrese el nombre de su negocio',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        work_ne_web: {
+            name: 'work_ne_web',
+            label: 'Ingrese la pagina web',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        work_ne_dateInit: {
+            name: 'work_ne_dateInit',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        work_ne_salaryPersonal: {
+            name: 'work_ne_salaryPersonal',
+            label: 'Ingrese el salario de su personal',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        work_ne_detail: {
+            name: 'work_ne_detail',
+            label: 'Detalle de que trata su negocio',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        work_ne_detailIncome: {
+            name: 'work_ne_detailIncome',
+            label: 'Detalle sus ingresos',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        work_ne_whatwill: {
+            name: 'work_ne_whatwill',
+            label: '¿Qué hara con su negocio al obtener el empleo?',
+            requiredErrorMsg: 'La información es requerida',
+        },
+
+        //Economic
+        economic_date: {
+            name: 'economic_date', 
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_use: {
+            name: 'economic_use', 
+            label: 'Ingrese para que lo utilizó',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        economic_plan: {
+            name: 'economic_plan', 
+            label: '¿Debe cancelarlo en un plazo de?',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        economic_bill: {
+            name: 'economic_bill', 
+            label: 'Selecciona una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        amount:{
+            name: 'amount', 
+            label: '', 
+            requiredErrorMsg: 'La información es requerida', 
+        }, 
+        economic_balance: {
+            name: 'economic_balance', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+       
+        economic_monthly_payment: {
+            name: 'economic_monthly_payment', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        },
+        economic_delinquent_payment: {
+            name: 'economic_delinquent_payment', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+
+        economic_vivienda: {
+            name: 'economic_vivienda', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_food: {
+            name: 'economic_food', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_aporte: {
+            name: 'economic_aporte', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_water: {
+            name: 'economic_water', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_phone: {
+            name: 'economic_phone', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_recreation: {
+            name: 'economic_recreation', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_vestuario: {
+            name: 'economic_vestuario', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_gastos: {
+            name: 'economic_gastos', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_trans: {
+            name: 'economic_trans', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_medic: {
+            name: 'economic_medic', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_estudy: {
+            name: 'economic_estudy', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_ahorro: {
+            name: 'economic_ahorro', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_payment_deuda: {
+            name: 'economic_payment_deuda', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_other: {
+            name: 'economic_other', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        }, 
+        economic_total: {
+            name: 'economic_total', 
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        },
+
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { at } from 'lodash';
 import { useField } from 'formik';
+import { useTheme } from '@mui/material/styles';
 import {
   InputLabel,
   FormControl,
@@ -30,18 +31,32 @@ function SelectField(props) {
     }
   }
 
+  const ITEM_HEIGHT = 38;
+  const ITEM_PADDING_TOP = 3;
+
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 150
+      }
+    }
+  };
+
+
   return (
     <FormControl {...rest} error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''} onChange={(val) => {
         try {
           if (field.onChange) field.onChange(val);
-        } catch (error) {}
+        } catch (error) { }
         if (props.onChange) props.onChange(val, { field, meta });
-      }}>
+      }}  MenuProps={MenuProps}>
         {data.map((item, index) => (
           <MenuItem key={index} value={item.value}>
             {item.label}
+
           </MenuItem>
         ))}
       </Select>

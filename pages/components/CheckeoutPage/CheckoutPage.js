@@ -20,6 +20,8 @@ import BrothersForm from "./Forms/BrothersForm";
 import StepBrothersForm from "./Forms/StepBrothersForm";
 import ConyugueForm from "./Forms/ConyugueForm";
 import GrandfatherForm from "./Forms/GrandfatherForm";
+import WorkForm from "./Forms/WorkForm"; 
+import EconomicForm from "./Forms/EconomicForm";
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
@@ -186,8 +188,8 @@ const FORMULARIO = gql`
       family_son_life
       family_son_phone_val
       family_son_working_val
-      family_son_lookafther,
-      family_son_validate_age,
+      family_son_lookafther
+      family_son_validate_age
     }
 
     #brothers
@@ -263,23 +265,50 @@ const FORMULARIO = gql`
     estudie_diversificado_hasta
 
     #basic
-    estudie_basic_sval,
-    estudie_basic_uniname,
-    estudie_basic_desde,
-    estudie_basic_hasta,
+    estudie_basic_sval
+    estudie_basic_uniname
+    estudie_basic_desde
+    estudie_basic_hasta
 
     #primary
-    estudie_primary_sval,
-    estudie_primary_uniname,
-    estudie_primary_desde,
-    estudie_primary_hasta,
+    estudie_primary_sval
+    estudie_primary_uniname
+    estudie_primary_desde
+    estudie_primary_hasta
+
+    work {
+      work_name
+      work_position
+      work_entry
+      work_withdrawal
+      work_salary
+      work_boss
+      work_chiefposition
+      work_phone
+      work_phone_boss
+      work_withdrawalreason
+      work_phone_val
+      work_phone_reason
+      work_reference
+      work_reference_reason 
+    }
+
+    work_valNe
+    work_ne_name
+    work_ne_web 
+    work_ne_dateInit 
+    work_ne_salaryPersonal 
+    work_ne_detail 
+    work_ne_detailIncome
+    work_ne_whatwill
   }
 }
 `;
 
 
-const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conyugue',
-  'Datos abuelos', 'Estudios'];
+const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue', 
+'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica'
+];
 const { formId, formField } = generalFormModel;
 
 function _renderStepContent(step, values) {
@@ -300,6 +329,10 @@ function _renderStepContent(step, values) {
       return <GrandfatherForm formField={formField} values={values}/>; 
     case 7: 
       return <EducacionalForm formField={formField}/>
+    case 8: 
+      return <WorkForm formField={formField} values={values}/>
+    case 9:
+      return <EconomicForm formField={formField} values={values}/>
     default:
       return <div>Not Found</div>;
   }
@@ -488,6 +521,17 @@ export default function CheckoutPage() {
             estudie_primary_desde: values.estudie_primary_desde,
             estudie_primary_hasta: values.estudie_primary_hasta,
 
+            //work
+            work: values.work,
+            work_banrural: values.work_banrural,
+            work_valNe: values.work_valNe,
+            work_ne_name: values.work_ne_name,
+            work_ne_web: values.work_ne_web,
+            work_ne_dateInit: values.work_ne_dateInit,
+            work_ne_salaryPersonal: values.work_ne_salaryPersonal,
+            work_ne_detail: values.work_ne_detail,
+            work_ne_detailIncome: values.work_ne_detailIncome,
+            work_ne_whatwill: values.work_ne_whatwill,
           }
         }
       });

@@ -81,21 +81,6 @@ export default function General(props) {
     !isSSR && (
       <>
         <Grid>
-          {/* <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              "& > :not(style)": {
-                m: 1,
-                width: 1400,
-                height: 1000,
-              },
-            }}
-            display="flex"
-            justifyContent="center"
-            paddingTop={5}
-          >
-            <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}> */}
           <Typography
             variant="h6"
             gutterBottom
@@ -132,11 +117,6 @@ export default function General(props) {
                 label={general_name.label}
                 fullWidth
               />
-              {/* <InputField
-                    name={"new_field_on_fly"}
-                    label={general_name.label}
-                    fullWidth
-                  /> */}
             </Grid>
             <Grid
               item
