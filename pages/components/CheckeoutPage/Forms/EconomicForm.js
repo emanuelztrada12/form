@@ -141,46 +141,55 @@ export default function EconomicForm(props) {
     }
 
     //Ingresos proyectados
-    const [valuess, set_values] = useState({
-        economic_vivienda: 0,
-        economic_food: 0,
-        economic_aporte: 0,
-        economic_water: 0,
-        economic_phone: 0,
-        economic_recreation: 0,
-        economic_vestuario: 0,
-        economic_gastos: 0,
-        economic_trans: 0,
-        economic_medic: 0,
-        economic_estudy: 0,
-        economic_ahorro: 0,
-        economic_payment_deuda: 0,
-        economic_other: 0
-    });
-
-    const gettingValue = (name, e) => {
-        const nvalues = {
-            ...valuess,
-            [name]: e.target.value
-        }
-        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
-        set_values(nvalues)
-        calc_total(nvalues);
+    const [total, setTotal] = useState({});
+    const [result, setResult] = useState("");
+  
+    const onChange = (name, e) => {
+      const nvalues = {
+        ...total,
+        [name]: e.target.value,
+      };
+      setTotal(nvalues);
+      let res = 0;
+      for (const v of Object.values(nvalues)) {
+        try {
+          const num = parseFloat(v);
+          res += num;
+        } catch (error) {}
+      }
+      if (lodash.isNaN(res)) setResult("0.00");
+      else setResult(res.toFixed(2));
     };
-
-    const [total, set_total] = useState(0);
-
-    const calc_total = (nvalues) => {
-        const { economic_vivienda, economic_food, economic_aporte, economic_water, economic_phone, economic_recreation, economic_vestuario, economic_gastos,
-            economic_trans, economic_medic, economic_estudy, economic_ahorro, economic_payment_deuda, economic_other } = nvalues;
-        const newTotal = parseInt(economic_vivienda) + parseInt(economic_food) + parseInt(economic_aporte)
-            + parseInt(economic_water) + parseInt(economic_phone) + parseInt(economic_recreation) + parseInt(economic_vestuario)
-            + parseInt(economic_gastos) + parseInt(economic_trans) + parseInt(economic_medic) + parseInt(economic_estudy)
-            + parseInt(economic_ahorro) + parseInt(economic_payment_deuda) + parseInt(economic_other)
-
-        set_total(newTotal)
-        // console.log(total)
-    }
+    const Input = (o, name, _more) => {
+      const more = {
+        InputProps: {
+          startAdornment: <InputAdornment position="start">Q.</InputAdornment>,
+        },
+        ..._more,
+      };
+      if (more.InputProps === null) delete more.InputProps;
+      return (
+        <InputField
+          name={name || o.name}
+          label={o.label}
+          onChange={(e) => onChange(`${name || o.name}`, e)}
+          fullWidth
+          {...more}
+        />
+      );
+    };
+    const gettingValue = (name, e) => {
+      const nvalues = {
+        ...total,
+        [name]: e.target.value,
+      };
+      console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+      setTotal(nvalues);
+    };
+  
+    const suma = function () {
+      setResult(++total);
+    };
 
 
 
