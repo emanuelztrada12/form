@@ -5,7 +5,6 @@ import { TextField, Alert, Stack } from '@mui/material';
 
 export default function InputField(props) {
   const { errorText, ...rest} = props;
-  console.log(rest.value)
   const [field, meta] = useField(props);
 
   function _renderHelperText() {
