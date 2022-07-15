@@ -986,6 +986,7 @@ export default function EconomicForm(props) {
                                                     onChange={(e) => {
                                                         onChange(`${economic_ahorro.name}`, e);
                                                     }}
+                                                    value={totalSum}
                                                     InputProps={{
                                                         startAdornment: (
                                                             <InputAdornment position="start">
