@@ -1,15 +1,12 @@
 import React from 'react';
-import { at, rest } from 'lodash';
+import { at, rest, values } from 'lodash';
 import { useField } from 'formik';
 import { TextField, Alert, Stack } from '@mui/material';
+
 export default function InputField(props) {
-  const { errorText, ...rest } = props;
-  // console.log(props.value)
-  // console.log(rest)
-  // console.log(errorText)
+  const { errorText, ...rest} = props;
+  console.log(rest.value)
   const [field, meta] = useField(props);
-  // console.log(field)
-  // console.log(meta)
 
   function _renderHelperText() {
     const [touched, error] = at(meta, 'touched', 'error');
