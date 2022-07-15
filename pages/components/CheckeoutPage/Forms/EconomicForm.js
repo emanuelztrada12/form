@@ -110,12 +110,7 @@ const pagos = [
 export default function EconomicForm(props) {
   const [total, setTotal] = useState({});
   const [result, setResult] = useState("");
-
-  const onChange = (name, e) => {
-    const nvalues = {
-      ...total,
-      [name]: e.target.value,
-    };
+  const calculate = (nvalues) => {
     setTotal(nvalues);
     let res = 0;
     for (const v of Object.values(nvalues)) {
@@ -126,6 +121,22 @@ export default function EconomicForm(props) {
     }
     if (lodash.isNaN(res)) setResult("0.00");
     else setResult(res.toFixed(2));
+  };
+  const onChange = (name, e) => {
+    const nvalues = {
+      ...total,
+      [name]: e.target.value,
+    };
+
+    calculate(nvalues);
+  };
+  const onDelete = (arrayHelpers, index, prefix) => {
+    arrayHelpers.remove(index);
+    const nvalues = { ...total };
+    for (const key of Object.keys(nvalues)) {
+      if (key.match(prefix)) delete nvalues[key];
+    }
+    calculate(nvalues);
   };
   const Input = (o, name, _more) => {
     const more = {
@@ -497,7 +508,9 @@ export default function EconomicForm(props) {
                             </div>
                           </>
                           <IconButton
-                            onClick={() => arrayHelpers.remove(index)}
+                            onClick={() =>
+                              onDelete(arrayHelpers, index, `economic.${index}`)
+                            }
                             style={{ paddingTop: "10px" }}
                           >
                             <RemoveCircleIcon
