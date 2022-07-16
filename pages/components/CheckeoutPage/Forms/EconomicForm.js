@@ -110,8 +110,8 @@ const pagos = [
 export default function EconomicForm(props) {
   const [total, setTotal] = useState({});
   const [result, setResult] = useState("");
-  if (!props.values[economic_total.name])
-    props.values[economic_total.name] = "0.00";
+  if (!props.values[props.formField.economic_total.name])
+    props.values[props.formField.economic_total.name] = "0.00";
   const calculate = (nvalues) => {
     setTotal(nvalues);
     let res = 0;
@@ -125,7 +125,7 @@ export default function EconomicForm(props) {
     if (lodash.isNaN(res)) value = "0.00";
     else value = res.toFixed(2);
     setResult(value);
-    props.values[economic_total.name] = value;
+    props.values[props.formField.economic_total.name] = value;
   };
   const onChange = (name, e) => {
     const nvalues = {
