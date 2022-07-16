@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import lodash from "lodash";
@@ -110,6 +110,8 @@ const pagos = [
 export default function EconomicForm(props) {
   const [total, setTotal] = useState({});
   const [result, setResult] = useState("");
+  if (!props.values[economic_total.name])
+    props.values[economic_total.name] = "0.00";
   const calculate = (nvalues) => {
     setTotal(nvalues);
     let res = 0;
@@ -119,8 +121,11 @@ export default function EconomicForm(props) {
         res += num;
       } catch (error) {}
     }
-    if (lodash.isNaN(res)) setResult("0.00");
-    else setResult(res.toFixed(2));
+    let value;
+    if (lodash.isNaN(res)) value = "0.00";
+    else value = res.toFixed(2);
+    setResult(value);
+    props.values[economic_total.name] = value;
   };
   const onChange = (name, e) => {
     const nvalues = {
@@ -1003,7 +1008,6 @@ export default function EconomicForm(props) {
                         <InputField
                           name={economic_total.name}
                           label={economic_total.label}
-                          value={result}
                           InputProps={{
                             startAdornment: (
                               <InputAdornment position="start">
