@@ -108,45 +108,56 @@ const pagos = [
 ];
 
 export default function EconomicForm(props) {
-    //Detalle deuda
-    const [valueInfo, setValueInfo] = useState({
-    });
-    const [totalSum, setTotalSum] = useState("");
+    const [total, setTotal] = useState(0);
+    const [result, setResult] = useState(0);   
+    const [totals, set_total] = useState(0);
 
-    const gettingValueInfo = (name, e) => {
-        const invalues = {
-            ...valueInfo,
-            [name]: e.target.value
-        }
-        // console.info(`\n\n==> { invalues }\n`, invalues, `\n`, ``);
-        setValueInfo(invalues)
-        calc_totalInfo(invalues);
-    };
+    if (!props.values[props.formField.economic_total.name])
+        props.values[props.formField.economic_total.name] = 0;
 
-    const calc_totalInfo = (invalues) => {
-        let newTotal = 0;
-        let data = [];
-        data = Object.entries(invalues).map(([key, value]) => {
-            console.log(`${key}: ${value}`);
-            return {
-                id: key,
-                value: value,
-            }
-        });
+    if (!props.values[props.formField.economic_payment_deuda.name])
+        props.values[props.formField.economic_payment_deuda.name] = 0;
 
-        const suma = data.map(num => parseInt(num.value)).reduce((prev, curr) => prev + curr);
-        console.log(suma)
-        setTotalSum(suma);
-    }
+    if (!props.values[props.formField.economic_vivienda.name])
+        props.values[props.formField.economic_vivienda.name] = 0;
 
-    const [total, setTotal] = useState({});
-    const [result, setResult] = useState("");
+    if (!props.values[props.formField.economic_food.name])
+        props.values[props.formField.economic_food.name] = 0;
 
-    const onChange = (name, e) => {
-        const nvalues = {
-            ...total,
-            [name]: e.target.value,
-        };
+    if (!props.values[props.formField.economic_aporte.name])
+        props.values[props.formField.economic_aporte.name] = 0;
+
+    if (!props.values[props.formField.economic_water.name])
+        props.values[props.formField.economic_water.name] = 0;
+
+    if (!props.values[props.formField.economic_phone.name])
+        props.values[props.formField.economic_phone.name] = 0;
+
+    if (!props.values[props.formField.economic_recreation.name])
+        props.values[props.formField.economic_recreation.name] = 0;
+
+    if (!props.values[props.formField.economic_vestuario.name])
+        props.values[props.formField.economic_vestuario.name] = 0;
+
+    if (!props.values[props.formField.economic_gastos.name])
+        props.values[props.formField.economic_gastos.name] = 0;
+
+    if (!props.values[props.formField.economic_trans.name])
+        props.values[props.formField.economic_trans.name] = 0;
+
+    if (!props.values[props.formField.economic_medic.name])
+        props.values[props.formField.economic_medic.name] = 0;
+
+    if (!props.values[props.formField.economic_estudy.name])
+        props.values[props.formField.economic_estudy.name] = 0;
+
+    if (!props.values[props.formField.economic_ahorro.name])
+        props.values[props.formField.economic_ahorro.name] = 0;
+
+    if (!props.values[props.formField.economic_other.name])
+        props.values[props.formField.economic_other.name] = 0;
+
+    const calculate = (nvalues) => {
         setTotal(nvalues);
         let res = 0;
         for (const v of Object.values(nvalues)) {
@@ -155,27 +166,72 @@ export default function EconomicForm(props) {
                 res += num;
             } catch (error) { }
         }
-        if (lodash.isNaN(res)) setResult("0.00");
-        else setResult(res.toFixed(2));
+        let value;
+        if (lodash.isNaN(res)) value = 0;
+        else value = res.toFixed(2);
+        setResult(value);
+        props.values[props.formField.economic_payment_deuda.name] = parseFloat(value);
     };
-    const Input = (o, name, _more) => {
-        const more = {
-            InputProps: {
-                startAdornment: <InputAdornment position="start">Q.</InputAdornment>,
-            },
-            ..._more,
+    const onChange = (name, e) => {
+        const nvalues = {
+            ...total,
+            [name]: e.target.value,
         };
-        if (more.InputProps === null) delete more.InputProps;
-        return (
-            <InputField
-                name={name || o.name}
-                label={o.label}
-                onChange={(e) => onChange(`${name || o.name}`, e)}
-                fullWidth
-                {...more}
-            />
-        );
+
+        calculate(nvalues);
     };
+        
+    const onDelete = (arrayHelpers, index, prefix) => {
+        arrayHelpers.remove(index);
+        const nvalues = { ...total };
+        for (const key of Object.keys(nvalues)) {
+            if (key.match(prefix)) delete nvalues[key];
+        }
+        calculate(nvalues);
+    };
+
+
+    const [valuess, set_values] = useState({
+        economic_vivienda: 0,
+        economic_food: 0,
+        economic_aporte: 0,
+        economic_water: 0,
+        economic_phone: 0,
+        economic_recreation: 0,
+        economic_vestuario: 0,
+        economic_gastos: 0,
+        economic_trans: 0,
+        economic_medic: 0,
+        economic_estudy: 0,
+        economic_ahorro: 0,
+        economic_other: 0
+    });
+
+    const gettingValue = (name, e) => {
+        const nvalues = {
+            ...valuess,
+            [name]: e.target.value
+        }
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        set_values(nvalues)
+        calc_total(nvalues);
+    };
+
+
+    const calc_total = (nvalues) => {
+        const { economic_vivienda, economic_food, economic_aporte, economic_water, economic_phone, economic_recreation, economic_vestuario, economic_gastos,
+            economic_trans, economic_medic, economic_estudy, economic_ahorro, economic_other } = nvalues;
+
+        let value;
+        const newTotal = parseFloat(economic_vivienda) + parseFloat(economic_food) + parseFloat(economic_aporte)
+            + parseFloat(economic_water) + parseFloat(economic_phone) + parseFloat(economic_recreation) + parseFloat(economic_vestuario)
+            + parseFloat(economic_gastos) + parseFloat(economic_trans) + parseFloat(economic_medic) + parseFloat(economic_estudy)
+            + parseFloat(economic_ahorro) + parseFloat(economic_other)
+        if (lodash.isNaN(newTotal)) value = 0.00;
+        else value = newTotal.toFixed(2);
+        set_total(value)
+        props.values[props.formField.economic_total.name] = parseFloat(value);
+    }
 
     const [dense, setDense] = React.useState(false);
 
@@ -270,9 +326,9 @@ export default function EconomicForm(props) {
                                                         [economic_use.name]: "",
                                                         [economic_plan.name]: "",
                                                         [economic_bill.name]: "",
-                                                        [amount.name]: "",
-                                                        [economic_balance.name]: "",
-                                                        [economic_monthly_payment.name]: "",
+                                                        [amount.name]: 0,
+                                                        [economic_balance.name]: 0,
+                                                        [economic_monthly_payment.name]: 0,
                                                         [economic_delinquent_payment.name]: "",
                                                     })
                                                 }
@@ -433,7 +489,7 @@ export default function EconomicForm(props) {
                                                                                         }}
                                                                                         style={{ textAlign: "start", paddingRight: "65px" }}
                                                                                     />
-                                                                                    <InputField name={`economic.${index}.${amount.name}`} label={amount.label} onChange={(e) => { gettingValueInfo(`economic_${index}_${amount.name}`, e) }}
+                                                                                    <InputField type="Number" name={`economic.${index}.${amount.name}`} label={amount.label} onChange={(e) => { onChange(`economic.${index}.${amount.name}`, e) }}
                                                                                         InputProps={{
                                                                                             startAdornment: (
                                                                                                 <InputAdornment position="start">
@@ -456,7 +512,7 @@ export default function EconomicForm(props) {
                                                                                         }}
                                                                                         style={{ textAlign: "start", paddingRight: "35px" }}
                                                                                     />
-                                                                                    <InputField name={`economic.${index}.${economic_balance.name}`} label={economic_balance.label} onChange={(e) => { gettingValueInfo(`economic_${index}_${economic_balance.name}`, e) }}
+                                                                                    <InputField type="Number" name={`economic.${index}.${economic_balance.name}`} label={economic_balance.label} onChange={(e) => { onChange(`economic.${index}.${economic_balance.name}`, e) }}
                                                                                         InputProps={{
                                                                                             startAdornment: (
                                                                                                 <InputAdornment position="start">
@@ -479,7 +535,7 @@ export default function EconomicForm(props) {
                                                                                         }}
                                                                                         style={{ textAlign: "start", paddingRight: "45px" }}
                                                                                     />
-                                                                                    <InputField name={`economic.${index}.${economic_monthly_payment.name}`} label={economic_monthly_payment.label} onChange={(e) => { gettingValueInfo(`economic_${index}_${economic_monthly_payment.name}`, e) }}
+                                                                                    <InputField type="Number" name={`economic.${index}.${economic_monthly_payment.name}`} label={economic_monthly_payment.label} onChange={(e) => { onChange(`economic.${index}.${economic_monthly_payment.name}`, e) }}
                                                                                         InputProps={{
                                                                                             startAdornment: (
                                                                                                 <InputAdornment position="start">
@@ -513,7 +569,9 @@ export default function EconomicForm(props) {
                                                         </div>
                                                     </>
                                                     <IconButton
-                                                        onClick={() => arrayHelpers.remove(index)}
+                                                        onClick={() =>
+                                                            onDelete(arrayHelpers, index, `economic.${index}`)
+                                                        }
                                                         style={{ paddingTop: "10px" }}
                                                     >
                                                         <RemoveCircleIcon
@@ -590,10 +648,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "35px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_vivienda.name}
                                                     label={economic_vivienda.label}
                                                     onChange={(e) =>
-                                                        onChange(`${economic_vivienda.name}`, e)
+                                                        gettingValue(`${economic_vivienda.name}`, e)
                                                     }
                                                     InputProps={{
                                                         startAdornment: (
@@ -623,10 +682,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "15px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_food.name}
                                                     label={economic_food.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_food.name}`, e);
+                                                        gettingValue(`${economic_food.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -655,10 +715,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "15px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_aporte.name}
                                                     label={economic_aporte.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_aporte.name}`, e);
+                                                        gettingValue(`${economic_aporte.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -687,10 +748,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "20px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_water.name}
                                                     label={economic_water.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_water.name}`, e);
+                                                        gettingValue(`${economic_water.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -719,10 +781,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "83px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_phone.name}
                                                     label={economic_phone.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_phone.name}`, e);
+                                                        gettingValue(`${economic_phone.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -752,10 +815,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "65px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_recreation.name}
                                                     label={economic_recreation.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_recreation.name}`, e);
+                                                        gettingValue(`${economic_recreation.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -785,10 +849,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "74px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_vestuario.name}
                                                     label={economic_vestuario.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_vestuario.name}`, e);
+                                                        gettingValue(`${economic_vestuario.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -818,10 +883,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "35px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_gastos.name}
                                                     label={economic_gastos.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_gastos.name}`, e);
+                                                        gettingValue(`${economic_gastos.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -851,10 +917,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "5px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_trans.name}
                                                     label={economic_trans.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_trans.name}`, e);
+                                                        gettingValue(`${economic_trans.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -884,10 +951,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "43px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_medic.name}
                                                     label={economic_medic.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_medic.name}`, e);
+                                                        gettingValue(`${economic_medic.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -917,10 +985,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "25px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_estudy.name}
                                                     label={economic_estudy.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_estudy.name}`, e);
+                                                        gettingValue(`${economic_estudy.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -949,10 +1018,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "79px" }}
                                                 />
                                                 <InputField
-                                                    name={economic_payment_deuda.name}
-                                                    label={economic_payment_deuda.label}
+                                                    type="Number"
+                                                    name={economic_ahorro.name}
+                                                    label={economic_ahorro.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_payment_deuda.name}`, e);
+                                                        gettingValue(`${economic_ahorro.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -981,12 +1051,10 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "40px" }}
                                                 />
                                                 <InputField
-                                                    name={economic_ahorro.name}
-                                                    label={economic_ahorro.label}
-                                                    onChange={(e) => {
-                                                        onChange(`${economic_ahorro.name}`, e);
-                                                    }}
-                                                    value={totalSum}
+                                                    type="Number"
+                                                    name={economic_payment_deuda.name}
+                                                    label={economic_payment_deuda.label}
+                                                    value={result}
                                                     InputProps={{
                                                         startAdornment: (
                                                             <InputAdornment position="start">
@@ -1014,10 +1082,11 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "56px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_other.name}
                                                     label={economic_other.label}
                                                     onChange={(e) => {
-                                                        onChange(`${economic_other.name}`, e);
+                                                        gettingValue(`${economic_other.name}`, e);
                                                     }}
                                                     InputProps={{
                                                         startAdornment: (
@@ -1041,9 +1110,10 @@ export default function EconomicForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "38px" }}
                                                 />
                                                 <InputField
+                                                    type="Number"
                                                     name={economic_total.name}
                                                     label={economic_total.label}
-                                                    value={result}
+                                                    value={parseFloat(totals) + parseFloat(result)}
                                                     InputProps={{
                                                         startAdornment: (
                                                             <InputAdornment position="start">

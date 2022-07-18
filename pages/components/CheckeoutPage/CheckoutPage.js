@@ -20,7 +20,7 @@ import BrothersForm from "./Forms/BrothersForm";
 import StepBrothersForm from "./Forms/StepBrothersForm";
 import ConyugueForm from "./Forms/ConyugueForm";
 import GrandfatherForm from "./Forms/GrandfatherForm";
-import WorkForm from "./Forms/WorkForm"; 
+import WorkForm from "./Forms/WorkForm";
 import EconomicForm from "./Forms/EconomicForm";
 
 import validationSchema from "./FormModel/validationSchema";
@@ -301,13 +301,40 @@ const FORMULARIO = gql`
     work_ne_detail 
     work_ne_detailIncome
     work_ne_whatwill
+
+    economic {
+      economic_date
+      economic_plan
+      economic_use
+      economic_bill
+      amount
+      economic_balance
+      economic_monthly_payment
+      economic_delinquent_payment
+    }
+
+    economic_vivienda
+    economic_food
+    economic_aporte
+    economic_water
+    economic_phone
+    economic_recreation
+    economic_vestuario
+    economic_gastos
+    economic_trans
+    economic_medic
+    economic_estudy
+    economic_ahorro
+    economic_payment_deuda
+    economic_other
+    economic_total
   }
 }
 `;
 
 
-const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue', 
-'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica'
+const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue',
+  'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica'
 ];
 const { formId, formField } = generalFormModel;
 
@@ -325,14 +352,14 @@ function _renderStepContent(step, values) {
       return <StepBrothersForm formField={formField} values={values} />;
     case 5:
       return <ConyugueForm formField={formField} />
-    case 6: 
-      return <GrandfatherForm formField={formField} values={values}/>; 
-    case 7: 
-      return <EducacionalForm formField={formField}/>
-    case 8: 
-      return <WorkForm formField={formField} values={values}/>
+    case 6:
+      return <GrandfatherForm formField={formField} values={values} />;
+    case 7:
+      return <EducacionalForm formField={formField} />
+    case 8:
+      return <WorkForm formField={formField} values={values} />
     case 9:
-      return <EconomicForm formField={formField} values={values}/>
+      return <EconomicForm formField={formField} values={values} />
     default:
       return <div>Not Found</div>;
   }
@@ -532,6 +559,25 @@ export default function CheckoutPage() {
             work_ne_detail: values.work_ne_detail,
             work_ne_detailIncome: values.work_ne_detailIncome,
             work_ne_whatwill: values.work_ne_whatwill,
+
+            //economic 
+            economic: values.economic, 
+            economic_vivienda: values.economic_vivienda, 
+            economic_food: values.economic_food,
+            economic_aporte: values.economic_aporte,
+            economic_water: values.economic_water,
+            economic_phone: values.economic_phone,
+            economic_recreation: values.economic_recreation,
+            economic_vestuario: values.economic_vestuario, 
+            economic_gastos: values.economic_gastos,
+            economic_trans: values.economic_trans,
+            economic_medic: values.economic_medic,
+            economic_estudy: values.economic_estudy,
+            economic_ahorro: values.economic_ahorro,
+            economic_payment_deuda: values.economic_payment_deuda,
+            economic_other: values.economic_other,
+            economic_total: values.economic_total,
+
           }
         }
       });
@@ -559,7 +605,7 @@ export default function CheckoutPage() {
 
   return (
     <>
-      <Typography component="h1" variant="h4" align="center" style={{paddingBottom: "20px", fontSize: "35px", fontWeight: "bold"}}>
+      <Typography component="h1" variant="h4" align="center" style={{ paddingBottom: "20px", fontSize: "35px", fontWeight: "bold" }}>
         Socioeconómico
       </Typography>
 
@@ -584,7 +630,7 @@ export default function CheckoutPage() {
               <Form id={formId}>
                 {_renderStepContent(activeStep, values)}
 
-                <div className={classes.buttons} style={{paddingTop: "20px"}}>
+                <div className={classes.buttons} style={{ paddingTop: "20px" }}>
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>
                       Back

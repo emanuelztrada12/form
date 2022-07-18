@@ -182,15 +182,6 @@ const {
     work_ne_whatwill, 
 
     //ecomomic
-    economic_date, 
-    economic_use,
-    economic_plan,
-    economic_bill,
-    amount,
-    economic_balance, 
-    economic_monthly_payment,
-    economic_delinquent_payment, 
-
     economic_vivienda, 
     economic_food, 
     economic_aporte, 
@@ -410,14 +401,7 @@ export default {
   [work_ne_whatwill.name]: "", 
 
   //Economic 
-  [economic_date.name]: "", 
-  [economic_use.name]: "",
-  [economic_plan.name]: "",
-  [economic_bill.name]: "",
-  [amount.name]: "",
-  [economic_balance.name]: "", 
-  [economic_monthly_payment.name]: "",
-  [economic_delinquent_payment.name]: "", 
+  economic: [], 
   [economic_vivienda.name]: "", 
   [economic_food.name]: "", 
   [economic_aporte.name]: "", 
