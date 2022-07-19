@@ -24,17 +24,12 @@ export default function SocialForm(props) {
     if(!props.values[props.formField.social_tatto_fot.name])
         props.values[props.formField.social_tatto_fot.name] = ""; 
 
-    let [valuess, setValue] = useState({});
+    const [valuess, setValue] = useState({});
     const [archivoUrl, setUrl] = useState("");
 
-    const gettingValue = async (name, e) => {
-        const nvalues = {
-            ...valuess,
-            [name]: e.target.files[0],
-        };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
-        setValue(nvalues);
 
+
+    const archivoHandler = async (nvalues) => {
         const enlaceUrl = ""; 
         for (const v of Object.values(nvalues)) {
             try {
@@ -43,23 +38,20 @@ export default function SocialForm(props) {
                 const archivoPath = storageRef.child(archivo.name);
                 await archivoPath.put(archivo)
                 enlaceUrl = await archivoPath.getDownloadURL();
-                console.log( v)
             } catch (error) { }
         }
-        const poUrl = `${nvalues}.${enlaceUrl}`; 
-        setUrl(poUrl)
-    };
+        setUrl(enlaceUrl);
+    }
 
-    // const archivoHandler = async (name, e) => {
-    //     const archivo = e.target.files[0]
-    //     console.log(`archivo ${archivo}`)
-    //     const storageRef = app.storage().ref();
-    //     const archivoPath = storageRef.child(archivo.name);
-    //     await archivoPath.put(archivo)
-    //     const enlaceUrl = await archivoPath.getDownloadURL();
-    //     setUrl(enlaceUrl);
-    //     console.log(enlaceUrl)
-    // }
+
+    const gettingValue = async (name, e) => {
+        const nvalues = {
+            ...valuess,
+            [name]: e.target.files[0],
+        };
+        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        archivoHandler(nvalues.toString());
+    };
 
     const [value, setValues] = useState({});
     const gettingWorking = (e) => {
@@ -647,7 +639,7 @@ export default function SocialForm(props) {
                                                                                             value={archivoUrl}
                                                                                             fullWidth />
                                                                                             <IconButton color="primary" aria-label="upload picture" component="label" >
-                                                                                                <input hidden accept="image/*" type="file" onChange={(e)=> {gettingValue(`social.${index}.${social_tatto_fot.name}`, e)}} />
+                                                                                                <input hidden accept="image/*" type="file" onChange={(e)=> {gettingValue(`social.${index}`, e)}} />
                                                                                                 <PhotoCamera />
                                                                                                 {/* , archivoHandler(`social.${index}.${social_tatto_fot.name}`, e) */}
                                                                                             </IconButton>
