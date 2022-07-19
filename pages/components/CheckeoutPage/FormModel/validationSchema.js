@@ -246,14 +246,14 @@ const {
     work_phone_val,
     work_phone_reason,
     work_reference,
-    work_reference_reason, 
+    work_reference_reason,
     work_banrural,
     work_valNe,
     work_ne_name,
-    work_ne_web, 
-    work_ne_dateInit, 
-    work_ne_salaryPersonal, 
-    work_ne_detail, 
+    work_ne_web,
+    work_ne_dateInit,
+    work_ne_salaryPersonal,
+    work_ne_detail,
     work_ne_detailIncome,
     work_ne_whatwill,
 
@@ -283,11 +283,34 @@ const {
     economic_other,
     economic_total,
 
+    //economic
+    social_group,
+    social_gtime,
+    social_politic,
+    social_politic_name,
+    social_politic_relacion,
+    social_politic_puesto,
+    social_fuma,
+    social_fuma_time,
+    social_alco,
+    social_alco_time,
+    social_alco_bebida,
+    social_drog,
+    social_drog_option,
+    social_drog_time,
+    social_drog_person,
+
+    social_tatto,
+    social_tatto_descri,
+    social_tatto_sign,
+    social_tatto_ubi,
+    social_tatto_fot,
+
   },
 } = generalFormModel;
 
 export default [
-  /*yup.object().shape({
+ /* yup.object().shape({
     [general_name.name]: yup.string().required(`${general_name.requiredErrorMsg}`),
     [general_lastname.name]: yup.string().required(`${general_lastname.requiredErrorMsg}`),
     [general_place_birth.name]: yup.string().required(`${general_place_birth.requiredErrorMsg}`),
@@ -1935,61 +1958,61 @@ export default [
   }),
 
   yup.object().shape({
-    [work_banrural.name] : yup.string().required(`${work_banrural.requiredErrorMsg}`), 
+    [work_banrural.name]: yup.string().required(`${work_banrural.requiredErrorMsg}`),
     [work_valNe.name]: yup.string().required(`${work_valNe.requiredErrorMsg}`),
     [work_ne_name.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_name.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_web.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_web.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_dateInit.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_dateInit.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_salaryPersonal.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_salaryPersonal.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_detail.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_detail.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_detailIncome.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_detailIncome.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
     [work_ne_whatwill.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si", 
+      is: (work_valNe) => work_valNe === "Si",
       then: yup.string().required(`${work_ne_whatwill.requiredErrorMsg}`).when(["work_valNe"], {
-        is: (work_valNe) => work_valNe === "No", 
-        then: yup.string(), 
+        is: (work_valNe) => work_valNe === "No",
+        then: yup.string(),
       }),
     }),
 
@@ -2006,20 +2029,20 @@ export default [
         [work_phone_boss.name]: yup.string().required(`${work_phone_boss.requiredErrorMsg}`),
         [work_withdrawalreason.name]: yup.string(),
         [work_phone_val.name]: yup.string().required(`${work_phone_val.requiredErrorMsg}`),
-        [work_phone_reason.name]: yup.string().when(["work_phone_val"] , {
-          is: (work_phone_val) => work_phone_val === "No", 
-          then: yup.string().required(`${work_phone_reason.requiredErrorMsg}`).when(["work_phone_val"] , {
-            is: (work_phone_val) => work_phone_val === "Si", 
+        [work_phone_reason.name]: yup.string().when(["work_phone_val"], {
+          is: (work_phone_val) => work_phone_val === "No",
+          then: yup.string().required(`${work_phone_reason.requiredErrorMsg}`).when(["work_phone_val"], {
+            is: (work_phone_val) => work_phone_val === "Si",
             then: yup.string()
-          }), 
+          }),
         }),
 
-        [work_phone.name]: yup.string().when(["work_phone_val"] , {
-          is: (work_phone_val) => work_phone_val === "Si", 
-          then: yup.string().required(`${work_phone.requiredErrorMsg}`).when(["work_phone_val"] , {
-            is: (work_phone_val) => work_phone_val === "No", 
+        [work_phone.name]: yup.string().when(["work_phone_val"], {
+          is: (work_phone_val) => work_phone_val === "Si",
+          then: yup.string().required(`${work_phone.requiredErrorMsg}`).when(["work_phone_val"], {
+            is: (work_phone_val) => work_phone_val === "No",
             then: yup.string()
-          }), 
+          }),
         }),
 
 
@@ -2027,34 +2050,34 @@ export default [
         [work_reference.name]: yup.string().required(`${work_reference.requiredErrorMsg}`),
 
         [work_reference_reason.name]: yup.string().when(["work_reference"], {
-          is: (work_reference) => work_reference === "No", 
-          then: yup.string() .required(`${work_reference_reason.requiredErrorMsg}`).when(["work_reference"], {
-            is: (work_reference) => work_reference === "Si", 
+          is: (work_reference) => work_reference === "No",
+          then: yup.string().required(`${work_reference_reason.requiredErrorMsg}`).when(["work_reference"], {
+            is: (work_reference) => work_reference === "Si",
             then: yup.string(),
           }),
         }),
-       
-      }), 
+
+      }),
     ),
   }),
 
 
   yup.object().shape({
-    [economic_vivienda.name] : yup.string().required(`${economic_vivienda.requiredErrorMsg}`),
-    [economic_food.name] : yup.string().required(`${economic_food.requiredErrorMsg}`),
-    [economic_aporte.name] : yup.string().required(`${economic_aporte.requiredErrorMsg}`),
-    [economic_water.name] : yup.string().required(`${economic_water.requiredErrorMsg}`),
-    [economic_phone.name] : yup.string().required(`${economic_phone.requiredErrorMsg}`),
-    [economic_recreation.name] : yup.string().required(`${economic_recreation.requiredErrorMsg}`),
-    [economic_vestuario.name] : yup.string().required(`${economic_vestuario.requiredErrorMsg}`),
-    [economic_gastos.name] : yup.string().required(`${economic_gastos.requiredErrorMsg}`),
-    [economic_trans.name] : yup.string().required(`${economic_trans.requiredErrorMsg}`),
-    [economic_medic.name] : yup.string().required(`${economic_medic.requiredErrorMsg}`),
-    [economic_estudy.name] : yup.string().required(`${economic_estudy.requiredErrorMsg}`),
-    [economic_ahorro.name] : yup.string().required(`${economic_ahorro.requiredErrorMsg}`),
-    [economic_payment_deuda.name] : yup.string().required(`${economic_payment_deuda.requiredErrorMsg}`),
-    [economic_other.name] : yup.string().required(`${economic_other.requiredErrorMsg}`),
-    [economic_total.name] : yup.string(),
+    [economic_vivienda.name]: yup.string().required(`${economic_vivienda.requiredErrorMsg}`),
+    [economic_food.name]: yup.string().required(`${economic_food.requiredErrorMsg}`),
+    [economic_aporte.name]: yup.string().required(`${economic_aporte.requiredErrorMsg}`),
+    [economic_water.name]: yup.string().required(`${economic_water.requiredErrorMsg}`),
+    [economic_phone.name]: yup.string().required(`${economic_phone.requiredErrorMsg}`),
+    [economic_recreation.name]: yup.string().required(`${economic_recreation.requiredErrorMsg}`),
+    [economic_vestuario.name]: yup.string().required(`${economic_vestuario.requiredErrorMsg}`),
+    [economic_gastos.name]: yup.string().required(`${economic_gastos.requiredErrorMsg}`),
+    [economic_trans.name]: yup.string().required(`${economic_trans.requiredErrorMsg}`),
+    [economic_medic.name]: yup.string().required(`${economic_medic.requiredErrorMsg}`),
+    [economic_estudy.name]: yup.string().required(`${economic_estudy.requiredErrorMsg}`),
+    [economic_ahorro.name]: yup.string().required(`${economic_ahorro.requiredErrorMsg}`),
+    [economic_payment_deuda.name]: yup.string().required(`${economic_payment_deuda.requiredErrorMsg}`),
+    [economic_other.name]: yup.string().required(`${economic_other.requiredErrorMsg}`),
+    [economic_total.name]: yup.string(),
     economic: yup.array({}).of(
       yup.object().shape({
 
@@ -2071,7 +2094,70 @@ export default [
     ),
   }),
 
-*/
+
+
+
+  yup.object().shape({
+    [social_group.name]: yup.string().required(`${social_group.requiredErrorMsg}`),
+    [social_gtime.name]: yup.string().when(["social_group"], {
+      is: (social_group) => social_group === "Si",
+      then: yup.string().required(`${social_gtime.requiredErrorMsg}`)
+    }),
+
+    [social_politic.name]: yup.string().required(`${social_politic.requiredErrorMsg}`),
+    [social_politic_name.name]: yup.string().when(["social_politic"], {
+      is: (social_politic) => social_politic === "Si",
+      then: yup.string().required(`${social_politic_name.requiredErrorMsg}`)
+    }),
+    [social_politic_relacion.name]:  yup.string().when(["social_politic"], {
+      is: (social_politic) => social_politic === "Si",
+      then: yup.string().required(`${social_politic_relacion.requiredErrorMsg}`)
+    }),
+    [social_politic_puesto.name]: yup.string().when(["social_politic"], {
+      is: (social_politic) => social_politic === "Si",
+      then: yup.string().required(`${social_politic_puesto.requiredErrorMsg}`)
+    }),
+
+    [social_fuma.name]: yup.string().required(`${social_fuma.requiredErrorMsg}`),
+    [social_fuma_time.name]: yup.string().when(["social_fuma"], {
+      is: (social_fuma) => social_fuma === "Si",
+      then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`)
+    }),
+
+    [social_alco.name]: yup.string().required(`${social_alco.requiredErrorMsg}`),
+    [social_alco_time.name]: yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_time.requiredErrorMsg}`)
+    }),
+    [social_alco_bebida.name]: yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`)
+    }),
+
+    [social_drog.name]: yup.string().required(`${social_drog.requiredErrorMsg}`),
+    [social_drog_option.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drog_option.requiredErrorMsg}`)
+    }),
+    [social_drog_time.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drog_time.requiredErrorMsg}`)
+    }),
+
+    [social_drog_person.name]: yup.string().required(`${social_drog_person.requiredErrorMsg}`),
+    
+    [social_tatto.name]: yup.string().required(`${social_tatto.requiredErrorMsg}`),
+    social: yup.array({}).of(
+      yup.object().shape({
+
+        [social_tatto_descri.name]: yup.string().required(`${social_tatto_descri.requiredErrorMsg}`),
+        [social_tatto_sign.name]: yup.string().required(`${social_tatto_sign.requiredErrorMsg}`),
+        [social_tatto_ubi.name]: yup.string().required(`${social_tatto_ubi.requiredErrorMsg}`),
+        [social_tatto_fot.name]: yup.string(),
+
+      })
+    ),
+  }),*/
 ];
 
 

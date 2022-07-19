@@ -22,6 +22,7 @@ import ConyugueForm from "./Forms/ConyugueForm";
 import GrandfatherForm from "./Forms/GrandfatherForm";
 import WorkForm from "./Forms/WorkForm";
 import EconomicForm from "./Forms/EconomicForm";
+import SocialForm from "./Forms/SocialForm"; 
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
@@ -334,7 +335,7 @@ const FORMULARIO = gql`
 
 
 const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue',
-  'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica'
+  'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica', 'Información social'
 ];
 const { formId, formField } = generalFormModel;
 
@@ -360,6 +361,8 @@ function _renderStepContent(step, values) {
       return <WorkForm formField={formField} values={values} />
     case 9:
       return <EconomicForm formField={formField} values={values} />
+    case 10: 
+      return <SocialForm formField={formField} values={values}/>
     default:
       return <div>Not Found</div>;
   }

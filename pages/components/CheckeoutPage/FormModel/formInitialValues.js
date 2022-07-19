@@ -197,6 +197,25 @@ const {
     economic_payment_deuda, 
     economic_other, 
     economic_total,
+
+    //social
+    social_group,
+    social_gtime,
+    social_politic,
+    social_politic_name,
+    social_politic_relacion,
+    social_politic_puesto,
+    social_fuma,
+    social_fuma_time,
+    social_alco,
+    social_alco_time,
+    social_alco_bebida,
+    social_drog,
+    social_drog_option,
+    social_drog_time,
+    social_drog_person, 
+    social_tatto,
+
   },
 } = generalFormModel;
 
@@ -417,4 +436,22 @@ export default {
   [economic_payment_deuda.name]: "", 
   [economic_other.name]: "", 
   [economic_total.name]: "",
+
+  social: [], 
+  [social_group.name]: "",
+  [social_gtime.name]: "",
+  [social_politic.name]: "",
+  [social_politic_name.name]: "",
+  [social_politic_relacion.name]: "",
+  [social_politic_puesto.name]: "",
+  [social_fuma.name]: "",
+  [social_fuma_time.name]: "",
+  [social_alco.name]: "",
+  [social_alco_time.name]: "",
+  [social_alco_bebida.name]: "",
+  [social_drog.name]: "",
+  [social_drog_option.name]: "",
+  [social_drog_time.name]: "",
+  [social_drog_person.name]: "", 
+  [social_tatto.name]: "",
 };

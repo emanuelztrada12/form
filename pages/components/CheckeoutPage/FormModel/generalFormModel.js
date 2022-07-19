@@ -1272,5 +1272,108 @@ export default {
             requiredErrorMsg: 'La información es requerida',
         },
 
+        //social 
+        social_group: {
+            name: 'social_group', 
+            label: 'Seleccione una de las opciones', 
+            requiredErrorMsg: 'La información es requerida', 
+        },
+        social_gtime: {
+            name: 'social_gtime', 
+            label: 'Ingrese cuanto tiempo le dedica en su tiempo libre', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_politic: {
+            name: 'social_politic', 
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida', 
+        },
+        social_politic_name: {
+            name: 'social_politic_name', 
+            label: 'Ingrese el nombre del familiar', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_politic_relacion: {
+            name: 'social_politic_relacion', 
+            label: 'Ingrese la relación que tiene con esta persona', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_politic_puesto: {
+            name: 'social_politic_puesto', 
+            label: 'Ingrese el puesto que posee', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_fuma: {
+            name: 'social_fuma', 
+            label: 'Seleccione una de las opciones',
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_fuma_time: {
+            name: 'social_fuma_time', 
+            label: '', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_alco: {
+            name: 'social_alco', 
+            label: 'Seleccione una de las opciones',
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_alco_time: {
+            name: 'social_alco_time', 
+            label: '', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+
+        social_alco_bebida: {
+            name: 'social_alco_bebida', 
+            label: 'Ingrese que fue lo último que consumio', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_drog: {
+            name: 'social_drog', 
+            label: 'Seleccione una de las opciones',
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_drog_option: {
+            name: 'social_drog_option', 
+            label: 'Ingrese cuales', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_drog_time: {
+            name: 'social_drog_time', 
+            label: 'Ingrese la última vez que consumio', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_drog_person: {
+            name: 'social_drog_person', 
+            label: 'Seleccione una de las opciones', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_tatto: {
+            name: 'social_tatto', 
+            label: 'Seleccione una de las opciones', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_tatto_descri: {
+            name: 'social_tatto_descri', 
+            label: 'Ingrese la descripción', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_tatto_sign: {
+            name: 'social_tatto_sign', 
+            label: 'Ingrese el signficado', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_tatto_ubi: {
+            name: 'social_tatto_ubi', 
+            label: 'Ingrese donde lo tiene', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+        social_tatto_fot: {
+            name: 'social_tatto_fot', 
+            label: 'Ingrese una fotografía', 
+           requiredErrorMsg: 'La información es requerida', 
+        },
+
     }
 }
