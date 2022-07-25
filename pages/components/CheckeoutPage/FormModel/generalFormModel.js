@@ -1371,9 +1371,10 @@ export default {
         },
         social_tatto_fot: {
             name: 'social_tatto_fot', 
-            label: 'Ingrese una fotografía', 
-           requiredErrorMsg: 'La información es requerida', 
         },
+        social_tatto_foto: {
+            name: 'social_tatto_foto',
+        }
 
     }
 }

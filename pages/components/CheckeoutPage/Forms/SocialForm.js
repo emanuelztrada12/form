@@ -21,37 +21,45 @@ const validate = [{ value: 'Si', label: 'Si' }, { value: 'No', label: 'No' }];
 
 export default function SocialForm(props) {
 
-    if(!props.values[props.formField.social_tatto_fot.name])
-        props.values[props.formField.social_tatto_fot.name] = ""; 
+    if (!props.values[props.formField.social_tatto_fot.name])
+        props.values[props.formField.social_tatto_fot.name] = "";
 
     const [valuess, setValue] = useState({});
-    const [archivoUrl, setUrl] = useState("");
+    const [archivoUrl, setUrl] = useState({});
 
-
-
-    const archivoHandler = async (nvalues) => {
-        const enlaceUrl = ""; 
-        for (const v of Object.values(nvalues)) {
+    const archivoHandler = async (nvalues, index_old) => {
+        for (const [index, v] of Object.entries(nvalues)){
             try {
                 const archivo = v
                 const storageRef = app.storage().ref();
                 const archivoPath = storageRef.child(archivo.name);
                 await archivoPath.put(archivo)
-                enlaceUrl = await archivoPath.getDownloadURL();
+                const enlaceUrl = await archivoPath.getDownloadURL();
+                valueFto(enlaceUrl, index);
+                console.info(`saving media`, enlaceUrl, index);
             } catch (error) { }
         }
-        setUrl(enlaceUrl);
+
     }
 
-
-    const gettingValue = async (name, e) => {
+    const gettingValue = async (name, e, index) => {
         const nvalues = {
             ...valuess,
             [name]: e.target.files[0],
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
-        archivoHandler(nvalues.toString());
+        archivoHandler(nvalues, name);
+        setValue(nvalues)
     };
+
+    const valueFto = async (value, index) => { 
+        console.log(value)
+        const nvalues = {
+            ...valuess, 
+            [index]: value
+        }
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        setUrl(nvalues)
+    }
 
     const [value, setValues] = useState({});
     const gettingWorking = (e) => {
@@ -64,7 +72,6 @@ export default function SocialForm(props) {
         let { value } = e.target;
         setValuesF(value);
     }
-
 
     const [valueI, setValuesI] = useState({});
     const gettingIlegales = (e) => {
@@ -122,6 +129,7 @@ export default function SocialForm(props) {
             social_tatto_sign,
             social_tatto_ubi,
             social_tatto_fot,
+            social_tatto_foto,
         },
     } = props;
 
@@ -510,6 +518,7 @@ export default function SocialForm(props) {
                                                                 [social_tatto_sign.name]: "",
                                                                 [social_tatto_ubi.name]: "",
                                                                 [social_tatto_fot.name]: "",
+                                                                [social_tatto_foto.name]: ""
                                                             })
                                                         }
                                                     >
@@ -635,11 +644,16 @@ export default function SocialForm(props) {
                                                                                                 style={{ textAlign: "start", paddingRight: "75px" }}
 
                                                                                             />
-                                                                                            <InputField name={`social.${index}.${social_tatto_fot.name}`} label={social_tatto_fot.label} 
-                                                                                            value={archivoUrl}
-                                                                                            fullWidth />
+                                                                                            <InputField
+                                                                                                name={`social.${index}.${social_tatto_fot.name}`}
+                                                                                                label={social_tatto_fot.label}
+                                                                                                value={archivoUrl[`social.${index}.${social_tatto_fot.name}`]}
+                                                                                                fullWidth
+                                                                                            />
                                                                                             <IconButton color="primary" aria-label="upload picture" component="label" >
-                                                                                                <input hidden accept="image/*" type="file" onChange={(e)=> {gettingValue(`social.${index}`, e)}} />
+                                                                                                <input name={`social.${index}.${social_tatto_foto.name}`} onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, `social.${index}.${social_tatto_fot.name}`) }}
+                                                                                                    hidden accept="image/*" type="file" />
+
                                                                                                 <PhotoCamera />
                                                                                                 {/* , archivoHandler(`social.${index}.${social_tatto_fot.name}`, e) */}
                                                                                             </IconButton>
