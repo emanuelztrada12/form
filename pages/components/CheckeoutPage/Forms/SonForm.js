@@ -62,7 +62,7 @@ export default function SonForm(props) {
             ...valuess,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValue(nvalues);
     };
 
@@ -72,7 +72,7 @@ export default function SonForm(props) {
             ...valueAge,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValueAge(nvalues)
     }
 
@@ -82,7 +82,7 @@ export default function SonForm(props) {
             ...valuesPhone,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setPhone(nvalues);
     };
 
@@ -93,7 +93,7 @@ export default function SonForm(props) {
             ...valuesWorking,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setWorking(nvalues);
     };
 

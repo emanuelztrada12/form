@@ -36,7 +36,7 @@ export default function WorkForm(props) {
             ...valuess,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValue(nvalues);
     };
 
@@ -47,7 +47,7 @@ export default function WorkForm(props) {
             ...valuess,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValueValidate(nvalues);
     }
 

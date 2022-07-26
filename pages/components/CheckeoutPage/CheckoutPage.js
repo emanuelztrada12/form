@@ -22,7 +22,9 @@ import ConyugueForm from "./Forms/ConyugueForm";
 import GrandfatherForm from "./Forms/GrandfatherForm";
 import WorkForm from "./Forms/WorkForm";
 import EconomicForm from "./Forms/EconomicForm";
-import SocialForm from "./Forms/SocialForm"; 
+import SocialForm from "./Forms/SocialForm";
+import CriminalForm from "./Forms/CriminalForm"; 
+import HealForm from "./Forms/HealthForm";
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
@@ -329,13 +331,59 @@ const FORMULARIO = gql`
     economic_payment_deuda
     economic_other
     economic_total
+
+    #social
+    social_group 
+    social_gtime 
+    social_politic 
+    social_politic_name 
+    social_politic_relacion 
+    social_politic_puesto 
+    social_fuma 
+    social_fuma_time 
+    social_alco 
+    social_alco_time 
+    social_alco_bebida 
+    social_drog 
+    social_drog_option 
+    social_drog_time 
+    social_drog_person  
+    social_tatto 
+    
+    social{
+      social_tatto_descri
+      social_tatto_sign
+      social_tatto_ubi
+      social_tatto_fot
+    }
+
+    criminal_association_option
+    criminal_relacion
+    criminal_name
+    criminal_group_belong
+    criminal_police_option
+    criminal_why_stained
+    criminal_why_clear
+    criminal_family
+    criminal_was_sued
+    criminal_you_demand
+
+    criminal {
+      criminal_family_name
+      criminal_family_lastname
+      criminal_family_age
+      criminal_family_civil_status
+      criminal_family_profession
+      criminal_family_phone
+      criminal_family_reason
+    }
   }
 }
 `;
 
 
 const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue',
-  'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica', 'Información social'
+  'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica', 'Información social', 'Actividades Delictivas', 'Factor Salud'
 ];
 const { formId, formField } = generalFormModel;
 
@@ -361,8 +409,12 @@ function _renderStepContent(step, values) {
       return <WorkForm formField={formField} values={values} />
     case 9:
       return <EconomicForm formField={formField} values={values} />
-    case 10: 
-      return <SocialForm formField={formField} values={values}/>
+    case 10:
+      return <SocialForm formField={formField} values={values} />
+    case 11: 
+      return <CriminalForm formField={formField}  values={values}/>
+    case 12: 
+      return <HealForm formField={formField}  values={values}/>
     default:
       return <div>Not Found</div>;
   }
@@ -564,14 +616,14 @@ export default function CheckoutPage() {
             work_ne_whatwill: values.work_ne_whatwill,
 
             //economic 
-            economic: values.economic, 
-            economic_vivienda: values.economic_vivienda, 
+            economic: values.economic,
+            economic_vivienda: values.economic_vivienda,
             economic_food: values.economic_food,
             economic_aporte: values.economic_aporte,
             economic_water: values.economic_water,
             economic_phone: values.economic_phone,
             economic_recreation: values.economic_recreation,
-            economic_vestuario: values.economic_vestuario, 
+            economic_vestuario: values.economic_vestuario,
             economic_gastos: values.economic_gastos,
             economic_trans: values.economic_trans,
             economic_medic: values.economic_medic,
@@ -581,6 +633,36 @@ export default function CheckoutPage() {
             economic_other: values.economic_other,
             economic_total: values.economic_total,
 
+            //social
+            social_group: values.social_group, 
+            social_gtime: values.social_gtime,
+            social_politic: values.social_politic,
+            social_politic_name: values.social_politic_name,
+            social_politic_relacion: values.social_politic_relacion,
+            social_politic_puesto: values.social_politic_puesto,
+            social_fuma: values.social_fuma,
+            social_fuma_time: values.social_fuma_time,
+            social_alco: values.social_alco,
+            social_alco_time: values.social_alco_time,
+            social_alco_bebida: values.social_alco_bebida,
+            social_drog: values.social_drog,
+            social_drog_option: values.social_drog_option,
+            social_drog_time: values.social_drog_time,
+            social_drog_person : values.social_drog_person,
+            social_tatto: values.social_tatto,
+            social: values.social,
+
+            criminal_association_option: values.criminal_association_option,
+            criminal_relacion: values.criminal_relacion,
+            criminal_name: values.criminal_name,
+            criminal_group_belong: values.criminal_group_belong,
+            criminal_police_option: values.criminal_police_option, 
+            criminal_why_stained: values.criminal_why_stained, 
+            criminal_why_clear: values.criminal_why_clear,
+            criminal_family: values.criminal_family,
+            criminal_was_sued: values.criminal_was_sued,
+            criminal_you_demand: values.criminal_you_demand,
+            criminal: values.criminal,
           }
         }
       });

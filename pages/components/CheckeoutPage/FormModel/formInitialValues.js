@@ -216,6 +216,18 @@ const {
     social_drog_person, 
     social_tatto,
 
+    //delictiva
+    criminal_association_option, 
+    criminal_relacion,
+    criminal_name, 
+    criminal_group_belong,
+    criminal_police_option,
+    criminal_why_stained, 
+    criminal_why_clear,
+    criminal_family,
+    criminal_was_sued, 
+    criminal_you_demand
+
   },
 } = generalFormModel;
 
@@ -454,4 +466,16 @@ export default {
   [social_drog_time.name]: "",
   [social_drog_person.name]: "", 
   [social_tatto.name]: "",
+
+  criminal: [], 
+  [criminal_association_option.name]: "", 
+  [criminal_relacion.name]: "",
+  [criminal_name.name]: "", 
+  [criminal_group_belong.name]: "",
+  [criminal_police_option.name]: "",
+  [criminal_why_stained.name]: "", 
+  [criminal_why_clear.name]: "",
+  [criminal_family.name]: "",
+  [criminal_was_sued.name]: "", 
+  [criminal_you_demand.name]: "",
 };

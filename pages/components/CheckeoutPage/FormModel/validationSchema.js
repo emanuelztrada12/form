@@ -306,11 +306,31 @@ const {
     social_tatto_ubi,
     social_tatto_fot,
 
+    //delictiva
+    criminal_association_option,
+    criminal_relacion,
+    criminal_name,
+    criminal_group_belong,
+    criminal_police_option,
+    criminal_why_stained,
+    criminal_why_clear,
+    criminal_family,
+    criminal_was_sued,
+    criminal_you_demand,
+
+    criminal_family_name,
+    criminal_family_lastname,
+    criminal_family_age,
+    criminal_family_civil_status,
+    criminal_family_profession,
+    criminal_family_phone,
+    criminal_family_reason,
+
   },
 } = generalFormModel;
 
 export default [
- /* yup.object().shape({
+  /*(yup.object().shape({
     [general_name.name]: yup.string().required(`${general_name.requiredErrorMsg}`),
     [general_lastname.name]: yup.string().required(`${general_lastname.requiredErrorMsg}`),
     [general_place_birth.name]: yup.string().required(`${general_place_birth.requiredErrorMsg}`),
@@ -2109,7 +2129,7 @@ export default [
       is: (social_politic) => social_politic === "Si",
       then: yup.string().required(`${social_politic_name.requiredErrorMsg}`)
     }),
-    [social_politic_relacion.name]:  yup.string().when(["social_politic"], {
+    [social_politic_relacion.name]: yup.string().when(["social_politic"], {
       is: (social_politic) => social_politic === "Si",
       then: yup.string().required(`${social_politic_relacion.requiredErrorMsg}`)
     }),
@@ -2145,7 +2165,7 @@ export default [
     }),
 
     [social_drog_person.name]: yup.string().required(`${social_drog_person.requiredErrorMsg}`),
-    
+
     [social_tatto.name]: yup.string().required(`${social_tatto.requiredErrorMsg}`),
     social: yup.array({}).of(
       yup.object().shape({
@@ -2155,6 +2175,53 @@ export default [
         [social_tatto_ubi.name]: yup.string().required(`${social_tatto_ubi.requiredErrorMsg}`),
         [social_tatto_fot.name]: yup.string(),
 
+      })
+    ),
+  }),
+
+  yup.object().shape({
+
+    [criminal_association_option.name]: yup.string().required(`${criminal_association_option.requiredErrorMsg}`),
+    [criminal_relacion.name]: yup.string().when(["criminal_association_option"], {
+      is: (criminal_association_option) => criminal_association_option === "Si",
+      then: yup.string().required(`${criminal_relacion.requiredErrorMsg}`)
+    }),
+
+    [criminal_name.name]: yup.string().when(["criminal_association_option"], {
+      is: (criminal_association_option) => criminal_association_option === "Si",
+      then: yup.string().required(`${criminal_relacion.requiredErrorMsg}`)
+    }),
+    [criminal_group_belong.name]: yup.string().when(["criminal_association_option"], {
+      is: (criminal_association_option) => criminal_association_option === "Si",
+      then: yup.string().required(`${criminal_relacion.requiredErrorMsg}`)
+    }),
+
+    [criminal_police_option.name]: yup.string().required(`${criminal_police_option.requiredErrorMsg}`),
+
+    [criminal_why_stained.name]: yup.string().when(["criminal_police_option"], {
+      is: (criminal_police_option) => criminal_police_option === "Si",
+      then: yup.string().required(`${criminal_why_stained.requiredErrorMsg}`)
+    }),
+
+    [criminal_why_clear.name]: yup.string().when(["criminal_police_option"], {
+      is: (criminal_police_option) => criminal_police_option === "Si",
+      then: yup.string().required(`${criminal_why_clear.requiredErrorMsg}`)
+    }),
+
+    [criminal_was_sued.name]: yup.string().required(`${criminal_was_sued.requiredErrorMsg}`),
+    [criminal_you_demand.name]: yup.string().required(`${criminal_you_demand.requiredErrorMsg}`),
+    [criminal_family.name]: yup.string().required(`${criminal_family.requiredErrorMsg}`),
+
+    criminal: yup.array({}).of(
+      yup.object().shape({
+
+        [criminal_family_name.name]: yup.string().required(`${criminal_family_name.requiredErrorMsg}`),
+        [criminal_family_lastname.name]: yup.string().required(`${criminal_family_lastname.requiredErrorMsg}`),
+        [criminal_family_age.name]: yup.string().required(`${criminal_family_age.requiredErrorMsg}`),
+        [criminal_family_civil_status.name]: yup.string().required(`${criminal_family_civil_status.requiredErrorMsg}`),
+        [criminal_family_profession.name]: yup.string().required(`${criminal_family_profession.requiredErrorMsg}`),
+        [criminal_family_phone.name]: yup.string().required(`${criminal_family_phone.requiredErrorMsg}`),
+        [criminal_family_reason.name]: yup.string().required(`${criminal_family_reason.requiredErrorMsg}`),
       })
     ),
   }),*/

@@ -62,7 +62,7 @@ export default function StepBrothersForm(props) {
             ...valuess,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValue(nvalues);
     };
 
@@ -72,7 +72,7 @@ export default function StepBrothersForm(props) {
             ...valuesPhone,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setPhone(nvalues);
     };
 
@@ -83,7 +83,7 @@ export default function StepBrothersForm(props) {
             ...valuesWorking,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setWorking(nvalues);
     };
 

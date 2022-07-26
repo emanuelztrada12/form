@@ -1374,7 +1374,96 @@ export default {
         },
         social_tatto_foto: {
             name: 'social_tatto_foto',
-        }
+        },
 
+        //Delictivas
+        criminal_association_option: {
+            name: "criminal_association_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+        criminal_relacion: {
+            name: "criminal_relacion",
+            label: "Ingrese la relación que tiene",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_name: {
+            name: "criminal_name",
+            label: "Ingrese el nombre",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+        criminal_group_belong: {
+            name: "criminal_group_belong",
+            label: "Ingrese a que grupo pertenece",
+            requiredErrorMsg: "La información es requerida"
+        },
+  
+        criminal_police_option: {
+            name: "criminal_police_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_why_stained: {
+            name: "criminal_why_stained",
+            label: "Ingrese el motivo",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+        criminal_why_clear: {
+            name: "criminal_why_clear",
+            label: "Ingrese cuando los limpio",
+            requiredErrorMsg: "La información es requerida"
+        },
+  
+        criminal_family: {
+            name: "criminal_family",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_name: {
+            name: "criminal_family_name",
+            label: "Ingrese el nombre",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_lastname: {
+            name: "criminal_family_lastname",
+            label: "Ingrese el apellido",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_age: {
+            name: "criminal_family_age",
+            label: "Ingrese la edad",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_civil_status: {
+            name: "criminal_family_civil_status",
+            label: "Ingrese el estado civil",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_profession: {
+            name: "criminal_family_profession",
+            label: "Ingrese la profesión",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_phone: {
+            name: "criminal_family_phone",
+            label: "Ingrese el número de télefono",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_reason: {
+            name: "criminal_family_reason",
+            label: "Ingrese la razón",
+            requiredErrorMsg: "La información es requerida"
+        },
+  
+        criminal_was_sued: {
+            name: "criminal_was_sued",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+        criminal_you_demand : {
+            name: "criminal_you_demand",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida",
+        },
     }
 }

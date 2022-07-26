@@ -45,7 +45,7 @@ export default function SocialForm(props) {
                 valueFto(value, index);
                 props.values.social[index_old][props.formField.social_tatto_fot.name] = value;
 
-                console.info(`saving media`, enlaceUrl, index);
+                // console.info(`saving media`, enlaceUrl, index);
             } catch (error) {
                 console.log(error)
             }
@@ -98,15 +98,11 @@ export default function SocialForm(props) {
         arrayHelpers.remove(index);
         const nvalues = { ...archivoUrl };
         for (const key of Object.keys(nvalues)) {
-            console.log(prefix, key)
             if (key.match(prefix)) delete nvalues[key];
         }
 
         setUrl(nvalues, prefix)
     };
-
-    console.log(isLoading)
-
 
     const [value, setValues] = useState({});
     const gettingWorking = (e) => {
@@ -176,7 +172,6 @@ export default function SocialForm(props) {
             social_tatto_sign,
             social_tatto_ubi,
             social_tatto_fot,
-            social_tatto_foto,
         },
     } = props;
 
@@ -565,7 +560,6 @@ export default function SocialForm(props) {
                                                                 [social_tatto_sign.name]: "",
                                                                 [social_tatto_ubi.name]: "",
                                                                 [social_tatto_fot.name]: "",
-                                                                [social_tatto_foto.name]: ""
                                                             })
                                                         }
                                                     >
@@ -708,7 +702,7 @@ export default function SocialForm(props) {
                                                                                                    </>
                                                                                                
                                                                                                 )}  
-                                                                                                <input name={`social.${index}.${social_tatto_foto.name}`} onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, index) }}
+                                                                                                <input onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, index) }}
                                                                                                     hidden accept="image/*" type="file" />
 
                                                                                                 <PhotoCamera />

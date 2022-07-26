@@ -1,0 +1,564 @@
+import React, { useState, useEffect } from "react";
+import { InputField, SelectField, DatePickerField } from "../../FormFields";
+import { FieldArray } from "formik";
+
+//Material ui
+import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import GavelIcon from '@mui/icons-material/Gavel';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+
+const value = [
+  {
+    value: "Si",
+    label: "Si",
+  },
+  {
+    value: "No",
+    label: "No",
+  },
+];
+
+const civil = [
+  {
+    value: "Soltero",
+    label: "Soltero",
+  },
+  {
+    value: "Casado",
+    label: "Casado",
+  },
+  {
+    value: "Divorciado",
+    label: "Divorciado",
+  },
+  {
+    value: "Viudo",
+    label: "Viudo",
+  },
+  {
+    value: "Unido",
+    label: "Unido",
+  },
+  {
+    value: "Otra",
+    label: "Otra",
+  },
+];
+
+export default function CriminalForm(props) {
+  const [associaton, setAssociaton] = useState("");
+  const [policiales, setPoliciales] = useState("");
+  const [family, setFamily] = useState("");
+  const [dense, setDense] = React.useState(false);
+
+  const handleChangeAssociation = (e) => {
+    let { value } = e.target;
+    setAssociaton(value);
+  }
+
+  const handleChangePolice = (e) => {
+    let { value } = e.target;
+    setPoliciales(value);
+  }
+
+  const handleChangeFamily = (e) => {
+    let { value } = e.target;
+    setFamily(value);
+  }
+
+
+  const [isSSR, setIsSSR] = useState(true);
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
+  const {
+    values,
+    formField: {
+      criminal_association_option,
+      criminal_relacion,
+      criminal_name,
+      criminal_group_belong,
+
+      criminal_police_option,
+      criminal_why_stained,
+      criminal_why_clear,
+
+      criminal_family,
+      criminal_family_name,
+      criminal_family_lastname,
+      criminal_family_age,
+      criminal_family_civil_status,
+      criminal_family_profession,
+      criminal_family_phone,
+      criminal_family_reason,
+
+      criminal_was_sued,
+      criminal_you_demand
+    },
+  } = props;
+
+  return (
+    !isSSR && (
+      <>
+        <Grid>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              fontSize: "20px",
+              fontWeight: "bold",
+              paddingTop: "40px",
+              paddingLeft: "10px"
+            }}
+          >
+
+            Actividades Delictivas
+          </Typography>
+          <Divider
+            style={{
+              paddingTop: "20px",
+              paddingBottom: "20px",
+            }}
+          >
+            <Chip
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={<LocalPoliceIcon />}
+              label="Actividades Delictivas"
+              color="primary"
+            />
+          </Divider>
+          <Grid container spacing={0} style={{ paddingTop: "18px" }}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Posee amigos que sean miembros de una asociación con delincuentes o grupos delictivos?:
+              </label>
+              <SelectField
+                name={criminal_association_option.name}
+                label={criminal_association_option.label}
+                data={value}
+                onChange={handleChangeAssociation}
+                fullWidth
+              />
+              {associaton === "Si" && (
+                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      Qué relación tiene con la persona:
+                    </label>
+                    <InputField
+                      name={criminal_relacion.name}
+                      label={criminal_relacion.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      Nombre de la persona:
+                    </label>
+                    <InputField
+                      name={criminal_name.name}
+                      label={criminal_name.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿A qué grupo pertenece?:
+                    </label>
+                    <InputField
+                      name={criminal_group_belong.name}
+                      label={criminal_group_belong.label}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              )}
+            </Grid>
+
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Posee antecendetes policiales o penales?:
+              </label>
+              <SelectField
+                name={criminal_police_option.name}
+                label={criminal_police_option.label}
+                data={value}
+                onChange={handleChangePolice}
+                fullWidth
+              />
+              {policiales === "Si" && (
+                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Por qué los tiene manchados?:
+                    </label>
+                    <InputField
+                      name={criminal_why_stained.name}
+                      label={criminal_why_stained.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Cuando los limpio?:
+                    </label>
+                    <InputField
+                      name={criminal_why_clear.name}
+                      label={criminal_why_clear.label}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              )}
+            </Grid>
+
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Posee demandas en su contra?:
+              </label>
+              <InputField
+                name={criminal_was_sued.name}
+                label={criminal_was_sued.label}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Ha demandado a una empresa o persona?:
+              </label>
+              <InputField
+                name={criminal_you_demand.name}
+                label={criminal_you_demand.label}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+          >
+            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+              ¿Tiene familiares detenidos?:
+            </label>
+            <SelectField
+              name={criminal_family.name}
+              label={criminal_family.label}
+              data={value}
+              onChange={handleChangeFamily}
+              fullWidth
+            />
+            {family === "Si" && (
+              <Grid>
+                <div>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "20px",
+                      // fontWeight: "bold",
+                      paddingTop: "40px",
+                      paddingLeft: "10px"
+                    }}
+                  >
+
+                    Ingrese la información sus familiares detenidos
+                  </Typography>
+                  <Grid
+                    container
+                    style={{
+                      // paddingTop: "18px",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+
+                    <FieldArray
+                      name="criminal"
+                      render={(arrayHelpers) => (
+                        <>
+                          <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [criminal_family_name.name]: "",
+                                [criminal_family_lastname.name]: "",
+                                [criminal_family_age.name]: "",
+                                [criminal_family_civil_status.name]: "",
+                                [criminal_family_profession.name]: "",
+                                [criminal_family_phone.name]: "",
+                                [criminal_family_reason.name]: "",
+                              })
+                            }
+                          >
+                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                          </IconButton>
+                          {(values.criminal || []).map((_, index) => (
+                            <Grid
+                              key={`inputcriminal_${index}`}
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                            >
+                              <>
+                                <div
+                                  item
+                                  xs={12}
+                                  sm={6}
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <Divider
+                                    style={{
+                                      paddingTop: "20px",
+                                      paddingBottom: "20px",
+                                    }}
+                                  >
+                                    <Chip
+                                      style={{
+                                        fontSize: "14px",
+                                        fontWeight: "bold",
+                                        paddingTop: "20px",
+                                        paddingBottom: "20px",
+                                        paddingLeft: "15px",
+                                        paddingRight: "15px",
+                                      }}
+                                      icon={<GavelIcon />}
+                                      color="primary"
+                                      label={`Tatuaje ${index + 1}`}
+                                    />
+                                  </Divider>
+
+                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                    <Paper elevation={3}>
+                                      <Grid>
+                                        <Grid>
+                                          <Typography
+                                            sx={{ mt: 4, mb: 2 }}
+                                            variant="h6"
+                                            component="div"
+                                            style={{
+                                              display: "flex",
+                                              justifyContent: "center",
+                                              paddingTop: "20px",
+                                              fontWeight: "bold",
+                                            }}
+                                          >
+                                            Información General:
+                                          </Typography>
+                                          <Divider />
+                                          <List dense={dense}>
+                                            <ListItem style={{ paddingBottom: "" }}
+                                            >
+                                              <ListItemText
+                                                primary="Nombre "
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "62px" }}
+                                              />
+                                              <InputField name={`criminal.${index}.${criminal_family_name.name}`} label={criminal_family_name.label}
+                                                fullWidth />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Apellido"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "62px" }}
+                                              />
+                                              <InputField name={`criminal.${index}.${criminal_family_lastname.name}`} label={criminal_family_lastname.label}
+
+                                                fullWidth />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Edad"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "80px" }}
+                                              />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_age.name}`}
+                                                label={criminal_family_age.label}
+                                                fullWidth />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Estado civil"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "39px" }}
+
+                                              />
+                                              <SelectField
+                                                name={`criminal.${index}.${criminal_family_civil_status.name}`}
+                                                label={criminal_family_civil_status.label}
+                                                data={civil}
+                                                fullWidth
+                                              />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Profesión"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "50px" }}
+
+                                              />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_profession.name}`}
+                                                label={criminal_family_profession.label}
+                                                fullWidth
+                                              />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Télefono"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "55px" }}
+
+                                              />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_phone.name}`}
+                                                label={criminal_family_phone.label}
+                                                fullWidth
+                                              />
+                                            </ListItem>
+                                            <Divider />
+                                            <ListItem
+                                            >
+
+                                              <ListItemText
+                                                primary="Razón de detensión"
+                                                primaryTypographyProps={{
+                                                  fontSize: 18,
+                                                  fontWeight: 'medium',
+                                                  letterSpacing: 0,
+                                                }}
+                                                style={{ textAlign: "start", paddingRight: "0px" }}
+
+                                              />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_reason.name}`}
+                                                label={criminal_family_reason.label}
+                                                fullWidth
+                                              />
+                                            </ListItem>
+                                          </List>
+                                        </Grid>
+                                      </Grid>
+                                    </Paper>
+                                  </Box>
+                                </div>
+                              </>
+                              <IconButton
+                                onClick={() => arrayHelpers.remove(index)}
+                              >
+                                <RemoveCircleIcon sx={{ color: "red" }} />
+                              </IconButton>
+                            </Grid>
+                          ))}
+                        </>
+                      )}
+                    />
+                  </Grid>
+                </div>
+              </Grid>
+
+
+            )}
+          </Grid>
+
+
+        </Grid>
+      </>
+    )
+  );
+}
