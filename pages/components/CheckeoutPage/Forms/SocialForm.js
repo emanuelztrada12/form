@@ -3,6 +3,7 @@ import { app } from "../credentials/credential.firebase";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import lodash from "lodash";
 
 //Material ui
 import IconButton from "@mui/material/IconButton";
@@ -14,32 +15,41 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
 const validate = [{ value: 'Si', label: 'Si' }, { value: 'No', label: 'No' }];
 
 export default function SocialForm(props) {
-
     if (!props.values[props.formField.social_tatto_fot.name])
         props.values[props.formField.social_tatto_fot.name] = "";
 
     const [valuess, setValue] = useState({});
     const [archivoUrl, setUrl] = useState({});
+    const [isLoading, setIsLoading] = useState(true)
+    const [progresss, setProgresss] = useState(0);
 
     const archivoHandler = async (nvalues, index_old) => {
-        for (const [index, v] of Object.entries(nvalues)){
+        const enlaceUrl = "";
+        for (const [index, v] of Object.entries(nvalues)) {
             try {
                 const archivo = v
-                const storageRef = app.storage().ref();
+                const storageRef = app.storage().ref(`ImagenesGolden/`);
                 const archivoPath = storageRef.child(archivo.name);
                 await archivoPath.put(archivo)
-                const enlaceUrl = await archivoPath.getDownloadURL();
-                valueFto(enlaceUrl, index);
-                console.info(`saving media`, enlaceUrl, index);
-            } catch (error) { }
-        }
+                enlaceUrl = await archivoPath.getDownloadURL();
+                const value = "";
+                if (lodash.isNaN(enlaceUrl)) value = ""
+                else value = enlaceUrl;
+                valueFto(value, index);
+                props.values.social[index_old][props.formField.social_tatto_fot.name] = value;
 
+                console.info(`saving media`, enlaceUrl, index);
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 
     const gettingValue = async (name, e, index) => {
@@ -47,19 +57,56 @@ export default function SocialForm(props) {
             ...valuess,
             [name]: e.target.files[0],
         };
-        archivoHandler(nvalues, name);
-        setValue(nvalues)
+        archivoHandler(nvalues, index);
+        setValue(nvalues);
+        prog(name, e, index);
+
     };
 
-    const valueFto = async (value, index) => { 
-        console.log(value)
+    const valueFto = async (value, index) => {
         const nvalues = {
-            ...valuess, 
+            ...archivoUrl,
             [index]: value
         }
         // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setUrl(nvalues)
     }
+
+    const prog = (name, e, index) => {
+        try {
+            const file = e.target.files[0];
+            const storage = app.storage().ref(`ImagenesGolden/`);
+            const task = storage.put(file)
+            task.on("state_changed", snapshot => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                valueProg(progress, name)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const valueProg = async (value, index) => {
+        const nvalues = {
+            ...archivoUrl,
+            [index]: value,
+        }
+        setIsLoading(nvalues); 
+    }
+
+    const onDelete = (arrayHelpers, index, prefix) => {
+        arrayHelpers.remove(index);
+        const nvalues = { ...archivoUrl };
+        for (const key of Object.keys(nvalues)) {
+            console.log(prefix, key)
+            if (key.match(prefix)) delete nvalues[key];
+        }
+
+        setUrl(nvalues, prefix)
+    };
+
+    console.log(isLoading)
+
 
     const [value, setValues] = useState({});
     const gettingWorking = (e) => {
@@ -651,7 +698,17 @@ export default function SocialForm(props) {
                                                                                                 fullWidth
                                                                                             />
                                                                                             <IconButton color="primary" aria-label="upload picture" component="label" >
-                                                                                                <input name={`social.${index}.${social_tatto_foto.name}`} onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, `social.${index}.${social_tatto_fot.name}`) }}
+                                                                                                {isLoading[`social.${index}.${social_tatto_fot.name}`] < 100 && (
+                                                                                                    <CircularProgress variant="determinate" value={isLoading[`social.${index}.${social_tatto_fot.name}`]} />
+                                                                                                )}
+                                                                                                {isLoading[`social.${index}.${social_tatto_fot.name}`] == 100 && (
+                                                                                                   <>
+                                                                                                       <p style={{fontSize: "20px", color: "green", paddingRight: "2px" }}>Imagen subida</p>
+                                                                                                        <CheckCircleOutlineIcon sx={{ color: "green" }}/> 
+                                                                                                   </>
+                                                                                               
+                                                                                                )}  
+                                                                                                <input name={`social.${index}.${social_tatto_foto.name}`} onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, index) }}
                                                                                                     hidden accept="image/*" type="file" />
 
                                                                                                 <PhotoCamera />
@@ -666,7 +723,9 @@ export default function SocialForm(props) {
                                                                 </div>
                                                             </>
                                                             <IconButton
-                                                                onClick={() => arrayHelpers.remove(index)}
+                                                                onClick={() =>
+                                                                    onDelete(arrayHelpers, index, `social.${index}.${social_tatto_fot.name}`)
+                                                                }
                                                             >
                                                                 <RemoveCircleIcon sx={{ color: "red" }} />
                                                             </IconButton>
