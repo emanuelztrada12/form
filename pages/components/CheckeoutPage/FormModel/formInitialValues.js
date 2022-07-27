@@ -226,7 +226,51 @@ const {
     criminal_why_clear,
     criminal_family,
     criminal_was_sued, 
-    criminal_you_demand
+    criminal_you_demand,
+
+    //HEAL
+    disease_hipertension_option,
+    disease_diabetes_option,
+    disease_VIH_option,
+    disease_ITS_option,
+    disease_gastritis_option,
+    disease_cancer_option,
+    disease_cardiopatias_option,
+    disease_hipertension_observacion,
+    disease_diabetes_observacion,
+    disease_VIH_observacion,
+    disease_ITS_observacion,
+    disease_gastritis_observacion,
+    disease_cancer_observacion,
+    disease_cardiopatias_observacion,
+    accident_option,
+    accident_detail, 
+    accident_suffer,
+    covid_option,
+    covid_dosis, 
+    validate_sex, 
+    validate_gestacion,
+    validate_children,
+    validate_lactando, 
+    validate_lac_month,
+    validate_lac_age, 
+    validate_dosis, 
+
+    objectivs_corto,
+    objectivs_mediano,
+    objectives_largo,
+
+    sindicatos_favor,
+    sindicatos_formar,
+    sindicatos_why,
+
+    honest_p1, 
+    honest_p2,
+    honest_p3,
+    honest_p4,
+
+    //facebook
+    red_faccebook,
 
   },
 } = generalFormModel;
@@ -478,4 +522,50 @@ export default {
   [criminal_family.name]: "",
   [criminal_was_sued.name]: "", 
   [criminal_you_demand.name]: "",
+
+  //heal
+  [disease_hipertension_option.name]: "",
+  [disease_diabetes_option.name]: "",
+  [disease_VIH_option.name]: "",
+  [disease_ITS_option.name]: "",
+  [disease_gastritis_option.name]: "",
+  [disease_cancer_option.name]: "",
+  [disease_cardiopatias_option.name]: "",
+  [disease_hipertension_observacion.name]: "",
+  [disease_diabetes_observacion.name]: "",
+  [disease_VIH_observacion.name]: "",
+  [disease_ITS_observacion.name]: "",
+  [disease_gastritis_observacion.name]: "",
+  [disease_cancer_observacion.name]: "",
+  [disease_cardiopatias_observacion.name]: "",
+  [accident_option.name]: "",
+  [accident_detail.name]: "", 
+  [accident_suffer.name]: "",
+  [covid_option.name]: "",
+  [covid_dosis.name]: "", 
+  [validate_sex.name]: "", 
+  [validate_gestacion.name]: "",
+  [validate_children.name]: "",
+  [validate_lactando.name]: "", 
+  [validate_lac_month.name]: "",
+  [validate_lac_age.name]: "", 
+  [validate_dosis.name]: "", 
+  dosis: [], 
+  disease: [], 
+
+  //objectivs
+  [objectivs_corto.name]: "",
+  [objectivs_mediano.name]: "",
+  [objectives_largo.name]: "",
+
+  [sindicatos_favor.name]: "",
+  [sindicatos_formar.name]: "",
+  [sindicatos_why.name]: "",
+
+  [honest_p1.name]: "", 
+  [honest_p2.name]: "",
+  [honest_p3.name]: "",
+  [honest_p4.name]: "",
+
+  [red_faccebook.name]: "", 
 };

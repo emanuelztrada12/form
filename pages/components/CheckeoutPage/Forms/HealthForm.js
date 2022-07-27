@@ -8,32 +8,12 @@ import IconButton from "@mui/material/IconButton";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import CreditCardOffIcon from "@mui/icons-material/CreditCardOff";
-import InputAdornment from "@mui/material/InputAdornment";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import HomeIcon from "@mui/icons-material/Home";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
-import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
-import WaterDamageIcon from "@mui/icons-material/WaterDamage";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
-import ManIcon from "@mui/icons-material/Man";
-import DirectionsBusFilledIcon from "@mui/icons-material/DirectionsBusFilled";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import SavingsIcon from "@mui/icons-material/Savings";
-import Avatar from "@mui/material/Avatar";
-import ShopIcon from "@mui/icons-material/Shop";
-import AltRouteIcon from "@mui/icons-material/AltRoute";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import CarCrashIcon from '@mui/icons-material/CarCrash';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import SubjectIcon from '@mui/icons-material/Subject';
 
 const vacunas = [
     {
@@ -94,14 +74,44 @@ const sex = [
         label: "M",
     },
 ]
+
 export default function HealForm(props) {
-    const [validate, setValidate] = useState("");
-    const gettingValidate = (e) => {
+    const [accidents, setAccident] = useState(""); 
+    const gettingValidateAccident = (e) => {
         let { value } = e.target;
-        setValidate(value);
+        setAccident(value);
     }
 
+    const [covid19, setAcovid19] = useState(""); 
+    const gettingValidateCovid= (e) => {
+        let { value } = e.target;
+        setAcovid19(value);
+    }
 
+    const [sexo, setSexo] = useState(""); 
+    const gettingValidateSexo= (e) => {
+        let { value } = e.target;
+        setSexo(value);
+    }
+
+    const [lac, setLac] = useState(""); 
+    const gettingValidateLac= (e) => {
+        let { value } = e.target;
+        setLac(value);
+    }
+
+    const [gest, setGesta] = useState(""); 
+    const gettingValidateGesta= (e) => {
+        let { value } = e.target;
+        setGesta(value);
+    }
+
+    const [dosis, setDosis] = useState(""); 
+    const gettingValidateDosis= (e) => {
+        let { value } = e.target;
+        setDosis(value);
+    }
+    
     const [dense, setDense] = React.useState(false);
 
     const [isSSR, setIsSSR] = useState(true);
@@ -112,30 +122,44 @@ export default function HealForm(props) {
     const {
         values,
         formField: {
-            economic_date,
-            economic_use,
-            economic_plan,
-            economic_bill,
-            amount,
-            economic_balance,
-            economic_monthly_payment,
-            economic_delinquent_payment,
+            disease_hipertension_option,
+            disease_diabetes_option,
+            disease_VIH_option,
+            disease_ITS_option,
+            disease_gastritis_option,
+            disease_cancer_option,
+            disease_cardiopatias_option,
 
-            economic_vivienda,
-            economic_food,
-            economic_aporte,
-            economic_water,
-            economic_phone,
-            economic_recreation,
-            economic_vestuario,
-            economic_gastos,
-            economic_trans,
-            economic_medic,
-            economic_estudy,
-            economic_ahorro,
-            economic_payment_deuda,
-            economic_other,
-            economic_total,
+            disease_hipertension_observacion,
+            disease_diabetes_observacion,
+            disease_VIH_observacion,
+            disease_ITS_observacion,
+            disease_gastritis_observacion,
+            disease_cancer_observacion,
+            disease_cardiopatias_observacion,
+            
+            disease_name,
+            disease_observacion,
+
+            accident_option,
+            accident_detail, 
+            accident_suffer,
+
+            covid_option,
+            covid_dosis, 
+
+            validate_sex, 
+            validate_gestacion,
+            validate_children,
+            validate_lactando, 
+            validate_lac_month,
+            validate_lac_age, 
+
+            validate_dosis, 
+            dosis_name, 
+            dosis_date, 
+            dosis_dosis, 
+            
         },
     } = props;
 
@@ -217,17 +241,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_hipertension_option.name}
+                                                    label={disease_hipertension_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_hipertension_observacion.name}
+                                                    label={disease_hipertension_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -243,17 +264,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_diabetes_option.name}
+                                                    label={disease_diabetes_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_diabetes_observacion.name}
+                                                    label={disease_diabetes_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -269,17 +287,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_VIH_option.name}
+                                                    label={disease_VIH_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_VIH_observacion.name}
+                                                    label={disease_VIH_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -295,17 +310,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_ITS_option.name}
+                                                    label={disease_ITS_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_ITS_observacion.name}
+                                                    label={disease_ITS_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -321,17 +333,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_gastritis_option.name}
+                                                    label={disease_gastritis_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_gastritis_observacion.name}
+                                                    label={disease_gastritis_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -347,17 +356,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_cancer_option.name}
+                                                    label={disease_cancer_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_cancer_observacion.name}
+                                                    label={disease_cancer_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -373,17 +379,14 @@ export default function HealForm(props) {
                                                     style={{ textAlign: "start", paddingRight: "15px" }}
                                                 />
                                                 <SelectField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
-                                                    onChange={(e) =>
-                                                        gettingValue(`${economic_vivienda.name}`, e)
-                                                    }
+                                                    name={disease_cardiopatias_option.name}
+                                                    label={disease_cardiopatias_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
-                                                    name={economic_vivienda.name}
-                                                    label={economic_vivienda.label}
+                                                    name={disease_cardiopatias_observacion.name}
+                                                    label={disease_cardiopatias_observacion.label}
                                                     autoWidth
                                                 />
                                             </ListItem>
@@ -405,28 +408,22 @@ export default function HealForm(props) {
                                                             }}
                                                         >
                                                             <FieldArray
-                                                                name="economic"
+                                                                name="disease"
                                                                 render={(arrayHelpers) => (
                                                                     <>
                                                                         <IconButton
                                                                             onClick={() =>
                                                                                 arrayHelpers.push({
-                                                                                    [economic_date.name]: "",
-                                                                                    [economic_use.name]: "",
-                                                                                    [economic_plan.name]: "",
-                                                                                    [economic_bill.name]: "",
-                                                                                    [amount.name]: 0,
-                                                                                    [economic_balance.name]: 0,
-                                                                                    [economic_monthly_payment.name]: 0,
-                                                                                    [economic_delinquent_payment.name]: "",
+                                                                                    [disease_name.name]: "",
+                                                                                    [disease_observacion.name]: "",
                                                                                 })
                                                                             }
                                                                         >
                                                                             <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
                                                                         </IconButton>
-                                                                        {(values.economic || []).map((_, index) => (
+                                                                        {(values.disease || []).map((_, index) => (
                                                                             <Grid
-                                                                                key={`inputeconomic_${index}`}
+                                                                                key={`inputdisease_${index}`}
                                                                                 item
                                                                                 xs={12}
                                                                                 sm={6}
@@ -459,13 +456,13 @@ export default function HealForm(props) {
                                                                                                 <List dense={dense}>
                                                                                                     <ListItem style={{ paddingBottom: "" }}>
                                                                                                         <InputField
-                                                                                                            name={economic_vivienda.name}
-                                                                                                            label={economic_vivienda.label}
+                                                                                                            name={`disease.${index}.${disease_name.name}`}
+                                                                                                            label={disease_name.label}
                                                                                                             autoWidth
                                                                                                         />
                                                                                                         <InputField
-                                                                                                            name={economic_vivienda.name}
-                                                                                                            label={economic_vivienda.label}
+                                                                                                            name={`disease.${index}.${disease_observacion.name}`}
+                                                                                                            label={disease_observacion.label}
                                                                                                             autoWidth
                                                                                                         />
                                                                                                     </ListItem>
@@ -520,30 +517,29 @@ export default function HealForm(props) {
                                 ¿Ha sufrido incidentes, accidentes o intervenciones quirúrgicas que le hayan dejado secuelas físicas.?:
                             </label>
                             <SelectField
-                                name={economic_food.name}
-                                label={economic_food.label}
+                                name={accident_option.name}
+                                label={accident_option.label}
                                 data={value}
-                                onChange={gettingValidate}
+                                onChange={gettingValidateAccident}
                                 fullWidth
                             />
-
-                            {validate === "Si" && (
+                            {accidents === "Si" && (
 
                                 <div>
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                         Detalle su incidentes, accidentes o intervenciones quirúrgicas:
                                     </label>
                                     <InputField
-                                        name={economic_food.name}
-                                        label={economic_food.label}
+                                        name={accident_detail.name}
+                                        label={accident_detail.label}
                                         fullWidth
                                     />
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                         ¿Sufrio amputaciones?:
                                     </label>
                                     <InputField
-                                        name={economic_food.name}
-                                        label={economic_food.label}
+                                        name={accident_suffer.name}
+                                        label={accident_suffer.label}
                                         fullWidth
                                     />
                                 </div>
@@ -555,24 +551,22 @@ export default function HealForm(props) {
                                 ¿Posee síntomas de COVID-19?:
                             </label>
                             <SelectField
-                                id="economic_food"
-                                name={economic_food.name}
-                                label={economic_food.label}
+                                name={covid_option.name}
+                                label={covid_option.label}
                                 data={value}
-                                onChange={gettingValidate}
+                                onChange={gettingValidateCovid}
                                 fullWidth
                             />
 
-                            {validate === "No" && (
+                            {covid19 === "No" && (
 
                                 <div>
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                         ¿Cuando fue la última vez que le dio COVID-19?:
                                     </label>
                                     <InputField
-                                        id="economic_food"
-                                        name={economic_food.name}
-                                        label={economic_food.label}
+                                        name={covid_dosis.name}
+                                        label={covid_dosis.label}
                                         fullWidth
                                     />
                                 </div>
@@ -584,40 +578,69 @@ export default function HealForm(props) {
                                 ¿Sexo?:
                             </label>
                             <SelectField
-                                id="economic_food"
-                                name={economic_food.name}
-                                label={economic_food.label}
+                                name={validate_sex.name}
+                                label={validate_sex.label}
+                                onChange={gettingValidateSexo}
                                 data={sex}
-                                onChange={gettingValidate}
                                 fullWidth
                             />
 
-                            {validate === "M" && (
-                                <Grid >
+                            {sexo === "M" && (
+                                <Grid container>
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                             ¿Se encuentra en estado de gestación?:
                                         </label>
                                         <SelectField
-                                            id="economic_food"
-                                            name={economic_food.name}
-                                            label={economic_food.label}
+                                            name={validate_gestacion.name}
+                                            label={validate_gestacion.label}
                                             data={value}
-                                            onChange={gettingValidate}
+                                            onChange={gettingValidateGesta}
                                             fullWidth
                                         />
-                                        {validate === "No" && (
-                                            <Grid >
-                                                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        {gest === "No" && (
+                                                <Grid style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                     ¿Tiene interés de tener hijos a corto plazo?:
                                                     </label>
-                                                    <SelectField
-                                                        id="economic_food"
-                                                        name={economic_food.name}
-                                                        label={economic_food.label}
-                                                        data={value}
-                                                        onChange={gettingValidate}
+                                                    <InputField
+                                                        name={validate_children.name}
+                                                        label={validate_children.label}
+                                                        fullWidth
+                                                    />
+                                                </Grid>
+                                        )}
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Se encuentra lactando?:
+                                        </label>
+                                        <SelectField
+                                            name={validate_lactando.name}
+                                            label={validate_lactando.label}
+                                            data={value}
+                                            onChange={gettingValidateLac} 
+                                            fullWidth
+                                        />
+                                        {lac === "Si" && (
+                                            <Grid >
+                                                <Grid style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }} >
+                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    ¿Desde hace cuantos meses?:
+                                                    </label>
+                                                    <InputField
+                                                        name={validate_lac_month.name}
+                                                        label={validate_lac_month.label}
+                                                        fullWidth
+                                                    />
+                                                </Grid>
+                                                <Grid style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    ¿Edad del hijo?:
+                                                    </label>
+                                                    <InputField
+                                                        name={validate_lac_age.name}
+                                                        label={validate_lac_age.label}
                                                         fullWidth
                                                     />
                                                 </Grid>
@@ -627,6 +650,7 @@ export default function HealForm(props) {
                                 </Grid>
                             )}
                         </Grid>
+                        
 
 
                     </Grid>
@@ -641,13 +665,13 @@ export default function HealForm(props) {
                             ¿Posee vacunas contra el COVID-19?:
                         </label>
                         <SelectField
-                            name={economic_food.name}
-                            label={economic_food.label}
+                            name={validate_dosis.name}
+                            label={validate_dosis.label}
                             data={value}
-                            onChange={gettingValidate}
+                            onChange={gettingValidateDosis}
                             fullWidth
                         />
-                        {validate === "Si" && (
+                        {dosis === "Si" && (
                             <Grid>
                                 <div>
                                     <Typography
@@ -675,27 +699,23 @@ export default function HealForm(props) {
                                     >
 
                                         <FieldArray
-                                            name="criminal"
+                                            name="dosis"
                                             render={(arrayHelpers) => (
                                                 <>
                                                     <IconButton
                                                         onClick={() =>
                                                             arrayHelpers.push({
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
-                                                                [economic_food.name]: "",
+                                                                [dosis_name.name]: "", 
+                                                                [dosis_date.name]: "", 
+                                                                [dosis_dosis.name]: "",
                                                             })
                                                         }
                                                     >
                                                         <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
                                                     </IconButton>
-                                                    {(values.criminal || []).map((_, index) => (
+                                                    {(values.dosis || []).map((_, index) => (
                                                         <Grid
-                                                            key={`inputcriminal_${index}`}
+                                                            key={`inputdosis_${index}`}
                                                             item
                                                             xs={12}
                                                             sm={6}
@@ -765,7 +785,7 @@ export default function HealForm(props) {
                                                                                                 style={{ textAlign: "start", paddingRight: "62px" }}
                                                                                             />
                                                                                             <SelectField
-                                                                                                name={`criminal.${index}.${economic_food.name}`} label={economic_food.label}
+                                                                                                name={`dosis.${index}.${dosis_name.name}`} label={dosis_name.label}
                                                                                                 data={vacunas}
                                                                                                 fullWidth />
                                                                                         </ListItem>
@@ -782,7 +802,7 @@ export default function HealForm(props) {
                                                                                                 }}
                                                                                                 style={{ textAlign: "start", paddingRight: "0px" }}
                                                                                             />
-                                                                                            <DatePickerField name={`criminal.${index}.${economic_food.name}`} label={economic_food.label}
+                                                                                            <DatePickerField name={`dosis.${index}.${dosis_date.name}`}
 
                                                                                                 fullWidth />
                                                                                         </ListItem>
@@ -800,8 +820,8 @@ export default function HealForm(props) {
                                                                                                 style={{ textAlign: "start", paddingRight: "80px" }}
                                                                                             />
                                                                                             <SelectField
-                                                                                                name={`criminal.${index}.${economic_food.name}`}
-                                                                                                label={economic_food.label}
+                                                                                                name={`dosis.${index}.${dosis_dosis.name}`}
+                                                                                                label={dosis_dosis.label}
                                                                                                 data={vac}
                                                                                                 fullWidth />
                                                                                         </ListItem>

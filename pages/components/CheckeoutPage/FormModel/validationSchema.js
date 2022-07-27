@@ -326,11 +326,59 @@ const {
     criminal_family_phone,
     criminal_family_reason,
 
+    //heal
+    disease_hipertension_option,
+    disease_diabetes_option,
+    disease_VIH_option,
+    disease_ITS_option,
+    disease_gastritis_option,
+    disease_cancer_option,
+    disease_cardiopatias_option,
+    disease_hipertension_observacion,
+    disease_diabetes_observacion,
+    disease_VIH_observacion,
+    disease_ITS_observacion,
+    disease_gastritis_observacion,
+    disease_cancer_observacion,
+    disease_cardiopatias_observacion,
+
+    disease_name,
+    disease_observacion,
+    accident_option,
+    accident_detail,
+    accident_suffer,
+    covid_option,
+    covid_dosis,
+    validate_sex,
+    validate_gestacion,
+    validate_children,
+    validate_lactando,
+    validate_lac_month,
+    validate_lac_age,
+    validate_dosis,
+    dosis_name,
+    dosis_date,
+    dosis_dosis,
+
+    objectivs_corto,
+    objectivs_mediano,
+    objectives_largo,
+
+    sindicatos_favor,
+    sindicatos_formar,
+    sindicatos_why, 
+
+    honest_p1, 
+    honest_p2,
+    honest_p3,
+    honest_p4,
+
+    
   },
 } = generalFormModel;
 
 export default [
-  /*(yup.object().shape({
+  /*yup.object().shape({
     [general_name.name]: yup.string().required(`${general_name.requiredErrorMsg}`),
     [general_lastname.name]: yup.string().required(`${general_lastname.requiredErrorMsg}`),
     [general_place_birth.name]: yup.string().required(`${general_place_birth.requiredErrorMsg}`),
@@ -2114,9 +2162,6 @@ export default [
     ),
   }),
 
-
-
-
   yup.object().shape({
     [social_group.name]: yup.string().required(`${social_group.requiredErrorMsg}`),
     [social_gtime.name]: yup.string().when(["social_group"], {
@@ -2224,7 +2269,116 @@ export default [
         [criminal_family_reason.name]: yup.string().required(`${criminal_family_reason.requiredErrorMsg}`),
       })
     ),
-  }),*/
+  }),
+
+
+
+  yup.object().shape({
+   
+
+    [disease_hipertension_option.name]: yup.string().required(`${disease_hipertension_option.requiredErrorMsg}`),
+    [disease_diabetes_option.name]: yup.string().required(`${disease_diabetes_option.requiredErrorMsg}`),
+    [disease_VIH_option.name]: yup.string().required(`${disease_VIH_option.requiredErrorMsg}`),
+    [disease_ITS_option.name]: yup.string().required(`${disease_ITS_option.requiredErrorMsg}`),
+    [disease_gastritis_option.name]: yup.string().required(`${disease_gastritis_option.requiredErrorMsg}`),
+    [disease_cancer_option.name]: yup.string().required(`${disease_cancer_option.requiredErrorMsg}`),
+    [disease_cardiopatias_option.name]: yup.string().required(`${disease_cardiopatias_option.requiredErrorMsg}`),
+
+    [disease_hipertension_observacion.name]: yup.string(),
+    [disease_diabetes_observacion.name]: yup.string(),
+    [disease_VIH_observacion.name]: yup.string(),
+    [disease_ITS_observacion.name]: yup.string(),
+    [disease_gastritis_observacion.name]: yup.string(),
+    [disease_cancer_observacion.name]: yup.string(),
+    [disease_cardiopatias_observacion.name]: yup.string(),
+
+    [accident_option.name]: yup.string().required(`${accident_option.requiredErrorMsg}`),
+    [accident_detail.name]: yup.string().when(["accident_option"], {
+      is: (accident_option) => accident_option === "Si",
+      then: yup.string().required(`${accident_detail.requiredErrorMsg}`)
+    }),
+    [accident_suffer.name]: yup.string().when(["accident_option"], {
+      is: (accident_option) => accident_option === "Si",
+      then: yup.string().required(`${accident_suffer.requiredErrorMsg}`)
+    }),
+
+    [covid_option.name]: yup.string().required(`${covid_option.requiredErrorMsg}`),
+    [covid_dosis.name]: yup.string().when(["covid_option"], {
+      is: (covid_option) => covid_option === "Si",
+      then: yup.string().required(`${covid_dosis.requiredErrorMsg}`)
+    }),
+
+    [validate_sex.name]: yup.string().required(`${validate_sex.requiredErrorMsg}`),
+    [validate_gestacion.name]: yup.string().when(["validate_sex"], {
+      is: (validate_sex) => validate_sex === "Si",
+      then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`)
+    }),
+
+    [validate_children.name]: yup.string().when(["validate_gestacion", "validate_sex"], {
+      is: (validate_gestacion, validate_sex) => validate_sex === "Si" && validate_gestacion === "Si",
+      then: yup.string().required(`${validate_children.requiredErrorMsg}`)
+    }),
+
+    [validate_lactando.name]: yup.string().when(["validate_sex"], {
+      is: (validate_sex) => validate_sex === "Si",
+      then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`)
+    }),
+
+    [validate_lac_month.name]: yup.string().when(["validate_lactando", "validate_sex"], {
+      is: (validate_lactando, validate_sex) => validate_sex === "Si" && validate_lactando === "Si",
+      then: yup.string().required(`${validate_lac_month.requiredErrorMsg}`)
+    }),
+
+    [validate_lac_age.name]: yup.string().when(["validate_lactando", "validate_sex"], {
+      is: (validate_lactando, validate_sex) => validate_sex === "Si" && validate_lactando === "Si",
+      then: yup.string().required(`${validate_lac_age.requiredErrorMsg}`)
+    }),
+    [validate_dosis.name]: yup.string().required(`${validate_dosis.requiredErrorMsg}`),
+
+    disease: yup.array({}).of(
+      yup.object().shape({
+        [disease_name.name]: yup.string().required(`${disease_name.requiredErrorMsg}`),
+        [disease_observacion.name]: yup.string().required(`${disease_observacion.requiredErrorMsg}`),
+      }),
+    ),
+
+    dosis: yup.array({}).of(
+      yup.object().shape({
+        [dosis_name.name]: yup.string().required(`${dosis_name.requiredErrorMsg}`),
+        [dosis_date.name]: yup.string().required(`${dosis_date.requiredErrorMsg}`),
+        [dosis_dosis.name]: yup.string().required(`${dosis_dosis.requiredErrorMsg}`),
+      }),
+    ),
+  }), 
+
+  yup.object().shape({
+    [objectivs_corto.name]: yup.string().required(`${objectivs_corto.requiredErrorMsg}`),
+    [objectivs_mediano.name]: yup.string().required(`${objectivs_mediano.requiredErrorMsg}`),
+    [objectives_largo.name]: yup.string().required(`${objectives_largo.requiredErrorMsg}`),
+  }),
+
+  yup.object().shape({
+    [sindicatos_favor.name]: yup.string().required(`${sindicatos_favor.requiredErrorMsg}`),
+    [sindicatos_formar.name]: yup.string().required(`${sindicatos_formar.requiredErrorMsg}`),
+    [sindicatos_why.name]: yup.string().when(["sindicatos_formar"], {
+      is: (sindicatos_formar) => sindicatos_formar === "Si",
+      then: yup.string().required(`${sindicatos_why.requiredErrorMsg}`),
+    })
+  }),
+
+  yup.object().shape({
+    [honest_p1.name]: yup.string().required(`${honest_p1.requiredErrorMsg}`),
+    [honest_p2.name]: yup.string().required(`${honest_p2.requiredErrorMsg}`),
+    [honest_p3.name]: yup.string().required(`${honest_p3.requiredErrorMsg}`),
+    [honest_p4.name]: yup.string().required(`${honest_p4.requiredErrorMsg}`),
+  }),
+  
+  yup.object().shape({
+    [red_faccebook.name]: yup.string().required(`${red_faccebook.requiredErrorMsg}`),
+  }),
+
+*/
+
 ];
 
 
