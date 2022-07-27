@@ -5,6 +5,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 
 const civil = [
     {
@@ -135,148 +136,146 @@ export default function SonForm(props) {
         !isSSR && (
             <>
                 <Grid>
-                    {/* <Box
-                        sx={{
+                    <Typography
+                        variant="h6"
+                        gutterBottom
+                        style={{
                             display: "flex",
-                            flexWrap: "wrap",
-                            "& > :not(style)": {
-                                m: 1,
-                                width: 1400,
-                                height: 1000,
-                            },
+                            justifyContent: "flex-start",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            paddingTop: "40px",
+                            paddingLeft: "10px"
                         }}
-                        display="flex"
-                        justifyContent="center"
-                        paddingTop={5}
                     >
-                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}> */}
-                            <Typography
-                                variant="h6"
-                                gutterBottom
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "flex-start",
-                                    fontSize: "20px",
-                                    fontWeight: "bold",
-                                    paddingTop: "40px",
-                                    paddingLeft: "10px"
-                                }}
-                            >
-                                Datos de los hijos
-                            </Typography>
+                        Datos de los hijos
+                    </Typography>
+                    <Divider style={{ paddingTop: "20px" }}>
+                    </Divider>
 
-                            <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
-                                <Chip
-                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                    label="Información hijos"
-                                />
-                            </Divider>
+                    <Grid>
+                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                ¿Usted tiene hijos?:
+                            </label>
+                            <SelectField
+                                id="family_validate_son"
+                                name={family_validate_son.name}
+                                label={family_validate_son.label}
+                                data={validate}
+                                onChange={gettingValidate}
+                                fullWidth
+                            />
+                            {valueValidate === "Si" && (
+                                <div>
+                                    <p
+                                        style={{
+                                            paddingLeft: "15px",
+                                            paddingTop: "10px",
+                                            fontSize: "20px",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        Ingrese la información de sus hijos
+                                    </p>
 
-                            <Grid>
-                                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Usted tiene hijos?:
-                                    </label>
-                                    <SelectField
-                                        id="family_validate_son"
-                                        name={family_validate_son.name}
-                                        label={family_validate_son.label}
-                                        data={validate}
-                                        onChange={gettingValidate}
-                                        fullWidth
-                                    />
-                                    {valueValidate === "Si" && (
-                                        <div>
-                                            <Divider style={{ paddingTop: "20px" }}>
-                                                <Chip
-                                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                                    label="Información hijos"
-                                                />
-                                            </Divider>
-                                            <p
-                                                style={{
-                                                    paddingLeft: "15px",
-                                                    paddingTop: "10px",
-                                                    fontSize: "20px",
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                }}
-                                            >
-                                                Ingrese la información de sus hijos
-                                            </p>
-
-                                            <Grid
-                                                container
-                                                style={{
-                                                    paddingTop: "18px",
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                }}
-                                            >
-                                                <FieldArray
-                                                    name="son"
-                                                    render={(arrayHelpers) => (
-                                                        <>
-                                                            <IconButton
-                                                                onClick={() =>
-                                                                    arrayHelpers.push({
-                                                                        [family_son_name.name]: "",
-                                                                        [family_son_age.name]: "",
-                                                                        [family_son_status.name]: "",
-                                                                        [family_son_place.name]: "",
-                                                                        [family_son_company.name]: "",
-                                                                        [family_son_financial_income.name]: "",
-                                                                        [family_son_phone.name]: "",
-                                                                        [family_son_depend.name]: "",
-                                                                        [family_son_no_phone.name]: "",
-                                                                        [family_son_time_died.name]: "",
-                                                                        [family_son_reason_died.name]: "",
-                                                                        [family_son_life.name]: "",
-                                                                        [family_son_phone_val.name]: "",
-                                                                        [family_son_working_val.name]: "",
-                                                                        [family_son_validate_age.name]: "",
-                                                                    })
-                                                                }
-                                                            >
-                                                                <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
-                                                            </IconButton>
-                                                            {(values.son || []).map((_, index) => (
-                                                                <Grid
-                                                                    key={`inputSon_${index}`}
+                                    <Grid
+                                        container
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        <FieldArray
+                                            name="son"
+                                            render={(arrayHelpers) => (
+                                                <>
+                                                    <IconButton
+                                                        onClick={() =>
+                                                            arrayHelpers.push({
+                                                                [family_son_name.name]: "",
+                                                                [family_son_age.name]: "",
+                                                                [family_son_status.name]: "",
+                                                                [family_son_place.name]: "",
+                                                                [family_son_company.name]: "",
+                                                                [family_son_financial_income.name]: "",
+                                                                [family_son_phone.name]: "",
+                                                                [family_son_depend.name]: "",
+                                                                [family_son_no_phone.name]: "",
+                                                                [family_son_time_died.name]: "",
+                                                                [family_son_reason_died.name]: "",
+                                                                [family_son_life.name]: "",
+                                                                [family_son_phone_val.name]: "",
+                                                                [family_son_working_val.name]: "",
+                                                                [family_son_validate_age.name]: "",
+                                                            })
+                                                        }
+                                                    >
+                                                        <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                                                    </IconButton>
+                                                    {(values.son || []).map((_, index) => (
+                                                        <Grid
+                                                            key={`inputSon_${index}`}
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                                        >
+                                                            <>
+                                                                <div
                                                                     item
                                                                     xs={12}
                                                                     sm={6}
-                                                                    style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                                                    style={{
+                                                                        paddingLeft: "10px",
+                                                                        paddingRight: "10px",
+                                                                    }}
                                                                 >
-                                                                    <>
-                                                                        <div
-                                                                            item
-                                                                            xs={12}
-                                                                            sm={6}
+                                                                    <Divider
+                                                                        style={{
+                                                                            paddingTop: "20px",
+                                                                            paddingBottom: "20px",
+                                                                        }}
+                                                                    >
+                                                                        <Chip
                                                                             style={{
-                                                                                paddingLeft: "10px",
-                                                                                paddingRight: "10px",
-                                                                                paddingTop: "10px",
+                                                                                fontSize: "14px",
+                                                                                fontWeight: "bold",
+                                                                                paddingTop: "20px",
+                                                                                paddingBottom: "20px",
+                                                                                paddingLeft: "15px",
+                                                                                paddingRight: "15px",
                                                                             }}
-                                                                        >
-                                                                            <label
-                                                                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                                                                            >
-                                                                                ¿Aún Vive?:
-                                                                            </label>
-                                                                            <SelectField
-                                                                                key={`inputSon_${index}`}
-                                                                                name={`son.${index}.${family_son_life.name}`}
-                                                                                label={family_son_life.label}
-                                                                                data={life}
-                                                                                onChange={(e) => {
-                                                                                    gettingValue(
-                                                                                        `son.${index}.${family_son_life.name}`,
-                                                                                        e
-                                                                                    );
-                                                                                }}
-                                                                                fullWidth
-                                                                            />
+                                                                            icon={<EscalatorWarningIcon />}
+                                                                            color="primary"
+                                                                            label={`Hijo ${index + 1}`}
+                                                                        />
+                                                                    </Divider>
+
+                                                                    <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                                                        <Paper elevation={3}>
+                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px", paddingTop: "10px" }}>
+                                                                                <label
+                                                                                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                                                                                >
+                                                                                    ¿Aún Vive?:
+                                                                                </label>
+                                                                                <SelectField
+                                                                                    key={`inputSon_${index}`}
+                                                                                    name={`son.${index}.${family_son_life.name}`}
+                                                                                    label={family_son_life.label}
+                                                                                    data={life}
+                                                                                    onChange={(e) => {
+                                                                                        gettingValue(
+                                                                                            `son.${index}.${family_son_life.name}`,
+                                                                                            e
+                                                                                        );
+                                                                                    }}
+                                                                                    fullWidth
+                                                                                />
+                                                                            </div>
+
 
                                                                             {valuess[
                                                                                 `son.${index}.${family_son_life.name}`
@@ -290,30 +289,31 @@ export default function SonForm(props) {
                                                                                                 <InputField name={`son.${index}.${family_son_name.name}`} label={family_son_name.label} fullWidth />
                                                                                             </div>
                                                                                             <div>
-                                                                                                <label
-                                                                                                    style={{ fontSize: "18px", fontWeight: "bold" }}
-                                                                                                >
-                                                                                                    ¿Es menor de edad?:
-                                                                                                </label>
-                                                                                                <SelectField
-                                                                                                    key={`inputSon_${index}`}
-                                                                                                    name={`son.${index}.${family_son_validate_age.name}`}
-                                                                                                    label={family_son_validate_age.label}
-                                                                                                    data={life}
-                                                                                                    onChange={(e) => {
-                                                                                                        gettingValueAge(
-                                                                                                            `son.${index}.${family_son_validate_age.name}`,
-                                                                                                            e
-                                                                                                        );
-                                                                                                    }}
-                                                                                                    fullWidth
-                                                                                                />
-
+                                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                    <label
+                                                                                                        style={{ fontSize: "18px", fontWeight: "bold" }}
+                                                                                                    >
+                                                                                                        ¿Es menor de edad?:
+                                                                                                    </label>
+                                                                                                    <SelectField
+                                                                                                        key={`inputSon_${index}`}
+                                                                                                        name={`son.${index}.${family_son_validate_age.name}`}
+                                                                                                        label={family_son_validate_age.label}
+                                                                                                        data={life}
+                                                                                                        onChange={(e) => {
+                                                                                                            gettingValueAge(
+                                                                                                                `son.${index}.${family_son_validate_age.name}`,
+                                                                                                                e
+                                                                                                            );
+                                                                                                        }}
+                                                                                                        fullWidth
+                                                                                                    />
+                                                                                                </div>
                                                                                                 {valueAge[
                                                                                                     `son.${index}.${family_son_validate_age.name}`
                                                                                                 ] === "Si" && (
 
-                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                 Edad:
                                                                                                             </label>
@@ -323,6 +323,7 @@ export default function SonForm(props) {
                                                                                                                 ¿Quién cuidara de el?:
                                                                                                             </label>
                                                                                                             <InputField name={`son.${index}.${family_son_lookafther.name}`} label={family_son_lookafther.label} fullWidth />
+                                                                                                            <Divider style={{ paddingTop: "10px" }} />
                                                                                                         </div>
 
                                                                                                     )}
@@ -382,6 +383,7 @@ export default function SonForm(props) {
                                                                                                                     </label>
                                                                                                                     <InputField name={`son.${index}.${family_son_phone.name}`} label={family_son_phone.label} fullWidth />
                                                                                                                 </div>
+                                                                                                                <Divider style={{ paddingTop: "10px" }} />
                                                                                                             </div>
                                                                                                         )}
 
@@ -399,7 +401,7 @@ export default function SonForm(props) {
                                                                                                 </div>
                                                                                             </div>
 
-                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px", paddingBottom: "10px" }}>
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                     ¿Labora?:
                                                                                                 </label>
@@ -476,25 +478,25 @@ export default function SonForm(props) {
                                                                                         </div>
                                                                                     </div>
                                                                                 )}
-                                                                        </div>
-                                                                    </>
-                                                                    <IconButton
-                                                                        onClick={() => arrayHelpers.remove(index)}
-                                                                    >
-                                                                        <RemoveCircleIcon sx={{ color: "red" }} />
-                                                                    </IconButton>
-                                                                </Grid>
-                                                            ))}
-                                                        </>
-                                                    )}
-                                                />
-                                            </Grid>
-                                        </div>
-                                    )}
-                                </Grid>
-                            </Grid>
-                        {/* </Paper>
-                    </Box> */}
+                                                                        </Paper>
+                                                                    </Box>
+                                                                </div>
+                                                            </>
+                                                            <IconButton
+                                                                onClick={() => arrayHelpers.remove(index)}
+                                                            >
+                                                                <RemoveCircleIcon sx={{ color: "red" }} />
+                                                            </IconButton>
+                                                        </Grid>
+                                                    ))}
+                                                </>
+                                            )}
+                                        />
+                                    </Grid>
+                                </div>
+                            )}
+                        </Grid>
+                    </Grid>
                 </Grid>
             </>
         )

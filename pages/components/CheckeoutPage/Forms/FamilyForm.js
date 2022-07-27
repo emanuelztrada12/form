@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import FaceIcon from '@mui/icons-material/Face';
+import WomanIcon from '@mui/icons-material/Woman';
 
 const civil = [
     {
@@ -245,10 +244,19 @@ export default function FamilyForm(props) {
                     >
                         Datos de los padres
                     </Typography>
-                    
-                    <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
+
+                    <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={< FamilyRestroomIcon />}
+                            color="primary"
                             label="Información general padre"
                         />
                     </Divider>
@@ -404,9 +412,18 @@ export default function FamilyForm(props) {
 
                     </Grid>
 
-                    <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
+                    <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={< FamilyRestroomIcon />}
+                            color="primary"
                             label="Información general madre"
                         />
                     </Divider>
@@ -556,9 +573,18 @@ export default function FamilyForm(props) {
                         </Grid>
                     </Grid>
 
-                    <Divider style={{ paddingTop: "40px", paddingBottom: "15px" }}>
+                    <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={< PeopleOutlineIcon />}
+                            color="primary"
                             label="Padrastros"
                         />
                     </Divider>
@@ -576,10 +602,19 @@ export default function FamilyForm(props) {
                                 fullWidth
                             />
                             {stepParents === "Si" && (<div>
-                                <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
+                                <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                                     <Chip
-                                        style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                        label="Información general padrastro "
+                                        style={{
+                                            fontSize: "14px",
+                                            fontWeight: "bold",
+                                            paddingTop: "20px",
+                                            paddingBottom: "20px",
+                                            paddingLeft: "15px",
+                                            paddingRight: "15px",
+                                        }}
+                                        icon={< FaceIcon />}
+                                        color="primary"
+                                        label="Información general padrastro"
                                     />
                                 </Divider>
                                 <Grid>
@@ -758,10 +793,19 @@ export default function FamilyForm(props) {
                                         )}
                                     </Grid>
                                 </Grid>
-                                <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
+                                <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                                     <Chip
-                                        style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                        label="Información general madrastra "
+                                        style={{
+                                            fontSize: "14px",
+                                            fontWeight: "bold",
+                                            paddingTop: "20px",
+                                            paddingBottom: "20px",
+                                            paddingLeft: "15px",
+                                            paddingRight: "15px",
+                                        }}
+                                        icon={< WomanIcon />}
+                                        color="primary"
+                                        label="Informaciń general madrastra"
                                     />
                                 </Divider>
                                 <Grid>

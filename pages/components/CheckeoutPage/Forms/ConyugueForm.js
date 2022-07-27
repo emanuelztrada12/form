@@ -5,6 +5,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import GirlIcon from '@mui/icons-material/Girl';
 
 const val = [
     {
@@ -166,10 +167,24 @@ export default function ConyugueForm(props) {
                     >
                         Información Conyugue
                     </Typography>
-                    <Divider style={{ paddingTop: "20px" }}>
+                    <Divider
+                        style={{
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                        }}
+                    >
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                            label="Información conyugue"
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={<GirlIcon />}
+                            color="primary"
+                            label="Conyugue"
                         />
                     </Divider>
                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>

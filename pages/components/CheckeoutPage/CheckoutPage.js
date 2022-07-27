@@ -29,6 +29,7 @@ import ObjectivsForm from "./Forms/ObjectivsForm";
 import SindicatosForm from "./Forms/SindicatosForm";
 import HonestidadForm from "./Forms/HonestidadForm";
 import RedSocialForm from "./Forms/RedSocialForm";
+import CheckoutSuccess from "./CheckoutSuccess"
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
@@ -818,8 +819,7 @@ export default function CheckoutPage() {
       </Stepper>
       <>
         {activeStep === steps.length ? (
-          // <CheckoutSuccess />
-          <h1>hola</h1>
+          <CheckoutSuccess />
         ) : (
           <Formik
             initialValues={formInitialValues}

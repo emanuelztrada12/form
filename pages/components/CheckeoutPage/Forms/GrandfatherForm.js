@@ -5,6 +5,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import BoyIcon from '@mui/icons-material/Boy';
 
 const civil = [
     {
@@ -140,10 +141,6 @@ export default function GrandfatherForm(props) {
                     <Grid>
                         <div>
                             <Divider style={{ paddingTop: "20px" }}>
-                                <Chip
-                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                    label="Información Abuelos"
-                                />
                             </Divider>
                             <p
                                 style={{
@@ -210,174 +207,199 @@ export default function GrandfatherForm(props) {
                                                                 paddingTop: "10px",
                                                             }}
                                                         >
-                                                            <label
-                                                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                                                            >
-                                                                ¿Aún Vive?:
-                                                            </label>
-                                                            <SelectField
-                                                                key={`inputgrandfather_${index}`}
-                                                                name={`grandfather.${index}.${family_grandfather_life.name}`}
-                                                                label={family_grandfather_life.label}
-                                                                data={life}
-                                                                onChange={(e) => {
-                                                                    gettingValue(
-                                                                        `grandfather.${index}.${family_grandfather_life.name}`,
-                                                                        e
-                                                                    );
+                                                            <Divider
+                                                                style={{
+                                                                    paddingTop: "20px",
+                                                                    paddingBottom: "20px",
                                                                 }}
-                                                                fullWidth
-                                                            />
-
-                                                            {valuess[
-                                                                `grandfather.${index}.${family_grandfather_life.name}`
-                                                            ] === "Si" && (
-                                                                    <div>
-                                                                        <div>
-                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                    Nombre:
-                                                                                </label>
-                                                                                <InputField name={`grandfather.${index}.${family_grandfather_name.name}`} label={family_grandfather_name.label} fullWidth />
-                                                                            </div>
-                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                    Edad:
-                                                                                </label>
-                                                                                <InputField name={`grandfather.${index}.${family_grandfather_age.name}`} label={family_grandfather_age.label} fullWidth />
-                                                                            </div>
-                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                    Estado civil:
-                                                                                </label>
-                                                                                <SelectField
-                                                                                    name={`grandfather.${index}.${family_grandfather_status.name}`}
-                                                                                    label={family_grandfather_status.label}
-                                                                                    data={civil}
-                                                                                    fullWidth
-                                                                                />
-                                                                            </div>
-                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                    ¿Tiene teléfono?:
-                                                                                </label>
-                                                                                <SelectField
-                                                                                    name={`grandfather.${index}.${family_grandfather_phone_val.name}`}
-                                                                                    label={family_grandfather_phone_val.label}
-                                                                                    data={validate}
-                                                                                    onChange={(e) => {
-                                                                                        gettingPhone(
-                                                                                            `grandfather.${index}.${family_grandfather_phone_val.name}`,
-                                                                                            e
-                                                                                        );
-                                                                                    }}
-                                                                                    fullWidth
-                                                                                />
+                                                            >
+                                                                <Chip
+                                                                    style={{
+                                                                        fontSize: "14px",
+                                                                        fontWeight: "bold",
+                                                                        paddingTop: "20px",
+                                                                        paddingBottom: "20px",
+                                                                        paddingLeft: "15px",
+                                                                        paddingRight: "15px",
+                                                                    }}
+                                                                    icon={<BoyIcon />}
+                                                                    color="primary"
+                                                                    label={`Abuelo ${index + 1}`}
+                                                                />
+                                                            </Divider>
+                                                            <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                                                <Paper elevation={3}>
+                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px", paddingTop: "10px" }}>
+                                                                        <label
+                                                                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                                                                        >
+                                                                            ¿Aún Vive?:
+                                                                        </label>
+                                                                        <SelectField
+                                                                            key={`inputgrandfather_${index}`}
+                                                                            name={`grandfather.${index}.${family_grandfather_life.name}`}
+                                                                            label={family_grandfather_life.label}
+                                                                            data={life}
+                                                                            onChange={(e) => {
+                                                                                gettingValue(
+                                                                                    `grandfather.${index}.${family_grandfather_life.name}`,
+                                                                                    e
+                                                                                );
+                                                                            }}
+                                                                            fullWidth
+                                                                        />
+                                                                    </div>
+                                                                    {valuess[
+                                                                        `grandfather.${index}.${family_grandfather_life.name}`
+                                                                    ] === "Si" && (
+                                                                            <div>
                                                                                 <div>
-                                                                                    {valuesPhone[
-                                                                                        `grandfather.${index}.${family_grandfather_phone_val.name}`
-                                                                                    ] === "Si" && (
-                                                                                            <div style={{ paddingTop: "10px" }}>
-                                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                        Teléfono:
-                                                                                                    </label>
-                                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_phone.name}`} label={family_grandfather_phone.label} fullWidth />
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        )}
+                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                            Nombre:
+                                                                                        </label>
+                                                                                        <InputField name={`grandfather.${index}.${family_grandfather_name.name}`} label={family_grandfather_name.label} fullWidth />
+                                                                                    </div>
+                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                            Edad:
+                                                                                        </label>
+                                                                                        <InputField name={`grandfather.${index}.${family_grandfather_age.name}`} label={family_grandfather_age.label} fullWidth />
+                                                                                    </div>
+                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                            Estado civil:
+                                                                                        </label>
+                                                                                        <SelectField
+                                                                                            name={`grandfather.${index}.${family_grandfather_status.name}`}
+                                                                                            label={family_grandfather_status.label}
+                                                                                            data={civil}
+                                                                                            fullWidth
+                                                                                        />
+                                                                                    </div>
+                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                            ¿Tiene teléfono?:
+                                                                                        </label>
+                                                                                        <SelectField
+                                                                                            name={`grandfather.${index}.${family_grandfather_phone_val.name}`}
+                                                                                            label={family_grandfather_phone_val.label}
+                                                                                            data={validate}
+                                                                                            onChange={(e) => {
+                                                                                                gettingPhone(
+                                                                                                    `grandfather.${index}.${family_grandfather_phone_val.name}`,
+                                                                                                    e
+                                                                                                );
+                                                                                            }}
+                                                                                            fullWidth
+                                                                                        />
+                                                                                        <div>
+                                                                                            {valuesPhone[
+                                                                                                `grandfather.${index}.${family_grandfather_phone_val.name}`
+                                                                                            ] === "Si" && (
+                                                                                                    <div style={{ paddingTop: "10px" }}>
+                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                                Teléfono:
+                                                                                                            </label>
+                                                                                                            <InputField name={`grandfather.${index}.${family_grandfather_phone.name}`} label={family_grandfather_phone.label} fullWidth />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                )}
 
-                                                                                    {valuesPhone[
-                                                                                        `grandfather.${index}.${family_grandfather_phone_val.name}`
-                                                                                    ] === "No" && (
-                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                    ¿Motivo del por qué no tiene teléfono?:
-                                                                                                </label>
-                                                                                                <InputField name={`grandfather.${index}.${family_grandfather_no_phone.name}`} label={family_grandfather_no_phone.label} fullWidth />
-                                                                                            </div>
+                                                                                            {valuesPhone[
+                                                                                                `grandfather.${index}.${family_grandfather_phone_val.name}`
+                                                                                            ] === "No" && (
+                                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                            ¿Motivo del por qué no tiene teléfono?:
+                                                                                                        </label>
+                                                                                                        <InputField name={`grandfather.${index}.${family_grandfather_no_phone.name}`} label={family_grandfather_no_phone.label} fullWidth />
+                                                                                                    </div>
 
-                                                                                        )}
+                                                                                                )}
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px", paddingBottom: "10px" }}>
+                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                            ¿Labora?:
+                                                                                        </label>
+                                                                                        <SelectField
+                                                                                            name={`grandfather.${index}.${family_grandfather_working_val.name}`}
+                                                                                            label={family_grandfather_working_val.label}
+                                                                                            data={validate}
+                                                                                            onChange={(e) => {
+                                                                                                gettingWorking(
+                                                                                                    `grandfather.${index}.${family_grandfather_working_val.name}`,
+                                                                                                    e
+                                                                                                )
+                                                                                            }
+                                                                                            }
+                                                                                            fullWidth
+                                                                                        />
+                                                                                        <div>
+                                                                                            {valuesWorking[
+                                                                                                `grandfather.${index}.${family_grandfather_working_val.name}`
+                                                                                            ] === "Si" && (
+                                                                                                    <div style={{ paddingTop: "10px" }}>
+                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                                Puesto donde labora:
+                                                                                                            </label>
+                                                                                                            <InputField name={`grandfather.${index}.${family_grandfather_place.name}`} label={family_grandfather_place.label} fullWidth />
+                                                                                                        </div>
+                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                                Empresa donde labora:
+                                                                                                            </label>
+                                                                                                            <InputField name={`grandfather.${index}.${family_grandfather_company.name}`} label={family_grandfather_company.label} fullWidth />
+                                                                                                        </div>
+                                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                                Ingresos promedio:
+                                                                                                            </label>
+                                                                                                            <InputField name={`grandfather.${index}.${family_grandfather_financial_income.name}`} label={family_grandfather_financial_income.label} fullWidth />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                )}
+
+                                                                                            {valuesWorking[
+                                                                                                `grandfather.${index}.${family_grandfather_working_val.name}`
+                                                                                            ] === "No" && (
+                                                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                            ¿De quién depende económicamente?:
+                                                                                                        </label>
+                                                                                                        <InputField name={`grandfather.${index}.${family_grandfather_depend.name}`} label={family_grandfather_depend.label} fullWidth />
+                                                                                                    </div>
+                                                                                                )}
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
+                                                                        )}
 
-                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                    ¿Labora?:
-                                                                                </label>
-                                                                                <SelectField
-                                                                                    name={`grandfather.${index}.${family_grandfather_working_val.name}`}
-                                                                                    label={family_grandfather_working_val.label}
-                                                                                    data={validate}
-                                                                                    onChange={(e) => {
-                                                                                        gettingWorking(
-                                                                                            `grandfather.${index}.${family_grandfather_working_val.name}`,
-                                                                                            e
-                                                                                        )
-                                                                                    }
-                                                                                    }
-                                                                                    fullWidth
-                                                                                />
-                                                                                <div>
-                                                                                    {valuesWorking[
-                                                                                        `grandfather.${index}.${family_grandfather_working_val.name}`
-                                                                                    ] === "Si" && (
-                                                                                            <div style={{ paddingTop: "10px" }}>
-                                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                        Puesto donde labora:
-                                                                                                    </label>
-                                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_place.name}`} label={family_grandfather_place.label} fullWidth />
-                                                                                                </div>
-                                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                        Empresa donde labora:
-                                                                                                    </label>
-                                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_company.name}`} label={family_grandfather_company.label} fullWidth />
-                                                                                                </div>
-                                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                        Ingresos promedio:
-                                                                                                    </label>
-                                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_financial_income.name}`} label={family_grandfather_financial_income.label} fullWidth />
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        )}
-
-                                                                                    {valuesWorking[
-                                                                                        `grandfather.${index}.${family_grandfather_working_val.name}`
-                                                                                    ] === "No" && (
-                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                    ¿De quién depende económicamente?:
-                                                                                                </label>
-                                                                                                <InputField name={`grandfather.${index}.${family_grandfather_depend.name}`} label={family_grandfather_depend.label} fullWidth />
-                                                                                            </div>
-                                                                                        )}
+                                                                    {valuess[
+                                                                        `grandfather.${index}.${family_grandfather_life.name}`
+                                                                    ] === "No" && (
+                                                                            <div>
+                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                        ¿Tiempo fallecido?:
+                                                                                    </label>
+                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_time_died.name}`} label={family_grandfather_time_died.label} fullWidth />
+                                                                                </div>
+                                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                        ¿Razón de fallecimiento?:
+                                                                                    </label>
+                                                                                    <InputField name={`grandfather.${index}.${family_grandfather_reason_died.name}`} label={family_grandfather_reason_died.label} fullWidth />
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )}
-
-                                                            {valuess[
-                                                                `grandfather.${index}.${family_grandfather_life.name}`
-                                                            ] === "No" && (
-                                                                    <div>
-                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                ¿Tiempo fallecido?:
-                                                                            </label>
-                                                                            <InputField name={`grandfather.${index}.${family_grandfather_time_died.name}`} label={family_grandfather_time_died.label} fullWidth />
-                                                                        </div>
-                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                ¿Razón de fallecimiento?:
-                                                                            </label>
-                                                                            <InputField name={`grandfather.${index}.${family_grandfather_reason_died.name}`} label={family_grandfather_reason_died.label} fullWidth />
-                                                                        </div>
-                                                                    </div>
-                                                                )}
+                                                                        )}
+                                                                </Paper>
+                                                            </Box>
                                                         </div>
                                                     </>
                                                     <IconButton
