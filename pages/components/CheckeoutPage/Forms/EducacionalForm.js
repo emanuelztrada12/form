@@ -4,7 +4,10 @@ import IconButton from "@mui/material/IconButton";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
-import { FieldArray } from "formik";
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import SchoolIcon from '@mui/icons-material/School';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
 const val = [
     {
@@ -138,9 +141,23 @@ export default function EducacionalForm(props) {
                         Información educacional
                     </Typography>
 
-                    <Divider style={{ paddingTop: "20px" }}>
+                    <Divider
+                        style={{
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                        }}
+                    >
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={<AccountBalanceIcon />}
+                            color="primary"
                             label="Universidad"
                         />
                     </Divider>
@@ -275,9 +292,23 @@ export default function EducacionalForm(props) {
                         </Grid>
                     </Grid>
 
-                    <Divider style={{ paddingTop: "20px" }}>
+                    <Divider
+                        style={{
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                        }}
+                    >
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={<SchoolIcon />}
+                            color="primary"
                             label="Diversificado"
                         />
                     </Divider>
@@ -369,9 +400,23 @@ export default function EducacionalForm(props) {
                         </Grid>
                     </Grid>
 
-                    <Divider style={{ paddingTop: "20px" }}>
+                    <Divider
+                        style={{
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                        }}
+                    >
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={<HomeWorkIcon />}
+                            color="primary"
                             label="Nivel básico"
                         />
                     </Divider>
@@ -448,9 +493,23 @@ export default function EducacionalForm(props) {
                         </Grid>
                     </Grid>
 
-                    <Divider style={{ paddingTop: "20px" }}>
+                    <Divider
+                        style={{
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                        }}
+                    >
                         <Chip
-                            style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+                            style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "20px",
+                                paddingBottom: "20px",
+                                paddingLeft: "15px",
+                                paddingRight: "15px",
+                            }}
+                            icon={<ImportContactsIcon />}
+                            color="primary"
                             label="Nivel primario"
                         />
                     </Divider>

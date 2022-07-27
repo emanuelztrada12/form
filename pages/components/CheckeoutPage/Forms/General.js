@@ -5,6 +5,11 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import PersonIcon from '@mui/icons-material/Person';
+import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 const civil = [
   {
@@ -96,10 +101,19 @@ export default function General(props) {
 
             Información General
           </Typography>
-          <Divider style={{ paddingTop: "20px" }}>
+          <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-              label="Datos Personales"
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={< PersonIcon />}
+              color="primary"
+              label="Datos personales"
             />
           </Divider>
           <Grid container spacing={0} style={{ paddingTop: "18px" }}>
@@ -218,12 +232,22 @@ export default function General(props) {
             </Grid>
           </Grid>
 
-          <Divider style={{ paddingTop: "20px" }}>
+          <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={< EmergencyShareIcon />}
+              color="primary"
               label="En caso de emergencias"
             />
           </Divider>
+
           <Grid container style={{ paddingTop: "18px" }}>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -246,12 +270,22 @@ export default function General(props) {
             </Grid>
           </Grid>
 
-          <Divider style={{ paddingTop: "20px" }}>
+          <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={< AssignmentIndIcon />}
+              color="primary"
               label="Afilaciones"
             />
           </Divider>
+
           <Grid container style={{ paddingTop: "18px" }}>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -267,10 +301,19 @@ export default function General(props) {
             </Grid>
           </Grid>
 
-          <Divider style={{ paddingTop: "20px" }}>
+          <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-              label="Vehículos"
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={< DirectionsCarIcon />}
+              color="primary"
+              label="Vehiculos"
             />
           </Divider>
           <p style={{ paddingLeft: "15px", paddingTop: "10px", fontSize: "20px", display: "flex", justifyContent: "center" }}>Ingrese si posee algun vehículo</p>
@@ -332,12 +375,22 @@ export default function General(props) {
               )}
             />
           </Grid>
-          <Divider style={{ paddingTop: "20px" }}>
+          <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-              label="Licencias"
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={< CoPresentIcon />}
+              color="primary"
+              label="licencias"
             />
           </Divider>
+
           <p style={{ paddingLeft: "15px", paddingTop: "10px", fontSize: "20px", display: "flex", justifyContent: "center" }}>Ingrese si posee alguna licencia</p>
           <Grid container style={{ paddingTop: "18px", display: "flex", justifyContent: "center" }}>
             <FieldArray

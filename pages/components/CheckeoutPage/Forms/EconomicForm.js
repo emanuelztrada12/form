@@ -108,10 +108,7 @@ const pagos = [
 ];
 
 export default function EconomicForm(props) {
-    const [total, setTotal] = useState(0);
-    const [result, setResult] = useState(0);   
-    const [totals, set_total] = useState(0);
-
+ 
     if (!props.values[props.formField.economic_total.name])
         props.values[props.formField.economic_total.name] = 0;
 
@@ -157,6 +154,10 @@ export default function EconomicForm(props) {
     if (!props.values[props.formField.economic_other.name])
         props.values[props.formField.economic_other.name] = 0;
 
+    const [total, setTotal] = useState(0);
+    const [result, setResult] = useState(0);   
+    const [totals, set_total] = useState(0);
+
     const calculate = (nvalues) => {
         setTotal(nvalues);
         let res = 0;
@@ -172,6 +173,7 @@ export default function EconomicForm(props) {
         setResult(value);
         props.values[props.formField.economic_payment_deuda.name] = parseFloat(value);
     };
+
     const onChange = (name, e) => {
         const nvalues = {
             ...total,
@@ -190,6 +192,24 @@ export default function EconomicForm(props) {
         calculate(nvalues);
     };
 
+    // const Input = (o, name, _more) => {
+    //     const more = {
+    //       InputProps: {
+    //         startAdornment: <InputAdornment position="start">Q.</InputAdornment>,
+    //       },
+    //       ..._more,
+    //     };
+    //     if (more.InputProps === null) delete more.InputProps;
+    //     return (
+    //       <InputField
+    //         name={name || o.name}
+    //         label={o.label}
+    //         onChange={(e) => onChange(`${name || o.name}`, e)}
+    //         fullWidth
+    //         {...more}
+    //       />
+    //     );
+    //   };
 
     const [valuess, set_values] = useState({
         economic_vivienda: 0,

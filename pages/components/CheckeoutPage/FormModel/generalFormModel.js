@@ -964,137 +964,137 @@ export default {
             requiredErrorMsg: 'La información es requerida',
         },
         estudie_university_sval: {
-            name: 'estudie_university_sval', 
+            name: 'estudie_university_sval',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida'
-        }, 
-        
+        },
+
         //Diversificado
         estudie_diversificado_sval: {
-            name: 'estudie_diversificado_sval', 
+            name: 'estudie_diversificado_sval',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida'
         },
         estudie_diversificado_name: {
-            name: 'estudie_diversificado_name', 
+            name: 'estudie_diversificado_name',
             label: 'Ingrese el nombre de su carrera',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_diversificado_uniname: {
-            name: 'estudie_diversificado_uniname', 
+            name: 'estudie_diversificado_uniname',
             label: 'Ingrese el nombre de su escuela',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_diversificado_desde: {
-            name: 'estudie_diversificado_desde', 
+            name: 'estudie_diversificado_desde',
             label: 'Desde',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_diversificado_hasta: {
-            name: 'estudie_diversificado_hasta', 
+            name: 'estudie_diversificado_hasta',
             label: 'Hasta',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
 
 
         //basico
         estudie_basic_sval: {
-            name: 'estudie_basic_sval', 
+            name: 'estudie_basic_sval',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida'
         },
         estudie_basic_uniname: {
-            name: 'estudie_basic_uniname', 
+            name: 'estudie_basic_uniname',
             label: 'Ingrese el nombre de su escuela',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_basic_desde: {
-            name: 'estudie_basic_desde', 
+            name: 'estudie_basic_desde',
             label: 'Desde',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_basic_hasta: {
-            name: 'estudie_basic_hasta', 
+            name: 'estudie_basic_hasta',
             label: 'Hasta',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
 
         //primario
         estudie_primary_sval: {
-            name: 'estudie_primary_sval', 
+            name: 'estudie_primary_sval',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida'
         },
         estudie_primary_uniname: {
-            name: 'estudie_primary_uniname', 
+            name: 'estudie_primary_uniname',
             label: 'Ingrese el nombre de su escuela',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_primary_desde: {
-            name: 'estudie_primary_desde', 
+            name: 'estudie_primary_desde',
             label: 'Desde',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         estudie_primary_hasta: {
-            name: 'estudie_primary_hasta', 
+            name: 'estudie_primary_hasta',
             label: 'Hasta',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
 
         //working 
         work_name: {
-            name: 'work_name', 
+            name: 'work_name',
             label: 'Ingrese el nombre de la empresa*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_position: {
-            name: 'work_position', 
+            name: 'work_position',
             label: 'Ingrese el que cargo que desempeño*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_entry: {
-            name: 'work_entry', 
+            name: 'work_entry',
             requiredErrorMsg: 'La información es requerida'
         },
         work_withdrawal: {
-            name: 'work_withdrawal', 
+            name: 'work_withdrawal',
         },
         work_salary: {
-            name: 'work_salary', 
+            name: 'work_salary',
             label: 'Ingrese el salario devengado*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_boss: {
-            name: 'work_boss', 
+            name: 'work_boss',
             label: 'Ingrese el nombre de su jefe inmediato*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_chiefposition: {
-            name: 'work_chiefposition', 
+            name: 'work_chiefposition',
             label: 'Ingrese el puesto de su jefe*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_phone: {
-            name: 'work_phone', 
+            name: 'work_phone',
             label: 'Ingrese el número de la empresa*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_phone_boss: {
-            name: 'work_phone_boss', 
+            name: 'work_phone_boss',
             label: 'Ingrese el número de su jefe inmediato*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_withdrawalreason: {
-            name: 'work_withdrawalreason', 
+            name: 'work_withdrawalreason',
             label: 'Ingrese el motivo de su retiro',
         },
         work_phone_val: {
-            name: 'work_phone_val', 
+            name: 'work_phone_val',
             label: 'Seleccione una de las opciones*',
             requiredErrorMsg: 'La información es requerida'
         },
         work_phone_reason: {
-            name: 'work_phone_reason', 
+            name: 'work_phone_reason',
             label: 'Ingrese el motivo*',
             requiredErrorMsg: 'La información es requerida'
         },
@@ -1107,12 +1107,12 @@ export default {
             name: 'work_reference_reason',
             label: 'Ingrese la razón del porque no posee la constancia',
             requiredErrorMsg: 'La información es requerida'
-        }, 
+        },
         work_banrural: {
             name: 'work_banrural',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
 
         work_valNe: {
             name: 'work_valNe',
@@ -1128,21 +1128,21 @@ export default {
             name: 'work_ne_web',
             label: 'Ingrese la pagina web',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         work_ne_dateInit: {
             name: 'work_ne_dateInit',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         work_ne_salaryPersonal: {
             name: 'work_ne_salaryPersonal',
             label: 'Ingrese el salario de su personal',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         work_ne_detail: {
             name: 'work_ne_detail',
             label: 'Detalle de que trata su negocio',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         work_ne_detailIncome: {
             name: 'work_ne_detailIncome',
             label: 'Detalle sus ingresos',
@@ -1156,224 +1156,535 @@ export default {
 
         //Economic
         economic_date: {
-            name: 'economic_date', 
+            name: 'economic_date',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_use: {
-            name: 'economic_use', 
+            name: 'economic_use',
             label: 'Ingrese para que lo utilizó',
             requiredErrorMsg: 'La información es requerida',
         },
         economic_plan: {
-            name: 'economic_plan', 
+            name: 'economic_plan',
             label: '¿Debe cancelarlo en un plazo de?',
             requiredErrorMsg: 'La información es requerida',
         },
         economic_bill: {
-            name: 'economic_bill', 
+            name: 'economic_bill',
             label: 'Selecciona una de las opciones',
             requiredErrorMsg: 'La información es requerida',
         },
-        amount:{
-            name: 'amount', 
-            label: '', 
-            requiredErrorMsg: 'La información es requerida', 
-        }, 
-        economic_balance: {
-            name: 'economic_balance', 
+        amount: {
+            name: 'amount',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
-       
+        },
+        economic_balance: {
+            name: 'economic_balance',
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
+        },
+
         economic_monthly_payment: {
-            name: 'economic_monthly_payment', 
+            name: 'economic_monthly_payment',
             label: '',
             requiredErrorMsg: 'La información es requerida',
         },
         economic_delinquent_payment: {
-            name: 'economic_delinquent_payment', 
+            name: 'economic_delinquent_payment',
             label: 'Seleccione una de las opciones',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
 
         economic_vivienda: {
-            name: 'economic_vivienda', 
+            name: 'economic_vivienda',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_food: {
-            name: 'economic_food', 
+            name: 'economic_food',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_aporte: {
-            name: 'economic_aporte', 
+            name: 'economic_aporte',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_water: {
-            name: 'economic_water', 
+            name: 'economic_water',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_phone: {
-            name: 'economic_phone', 
+            name: 'economic_phone',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_recreation: {
-            name: 'economic_recreation', 
+            name: 'economic_recreation',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_vestuario: {
-            name: 'economic_vestuario', 
+            name: 'economic_vestuario',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_gastos: {
-            name: 'economic_gastos', 
+            name: 'economic_gastos',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_trans: {
-            name: 'economic_trans', 
+            name: 'economic_trans',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_medic: {
-            name: 'economic_medic', 
+            name: 'economic_medic',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_estudy: {
-            name: 'economic_estudy', 
+            name: 'economic_estudy',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_ahorro: {
-            name: 'economic_ahorro', 
+            name: 'economic_ahorro',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_payment_deuda: {
-            name: 'economic_payment_deuda', 
+            name: 'economic_payment_deuda',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_other: {
-            name: 'economic_other', 
+            name: 'economic_other',
             label: '',
             requiredErrorMsg: 'La información es requerida',
-        }, 
+        },
         economic_total: {
-            name: 'economic_total', 
+            name: 'economic_total',
             label: '',
             requiredErrorMsg: 'La información es requerida',
         },
 
         //social 
         social_group: {
-            name: 'social_group', 
-            label: 'Seleccione una de las opciones', 
-            requiredErrorMsg: 'La información es requerida', 
+            name: 'social_group',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_gtime: {
-            name: 'social_gtime', 
-            label: 'Ingrese cuanto tiempo le dedica en su tiempo libre', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_gtime',
+            label: 'Ingrese cuanto tiempo le dedica en su tiempo libre',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_politic: {
-            name: 'social_politic', 
+            name: 'social_politic',
             label: 'Seleccione una de las opciones',
-            requiredErrorMsg: 'La información es requerida', 
+            requiredErrorMsg: 'La información es requerida',
         },
         social_politic_name: {
-            name: 'social_politic_name', 
-            label: 'Ingrese el nombre del familiar', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_politic_name',
+            label: 'Ingrese el nombre del familiar',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_politic_relacion: {
-            name: 'social_politic_relacion', 
-            label: 'Ingrese la relación que tiene con esta persona', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_politic_relacion',
+            label: 'Ingrese la relación que tiene con esta persona',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_politic_puesto: {
-            name: 'social_politic_puesto', 
-            label: 'Ingrese el puesto que posee', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_politic_puesto',
+            label: 'Ingrese el puesto que posee',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_fuma: {
-            name: 'social_fuma', 
+            name: 'social_fuma',
             label: 'Seleccione una de las opciones',
-           requiredErrorMsg: 'La información es requerida', 
+            requiredErrorMsg: 'La información es requerida',
         },
         social_fuma_time: {
-            name: 'social_fuma_time', 
-            label: '', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_fuma_time',
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_alco: {
-            name: 'social_alco', 
+            name: 'social_alco',
             label: 'Seleccione una de las opciones',
-           requiredErrorMsg: 'La información es requerida', 
+            requiredErrorMsg: 'La información es requerida',
         },
         social_alco_time: {
-            name: 'social_alco_time', 
-            label: '', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_alco_time',
+            label: '',
+            requiredErrorMsg: 'La información es requerida',
         },
 
         social_alco_bebida: {
-            name: 'social_alco_bebida', 
-            label: 'Ingrese que fue lo último que consumio', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_alco_bebida',
+            label: 'Ingrese que fue lo último que consumio',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_drog: {
-            name: 'social_drog', 
+            name: 'social_drog',
             label: 'Seleccione una de las opciones',
-           requiredErrorMsg: 'La información es requerida', 
+            requiredErrorMsg: 'La información es requerida',
         },
         social_drog_option: {
-            name: 'social_drog_option', 
-            label: 'Ingrese cuales', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_drog_option',
+            label: 'Ingrese cuales',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_drog_time: {
-            name: 'social_drog_time', 
-            label: 'Ingrese la última vez que consumio', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_drog_time',
+            label: 'Ingrese la última vez que consumio',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_drog_person: {
-            name: 'social_drog_person', 
-            label: 'Seleccione una de las opciones', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_drog_person',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_tatto: {
-            name: 'social_tatto', 
-            label: 'Seleccione una de las opciones', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_tatto',
+            label: 'Seleccione una de las opciones',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_tatto_descri: {
-            name: 'social_tatto_descri', 
-            label: 'Ingrese la descripción', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_tatto_descri',
+            label: 'Ingrese la descripción',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_tatto_sign: {
-            name: 'social_tatto_sign', 
-            label: 'Ingrese el signficado', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_tatto_sign',
+            label: 'Ingrese el signficado',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_tatto_ubi: {
-            name: 'social_tatto_ubi', 
-            label: 'Ingrese donde lo tiene', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_tatto_ubi',
+            label: 'Ingrese donde lo tiene',
+            requiredErrorMsg: 'La información es requerida',
         },
         social_tatto_fot: {
-            name: 'social_tatto_fot', 
-            label: 'Ingrese una fotografía', 
-           requiredErrorMsg: 'La información es requerida', 
+            name: 'social_tatto_fot',
+        },
+        social_tatto_foto: {
+            name: 'social_tatto_foto',
         },
 
+        //Delictivas
+        criminal_association_option: {
+            name: "criminal_association_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_relacion: {
+            name: "criminal_relacion",
+            label: "Ingrese la relación que tiene",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_name: {
+            name: "criminal_name",
+            label: "Ingrese el nombre",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_group_belong: {
+            name: "criminal_group_belong",
+            label: "Ingrese a que grupo pertenece",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        criminal_police_option: {
+            name: "criminal_police_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_why_stained: {
+            name: "criminal_why_stained",
+            label: "Ingrese el motivo",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_why_clear: {
+            name: "criminal_why_clear",
+            label: "Ingrese cuando los limpio",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        criminal_family: {
+            name: "criminal_family",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_name: {
+            name: "criminal_family_name",
+            label: "Ingrese el nombre",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_lastname: {
+            name: "criminal_family_lastname",
+            label: "Ingrese el apellido",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_age: {
+            name: "criminal_family_age",
+            label: "Ingrese la edad",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_civil_status: {
+            name: "criminal_family_civil_status",
+            label: "Ingrese el estado civil",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_profession: {
+            name: "criminal_family_profession",
+            label: "Ingrese la profesión",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_phone: {
+            name: "criminal_family_phone",
+            label: "Ingrese el número de télefono",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_family_reason: {
+            name: "criminal_family_reason",
+            label: "Ingrese la razón",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        criminal_was_sued: {
+            name: "criminal_was_sued",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        criminal_you_demand: {
+            name: "criminal_you_demand",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        //Heal
+        disease_hipertension_option: {
+            name: "disease_hipertension_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_diabetes_option: {
+            name: "disease_dXiabetes_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_VIH_option: {
+            name: "diseXase_VIH_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_ITS_option: {
+            name: "diseXase_ITS_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_gastritis_option: {
+            name: "disease_gaXstritis_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_cancer_option: {
+            name: "diseaseX_cancer_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_cardiopatias_option: {
+            name: "disease_cardiXopatias_option",
+            label: "X",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_hipertension_observacion: {
+            name: "disease_hipertension_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_diabetes_observacion: {
+            name: "disease_diabetes_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_VIH_observacion: {
+            name: "disease_VIH_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_ITS_observacion: {
+            name: "disease_ITS_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_gastritis_observacion: {
+            name: "disease_gastritis_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_cancer_observacion: {
+            name: "disease_cancer_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_cardiopatias_observacion: {
+            name: "disease_cardiopatias_observacion",
+            label: "Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+
+        disease_name: {
+            name: "disease_name",
+            label: "Ingrese la enfermedad",
+            requiredErrorMsg: "La información es requerida",
+        },
+        disease_observacion: {
+            name: "disease_observacion",
+            label: "Ingrese las Observaciones",
+            requiredErrorMsg: "La información es requerida",
+        },
+
+        accident_option: {
+            name: "accident_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+
+        },
+        accident_detail: {
+            name: "accident_detail",
+            label: "Detalle su accidente",
+            requiredErrorMsg: "La información es requerida"
+
+        },
+        accident_suffer: {
+            name: "accident_suffer",
+            label: "Detalle si sufrio amputaciones",
+            requiredErrorMsg: "La información es requerida"
+
+        },
+
+        covid_option: {
+            name: "covid_option",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        covid_dosis: {
+            name: "covid_dosis",
+            label: "Ingrese cuando fue la última que tuvo COVID-19",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_sex: {
+            name: "validate_sex",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_gestacion: {
+            name: "validate_gestacion",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_children: {
+            name: "validate_children",
+            label: "Ingrese si tiene interés en tener hijos",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_lactando: {
+            name: "validate_lactando",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_lac_month: {
+            name: "validate_lac_month",
+            label: "Ingrese desde hace cuantos meses",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_lac_age: {
+            name: "validate_lac_age",
+            label: "Ingrese la edad de su hijo",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validate_dosis: {
+            name: "validate_dosis",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        dosis_name: {
+            name: "dosis_name",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        dosis_date: {
+            name: "dosis_date",
+            requiredErrorMsg: "La información es requerida"
+        },
+        dosis_dosis: {
+            name: "dosis_dosis",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        objectivs_corto: {
+            name: "objectivs_corto",
+            label: "Ingrese sus objetivos a corto plazo",
+            requiredErrorMsg: "La información es requerida"
+        },
+        objectivs_mediano: {
+            name: "objectivs_mediano",
+            label: "Ingrese sus objetivos a mediano plazo",
+            requiredErrorMsg: "La información es requerida"
+        },
+        objectives_largo: {
+            name: "objectives_largo",
+            label: "Ingrese sus objetivos a largo plazo",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        sindicatos_favor: {
+            name: "sindicatos_favor",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        sindicatos_formar: {
+            name: "sindicatos_formar",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        sindicatos_why: {
+            name: "sindicatos_why",
+            label: "Ingrese el motivo",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+
+        //Honestidad
+        honest_p1: {
+            name: "honest_p1",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        }, 
+        honest_p2: {
+            name: "honest_p2",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        honest_p3: {
+            name: "honest_p3",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+        honest_p4: {
+            name: "honest_p4",
+            label: "Seleccione una de las opciones",
+            requiredErrorMsg: "La información es requerida"
+        },
+
+        red_faccebook: {
+            name: "red_faccebook",
+            label: "Ingrese el link de su Facebook",
+            requiredErrorMsg: "La información es requerida"
+        }
     }
 }

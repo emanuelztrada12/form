@@ -5,6 +5,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
+import BoyIcon from '@mui/icons-material/Boy';
 
 const civil = [
     {
@@ -62,7 +63,7 @@ export default function StepBrothersForm(props) {
             ...valuess,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setValue(nvalues);
     };
 
@@ -72,7 +73,7 @@ export default function StepBrothersForm(props) {
             ...valuesPhone,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setPhone(nvalues);
     };
 
@@ -83,7 +84,7 @@ export default function StepBrothersForm(props) {
             ...valuesWorking,
             [name]: e.target.value,
         };
-        console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+        // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
         setWorking(nvalues);
     };
 
@@ -123,148 +124,145 @@ export default function StepBrothersForm(props) {
         !isSSR && (
             <>
                 <Grid>
-                    {/* <Box
-                        sx={{
+                    <Typography
+                        variant="h6"
+                        gutterBottom
+                        style={{
                             display: "flex",
-                            flexWrap: "wrap",
-                            "& > :not(style)": {
-                                m: 1,
-                                width: 1400,
-                                height: 1000,
-                            },
+                            justifyContent: "flex-start",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            paddingTop: "40px",
+                            paddingLeft: "10px"
                         }}
-                        display="flex"
-                        justifyContent="center"
-                        paddingTop={5}
                     >
-                        <Paper elevation={24} style={{ maxHeight: 1020, overflow: "auto" }}> */}
-                            <Typography
-                                variant="h6"
-                                gutterBottom
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "flex-start",
-                                    fontSize: "20px",
-                                    fontWeight: "bold",
-                                    paddingTop: "40px",
-                                    paddingLeft: "10px"
-                                }}
-                            >
-                                Datos de los hermanastros
-                            </Typography>
-                            
-                            <Divider style={{ paddingTop: "35px", paddingBottom: "10px" }}>
-                                <Chip
-                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                    label="Información hermanastros"
-                                />
-                            </Divider>
+                        Datos de los hermanastros
+                    </Typography>
+                    <Divider style={{ paddingTop: "20px" }}>
+                    </Divider>
 
-                            <Grid>
-                                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Usted tiene hermanastros?:
-                                    </label>
-                                    <SelectField
-                                        id="family_validate_stepbrother"
-                                        name={family_validate_stepbrother.name}
-                                        label={family_validate_stepbrother.label}
-                                        data={validate}
-                                        onChange={gettingValidate}
-                                        fullWidth
-                                    />
-                                    {valueValidate === "Si" && (
-                                        <div>
-                                            <Divider style={{ paddingTop: "20px" }}>
-                                                <Chip
-                                                    style={{ fontSize: "14px", fontWeight: "bold", backgroundColor: "black", color: "white" }}
-                                                    label="Información hermanastros"
-                                                />
-                                            </Divider>
-                                            <p
-                                                style={{
-                                                    paddingLeft: "15px",
-                                                    paddingTop: "10px",
-                                                    fontSize: "20px",
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                }}
-                                            >
-                                                Ingrese la información de sus hermanastros
-                                            </p>
+                    <Grid>
+                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                ¿Usted tiene hermanastros?:
+                            </label>
+                            <SelectField
+                                id="family_validate_stepbrother"
+                                name={family_validate_stepbrother.name}
+                                label={family_validate_stepbrother.label}
+                                data={validate}
+                                onChange={gettingValidate}
+                                fullWidth
+                            />
+                            {valueValidate === "Si" && (
+                                <div>
+                                    <p
+                                        style={{
+                                            paddingLeft: "15px",
+                                            paddingTop: "10px",
+                                            fontSize: "20px",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        Ingrese la información de sus hermanastros
+                                    </p>
 
-                                            <Grid
-                                                container
-                                                style={{
-                                                    paddingTop: "18px",
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                }}
-                                            >
-                                                <FieldArray
-                                                    name="stepbrother"
-                                                    render={(arrayHelpers) => (
-                                                        <>
-                                                            <IconButton
-                                                                onClick={() =>
-                                                                    arrayHelpers.push({
-                                                                        [family_stepbrother_name.name]: "",
-                                                                        [family_stepbrother_age.name]: "",
-                                                                        [family_stepbrother_status.name]: "",
-                                                                        [family_stepbrother_place.name]: "",
-                                                                        [family_stepbrother_company.name]: "",
-                                                                        [family_stepbrother_financial_income.name]: "",
-                                                                        [family_stepbrother_phone.name]: "",
-                                                                        [family_stepbrother_depend.name]: "",
-                                                                        [family_stepbrother_no_phone.name]: "",
-                                                                        [family_stepbrother_time_died.name]: "",
-                                                                        [family_stepbrother_reason_died.name]: "",
-                                                                        [family_stepbrother_life.name]: "",
-                                                                        [family_stepbrother_phone_val.name]: "",
-                                                                        [family_stepbrother_working_val.name]: "",
-                                                                    })
-                                                                }
-                                                            >
-                                                                <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
-                                                            </IconButton>
-                                                            {(values.stepbrother || []).map((_, index) => (
-                                                                <Grid
-                                                                    key={`inputstepbrother_${index}`}
+                                    <Grid
+                                        container
+                                        style={{
+                                            paddingTop: "18px",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        <FieldArray
+                                            name="stepbrother"
+                                            render={(arrayHelpers) => (
+                                                <>
+                                                    <IconButton
+                                                        onClick={() =>
+                                                            arrayHelpers.push({
+                                                                [family_stepbrother_name.name]: "",
+                                                                [family_stepbrother_age.name]: "",
+                                                                [family_stepbrother_status.name]: "",
+                                                                [family_stepbrother_place.name]: "",
+                                                                [family_stepbrother_company.name]: "",
+                                                                [family_stepbrother_financial_income.name]: "",
+                                                                [family_stepbrother_phone.name]: "",
+                                                                [family_stepbrother_depend.name]: "",
+                                                                [family_stepbrother_no_phone.name]: "",
+                                                                [family_stepbrother_time_died.name]: "",
+                                                                [family_stepbrother_reason_died.name]: "",
+                                                                [family_stepbrother_life.name]: "",
+                                                                [family_stepbrother_phone_val.name]: "",
+                                                                [family_stepbrother_working_val.name]: "",
+                                                            })
+                                                        }
+                                                    >
+                                                        <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                                                    </IconButton>
+                                                    {(values.stepbrother || []).map((_, index) => (
+                                                        <Grid
+                                                            key={`inputstepbrother_${index}`}
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                                        >
+                                                            <>
+                                                                <div
                                                                     item
                                                                     xs={12}
                                                                     sm={6}
-                                                                    style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                                                    style={{
+                                                                        paddingLeft: "10px",
+                                                                        paddingRight: "10px",
+                                                                        paddingTop: "10px",
+                                                                    }}
                                                                 >
-                                                                    <>
-                                                                        <div
-                                                                            item
-                                                                            xs={12}
-                                                                            sm={6}
+                                                                    <Divider
+                                                                        style={{
+                                                                            paddingTop: "20px",
+                                                                            paddingBottom: "20px",
+                                                                        }}
+                                                                    >
+                                                                        <Chip
                                                                             style={{
-                                                                                paddingLeft: "10px",
-                                                                                paddingRight: "10px",
-                                                                                paddingTop: "10px",
+                                                                                fontSize: "14px",
+                                                                                fontWeight: "bold",
+                                                                                paddingTop: "20px",
+                                                                                paddingBottom: "20px",
+                                                                                paddingLeft: "15px",
+                                                                                paddingRight: "15px",
                                                                             }}
-                                                                        >
-                                                                            <label
-                                                                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                                                                            >
-                                                                                ¿Aún Vive?:
-                                                                            </label>
-                                                                            <SelectField
-                                                                                key={`inputstepbrother_${index}`}
-                                                                                name={`stepbrother.${index}.${family_stepbrother_life.name}`}
-                                                                                label={family_stepbrother_life.label}
-                                                                                data={life}
-                                                                                onChange={(e) => {
-                                                                                    gettingValue(
-                                                                                        `stepbrother.${index}.${family_stepbrother_life.name}`,
-                                                                                        e
-                                                                                    );
-                                                                                }}
-                                                                                fullWidth
-                                                                            />
-
+                                                                            icon={<BoyIcon />}
+                                                                            color="primary"
+                                                                            label={`Hermanastro ${index + 1}`}
+                                                                        />
+                                                                    </Divider>
+                                                                    <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                                                        <Paper elevation={3}>
+                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px", paddingTop: "10px" }}>
+                                                                                <label
+                                                                                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                                                                                >
+                                                                                    ¿Aún Vive?:
+                                                                                </label>
+                                                                                <SelectField
+                                                                                    key={`inputstepbrother_${index}`}
+                                                                                    name={`stepbrother.${index}.${family_stepbrother_life.name}`}
+                                                                                    label={family_stepbrother_life.label}
+                                                                                    data={life}
+                                                                                    onChange={(e) => {
+                                                                                        gettingValue(
+                                                                                            `stepbrother.${index}.${family_stepbrother_life.name}`,
+                                                                                            e
+                                                                                        );
+                                                                                    }}
+                                                                                    fullWidth
+                                                                                />
+                                                                            </div>
                                                                             {valuess[
                                                                                 `stepbrother.${index}.${family_stepbrother_life.name}`
                                                                             ] === "Si" && (
@@ -337,7 +335,7 @@ export default function StepBrothersForm(props) {
                                                                                                 </div>
                                                                                             </div>
 
-                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px", paddingBottom: "10px" }}>
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                     ¿Labora?:
                                                                                                 </label>
@@ -414,25 +412,27 @@ export default function StepBrothersForm(props) {
                                                                                         </div>
                                                                                     </div>
                                                                                 )}
-                                                                        </div>
-                                                                    </>
-                                                                    <IconButton
-                                                                        onClick={() => arrayHelpers.remove(index)}
-                                                                    >
-                                                                        <RemoveCircleIcon sx={{ color: "red" }} />
-                                                                    </IconButton>
-                                                                </Grid>
-                                                            ))}
-                                                        </>
-                                                    )}
-                                                />
-                                            </Grid>
-                                        </div>
-                                    )}
-                                </Grid>
-                            </Grid>
+                                                                        </Paper>
+                                                                    </Box>
+                                                                </div>
+                                                            </>
+                                                            <IconButton
+                                                                onClick={() => arrayHelpers.remove(index)}
+                                                            >
+                                                                <RemoveCircleIcon sx={{ color: "red" }} />
+                                                            </IconButton>
+                                                        </Grid>
+                                                    ))}
+                                                </>
+                                            )}
+                                        />
+                                    </Grid>
+                                </div>
+                            )}
+                        </Grid>
+                    </Grid>
 
-                        {/* </Paper>
+                    {/* </Paper>
                     </Box> */}
                 </Grid>
             </>
