@@ -9,7 +9,10 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box, Paper, Divider, Chip } from "@mui/material";
+import MobileStepper from '@mui/material/MobileStepper';
 import { Formik, Form } from "formik";
+import json2mq from 'json2mq';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { useMutation, useQuery, gql } from "@apollo/client";
 
@@ -483,8 +486,8 @@ function _renderStepContent(step, values) {
       return <ObjectivsForm formField={formField} values={values} />
     case 15:
       return <HonestidadForm formField={formField} values={values} />
-    case 16: 
-      return <RedSocialForm formField={formField} values={values}/>
+    case 16:
+      return <RedSocialForm formField={formField} values={values} />
     default:
       return <div>Not Found</div>;
   }
@@ -804,19 +807,59 @@ export default function CheckoutPage() {
     setActiveStep(activeStep - 1);
   }
 
+
+  const matches = useMediaQuery(
+    json2mq({
+      minWidth: 600,
+    }),
+  );
+
+
   return (
     <>
       <Typography component="h1" variant="h4" align="center" style={{ paddingBottom: "20px", fontSize: "35px", fontWeight: "bold" }}>
         Socioeconómico
       </Typography>
 
-      <Stepper xs={12} sm={6} activeStep={activeStep} className={classes.stepper} alternativeLabel >
+      {
+        matches == true && (
+          <Stepper xs={12} sm={6} activeStep={activeStep} className={classes.stepper} alternativeLabel >
+            {steps.map(label => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        )
+      }
+
+      {
+        matches == false && (
+
+          <MobileStepper style={{ display: "flex", justifyContent: "center" }} steps={18} position="static" xs={12} sm={6} activeStep={activeStep} className={classes.stepper} >
+            {steps.map(label => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </MobileStepper>
+        )
+      }
+
+
+
+      <MobileStepper
+        variant="progress"
+        steps={18}
+        position="static"
+        activeStep={activeStep}
+        xs={12} sm={6} className={classes.stepper} alternativeLabel style={{ display: "flex", justifyContent: "center" }} >
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
-      </Stepper>
+      </MobileStepper>
       <>
         {activeStep === steps.length ? (
           <CheckoutSuccess />

@@ -238,7 +238,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "35px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_hipertension_option.name}
@@ -261,7 +261,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "25px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_diabetes_option.name}
@@ -284,15 +284,17 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "10px" }}
                                                 />
                                                 <SelectField
+                                                    sx={6}
                                                     name={disease_VIH_option.name}
                                                     label={disease_VIH_option.label}
                                                     data={value}
                                                     autoWidth
                                                 />
                                                 <InputField
+                                                    sx={6}
                                                     name={disease_VIH_observacion.name}
                                                     label={disease_VIH_observacion.label}
                                                     autoWidth
@@ -307,7 +309,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "10px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_ITS_option.name}
@@ -330,7 +332,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "15px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_gastritis_option.name}
@@ -353,7 +355,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "px" }}
+                                                    style={{ textAlign: "start", paddingRight: "15px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_cancer_option.name}
@@ -376,7 +378,7 @@ export default function HealForm(props) {
                                                         fontWeight: "medium",
                                                         letterSpacing: 0,
                                                     }}
-                                                    style={{ textAlign: "start", paddingRight: "15px" }}
+                                                    style={{ textAlign: "start", paddingRight: "25px" }}
                                                 />
                                                 <SelectField
                                                     name={disease_cardiopatias_option.name}

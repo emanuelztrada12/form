@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import MovingIcon from '@mui/icons-material/Moving';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const value = [
     {
@@ -74,9 +75,9 @@ export default function SindicatosForm(props) {
                                 paddingLeft: "15px",
                                 paddingRight: "15px",
                             }}
-                            icon={< MovingIcon />}
+                            icon={< GroupsIcon />}
                             color="primary"
-                            label="Objetivoss"
+                            label="Sindicatos"
                         />
                     </Divider>
                     <Grid >
