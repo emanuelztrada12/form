@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import MovingIcon from '@mui/icons-material/Moving';
+import FollowTheSignsIcon from '@mui/icons-material/FollowTheSigns';
 
 const value = [
     {
@@ -64,9 +65,9 @@ export default function HonestidadForm(props) {
                                 paddingLeft: "15px",
                                 paddingRight: "15px",
                             }}
-                            icon={< MovingIcon />}
+                            icon={< FollowTheSignsIcon />}
                             color="primary"
-                            label="Objetivoss"
+                            label="Honestidad"
                         />
                     </Divider>
                     <Grid >
