@@ -33,6 +33,18 @@ const {
     family_dad_life,
     family_dad_phone_val,
     family_dad_working_val,
+    // add name
+    family_dad_died_first_name,
+    family_dad_died_last_name,
+
+    // changes
+    family_dad_relation,
+    // yes
+    family_dad_information,
+    family_dad_reason,
+    // no
+    family_dad_why_negative,
+    family_dad_information_negative,
 
     family_validate_stepparents,
     family_validate_son,
@@ -51,10 +63,38 @@ const {
     family_mom_depend,
     family_mom_no_phone,
     family_mom_time_died,
+    // add name
+    family_mom_died_first_name,
+    family_mom_died_last_name,
     family_mom_reason_died,
     family_mom_life,
     family_mom_phone_val,
     family_mom_working_val,
+    // changes
+    family_mom_relation,
+    // yes
+    family_mom_information,
+    family_mom_reason,
+    // no
+    family_mom_why_negative,
+    family_mom_information_negative,
+
+    /* for two parents */
+    you_parents_together,
+    has_partner,
+    has_partner_father,
+    has_partner_mother,
+
+    /* --- INFORMATION COUPLES MOTHER --- */
+    mother_partner_name,
+    mother_partner_lastname,
+    mother_relationship,
+
+    /* --- INFORMATION COUPLES MOTHER --- */
+    father_partner_name,
+    father_partner_lastname,
+    father_relationship,
+
 
     family_stepfather_name,
     family_stepfather_age,
@@ -275,6 +315,7 @@ const {
   },
 } = generalFormModel;
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   //general
   [general_name.name]: "a",
@@ -317,11 +358,23 @@ export default {
   [family_dad_depend.name]: "a",
   [family_dad_no_phone.name]: "a",
   [family_dad_time_died.name]: "a",
+  // add name father died
+  [family_dad_died_first_name]: "",
+  [family_dad_died_last_name]: "",
+  /* -- */
   [family_dad_reason_died.name]: "a",
   [family_dad_phone.name]: "a",
   [family_dad_life.name]: "",
   [family_dad_phone_val.name]: "",
   [family_dad_working_val.name]: "",
+  // changes
+  [family_dad_relation]: "",
+  [family_dad_information]: "",
+  [family_dad_reason]: "",
+  [family_dad_why_negative]: "",
+  [family_dad_information_negative]: "",
+
+  
 
   //mom
   [family_mom_name.name]: "a",
@@ -334,10 +387,20 @@ export default {
   [family_mom_depend.name]: "a",
   [family_mom_no_phone.name]: "a",
   [family_mom_time_died.name]: "a",
+  // add name mom died
+  [family_mom_died_first_name]: "",
+  [family_mom_died_last_name]: "",
+  /* -- */
   [family_mom_life.name]: "",
   [family_mom_phone_val.name]: "",
   [family_mom_working_val.name]: "",
   [family_mom_reason_died.name]: "a",
+  // changes 2.0
+  [family_mom_relation]: "",
+  [family_mom_information]: "",
+  [family_mom_reason]: "",
+  [family_mom_why_negative]: "",
+  [family_mom_information_negative]: "",
 
   //stepfather
   [family_stepfather_name.name]: "a",
@@ -383,6 +446,18 @@ export default {
   stepbrother: [],
   //grandfather
   grandfather: [], 
+
+  /* INFORMATION EXCATLY */
+  [you_parents_together]: "",
+  [has_partner]: "",
+  [mother_partner_name]: "",
+  [mother_partner_lastname]: "",
+  [mother_relationship]: "",
+  [father_partner_name]: "",
+  [father_partner_lastname]: "",
+  [father_relationship]: "",
+  [has_partner_father]: "",
+  [has_partner_mother]: "",
 
   //conyugue
   [family_conyugue_name.name]: "",
