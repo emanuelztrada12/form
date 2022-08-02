@@ -1,7 +1,6 @@
 import generalFormModel from "./generalFormModel";
 const {
   formField: {
-
     general_name,
     general_lastname,
     general_age,
@@ -33,6 +32,18 @@ const {
     family_dad_life,
     family_dad_phone_val,
     family_dad_working_val,
+    // add name
+    family_dad_died_first_name,
+    family_dad_died_last_name,
+
+    // changes
+    family_dad_relation,
+    // yes
+    family_dad_information,
+    family_dad_reason,
+    // no
+    family_dad_why_negative,
+    family_dad_information_negative,
 
     family_validate_stepparents,
     family_validate_son,
@@ -51,10 +62,37 @@ const {
     family_mom_depend,
     family_mom_no_phone,
     family_mom_time_died,
+    // add name
+    family_mom_died_first_name,
+    family_mom_died_last_name,
     family_mom_reason_died,
     family_mom_life,
     family_mom_phone_val,
     family_mom_working_val,
+    // changes
+    family_mom_relation,
+    // yes
+    family_mom_information,
+    family_mom_reason,
+    // no
+    family_mom_why_negative,
+    family_mom_information_negative,
+
+    /* for two parents */
+    you_parents_together,
+    has_partner,
+    has_partner_father,
+    has_partner_mother,
+
+    /* --- INFORMATION COUPLES MOTHER --- */
+    mother_partner_name,
+    mother_partner_lastname,
+    mother_relationship,
+
+    /* --- INFORMATION COUPLES MOTHER --- */
+    father_partner_name,
+    father_partner_lastname,
+    father_relationship,
 
     family_stepfather_name,
     family_stepfather_age,
@@ -72,7 +110,6 @@ const {
     family_stepfather_working_val,
     family_stepfather_info,
     family_stepfather_noInfo,
-
 
     family_stepmother_name,
     family_stepmother_age,
@@ -140,7 +177,7 @@ const {
     family_grandfather_life,
     family_grandfather_phone_val,
     family_grandfather_working_val,
-    family_grandfather_lifeno_name, 
+    family_grandfather_lifeno_name,
     family_grandfather_lifeno_firstname,
     family_grandmother_name,
     family_grandmother_age,
@@ -156,7 +193,7 @@ const {
     family_grandmother_life,
     family_grandmother_phone_val,
     family_grandmother_working_val,
-    family_grandmother_lifeno_name, 
+    family_grandmother_lifeno_name,
     family_grandmother_lifeno_firstname,
 
     //parte de la madre (abuelos)
@@ -174,7 +211,7 @@ const {
     family_grandfather_lifetwo,
     family_grandfather_phone_valtwo,
     family_grandfather_working_valtwo,
-    family_grandfather_lifeno_nametwo, 
+    family_grandfather_lifeno_nametwo,
     family_grandfather_lifeno_firstnametwo,
     family_grandmother_nametwo,
     family_grandmother_agetwo,
@@ -190,10 +227,10 @@ const {
     family_grandmother_lifetwo,
     family_grandmother_phone_valtwo,
     family_grandmother_working_valtwo,
-    family_grandmother_lifeno_nametwo, 
+    family_grandmother_lifeno_nametwo,
     family_grandmother_lifeno_firstnametwo,
 
-    //estudent 
+    //estudent
     estudie_university_name,
     estudie_university_uniname,
     estudie_university_semester,
@@ -203,25 +240,25 @@ const {
     estudie_university_year_graduation,
     estudie_university_no_sede,
     estudie_university_hour,
-    estudie_university_sval, 
+    estudie_university_sval,
 
     //Diversificado
     estudie_diversificado_sval,
     estudie_diversificado_name,
     estudie_diversificado_uniname,
-    estudie_diversificado_desde, 
-    estudie_diversificado_hasta, 
+    estudie_diversificado_desde,
+    estudie_diversificado_hasta,
 
     //basico
     estudie_basic_sval,
     estudie_basic_uniname,
-    estudie_basic_desde, 
-    estudie_basic_hasta, 
+    estudie_basic_desde,
+    estudie_basic_hasta,
 
     //primary
     estudie_primary_sval,
     estudie_primary_uniname,
-    estudie_primary_desde, 
+    estudie_primary_desde,
     estudie_primary_hasta,
 
     //work
@@ -238,32 +275,32 @@ const {
     work_phone_val,
     work_phone_reason,
     work_reference,
-    work_reference_reason, 
+    work_reference_reason,
     work_banrural,
     work_valNe,
     work_ne_name,
-    work_ne_web, 
-    work_ne_dateInit, 
-    work_ne_salaryPersonal, 
-    work_ne_detail, 
+    work_ne_web,
+    work_ne_dateInit,
+    work_ne_salaryPersonal,
+    work_ne_detail,
     work_ne_detailIncome,
-    work_ne_whatwill, 
+    work_ne_whatwill,
 
     //ecomomic
-    economic_vivienda, 
-    economic_food, 
-    economic_aporte, 
-    economic_water, 
-    economic_phone, 
-    economic_recreation, 
-    economic_vestuario, 
-    economic_gastos, 
-    economic_trans, 
-    economic_medic, 
-    economic_estudy, 
-    economic_ahorro, 
-    economic_payment_deuda, 
-    economic_other, 
+    economic_vivienda,
+    economic_food,
+    economic_aporte,
+    economic_water,
+    economic_phone,
+    economic_recreation,
+    economic_vestuario,
+    economic_gastos,
+    economic_trans,
+    economic_medic,
+    economic_estudy,
+    economic_ahorro,
+    economic_payment_deuda,
+    economic_other,
     economic_total,
 
     //social
@@ -281,19 +318,19 @@ const {
     social_drog,
     social_drog_option,
     social_drog_time,
-    social_drog_person, 
+    social_drog_person,
     social_tatto,
 
     //delictiva
-    criminal_association_option, 
+    criminal_association_option,
     criminal_relacion,
-    criminal_name, 
+    criminal_name,
     criminal_group_belong,
     criminal_police_option,
-    criminal_why_stained, 
+    criminal_why_stained,
     criminal_why_clear,
     criminal_family,
-    criminal_was_sued, 
+    criminal_was_sued,
     criminal_you_demand,
 
     //HEAL
@@ -312,17 +349,17 @@ const {
     disease_cancer_observacion,
     disease_cardiopatias_observacion,
     accident_option,
-    accident_detail, 
+    accident_detail,
     accident_suffer,
     covid_option,
-    covid_dosis, 
-    validate_sex, 
+    covid_dosis,
+    validate_sex,
     validate_gestacion,
     validate_children,
-    validate_lactando, 
+    validate_lactando,
     validate_lac_month,
-    validate_lac_age, 
-    validate_dosis, 
+    validate_lac_age,
+    validate_dosis,
 
     objectivs_corto,
     objectivs_mediano,
@@ -332,15 +369,14 @@ const {
     sindicatos_formar,
     sindicatos_why,
 
-    honest_p1, 
+    honest_p1,
     honest_p2,
     honest_p3,
     honest_p4,
 
     //facebook
     red_faccebook,
-    validation_form, 
-
+    validation_form,
   },
 } = generalFormModel;
 
@@ -389,11 +425,21 @@ export default {
   [family_dad_depend.name]: "a",
   [family_dad_no_phone.name]: "a",
   [family_dad_time_died.name]: "a",
+  // add name father died
+  [family_dad_died_first_name]: "",
+  [family_dad_died_last_name]: "",
+  /* -- */
   [family_dad_reason_died.name]: "a",
   [family_dad_phone.name]: "a",
   [family_dad_life.name]: "",
   [family_dad_phone_val.name]: "",
   [family_dad_working_val.name]: "",
+  // changes
+  [family_dad_relation]: "",
+  [family_dad_information]: "",
+  [family_dad_reason]: "",
+  [family_dad_why_negative]: "",
+  [family_dad_information_negative]: "",
 
   //mom
   [family_mom_name.name]: "a",
@@ -406,10 +452,20 @@ export default {
   [family_mom_depend.name]: "a",
   [family_mom_no_phone.name]: "a",
   [family_mom_time_died.name]: "a",
+  // add name mom died
+  [family_mom_died_first_name]: "",
+  [family_mom_died_last_name]: "",
+  /* -- */
   [family_mom_life.name]: "",
   [family_mom_phone_val.name]: "",
   [family_mom_working_val.name]: "",
   [family_mom_reason_died.name]: "a",
+  // changes 2.0
+  [family_mom_relation]: "",
+  [family_mom_information]: "",
+  [family_mom_reason]: "",
+  [family_mom_why_negative]: "",
+  [family_mom_information_negative]: "",
 
   //stepfather
   [family_stepfather_name.name]: "a",
@@ -454,7 +510,7 @@ export default {
   //stepbrother
   stepbrother: [],
   //grandfather
-  grandfather: [], 
+  grandfather: [],
 
   //conyugue
   [family_conyugue_name.name]: "",
@@ -505,8 +561,8 @@ export default {
   [family_grandfather_life.name]: "",
   [family_grandfather_phone_val.name]: "",
   [family_grandfather_working_val.name]: "",
-  [family_grandfather_lifeno_name.name]: "", 
-  [family_grandfather_lifeno_firstname.name]: "", 
+  [family_grandfather_lifeno_name.name]: "",
+  [family_grandfather_lifeno_firstname.name]: "",
   [family_grandmother_name.name]: "",
   [family_grandmother_age.name]: "",
   [family_grandmother_status.name]: "",
@@ -521,10 +577,10 @@ export default {
   [family_grandmother_life.name]: "",
   [family_grandmother_phone_val.name]: "",
   [family_grandmother_working_val.name]: "",
-  [family_grandmother_lifeno_name.name]: "", 
+  [family_grandmother_lifeno_name.name]: "",
   [family_grandmother_lifeno_firstname.name]: "",
 
-  //abuelos por parte de la mama 
+  //abuelos por parte de la mama
   [family_grandfather_nametwo.name]: "",
   [family_grandfather_agetwo.name]: "",
   [family_grandfather_statustwo.name]: "",
@@ -539,8 +595,8 @@ export default {
   [family_grandfather_lifetwo.name]: "",
   [family_grandfather_phone_valtwo.name]: "",
   [family_grandfather_working_valtwo.name]: "",
-  [family_grandfather_lifeno_nametwo.name]: "", 
-  [family_grandfather_lifeno_firstnametwo.name]: "", 
+  [family_grandfather_lifeno_nametwo.name]: "",
+  [family_grandfather_lifeno_firstnametwo.name]: "",
   [family_grandmother_nametwo.name]: "",
   [family_grandmother_agetwo.name]: "",
   [family_grandmother_statustwo.name]: "",
@@ -555,9 +611,9 @@ export default {
   [family_grandmother_lifetwo.name]: "",
   [family_grandmother_phone_valtwo.name]: "",
   [family_grandmother_working_valtwo.name]: "",
-  [family_grandmother_lifeno_nametwo.name]: "", 
+  [family_grandmother_lifeno_nametwo.name]: "",
   [family_grandmother_lifeno_firstnametwo.name]: "",
-  
+
   //estudent
   [estudie_university_name.name]: "",
   [estudie_university_uniname.name]: "",
@@ -574,20 +630,20 @@ export default {
   [estudie_diversificado_sval.name]: "",
   [estudie_diversificado_name.name]: "",
   [estudie_diversificado_uniname.name]: "",
-  [estudie_diversificado_desde.name]: "", 
-  [estudie_diversificado_hasta.name]: "", 
+  [estudie_diversificado_desde.name]: "",
+  [estudie_diversificado_hasta.name]: "",
 
   //Basico
   [estudie_basic_sval.name]: "",
   [estudie_basic_uniname.name]: "",
-  [estudie_basic_desde.name]: "", 
-  [estudie_basic_hasta.name]: "", 
+  [estudie_basic_desde.name]: "",
+  [estudie_basic_hasta.name]: "",
 
-  //primary 
+  //primary
   [estudie_primary_sval.name]: "",
   [estudie_primary_uniname.name]: "",
-  [estudie_primary_desde.name]: "", 
-  [estudie_primary_hasta.name]: "", 
+  [estudie_primary_desde.name]: "",
+  [estudie_primary_hasta.name]: "",
 
   //work
   [work_name.name]: "",
@@ -604,36 +660,36 @@ export default {
   [work_phone_reason.name]: "",
   [work_reference.name]: "",
   [work_reference_reason.name]: "",
-  [work_banrural.name]: "", 
+  [work_banrural.name]: "",
 
   [work_valNe.name]: "",
   [work_ne_name.name]: "",
-  [work_ne_web.name]: "", 
-  [work_ne_dateInit.name]: "", 
-  [work_ne_salaryPersonal.name]: "", 
-  [work_ne_detail.name]: "", 
+  [work_ne_web.name]: "",
+  [work_ne_dateInit.name]: "",
+  [work_ne_salaryPersonal.name]: "",
+  [work_ne_detail.name]: "",
   [work_ne_detailIncome.name]: "",
-  [work_ne_whatwill.name]: "", 
+  [work_ne_whatwill.name]: "",
 
-  //Economic 
-  economic: [], 
-  [economic_vivienda.name]: "", 
-  [economic_food.name]: "", 
-  [economic_aporte.name]: "", 
-  [economic_water.name]: "", 
-  [economic_phone.name]: "", 
-  [economic_recreation.name]: "", 
-  [economic_vestuario.name]: "", 
-  [economic_gastos.name]: "", 
-  [economic_trans.name]: "", 
-  [economic_medic.name]: "", 
-  [economic_estudy.name]: "", 
-  [economic_ahorro.name]: "", 
-  [economic_payment_deuda.name]: "", 
-  [economic_other.name]: "", 
+  //Economic
+  economic: [],
+  [economic_vivienda.name]: "",
+  [economic_food.name]: "",
+  [economic_aporte.name]: "",
+  [economic_water.name]: "",
+  [economic_phone.name]: "",
+  [economic_recreation.name]: "",
+  [economic_vestuario.name]: "",
+  [economic_gastos.name]: "",
+  [economic_trans.name]: "",
+  [economic_medic.name]: "",
+  [economic_estudy.name]: "",
+  [economic_ahorro.name]: "",
+  [economic_payment_deuda.name]: "",
+  [economic_other.name]: "",
   [economic_total.name]: "",
 
-  social: [], 
+  social: [],
   [social_group.name]: "",
   [social_gtime.name]: "",
   [social_politic.name]: "",
@@ -648,19 +704,19 @@ export default {
   [social_drog.name]: "",
   [social_drog_option.name]: "",
   [social_drog_time.name]: "",
-  [social_drog_person.name]: "", 
+  [social_drog_person.name]: "",
   [social_tatto.name]: "",
 
-  criminal: [], 
-  [criminal_association_option.name]: "", 
+  criminal: [],
+  [criminal_association_option.name]: "",
   [criminal_relacion.name]: "",
-  [criminal_name.name]: "", 
+  [criminal_name.name]: "",
   [criminal_group_belong.name]: "",
   [criminal_police_option.name]: "",
-  [criminal_why_stained.name]: "", 
+  [criminal_why_stained.name]: "",
   [criminal_why_clear.name]: "",
   [criminal_family.name]: "",
-  [criminal_was_sued.name]: "", 
+  [criminal_was_sued.name]: "",
   [criminal_you_demand.name]: "",
 
   //heal
@@ -679,19 +735,19 @@ export default {
   [disease_cancer_observacion.name]: "",
   [disease_cardiopatias_observacion.name]: "",
   [accident_option.name]: "",
-  [accident_detail.name]: "", 
+  [accident_detail.name]: "",
   [accident_suffer.name]: "",
   [covid_option.name]: "",
-  [covid_dosis.name]: "", 
-  [validate_sex.name]: "", 
+  [covid_dosis.name]: "",
+  [validate_sex.name]: "",
   [validate_gestacion.name]: "",
   [validate_children.name]: "",
-  [validate_lactando.name]: "", 
+  [validate_lactando.name]: "",
   [validate_lac_month.name]: "",
-  [validate_lac_age.name]: "", 
-  [validate_dosis.name]: "", 
-  dosis: [], 
-  disease: [], 
+  [validate_lac_age.name]: "",
+  [validate_dosis.name]: "",
+  dosis: [],
+  disease: [],
 
   //objectivs
   [objectivs_corto.name]: "",
@@ -702,10 +758,10 @@ export default {
   [sindicatos_formar.name]: "",
   [sindicatos_why.name]: "",
 
-  [honest_p1.name]: "", 
+  [honest_p1.name]: "",
   [honest_p2.name]: "",
   [honest_p3.name]: "",
   [honest_p4.name]: "",
 
-  [red_faccebook.name]: "", 
+  [red_faccebook.name]: "",
 };
