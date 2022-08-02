@@ -404,7 +404,7 @@ export default function BrothersForm(props) {
                                                                                             </label>
                                                                                             <InputField name={`brothers.${index}.${family_brothers_time_died.name}`} label={family_brothers_time_died.label} fullWidth />
                                                                                         </div>
-                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px", paddingBottom: "10px" }}>
                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                 ¿Razón de fallecimiento?:
                                                                                             </label>

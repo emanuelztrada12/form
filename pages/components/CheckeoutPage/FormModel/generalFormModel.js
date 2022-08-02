@@ -411,7 +411,8 @@ export default {
         },
         family_stepfather_noInfo: {
             name: 'family_stepfather_noInfo',
-            label: 'Ingrese por qué no posee la información'
+            label: 'Ingrese por qué no posee la información',
+            requiredErrorMsg: "La informacion es requerida"
         },
         //stepMother
         family_stepmother_name: {
@@ -907,14 +908,275 @@ export default {
         family_grandfather_life: {
             name: 'family_grandfather_life',
             label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
         },
         family_grandfather_phone_val: {
             name: 'family_grandfather_phone_val',
             label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
         },
         family_grandfather_working_val: {
             name: 'family_grandfather_working_val',
             label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandfather_lifeno_name: {
+            name: "family_grandfather_lifeno_name", 
+            label: "Ingrese el nombre", 
+            requiredErrorMsg: "La información es requerida", 
+        }, 
+        family_grandfather_lifeno_firstname: {
+            name: "family_grandfather_lifeno_firstname", 
+            label: "Ingrese el apellido", 
+            requiredErrorMsg: "La información es requerida", 
+        },
+
+        //grandMother
+        family_grandmother_name: {
+            name: 'family_grandmother_name',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_grandmother_age: {
+            name: 'family_grandmother_age',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_grandmother_status: {
+            name: 'family_grandmother_status',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_grandmother_place: {
+            name: 'family_grandmother_place',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_grandmother_company: {
+            name: 'family_grandmother_company',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_grandmother_financial_income: {
+            name: 'family_grandmother_financial_income',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_grandmother_phone: {
+            name: 'family_grandmother_phone',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_grandmother_no_phone: {
+            name: 'family_grandmother_no_phone',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_grandmother_depend: {
+            name: 'family_grandmother_depend',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_grandmother_time_died: {
+            name: 'family_grandmother_time_died',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_grandmother_reason_died: {
+            name: 'family_grandmother_reason_died',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_grandmother_life: {
+            name: 'family_grandmother_life',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_phone_val: {
+            name: 'family_grandmother_phone_val',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_working_val: {
+            name: 'family_grandmother_working_val',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_lifeno_name: {
+            name: "family_grandmother_lifeno_name", 
+            label: "Ingrese el nombre", 
+            requiredErrorMsg: "La información es requerida", 
+        }, 
+        family_grandmother_lifeno_firstname: {
+            name: "family_grandmother_lifeno_firstname", 
+            label: "Ingrese el apellido", 
+            requiredErrorMsg: "La información es requerida", 
+        },
+
+
+        //parte de madre
+        //grandfather
+        family_grandfather_nametwo: {
+            name: 'family_grandfather_nametwo',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_grandfather_agetwo: {
+            name: 'family_grandfather_agetwo',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_grandfather_statustwo: {
+            name: 'family_grandfather_statustwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_grandfather_placetwo: {
+            name: 'family_grandfather_placetwo',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_grandfather_companytwo: {
+            name: 'family_grandfather_companytwo',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_grandfather_financial_incometwo: {
+            name: 'family_grandfather_financial_incometwo',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_grandfather_phonetwo: {
+            name: 'family_grandfather_phonetwo',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_grandfather_no_phonetwo: {
+            name: 'family_grandfather_no_phonetwo',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_grandfather_dependtwo: {
+            name: 'family_grandfather_dependtwo',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_grandfather_time_diedtwo: {
+            name: 'family_grandfather_time_diedtwo',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_grandfather_reason_diedtwo: {
+            name: 'family_grandfather_reason_diedtwo',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_grandfather_lifetwo: {
+            name: 'family_grandfather_lifetwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandfather_phone_valtwo: {
+            name: 'family_grandfather_phone_valtwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandfather_working_valtwo: {
+            name: 'family_grandfather_working_valtwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandfather_lifeno_nametwo: {
+            name: "family_grandfather_lifeno_nametwo", 
+            label: "Ingrese el nombre", 
+            requiredErrorMsg: "La información es requerida", 
+        }, 
+        family_grandfather_lifeno_firstnametwo: {
+            name: "family_grandfather_lifeno_firstnametwo", 
+            label: "Ingrese el apellido", 
+            requiredErrorMsg: "La información es requerida", 
+        },
+
+        //grandMother
+        family_grandmother_nametwo: {
+            name: 'family_grandmother_nametwo',
+            label: 'Ingrese el nombre*',
+            requiredErrorMsg: 'El nombre es requerido'
+        },
+        family_grandmother_agetwo: {
+            name: 'family_grandmother_agetwo',
+            label: 'Ingrese la edad*',
+            requiredErrorMsg: 'La edad es requerida'
+        },
+        family_grandmother_statustwo: {
+            name: 'family_grandmother_statustwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: 'El estado civil es requerida'
+        },
+        family_grandmother_placetwo: {
+            name: 'family_grandmother_placetwo',
+            label: 'Ingrese el puesto*',
+            requiredErrorMsg: 'El puesto es requerida'
+        },
+        family_grandmother_companytwo: {
+            name: 'family_grandmother_companytwo',
+            label: 'Ingrese la empresa en que labora*',
+            requiredErrorMsg: 'La empresa es requerida'
+        },
+        family_grandmother_financial_incometwo: {
+            name: 'family_grandmother_financial_incometwo',
+            label: 'Ingresos promedio',
+            requiredErrorMsg: 'Los ingresos promedio es requerida'
+        },
+        family_grandmother_phonetwo: {
+            name: 'family_grandmother_phonetwo',
+            label: 'Ingrese el teléfono',
+            requiredErrorMsg: 'El teléfono es requerida'
+        },
+        family_grandmother_no_phonetwo: {
+            name: 'family_grandmother_no_phonetwo',
+            label: 'Ingrese el por qué no tiene teléfono',
+            requiredErrorMsg: 'El motivo es requerida'
+        },
+        family_grandmother_dependtwo: {
+            name: 'family_grandmother_dependtwo',
+            label: 'De quien depende economicamente',
+            requiredErrorMsg: 'De quien depende economicamente es obligatoria'
+        },
+        family_grandmother_time_diedtwo: {
+            name: 'family_grandmother_time_diedtwo',
+            label: 'Ingrese desde hace cuanto tiempo falleció',
+            requiredErrorMsg: 'El tiempo de fallecimiento es obligatoria'
+        },
+        family_grandmother_reason_diedtwo: {
+            name: 'family_grandmother_reason_diedtwo',
+            label: 'Ingrese la razón por la cual falleció',
+            requiredErrorMsg: 'La razón del fallecimiento es obligatoria'
+        },
+        family_grandmother_lifetwo: {
+            name: 'family_grandmother_lifetwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_phone_valtwo: {
+            name: 'family_grandmother_phone_valtwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_working_valtwo: {
+            name: 'family_grandmother_working_valtwo',
+            label: 'Seleccione una de las opciones*',
+            requiredErrorMsg: "La información es requerida"
+        },
+        family_grandmother_lifeno_nametwo: {
+            name: "family_grandmother_lifeno_nametwo", 
+            label: "Ingrese el nombre", 
+            requiredErrorMsg: "La información es requerida", 
+        }, 
+        family_grandmother_lifeno_firstnametwo: {
+            name: "family_grandmother_lifeno_firstnametwo", 
+            label: "Ingrese el apellido", 
+            requiredErrorMsg: "La información es requerida", 
         },
 
         //University
@@ -1685,6 +1947,19 @@ export default {
             name: "red_faccebook",
             label: "Ingrese el link de su Facebook",
             requiredErrorMsg: "La información es requerida"
+        },
+
+        red_faccebook: {
+            name: "red_faccebook",
+            label: "Ingrese el link de su Facebook",
+            requiredErrorMsg: "La información es requerida"
+        },
+        validation_form: {
+            name: "validation_form",
+            label: "Acepto los terminos y condiciones",
+            requiredErrorMsg: "La información es requerida"
         }
+
+
     }
 }
