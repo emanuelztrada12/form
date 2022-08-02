@@ -225,7 +225,7 @@ export default {
     },
     family_dad_information_negative: {
       name: "family_dad_information_negative",
-      label: "Seleccione una de las",
+      label: "Seleccione una de las opciones",
       requiredErrorMsg: "La información es requerida"
     },
     // add names father
@@ -278,7 +278,7 @@ export default {
       requiredErrorMsg: "La informacion es requerida"
     },
     family_dad_financial_incometwo: {
-      name: "family_dad_placetwo",
+      name: "family_dad_financial_incometwo",
       label:"Ingresos promedio del padre",
       requiredErrorMsg: "La informacion es requerida"
     },
@@ -323,6 +323,12 @@ export default {
       label:"Ingrese la razón por la cual falleció su padre",
       requiredErrorMsg: "La informacion es requerida"
     },
+
+    vive_family: {
+      name: "vive_family",
+      label:"Ingrese con quien vive",
+      requiredErrorMsg: "La informacion es requerida"
+    }, 
 
     //mom
     family_mom_name: {
@@ -408,6 +414,91 @@ export default {
       label: "Seleccione una de las opciones*",
       requiredErrorMsg: "La información es requerida"
     },
+
+    //validation two mom
+    family_mom_lifetwo: {
+      name: "family_mom_lifetwo",
+      label:"Seleccione una de las opciones*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_nametwo: {
+      name: "family_mom_nametwo",
+      label:"Ingrese el nombre del padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_agetwo: {
+      name: "family_mom_agetwo",
+      label:"Ingrese la emom del padre*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_statustwo: {
+      name: "family_mom_statustwo",
+      label:"Seleccione una de las opciones*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_working_valtwo: {
+      name: "family_mom_working_valtwo",
+      label:"Seleccione una de las opciones*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_placetwo: {
+      name: "family_mom_placetwo",
+      label:"Ingrese el puesto del padre*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_companytwo: {
+      name: "family_mom_companytwo",
+      label:"Ingrese la empresa en que labora el padre*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_financial_incometwo: {
+      name: "family_mom_placetwo",
+      label:"Ingresos promedio del padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_dependtwo: {
+      name: "family_mom_dependtwo",
+      label:"De quien depende economicamente el padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_phone_valtwo: {
+      name: "family_mom_phone_valtwo",
+      label:"Ingrese el teléfono del padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_phonetwo: {
+      name: "family_mom_phonetwo",
+      label:"Ingrese el teléfono del padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_no_phonetwo: {
+      name: "family_mom_no_phonetwo",
+      label:"Ingrese el por qué no tiene teléfono el padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    // add name died two
+    family_mom_died_first_nametwo: {
+      name: "family_mom_died_first_nametwo",
+      label:"Ingrese el nombre del padre*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_died_last_nametwo: {
+      name: "family_mom_died_last_nametwo",
+      label:"Ingrese el apellido del padre*",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_time_diedtwo: {
+      name: "family_mom_time_diedtwo",
+      label:"Ingrese desde hace cuanto tiempo falleció su padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+    family_mom_reason_diedtwo: {
+      name: "family_mom_reason_diedtwo",
+      label:"Ingrese la razón por la cual falleció su padre",
+      requiredErrorMsg: "La informacion es requerida"
+    },
+
+
     // changes dad
     family_mom_relation: {
       name: "family_mom_relation",

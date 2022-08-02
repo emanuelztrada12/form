@@ -84,27 +84,48 @@ const FORMULARIO = gql`
       family_validate_stepbrother
 
       #dad
+      family_dad_life
       family_dad_name
       family_dad_age
       family_dad_status
+      family_dad_working_val
       family_dad_place
       family_dad_company
       family_dad_financial_income
       family_dad_depend
+      family_dad_phone_val
       family_dad_phone
       family_dad_no_phone
-      family_dad_time_died
-      family_dad_reason_died
-      family_dad_life
-      family_dad_phone_val
-      family_dad_working_val
+      #// add changes 2.0
       family_dad_relation
       family_dad_information
       family_dad_reason
       family_dad_why_negative
       family_dad_information_negative
+      #// add name died
       family_dad_died_first_name
       family_dad_died_last_name
+      family_dad_time_died
+      family_dad_reason_died
+      
+      #/validation two
+      family_dad_lifetwo
+      family_dad_nametwo
+      family_dad_agetwo
+      family_dad_statustwo
+      family_dad_working_valtwo
+      family_dad_placetwo
+      family_dad_companytwo
+      family_dad_financial_incometwo
+      family_dad_dependtwo
+      family_dad_phone_valtwo
+      family_dad_phonetwo
+      family_dad_no_phonetwo
+      #/ add name died two
+      family_dad_died_first_nametwo
+      family_dad_died_last_nametwo
+      family_dad_time_diedtwo
+      family_dad_reason_diedtwo
 
       #mom
       family_mom_name
@@ -126,8 +147,40 @@ const FORMULARIO = gql`
       family_mom_reason
       family_mom_why_negative
       family_mom_information_negative
+      #// add mother name died
       family_mom_died_first_name
       family_mom_died_last_name
+      vive_family
+
+       #//validation two
+       family_mom_lifetwo
+       family_mom_nametwo
+       family_mom_agetwo
+       family_mom_statustwo
+       family_mom_working_valtwo
+       family_mom_placetwo
+       family_mom_companytwo
+       family_mom_financial_incometwo
+       family_mom_dependtwo
+       family_mom_phone_valtwo
+       family_mom_phonetwo
+       family_mom_no_phonetwo
+       #// add name died two
+       family_mom_died_first_nametwo
+       family_mom_died_last_nametwo
+       family_mom_time_diedtwo
+       family_mom_reason_diedtwo
+
+      #aditional information
+      you_parents_together
+      mother_partner_name
+      mother_partner_lastname
+      mother_relationship
+      father_partner_name
+      father_partner_lastname
+      father_relationship
+      has_partner_father
+      has_partner_mother
 
       #stepfather
       family_stepfather_name
@@ -165,16 +218,7 @@ const FORMULARIO = gql`
       family_stepmother_working_val
       family_stepmother_noInfo
 
-      #aditional information
-      you_parents_together
-      mother_partner_name
-      mother_partner_lastname
-      mother_relationship
-      father_partner_name
-      father_partner_lastname
-      father_relationship
-      has_partner_father
-      has_partner_mother
+
 
       #conyugue
       family_validate_conyugue
@@ -635,30 +679,51 @@ export default function CheckoutPage() {
             family_validate_stepbrother: values.family_validate_stepbrother,
             family_validate_conyugue: values.family_validate_conyugue,
 
+            // #dad
+            family_dad_life: values.family_dad_life,
             family_dad_name: values.family_dad_name,
             family_dad_age: values.family_dad_age,
             family_dad_status: values.family_dad_status,
+            family_dad_working_val: values.family_dad_working_val,
             family_dad_place: values.family_dad_place,
             family_dad_company: values.family_dad_company,
             family_dad_financial_income: values.family_dad_financial_income,
             family_dad_depend: values.family_dad_depend,
+            family_dad_phone_val: values.family_dad_phone_val,
             family_dad_phone: values.family_dad_phone,
             family_dad_no_phone: values.family_dad_no_phone,
-            family_dad_time_died: values.family_dad_time_died,
-            family_dad_reason_died: values.family_dad_reason_died,
-            family_dad_life: values.family_dad_life,
-            family_dad_phone_val: values.family_dad_phone_val,
-            family_dad_working_val: values.family_dad_working_val,
-            // add changes 2.0
+            // #// add changes 2.0
             family_dad_relation: values.family_dad_relation,
             family_dad_information: values.family_dad_information,
             family_dad_reason: values.family_dad_reason,
             family_dad_why_negative: values.family_dad_why_negative,
             family_dad_information_negative: values.family_dad_information_negative,
-            // add name died
+            // #// add name died
             family_dad_died_first_name: values.family_dad_died_first_name,
             family_dad_died_last_name: values.family_dad_died_last_name,
+            family_dad_time_died: values.family_dad_time_died,
+            family_dad_reason_died: values.family_dad_reason_died,
       
+            //validation two
+            family_dad_lifetwo: values.family_dad_lifetwo,
+            family_dad_nametwo: values.family_dad_nametwo,
+            family_dad_agetwo: values.family_dad_agetwo,
+            family_dad_statustwo: values.family_dad_statustwo,
+            family_dad_working_valtwo: values.family_dad_working_valtwo,
+            family_dad_placetwo: values.family_dad_placetwo,
+            family_dad_companytwo: values.family_dad_companytwo,
+            family_dad_financial_incometwo: values.family_dad_financial_incometwo,
+            family_dad_dependtwo: values.family_dad_dependtwo,
+            family_dad_phone_valtwo: values.family_dad_phone_valtwo,
+            family_dad_phonetwo: values.family_dad_phonetwo,
+            family_dad_no_phonetwo: values.family_dad_no_phonetwo,
+            // add name died two
+            family_dad_died_first_nametwo: values.family_dad_died_first_nametwo,
+            family_dad_died_last_nametwo: values.family_dad_died_last_nametwo,
+            family_dad_time_diedtwo: values.family_dad_time_diedtwo,
+            family_dad_reason_diedtwo: values.family_dad_reason_diedtwo,
+
+            //#mom
             family_mom_name: values.family_mom_name,
             family_mom_age: values.family_mom_age,
             family_mom_status: values.family_mom_status,
@@ -678,9 +743,29 @@ export default function CheckoutPage() {
             family_mom_reason: values.family_mom_reason,
             family_mom_why_negative: values.family_mom_why_negative,
             family_mom_information_negative: values.family_mom_information_negative,
-            // add mother name died
+            // #// add mother name died
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
+            vive_family: values.vive_family, 
+
+            //  #//validation two
+             family_mom_lifetwo: values.family_mom_lifetwo,
+             family_mom_nametwo: values.family_mom_nametwo,
+             family_mom_agetwo: values.family_mom_agetwo,
+             family_mom_statustwo: values.family_mom_statustwo,
+             family_mom_working_valtwo: values.family_mom_working_valtwo,
+             family_mom_placetwo: values.family_mom_placetwo,
+             family_mom_companytwo: values.family_mom_companytwo,
+             family_mom_financial_incometwo: values.family_mom_financial_incometwo,
+             family_mom_dependtwo: values.family_mom_dependtwo,
+             family_mom_phone_valtwo: values.family_mom_phone_valtwo,
+             family_mom_phonetwo: values.family_mom_phonetwo,
+             family_mom_no_phonetwo: values.family_mom_no_phonetwo,
+            //  #// add name died two
+             family_mom_died_first_nametwo: values.family_mom_died_first_nametwo,
+             family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
+             family_mom_time_diedtwo: values.family_mom_time_diedtwo,
+             family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
       
             // aditional information 
             you_parents_together: values.you_parents_together,
