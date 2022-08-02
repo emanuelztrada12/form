@@ -189,35 +189,43 @@ export default {
     family_dad_life: {
       name: "family_dad_life",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_phone_val: {
       name: "family_dad_phone_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_working_val: {
       name: "family_dad_working_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     // changes dad
     family_dad_relation: {
       name: "family_dad_relation",
       label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_information: {
       name: "family_dad_information",
       label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_reason: {
       name: "family_dad_reason",
       label: "Ingrese el motivo por la cual no tiene informacion",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_why_negative: {
       name: "family_dad_why_negative",
       label: "Ingrese el motivo por el cual no tiene relacion con su padre",
+      requiredErrorMsg: "La información es requerida"
     },
     family_dad_information_negative: {
       name: "family_dad_information_negative",
       label: "Seleccione una de las",
+      requiredErrorMsg: "La información es requerida"
     },
     // add names father
     family_dad_died_first_name: {
@@ -303,73 +311,90 @@ export default {
     family_mom_life: {
       name: "family_mom_life",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_phone_val: {
       name: "family_mom_phone_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_working_val: {
       name: "family_mom_working_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     // changes dad
     family_mom_relation: {
       name: "family_mom_relation",
       label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_information: {
       name: "family_mom_information",
       label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_reason: {
       name: "family_mom_reason",
       label: "Ingrese el motivo por la cual no tiene informacion",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_why_negative: {
-      name: "family_dad_why_negative",
+      name: "family_mom_why_negative",
       label: "Ingrese el motivo por el cual no tiene relacion con su padre",
+      requiredErrorMsg: "La información es requerida"
     },
     family_mom_information_negative: {
-      name: "family_dad_information_negative",
+      name: "family_mom_information_negative",
       label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida"
     },
 
     // add information couples
     you_parents_together: {
         name: "you_parents_together",
         label: "Seleccione una de las opciones",
+        requiredErrorMsg: "La información es requerida"
       },
       has_partner_father: {
         name: "has_partner_father",
         label: "Seleccione una de las opciones",
+        requiredErrorMsg: "La información es requerida"
       },
       has_partner_mother: {
         name: "has_partner_mother",
         label: "Seleccione una de las opciones",
+        requiredErrorMsg: "La información es requerida"
       },
       mother_partner_name: {
         name: "mother_partner_name",
         label: "Ingrese el nombre",
+        requiredErrorMsg: "La información es requerida"
       },
       mother_partner_lastname: {
         name: "mother_partner_lastname",
         label: "Ingrese el apellido",
+        requiredErrorMsg: "La información es requerida"
       },
       mother_relationship: {
         name: "mother_relationship",
         label: "Seleccione una de las opciones",
+        requiredErrorMsg: "La información es requerida"
       },
       father_partner_name: {
         name: "father_partner_name",
         label: "Ingrese el nombre",
+        requiredErrorMsg: "La información es requerida"
       },
       father_partner_lastname: {
         name: "father_partner_lastname",
         label: "Ingrese el apellido",
+        requiredErrorMsg: "La información es requerida"
       },
       father_relationship: {
         name: "father_relationship",
         label: "Seleccione una de las opciones",
+        requiredErrorMsg: "La información es requerida"
       },
 
     //validate the inputs
