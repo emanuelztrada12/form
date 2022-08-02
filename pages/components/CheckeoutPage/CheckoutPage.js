@@ -32,7 +32,8 @@ import ObjectivsForm from "./Forms/ObjectivsForm";
 import SindicatosForm from "./Forms/SindicatosForm";
 import HonestidadForm from "./Forms/HonestidadForm";
 import RedSocialForm from "./Forms/RedSocialForm";
-import CheckoutSuccess from "./CheckoutSuccess"
+import CheckoutSuccess from "./CheckoutSuccess";
+import AutorizationForm from "./Forms/AutorizationForm";
 
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
@@ -239,23 +240,71 @@ const FORMULARIO = gql`
       family_stepbrother_working_val
     }
 
-    #grandfather
-    grandfather {
-      family_grandfather_name
-      family_grandfather_age
-      family_grandfather_status
-      family_grandfather_place
-      family_grandfather_company
-      family_grandfather_financial_income
-      family_grandfather_phone
-      family_grandfather_depend
-      family_grandfather_no_phone
-      family_grandfather_time_died
-      family_grandfather_reason_died
-      family_grandfather_life
-      family_grandfather_phone_val
-      family_grandfather_working_val
-    }
+    family_grandfather_name
+    family_grandfather_age
+    family_grandfather_status
+    family_grandfather_place
+    family_grandfather_company
+    family_grandfather_financial_income
+    family_grandfather_phone
+    family_grandfather_depend
+    family_grandfather_no_phone
+    family_grandfather_time_died
+    family_grandfather_reason_died
+    family_grandfather_life
+    family_grandfather_phone_val
+    family_grandfather_working_val
+    family_grandfather_lifeno_name
+    family_grandfather_lifeno_firstname
+    family_grandmother_name
+    family_grandmother_age
+    family_grandmother_status
+    family_grandmother_place
+    family_grandmother_company
+    family_grandmother_financial_income
+    family_grandmother_phone
+    family_grandmother_depend
+    family_grandmother_no_phone
+    family_grandmother_time_died
+    family_grandmother_reason_died
+    family_grandmother_life
+    family_grandmother_phone_val
+    family_grandmother_working_val
+    family_grandmother_lifeno_name
+    family_grandmother_lifeno_firstname
+
+    family_grandfather_nametwo
+    family_grandfather_agetwo
+    family_grandfather_statustwo
+    family_grandfather_placetwo
+    family_grandfather_companytwo
+    family_grandfather_financial_incometwo
+    family_grandfather_phonetwo
+    family_grandfather_dependtwo
+    family_grandfather_no_phonetwo
+    family_grandfather_time_diedtwo
+    family_grandfather_reason_diedtwo
+    family_grandfather_lifetwo
+    family_grandfather_phone_valtwo
+    family_grandfather_working_valtwo
+    family_grandfather_lifeno_nametwo
+    family_grandfather_lifeno_firstnametwo
+    family_grandmother_nametwo
+    family_grandmother_agetwo
+    family_grandmother_statustwo
+    family_grandmother_placetwo
+    family_grandmother_companytwo
+    family_grandmother_financial_incometwo
+    family_grandmother_phonetwo
+    family_grandmother_dependtwo
+    family_grandmother_no_phonetwo
+    family_grandmother_time_diedtwo
+    family_grandmother_reason_diedtwo
+    family_grandmother_lifetwo
+    family_grandmother_phone_valtwo
+    family_grandmother_working_valtwo
+    family_grandmother_lifeno_nametwo
+    family_grandmother_lifeno_firstnametwo
 
     #estudent
     estudie_university_name
@@ -441,12 +490,13 @@ const FORMULARIO = gql`
     honest_p4
 
     red_faccebook
+    validation_form
   }
 }
 `;
 
 
-const steps = ['Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue',
+const steps = ['Autorización','Info. general', 'Datos padres', 'Datos hijos', 'Datos hermanos', 'Datos hermanastros', 'Datos conygue',
   'Datos abuelos', 'Información educacional', 'Información laboral', 'Información economica', 'Información social', 'Actividades Delictivas', 'Factor Salud', 'Sindicatos',
   'Objetivos', 'Honestidad', 'Redes sociales'
 ];
@@ -454,39 +504,41 @@ const { formId, formField } = generalFormModel;
 
 function _renderStepContent(step, values) {
   switch (step) {
-    case 0:
-      return <General formField={formField} values={values} />;
+    case 0: 
+      return <AutorizationForm formField={formField} values={values} />
     case 1:
-      return <FamilyForm formField={formField} />;
+      return <General formField={formField} values={values} />;
     case 2:
-      return <SonForm formField={formField} values={values} />;
+      return <FamilyForm formField={formField} />;
     case 3:
-      return <BrothersForm formField={formField} values={values} />;
+      return <SonForm formField={formField} values={values} />;
     case 4:
-      return <StepBrothersForm formField={formField} values={values} />;
+      return <BrothersForm formField={formField} values={values} />;
     case 5:
-      return <ConyugueForm formField={formField} />
+      return <StepBrothersForm formField={formField} values={values} />;
     case 6:
-      return <GrandfatherForm formField={formField} values={values} />;
+      return <ConyugueForm formField={formField} />
     case 7:
-      return <EducacionalForm formField={formField} />
+      return <GrandfatherForm formField={formField} values={values} />;
     case 8:
-      return <WorkForm formField={formField} values={values} />
+      return <EducacionalForm formField={formField} />
     case 9:
-      return <EconomicForm formField={formField} values={values} />
+      return <WorkForm formField={formField} values={values} />
     case 10:
-      return <SocialForm formField={formField} values={values} />
+      return <EconomicForm formField={formField} values={values} />
     case 11:
-      return <CriminalForm formField={formField} values={values} />
+      return <SocialForm formField={formField} values={values} />
     case 12:
-      return <HealForm formField={formField} values={values} />
+      return <CriminalForm formField={formField} values={values} />
     case 13:
-      return <SindicatosForm formField={formField} values={values} />
+      return <HealForm formField={formField} values={values} />
     case 14:
-      return <ObjectivsForm formField={formField} values={values} />
+      return <SindicatosForm formField={formField} values={values} />
     case 15:
-      return <HonestidadForm formField={formField} values={values} />
+      return <ObjectivsForm formField={formField} values={values} />
     case 16:
+      return <HonestidadForm formField={formField} values={values} />
+    case 17:
       return <RedSocialForm formField={formField} values={values} />
     default:
       return <div>Not Found</div>;
@@ -647,7 +699,73 @@ export default function CheckoutPage() {
             family_conyuguepat_phone_val: values.family_conyuguepat_phone_val,
             family_conyuguepat_working_val: values.family_conyuguepat_working_val,
 
-            grandfather: values.grandfather,
+            //abuelo papa y mama
+            family_grandfather_name: values.family_grandfather_name,
+            family_grandfather_age: values.family_grandfather_age,
+            family_grandfather_status: values.family_grandfather_status,
+            family_grandfather_place: values.family_grandfather_place,
+            family_grandfather_company: values.family_grandfather_company, 
+            family_grandfather_financial_income: values.family_grandfather_financial_income, 
+            family_grandfather_phone: values.family_grandfather_phone, 
+            family_grandfather_depend: values.family_grandfather_depend,
+            family_grandfather_no_phone: values.family_grandfather_no_phone,
+            family_grandfather_time_died: values.family_grandfather_time_died,
+            family_grandfather_reason_died: values.family_grandfather_reason_died,
+            family_grandfather_life: values.family_grandfather_life,
+            family_grandfather_phone_val: values.family_grandfather_phone_val,
+            family_grandfather_working_val: values.family_grandfather_working_val,
+            family_grandfather_lifeno_name: values.family_grandfather_lifeno_name,
+            family_grandfather_lifeno_firstname: values.family_grandfather_lifeno_firstname,
+            family_grandmother_name: values.family_grandmother_name,
+            family_grandmother_age: values.family_grandmother_age,
+            family_grandmother_status: values.family_grandmother_status,
+            family_grandmother_place: values.family_grandmother_place,
+            family_grandmother_company: values.family_grandmother_company,
+            family_grandmother_financial_income: values.family_grandmother_financial_income,
+            family_grandmother_phone: values.family_grandmother_phone,
+            family_grandmother_depend: values.family_grandmother_depend,
+            family_grandmother_no_phone: values.family_grandmother_no_phone,
+            family_grandmother_time_died: values.family_grandmother_time_died,
+            family_grandmother_reason_died: values.family_grandmother_reason_died,
+            family_grandmother_life: values.family_grandmother_life,
+            family_grandmother_phone_val: values.family_grandmother_phone_val,
+            family_grandmother_working_val: values.family_grandmother_working_val,
+            family_grandmother_lifeno_name: values.family_grandmother_lifeno_name,
+            family_grandmother_lifeno_firstname: values.family_grandmother_lifeno_firstname,
+      
+            //madre
+            family_grandfather_nametwo: values.family_grandfather_nametwo,
+            family_grandfather_agetwo: values.family_grandfather_agetwo,
+            family_grandfather_placetwo: values.family_grandfather_placetwo,
+            family_grandfather_companytwo: values.family_grandfather_companytwo,
+            family_grandfather_financial_incometwo: values.family_grandfather_financial_incometwo,
+            family_grandfather_phonetwo: values.family_grandfather_phonetwo,
+            family_grandfather_dependtwo: values.family_grandfather_dependtwo,
+            family_grandfather_no_phonetwo: values.family_grandfather_no_phonetwo,
+            family_grandfather_time_diedtwo: values.family_grandfather_time_diedtwo,
+            family_grandfather_reason_diedtwo: values.family_grandfather_reason_diedtwo,
+            family_grandfather_lifetwo: values.family_grandfather_lifetwo,
+            family_grandfather_phone_valtwo: values.family_grandfather_phone_valtwo,
+            family_grandfather_working_valtwo: values.family_grandfather_working_valtwo,
+            family_grandfather_lifeno_nametwo: values.family_grandfather_lifeno_nametwo,
+            family_grandfather_lifeno_firstnametwo: values.family_grandfather_lifeno_firstnametwo,
+            family_grandmother_nametwo: values.family_grandmother_nametwo,
+            family_grandmother_agetwo: values.family_grandmother_agetwo,
+            family_grandmother_statustwo: values.family_grandmother_statustwo,
+            family_grandmother_placetwo: values.family_grandmother_placetwo,
+            family_grandmother_companytwo: values.family_grandmother_companytwo,
+            family_grandmother_financial_incometwo: values.family_grandmother_financial_incometwo,
+            family_grandmother_phonetwo: values.family_grandmother_phonetwo,
+            family_grandmother_dependtwo: values.family_grandmother_dependtwo,
+            family_grandmother_no_phonetwo: values.family_grandmother_no_phonetwo,
+            family_grandmother_time_diedtwo: values.family_grandmother_time_diedtwo,
+            family_grandmother_reason_diedtwo: values.family_grandmother_reason_diedtwo,
+            family_grandmother_lifetwo: values.family_grandmother_lifetwo,
+            family_grandmother_phone_valtwo: values.family_grandmother_phone_valtwo,
+            family_grandmother_working_valtwo: values.family_grandmother_working_valtwo,
+            family_grandmother_lifeno_nametwo: values.family_grandmother_lifeno_nametwo,
+            family_grandmother_lifeno_firstnametwo: values.family_grandmother_lifeno_firstnametwo,
+            
             estudie_university_name: values.estudie_university_name,
             estudie_university_uniname: values.estudie_university_uniname,
             estudie_university_semester: values.estudie_university_semester,
@@ -782,6 +900,7 @@ export default function CheckoutPage() {
             honest_p4: values.honest_p4,
 
             red_faccebook: values.red_faccebook,
+            validation_form: values.validation_form
           }
         }
       });
@@ -850,7 +969,7 @@ export default function CheckoutPage() {
 
       <MobileStepper
         variant="progress"
-        steps={18}
+        steps={19}
         position="static"
         activeStep={activeStep}
         xs={12} sm={6} className={classes.stepper} alternativeLabel style={{ display: "flex", justifyContent: "center" }} >

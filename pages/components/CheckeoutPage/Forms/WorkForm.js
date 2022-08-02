@@ -170,7 +170,7 @@ export default function WorkForm(props) {
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                             Salarios:
                                         </label>
-                                        <InputField name={work_ne_salaryPersonal.name} label={work_ne_salaryPersonal.label} fullWidth />
+                                        <InputField  name={work_ne_salaryPersonal.name} label={work_ne_salaryPersonal.label} fullWidth />
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -321,6 +321,7 @@ export default function WorkForm(props) {
                                                                             Salario devengado:
                                                                         </label>
                                                                         <InputField
+                                                                            type="Number"
                                                                             name={`work.${index}.${work_salary.name}`} label={work_salary.label}
                                                                             InputProps={{
                                                                                 startAdornment: (
