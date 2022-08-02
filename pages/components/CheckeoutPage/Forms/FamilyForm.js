@@ -135,13 +135,13 @@ const dad_partners = [
 const relationship = [
   {
     value: "Casado / Unido",
-    label: "Casado / Unido"
+    label: "Casado / Unido",
   },
   {
     value: "Noviazgo",
-    label: "Noviazgo"
-  }
-]
+    label: "Noviazgo",
+  },
+];
 
 export default function FamilyForm(props) {
   const [values, setValue] = useState("");
@@ -210,7 +210,7 @@ export default function FamilyForm(props) {
     let { value } = e.target;
     setPartnerFather(value);
   };
-  
+
   /* ---- END DATA ---- */
 
   const [valuesPhone, setPhone] = useState("");
@@ -229,6 +229,12 @@ export default function FamilyForm(props) {
   const gettingValueMom = (e) => {
     let { value } = e.target;
     setValueMom(value);
+  };
+
+  const [valuesMomTwo, setValueMomTwo] = useState("");
+  const gettingValueMomTwo = (e) => {
+    let { value } = e.target;
+    setValueMomTwo(value);
   };
 
   const [valuesPhoneMom, setPhoneMom] = useState("");
@@ -305,21 +311,19 @@ export default function FamilyForm(props) {
   const {
     formField: {
       family_validate_stepparents,
-
+      //dad
+      family_dad_life,
       family_dad_name,
       family_dad_age,
       family_dad_status,
+      family_dad_working_val,
       family_dad_place,
       family_dad_company,
       family_dad_financial_income,
       family_dad_depend,
+      family_dad_phone_val,
       family_dad_phone,
       family_dad_no_phone,
-      family_dad_time_died,
-      family_dad_reason_died,
-      family_dad_life,
-      family_dad_phone_val,
-      family_dad_working_val,
       // add changes 2.0
       family_dad_relation,
       family_dad_information,
@@ -329,7 +333,29 @@ export default function FamilyForm(props) {
       // add name died
       family_dad_died_first_name,
       family_dad_died_last_name,
+      family_dad_time_died,
+      family_dad_reason_died,
+      
+      //validation two
+      family_dad_lifetwo,
+      family_dad_nametwo,
+      family_dad_agetwo,
+      family_dad_statustwo,
+      family_dad_working_valtwo,
+      family_dad_placetwo,
+      family_dad_companytwo,
+      family_dad_financial_incometwo,
+      family_dad_dependtwo,
+      family_dad_phone_valtwo,
+      family_dad_phonetwo,
+      family_dad_no_phonetwo,
+      // add name died two
+      family_dad_died_first_nametwo,
+      family_dad_died_last_nametwo,
+      family_dad_time_diedtwo,
+      family_dad_reason_diedtwo,
 
+      //mom
       family_mom_name,
       family_mom_age,
       family_mom_status,
@@ -387,9 +413,8 @@ export default function FamilyForm(props) {
       family_stepmother_working_val,
       family_stepmother_noInfo,
 
-      // aditional information 
+      // aditional information
       you_parents_together,
-      has_partner,
       mother_partner_name,
       mother_partner_lastname,
       mother_relationship,
@@ -397,7 +422,7 @@ export default function FamilyForm(props) {
       father_partner_lastname,
       father_relationship,
       has_partner_father,
-      has_partner_mother
+      has_partner_mother,
     },
   } = props;
 
@@ -1284,16 +1309,7 @@ export default function FamilyForm(props) {
               }}
             >
               <Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  style={{
-                    paddingLeft: "10px",
-                    paddingRight: "10px",
-                    paddingTop: "10px",
-                  }}
-                >
+          
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     ¿Posee una relacion con su madre?
                   </label>
@@ -1330,6 +1346,7 @@ export default function FamilyForm(props) {
                           />
                         </Grid>
                       )}
+
                       {reasonMom === "Si" && (
                         <>
                           <label
@@ -1345,7 +1362,7 @@ export default function FamilyForm(props) {
                             fullWidth
                           />
 
-                          {valuesMom === "Si" ? (
+                          {valuesMom === "Si" && (
                             <Grid>
                               <Grid container style={{ paddingTop: "10px" }}>
                                 <Grid
@@ -1446,7 +1463,7 @@ export default function FamilyForm(props) {
                                     fullWidth
                                   />
                                   <Grid>
-                                    {valuesPhoneMom === "Si" ? (
+                                    {valuesPhoneMom === "Si" && (
                                       <Grid style={{ paddingTop: "10px" }}>
                                         <Grid
                                           item
@@ -1472,11 +1489,9 @@ export default function FamilyForm(props) {
                                           />
                                         </Grid>
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
 
-                                    {valuesPhoneMom === "No" ? (
+                                    {valuesPhoneMom === "No" && (
                                       <Grid
                                         item
                                         xs={12}
@@ -1502,8 +1517,6 @@ export default function FamilyForm(props) {
                                           fullWidth
                                         />
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
                                   </Grid>
                                 </Grid>
@@ -1533,7 +1546,7 @@ export default function FamilyForm(props) {
                                     fullWidth
                                   />
                                   <Grid>
-                                    {valuesWorkingMom === "Si" ? (
+                                    {valuesWorkingMom === "Si" && (
                                       <Grid
                                         container
                                         style={{ paddingTop: "10px" }}
@@ -1613,11 +1626,9 @@ export default function FamilyForm(props) {
                                           />
                                         </Grid>
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
 
-                                    {valuesWorkingMom === "No" ? (
+                                    {valuesWorkingMom === "No" && (
                                       <Grid
                                         item
                                         xs={12}
@@ -1642,15 +1653,92 @@ export default function FamilyForm(props) {
                                           fullWidth
                                         />
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
                                   </Grid>
                                 </Grid>
                               </Grid>
                             </Grid>
-                          ) : (
-                            <h1></h1>
+                          )}
+
+                          {valuesMomTwo === "No" && (
+                            <Grid>
+                              <Grid container>
+                                <Grid
+                                  item
+                                  xs={12}
+                                  sm={6}
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Nombre de la madre:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_died_first_name.name}
+                                    label={family_mom_died_first_name.label}
+                                    fullWidth
+                                  />
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    ¿Tiempo fallecido?:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_time_died.name}
+                                    label={family_mom_time_died.label}
+                                    fullWidth
+                                  />
+                                </Grid>
+                                <Grid
+                                  item
+                                  xs={12}
+                                  sm={6}
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Apellido de la madre:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_died_last_name.name}
+                                    label={family_mom_died_last_name.label}
+                                    fullWidth
+                                  />
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    ¿Razón de fallecimiento?:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_reason_died.name}
+                                    label={family_mom_reason_died.label}
+                                    fullWidth
+                                  />
+                                </Grid>
+                              </Grid>
+                            </Grid>
                           )}
                         </>
                       )}
@@ -1688,11 +1776,11 @@ export default function FamilyForm(props) {
                             name={family_mom_life.name}
                             label={family_mom_life.label}
                             data={life}
-                            onChange={gettingValueMom}
+                            onChange={gettingValueMomTwo}
                             fullWidth
                           />
 
-                          {valuesMom === "Si" ? (
+                          {valuesMomTwo === "Si" && (
                             <Grid>
                               <Grid container style={{ paddingTop: "10px" }}>
                                 <Grid
@@ -1793,7 +1881,7 @@ export default function FamilyForm(props) {
                                     fullWidth
                                   />
                                   <Grid>
-                                    {valuesPhoneMom === "Si" ? (
+                                    {valuesPhoneMom === "Si" && (
                                       <Grid style={{ paddingTop: "10px" }}>
                                         <Grid
                                           item
@@ -1819,11 +1907,9 @@ export default function FamilyForm(props) {
                                           />
                                         </Grid>
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
 
-                                    {valuesPhoneMom === "No" ? (
+                                    {valuesPhoneMom === "No" && (
                                       <Grid
                                         item
                                         xs={12}
@@ -1849,8 +1935,6 @@ export default function FamilyForm(props) {
                                           fullWidth
                                         />
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
                                     )}
                                   </Grid>
                                 </Grid>
@@ -1996,82 +2080,93 @@ export default function FamilyForm(props) {
                                 </Grid>
                               </Grid>
                             </Grid>
-                          ) : (
-                            <h1></h1>
+                          )}
+
+                          {valuesMomTwo === "No" && (
+                            <Grid>
+                              <Grid container>
+                                <Grid
+                                  item
+                                  xs={12}
+                                  sm={6}
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Nombre de la madre:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_died_first_name.name}
+                                    label={family_mom_died_first_name.label}
+                                    fullWidth
+                                  />
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    ¿Tiempo fallecido?:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_time_died.name}
+                                    label={family_mom_time_died.label}
+                                    fullWidth
+                                  />
+                                </Grid>
+                                <Grid
+                                  item
+                                  xs={12}
+                                  sm={6}
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Apellido de la madre:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_died_last_name.name}
+                                    label={family_mom_died_last_name.label}
+                                    fullWidth
+                                  />
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    ¿Razón de fallecimiento?:
+                                  </label>
+                                  <InputField
+                                    name={family_mom_reason_died.name}
+                                    label={family_mom_reason_died.label}
+                                    fullWidth
+                                  />
+                                </Grid>
+                              </Grid>
+                            </Grid>
                           )}
                         </>
                       )}
                     </Grid>
                   )}
-                </Grid>
               </Grid>
-
-              {valuesMom === "No" ? (
-                <Grid>
-                  <Grid container>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={6}
-                      style={{
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        paddingTop: "10px",
-                      }}
-                    >
-                      <label
-                        style={{ fontSize: "18px", fontWeight: "bold" }}
-                      >
-                        Nombre de la madre:
-                      </label>
-                      <InputField
-                        name={family_mom_died_first_name.name}
-                        label={family_mom_died_first_name.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Tiempo fallecido?:
-                      </label>
-                      <InputField
-                        name={family_mom_time_died.name}
-                        label={family_mom_time_died.label}
-                        fullWidth
-                      />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={6}
-                      style={{
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        paddingTop: "10px",
-                      }}
-                    >
-                      <label
-                        style={{ fontSize: "18px", fontWeight: "bold" }}
-                      >
-                        Apellido del padre:
-                      </label>
-                      <InputField
-                        name={family_mom_died_last_name.name}
-                        label={family_mom_died_last_name.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Razón de fallecimiento?:
-                      </label>
-                      <InputField
-                        name={family_mom_reason_died.name}
-                        label={family_mom_reason_died.label}
-                        fullWidth
-                      />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              ) : (
-                <h1></h1>
-              )}
             </Grid>
           </Grid>
 
@@ -2092,7 +2187,7 @@ export default function FamilyForm(props) {
             />
           </Divider>
           <Grid>
-          <Grid
+            <Grid
               item
               xs={12}
               sm={6}
@@ -2113,9 +2208,9 @@ export default function FamilyForm(props) {
                 onChange={gettingTogetherParents}
                 fullWidth
               />
-              {togetherParents === 'No' && (
-                <> 
-                  { /* CONDITION FATHER */ }
+              {togetherParents === "No" && (
+                <>
+                  {/* CONDITION FATHER */}
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     ¿Su papa tiene pareja?:
                   </label>
@@ -2127,11 +2222,9 @@ export default function FamilyForm(props) {
                     onChange={gettingPartnerFather}
                     fullWidth
                   />
-                  {partnerFather === 'Si' && (
+                  {partnerFather === "Si" && (
                     <>
-                      <label
-                        style={{ fontSize: "18px", fontWeight: "bold" }}
-                      >
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                         Nombre:
                       </label>
                       <InputField
@@ -2159,8 +2252,8 @@ export default function FamilyForm(props) {
                       />
                     </>
                   )}
-                  
-                  { /* CONDITION MOTHER */ }
+
+                  {/* CONDITION MOTHER */}
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     ¿Su mama tiene pareja?:
                   </label>
@@ -2172,41 +2265,38 @@ export default function FamilyForm(props) {
                     onChange={gettingPartnerMom}
                     fullWidth
                   />
-                  {partnerMom === 'Si' && (
+                  {partnerMom === "Si" && (
                     <>
-                    <label
-                      style={{ fontSize: "18px", fontWeight: "bold" }}
-                    >
-                      Nombre:
-                    </label>
-                    <InputField
-                      name={mother_partner_name.name}
-                      label={mother_partner_name.label}
-                      fullWidth
-                    />
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Apellido:
-                    </label>
-                    <InputField
-                      name={mother_partner_lastname.name}
-                      label={mother_partner_lastname.label}
-                      fullWidth
-                    />
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Relacion:
-                    </label>
-                    <SelectField
-                      id="mother_relationship"
-                      name={mother_relationship.name}
-                      label={mother_relationship.label}
-                      data={relationship}
-                      fullWidth
-                    />
-                  </>
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        Nombre:
+                      </label>
+                      <InputField
+                        name={mother_partner_name.name}
+                        label={mother_partner_name.label}
+                        fullWidth
+                      />
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        Apellido:
+                      </label>
+                      <InputField
+                        name={mother_partner_lastname.name}
+                        label={mother_partner_lastname.label}
+                        fullWidth
+                      />
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        Relacion:
+                      </label>
+                      <SelectField
+                        id="mother_relationship"
+                        name={mother_relationship.name}
+                        label={mother_relationship.label}
+                        data={relationship}
+                        fullWidth
+                      />
+                    </>
                   )}
                 </>
               )}
-              
             </Grid>
           </Grid>
 
