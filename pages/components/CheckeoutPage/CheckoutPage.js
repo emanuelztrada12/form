@@ -452,6 +452,18 @@ const FORMULARIO = gql`
         economic_delinquent_payment
       }
 
+      economicother {
+        economic_dateother
+        economic_planother
+        economic_useother
+        economic_billother
+        amountother
+        economic_balanceother
+        economic_monthly_paymentother
+        economic_delinquent_paymentother
+        econmic_observaciones
+      }
+
       economic_vivienda
       economic_food
       economic_aporte
@@ -1004,6 +1016,7 @@ export default function CheckoutPage() {
 
             //economic
             economic: values.economic,
+            economicother: values.economicother,
             economic_vivienda: values.economic_vivienda,
             economic_food: values.economic_food,
             economic_aporte: values.economic_aporte,
