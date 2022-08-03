@@ -250,6 +250,9 @@ const FORMULARIO = gql`
       family_conyuguepat_no_phone
       family_conyuguepat_phone_val
       family_conyuguepat_working_val
+      # add name and lastname
+      family_conyugue_died_name
+      family_conyugue_died_lastname
 
       #son
       son {
@@ -269,6 +272,9 @@ const FORMULARIO = gql`
         family_son_working_val
         family_son_lookafther
         family_son_validate_age
+        # name and lastname
+        family_son_died_name
+        family_son_died_lastname
       }
 
       #brothers
@@ -287,6 +293,9 @@ const FORMULARIO = gql`
         family_brothers_life
         family_brothers_phone_val
         family_brothers_working_val
+        # name and lastname
+        family_brothers_died_name
+        family_brothers_died_lastname
       }
 
       #stepbrother
@@ -305,6 +314,9 @@ const FORMULARIO = gql`
         family_stepbrother_life
         family_stepbrother_phone_val
         family_stepbrother_working_val
+        # add name and lastname
+        family_stepbrother_died_name
+        family_stepbrother_died_lastname
       }
 
       family_grandfather_name
@@ -835,6 +847,9 @@ export default function CheckoutPage() {
             family_conyugue_life: values.family_conyugue_life,
             family_conyugue_phone_val: values.family_conyugue_phone_val,
             family_conyugue_working_val: values.family_conyugue_working_val,
+            /* add name and lastname */
+            family_conyugue_died_name: values.family_conyugue_died_name,
+            family_conyugue_died_lastname: values.family_conyugue_died_lastname,
 
             family_conyugue_married_val: values.family_conyugue_married_val,
             family_conyugue_married: values.family_conyugue_married,

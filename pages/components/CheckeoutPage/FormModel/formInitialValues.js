@@ -198,6 +198,9 @@ const {
     family_conyuguepat_reason_died,
     family_conyuguepat_life,
     family_conyuguepat_phone_val,
+    /* add name */
+    family_conyugue_died_name,
+    family_conyugue_died_lastname,
 
     //parte del padre (abuelos)
     family_grandfather_name,
@@ -617,6 +620,9 @@ export default {
   [family_conyugue_married_val.name]: "",
   [family_conyugue_married.name]: "",
   [family_conyugue_partner_val.name]: "",
+  /* add name and lastname */
+  [family_conyugue_died_name.name]: "",
+  [family_conyugue_died_lastname.name]: "",
 
   //conyuguepat
   [family_conyuguepat_name.name]: "",

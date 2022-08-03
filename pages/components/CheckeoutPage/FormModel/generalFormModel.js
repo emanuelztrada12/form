@@ -829,6 +829,16 @@ export default {
       label: "De quien depende economicamente",
       requiredErrorMsg: "De quien depende economicamente es obligatoria",
     },
+    family_son_died_name: {
+      name: "family_son_died_name",
+      label: "Ingrese el nombre",
+      requiredErrorMsg: "El nombre de su hijo es obligatorio",
+    },
+    family_son_died_lastname: {
+      name: "family_son_died_lastname",
+      label: "Ingrese el apellido",
+      requiredErrorMsg: "El el apellido es obligatorio",
+    },
     family_son_time_died: {
       name: "family_son_time_died",
       label: "Ingrese desde hace cuanto tiempo falleció",
@@ -913,6 +923,16 @@ export default {
       label: "Ingrese desde hace cuanto tiempo falleció",
       requiredErrorMsg: "El tiempo de fallecimiento es obligatoria",
     },
+    family_brothers_died_name: {
+      name: "family_brothers_died_name",
+      label: "Ingrese el nombre",
+      requiredErrorMsg: "El nombre es obligatorio",
+    },
+    family_brothers_died_lastname: {
+      name: "family_brothers_died_lastname",
+      label: "Ingrese el apellido",
+      requiredErrorMsg: "El apellido es obligatorio",
+    },
     family_brothers_reason_died: {
       name: "family_brothers_reason_died",
       label: "Ingrese la razón por la cual falleció",
@@ -982,6 +1002,16 @@ export default {
       label: "Ingrese desde hace cuanto tiempo falleció",
       requiredErrorMsg: "El tiempo de fallecimiento es obligatoria",
     },
+    family_stepbrother_died_name: {
+      name: "family_stepbrother_died_name",
+      label: "Ingrese el nombre",
+      requiredErrorMsg: "El nombre es obligatorio",
+    },
+    family_stepbrother_died_lastname: {
+      name: "family_stepbrother_died_lastname",
+      label: "Ingrese el apellido",
+      requiredErrorMsg: "El apellido es obligatorio",
+    },
     family_stepbrother_reason_died: {
       name: "family_stepbrother_reason_died",
       label: "Ingrese la razón por la cual falleció",
@@ -1050,6 +1080,16 @@ export default {
       name: "family_conyugue_time_died",
       label: "Ingrese desde hace cuanto tiempo falleció",
       requiredErrorMsg: "El tiempo de fallecimiento es obligatoria",
+    },
+    family_conyugue_died_name: {
+      name: "family_conyugue_died_name",
+      label: "Ingrese el nombre",
+      requiredErrorMsg: "El nombre es obligatorio",
+    },
+    family_conyugue_died_lastname: {
+      name: "family_conyugue_died_lastname",
+      label: "Ingrese el apellido",
+      requiredErrorMsg: "El apellido es obligatorio",
     },
     family_conyugue_reason_died: {
       name: "family_conyugue_reason_died",

@@ -146,6 +146,9 @@ export default function ConyugueForm(props) {
             family_conyuguepat_no_phone,
             family_conyuguepat_phone_val,
             family_conyuguepat_working_val,
+            /* add name and lastname */
+            family_conyugue_died_name,
+            family_conyugue_died_lastname
         },
     } = props;
 
@@ -377,6 +380,21 @@ export default function ConyugueForm(props) {
                                 {validateLife
                                     === "No" && (
                                         <div>
+                                            {/* add name and lastname */}
+                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                Nombre:
+                                            </label>
+                                            <InputField name={family_conyugue_died_name.name} label={family_conyugue_died_name.label} fullWidth />
+                                        </div>
+
+                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                Apellido:
+                                            </label>
+                                            <InputField name={family_conyugue_died_lastname.name} label={family_conyugue_died_lastname.label} fullWidth />
+                                        </div>
+                                        {/* --------------------- */}
                                             <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                     ¿Tiempo fallecido?:
