@@ -117,6 +117,9 @@ export default function StepBrothersForm(props) {
             family_stepbrother_life,
             family_stepbrother_phone_val,
             family_stepbrother_working_val,
+            /* add name and lastname */
+            family_stepbrother_died_name,
+            family_stepbrother_died_lastname
         },
     } = props;
 
@@ -197,6 +200,9 @@ export default function StepBrothersForm(props) {
                                                                 [family_stepbrother_life.name]: "",
                                                                 [family_stepbrother_phone_val.name]: "",
                                                                 [family_stepbrother_working_val.name]: "",
+                                                                /* add name and lastname */
+                                                                [family_stepbrother_died_name.name]: "",
+                                                                [family_stepbrother_died_lastname.name]: "",
                                                             })
                                                         }
                                                     >
@@ -398,6 +404,21 @@ export default function StepBrothersForm(props) {
                                                                                 `stepbrother.${index}.${family_stepbrother_life.name}`
                                                                             ] === "No" && (
                                                                                     <div>
+                                                                                        {/* add name and lastname */}
+                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                Nombre
+                                                                                            </label>
+                                                                                            <InputField name={`stepbrother.${index}.${family_stepbrother_died_name.name}`} label={family_stepbrother_died_name.label} fullWidth />
+                                                                                        </div>
+
+                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                Apellido
+                                                                                            </label>
+                                                                                            <InputField name={`stepbrother.${index}.${family_stepbrother_died_lastname.name}`} label={family_stepbrother_died_lastname.label} fullWidth />
+                                                                                        </div>
+                                                                                        {/* --------------------- */}
                                                                                         <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                 ¿Tiempo fallecido?:

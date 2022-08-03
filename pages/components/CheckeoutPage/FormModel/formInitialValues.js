@@ -36,6 +36,24 @@ const {
     family_dad_died_first_name,
     family_dad_died_last_name,
 
+    family_dad_lifetwo,
+    family_dad_nametwo,
+    family_dad_agetwo,
+    family_dad_statustwo,
+    family_dad_working_valtwo,
+    family_dad_placetwo,
+    family_dad_companytwo,
+    family_dad_financial_incometwo,
+    family_dad_dependtwo,
+    family_dad_phone_valtwo,
+    family_dad_phonetwo,
+    family_dad_no_phonetwo,
+    // add name died two
+    family_dad_died_first_nametwo,
+    family_dad_died_last_nametwo,
+    family_dad_time_diedtwo,
+    family_dad_reason_diedtwo,
+
     // changes
     family_dad_relation,
     // yes
@@ -78,9 +96,26 @@ const {
     family_mom_why_negative,
     family_mom_information_negative,
 
+    family_mom_lifetwo,
+    family_mom_nametwo,
+    family_mom_agetwo,
+    family_mom_statustwo,
+    family_mom_working_valtwo,
+    family_mom_placetwo,
+    family_mom_companytwo,
+    family_mom_financial_incometwo,
+    family_mom_dependtwo,
+    family_mom_phone_valtwo,
+    family_mom_phonetwo,
+    family_mom_no_phonetwo,
+    // add name died two
+    family_mom_died_first_nametwo,
+    family_mom_died_last_nametwo,
+    family_mom_time_diedtwo,
+    family_mom_reason_diedtwo,
+
     /* for two parents */
     you_parents_together,
-    has_partner,
     has_partner_father,
     has_partner_mother,
 
@@ -93,6 +128,8 @@ const {
     father_partner_name,
     father_partner_lastname,
     father_relationship,
+
+    vive_family,
 
     family_stepfather_name,
     family_stepfather_age,
@@ -161,6 +198,9 @@ const {
     family_conyuguepat_reason_died,
     family_conyuguepat_life,
     family_conyuguepat_phone_val,
+    /* add name */
+    family_conyugue_died_name,
+    family_conyugue_died_lastname,
 
     //parte del padre (abuelos)
     family_grandfather_name,
@@ -380,6 +420,7 @@ const {
   },
 } = generalFormModel;
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   //validation form
   [validation_form.name]: false,
@@ -426,8 +467,8 @@ export default {
   [family_dad_no_phone.name]: "a",
   [family_dad_time_died.name]: "a",
   // add name father died
-  [family_dad_died_first_name]: "",
-  [family_dad_died_last_name]: "",
+  [family_dad_died_first_name.name]: "",
+  [family_dad_died_last_name.name]: "",
   /* -- */
   [family_dad_reason_died.name]: "a",
   [family_dad_phone.name]: "a",
@@ -435,11 +476,30 @@ export default {
   [family_dad_phone_val.name]: "",
   [family_dad_working_val.name]: "",
   // changes
-  [family_dad_relation]: "",
-  [family_dad_information]: "",
-  [family_dad_reason]: "",
-  [family_dad_why_negative]: "",
-  [family_dad_information_negative]: "",
+  [family_dad_relation.name]: "",
+  [family_dad_information.name]: "",
+  [family_dad_reason.name]: "",
+  [family_dad_why_negative.name]: "",
+  [family_dad_information_negative.name]: "",
+
+
+  [family_dad_lifetwo.name]: "",
+  [family_dad_nametwo.name]: "",
+  [family_dad_agetwo.name]: "",
+  [family_dad_statustwo.name]: "",
+  [family_dad_working_valtwo.name]: "",
+  [family_dad_placetwo.name]: "",
+  [family_dad_companytwo.name]: "",
+  [family_dad_financial_incometwo.name]: "",
+  [family_dad_dependtwo.name]: "",
+  [family_dad_phone_valtwo.name]: "",
+  [family_dad_phonetwo.name]: "",
+  [family_dad_no_phonetwo.name]: "",
+  // add name died two
+  [family_dad_died_first_nametwo.name]: "",
+  [family_dad_died_last_nametwo.name]: "",
+  [family_dad_time_diedtwo.name]: "",
+  [family_dad_reason_diedtwo.name]: "",
 
   //mom
   [family_mom_name.name]: "a",
@@ -453,19 +513,38 @@ export default {
   [family_mom_no_phone.name]: "a",
   [family_mom_time_died.name]: "a",
   // add name mom died
-  [family_mom_died_first_name]: "",
-  [family_mom_died_last_name]: "",
+  [family_mom_died_first_name.name]: "",
+  [family_mom_died_last_name.name]: "",
   /* -- */
   [family_mom_life.name]: "",
   [family_mom_phone_val.name]: "",
   [family_mom_working_val.name]: "",
   [family_mom_reason_died.name]: "a",
   // changes 2.0
-  [family_mom_relation]: "",
-  [family_mom_information]: "",
-  [family_mom_reason]: "",
-  [family_mom_why_negative]: "",
-  [family_mom_information_negative]: "",
+  [family_mom_relation.name]: "",
+  [family_mom_information.name]: "",
+  [family_mom_reason.name]: "",
+  [family_mom_why_negative.name]: "",
+  [family_mom_information_negative.name]: "",
+
+  [family_mom_lifetwo.name]: "",
+  [family_mom_nametwo.name]: "",
+  [family_mom_agetwo.name]: "",
+  [family_mom_statustwo.name]: "",
+  [family_mom_working_valtwo.name]: "",
+  [family_mom_placetwo.name]: "",
+  [family_mom_companytwo.name]: "",
+  [family_mom_financial_incometwo.name]: "",
+  [family_mom_dependtwo.name]: "",
+  [family_mom_phone_valtwo.name]: "",
+  [family_mom_phonetwo.name]: "",
+  [family_mom_no_phonetwo.name]: "",
+  // add name died two
+  [family_mom_died_first_nametwo.name]: "",
+  [family_mom_died_last_nametwo.name]: "",
+  [family_mom_time_diedtwo.name]: "",
+  [family_mom_reason_diedtwo.name]: "",
+  [vive_family.name]: "",
 
   //stepfather
   [family_stepfather_name.name]: "a",
@@ -512,6 +591,17 @@ export default {
   //grandfather
   grandfather: [],
 
+  /* INFORMATION EXCATLY */
+  [you_parents_together.name]: "",
+  [mother_partner_name.name]: "",
+  [mother_partner_lastname.name]: "",
+  [mother_relationship.name]: "",
+  [father_partner_name.name]: "",
+  [father_partner_lastname.name]: "",
+  [father_relationship.name]: "",
+  [has_partner_father.name]: "",
+  [has_partner_mother.name]: "",
+
   //conyugue
   [family_conyugue_name.name]: "",
   [family_conyugue_age.name]: "",
@@ -530,6 +620,9 @@ export default {
   [family_conyugue_married_val.name]: "",
   [family_conyugue_married.name]: "",
   [family_conyugue_partner_val.name]: "",
+  /* add name and lastname */
+  [family_conyugue_died_name.name]: "",
+  [family_conyugue_died_lastname.name]: "",
 
   //conyuguepat
   [family_conyuguepat_name.name]: "",
@@ -673,6 +766,7 @@ export default {
 
   //Economic
   economic: [],
+  economicother: [], 
   [economic_vivienda.name]: "",
   [economic_food.name]: "",
   [economic_aporte.name]: "",

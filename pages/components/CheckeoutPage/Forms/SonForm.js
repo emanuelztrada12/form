@@ -128,7 +128,11 @@ export default function SonForm(props) {
             family_son_phone_val,
             family_son_working_val,
             family_son_validate_age,
-            family_son_lookafther
+            family_son_lookafther,
+            /* add name and lastnamte */
+            family_son_died_name,
+            family_son_died_lastname
+
         },
     } = props;
 
@@ -209,6 +213,9 @@ export default function SonForm(props) {
                                                                 [family_son_phone_val.name]: "",
                                                                 [family_son_working_val.name]: "",
                                                                 [family_son_validate_age.name]: "",
+                                                                [family_son_died_name.name]: "",
+                                                                [family_son_died_lastname.name]: ""
+
                                                             })
                                                         }
                                                     >
@@ -464,6 +471,21 @@ export default function SonForm(props) {
                                                                                 `son.${index}.${family_son_life.name}`
                                                                             ] === "No" && (
                                                                                     <div>
+                                                                                        {/* add name and lastname */}
+                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                Nombre:
+                                                                                            </label>
+                                                                                            <InputField name={`son.${index}.${family_son_died_name.name}`} label={family_son_died_name.label} fullWidth />
+                                                                                        </div>
+
+                                                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                                                Apellido:
+                                                                                            </label>
+                                                                                            <InputField name={`son.${index}.${family_son_died_lastname.name}`} label={family_son_died_lastname.label} fullWidth />
+                                                                                        </div>
+                                                                                        {/* --------------------- */}
                                                                                         <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                 ¿Tiempo fallecido?:
