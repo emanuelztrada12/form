@@ -760,6 +760,7 @@ export default {
 
   //Economic
   economic: [],
+  economicother: [], 
   [economic_vivienda.name]: "",
   [economic_food.name]: "",
   [economic_aporte.name]: "",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { InputField, SelectField, DatePickerField } from "../../FormFields";
+import { InputField, SelectField, DatePickerField, CheckboxField } from "../../FormFields";
 import { FieldArray } from "formik";
 import lodash from "lodash";
 //Material ui
@@ -165,13 +165,17 @@ export default function EconomicForm(props) {
             try {
                 const num = parseFloat(v);
                 res += num;
-            } catch (error) { }
+            } catch (error) {
+                console.error(error)
+            }
         }
+
         let value;
-        if (lodash.isNaN(res)) value = 0;
+        if (lodash.isNaN(res)) value=0; 
         else value = res.toFixed(2);
         setResult(value);
         props.values[props.formField.economic_payment_deuda.name] = parseFloat(value);
+        
     };
 
     const onChange = (name, e) => {
@@ -271,6 +275,16 @@ export default function EconomicForm(props) {
             economic_balance,
             economic_monthly_payment,
             economic_delinquent_payment,
+
+            economic_dateother,
+            economic_useother,
+            economic_planother,
+            economic_billother,
+            amountother,
+            economic_balanceother,
+            economic_monthly_paymentother,
+            economic_delinquent_paymentother,
+            econmic_observaciones,
 
             economic_vivienda,
             economic_food,
@@ -444,7 +458,7 @@ export default function EconomicForm(props) {
                                                                             fontWeight: "bold",
                                                                         }}
                                                                     >
-                                                                        ¿Debe cancelarlo en un plade de?:
+                                                                        ¿Debe cancelarlo en un plan de?:
                                                                     </label>
                                                                     <InputField
                                                                         name={`economic.${index}.${economic_plan.name}`}
@@ -532,7 +546,7 @@ export default function EconomicForm(props) {
                                                                                         }}
                                                                                         style={{ textAlign: "start", paddingRight: "35px" }}
                                                                                     />
-                                                                                    <InputField type="Number" name={`economic.${index}.${economic_balance.name}`} label={economic_balance.label} onChange={(e) => { onChange(`economic.${index}.${economic_balance.name}`, e) }}
+                                                                                    <InputField type="Number" name={`economic.${index}.${economic_balance.name}`} label={economic_balance.label}
                                                                                         InputProps={{
                                                                                             startAdornment: (
                                                                                                 <InputAdornment position="start">
@@ -555,7 +569,7 @@ export default function EconomicForm(props) {
                                                                                         }}
                                                                                         style={{ textAlign: "start", paddingRight: "45px" }}
                                                                                     />
-                                                                                    <InputField type="Number" name={`economic.${index}.${economic_monthly_payment.name}`} label={economic_monthly_payment.label} onChange={(e) => { onChange(`economic.${index}.${economic_monthly_payment.name}`, e) }}
+                                                                                    <InputField type="Number" name={`economic.${index}.${economic_monthly_payment.name}`} label={economic_monthly_payment.label}
                                                                                         InputProps={{
                                                                                             startAdornment: (
                                                                                                 <InputAdornment position="start">
@@ -591,6 +605,320 @@ export default function EconomicForm(props) {
                                                     <IconButton
                                                         onClick={() =>
                                                             onDelete(arrayHelpers, index, `economic.${index}`)
+                                                        }
+                                                        style={{ paddingTop: "10px" }}
+                                                    >
+                                                        <RemoveCircleIcon
+                                                            sx={{ color: "red", fontSize: 30 }}
+                                                        />
+                                                    </IconButton>
+                                                </Grid>
+                                            ))}
+                                        </>
+                                    )}
+                                />
+                            </Grid>
+                        </div>
+                    </Grid>
+
+                    <Divider style={{paddingTop: "15px"}}/>
+
+                    <Grid>
+                        <div>
+                            <p
+                                style={{
+                                    paddingLeft: "15px",
+                                    paddingTop: "10px",
+                                    fontSize: "20px",
+                                    // fontWeight: "bold",
+                                    textAlign: "center"
+                                }}
+                            >
+                                Deudas que se encuentran a su nombre pero otra persona realiza los pagos 
+                            </p>
+
+                            <Grid
+                                container
+                                style={{
+                                    paddingTop: "18px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <FieldArray
+                                    name="economicother"
+                                    render={(arrayHelpers) => (
+                                        <>
+                                            <IconButton
+                                                onClick={() =>
+                                                    arrayHelpers.push({
+                                                        [economic_dateother.name]: "",
+                                                        [economic_useother.name]: "",
+                                                        [economic_planother.name]: "",
+                                                        [economic_billother.name]: "",
+                                                        [amountother.name]: 0,
+                                                        [economic_balanceother.name]: 0,
+                                                        [economic_monthly_paymentother.name]: 0,
+                                                        [economic_delinquent_paymentother.name]: "",
+                                                        [econmic_observaciones.name]: ""
+                                                    })
+                                                }
+                                            >
+                                                <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                                            </IconButton>
+                                            {(values.economicother || []).map((_, index) => (
+                                                <Grid
+                                                    key={`inputeconomicother_${index}`}
+                                                    item
+                                                    xs={12}
+                                                    sm={6}
+                                                    style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                                >
+                                                    <>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px",
+                                                                paddingTop: "10px",
+                                                            }}
+                                                        >
+                                                            <Divider
+                                                                style={{
+                                                                    paddingTop: "20px",
+                                                                    paddingBottom: "20px",
+                                                                }}
+                                                            >
+                                                                <Chip
+                                                                    style={{
+                                                                        fontSize: "14px",
+                                                                        fontWeight: "bold",
+                                                                        paddingTop: "20px",
+                                                                        paddingBottom: "20px",
+                                                                        paddingLeft: "15px",
+                                                                        paddingRight: "15px",
+                                                                    }}
+                                                                    icon={<CreditCardOffIcon />}
+                                                                    color="primary"
+                                                                    label={`Deuda ${index + 1}`}
+                                                                />
+                                                            </Divider>
+
+                                                            <h1
+                                                                style={{
+                                                                    paddingBottom: "10px",
+                                                                    fontSize: "20px",
+                                                                    display: "flex",
+                                                                    justifyContent: "center",
+                                                                    fontWeight: "bold",
+                                                                }}
+                                                            >
+                                                                Detalle de la deuda :{" "}
+                                                            </h1>
+                                                            <Grid container spacing={3}>
+                                                                <Grid item xs={12} sm={6}>
+                                                                    <label
+                                                                        style={{
+                                                                            fontSize: "18px",
+                                                                            fontWeight: "bold",
+                                                                        }}
+                                                                    >
+                                                                        ¿Fecha de la solicitud?:
+                                                                    </label>
+                                                                    <DatePickerField
+                                                                        name={`economicother.${index}.${economic_dateother.name}`}
+                                                                        label={economic_dateother.label}
+                                                                        fullWidth
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item xs={12} sm={6}>
+                                                                    <label
+                                                                        style={{
+                                                                            fontSize: "18px",
+                                                                            fontWeight: "bold",
+                                                                        }}
+                                                                    >
+                                                                        ¿Para que lo utilizó?:
+                                                                    </label>
+                                                                    <InputField
+                                                                        name={`economicother.${index}.${economic_useother.name}`}
+                                                                        label={economic_useother.label}
+                                                                        fullWidth
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item xs={12} sm={6}>
+                                                                    <label
+                                                                        style={{
+                                                                            fontSize: "18px",
+                                                                            fontWeight: "bold",
+                                                                        }}
+                                                                    >
+                                                                        ¿Debe cancelarlo en un plan de?:
+                                                                    </label>
+                                                                    <InputField
+                                                                        name={`economicother.${index}.${economic_planother.name}`}
+                                                                        label={economic_planother.label}
+                                                                        style={{ paddingBottom: "20px" }}
+                                                                        fullWidth
+                                                                    />
+                                                                </Grid>
+
+                                                                <Grid item xs={12} sm={6}>
+                                                                    <label
+                                                                        style={{
+                                                                            fontSize: "18px",
+                                                                            fontWeight: "bold",
+                                                                        }}
+                                                                    >
+                                                                        Observaciones*:
+                                                                    </label>
+                                                                    <InputField
+                                                                        name={`economicother.${index}.${econmic_observaciones.name}`}
+                                                                        label={econmic_observaciones.label}
+                                                                        style={{ paddingBottom: "20px" }}
+                                                                        fullWidth
+                                                                    />
+                                                                </Grid>
+                                                            </Grid>
+
+                                                            <Divider />
+
+                                                            <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                                                <Paper elevation={3}>
+                                                                    <Grid>
+                                                                        <Grid>
+                                                                            <Typography
+                                                                                sx={{ mt: 4, mb: 2 }}
+                                                                                variant="h6"
+                                                                                component="div"
+                                                                                style={{
+                                                                                    display: "flex",
+                                                                                    justifyContent: "center",
+                                                                                    paddingTop: "20px",
+                                                                                    fontWeight: "bold",
+                                                                                }}
+                                                                            >
+                                                                                Deuda
+                                                                            </Typography>
+                                                                            <Divider />
+                                                                            <List dense={dense}>
+                                                                                <ListItem style={{ paddingBottom: "" }}
+                                                                                >
+                                                                                    <ListItemText
+                                                                                        primary="Estado de la cuenta"
+                                                                                        primaryTypographyProps={{
+                                                                                            fontSize: 18,
+                                                                                            fontWeight: 'medium',
+                                                                                            letterSpacing: 0,
+                                                                                        }}
+                                                                                        style={{ textAlign: "start", paddingRight: "10px" }}
+                                                                                    />
+                                                                                    <SelectField name={`economicother.${index}.${economic_billother.name}`} label={economic_billother.label} InputProps={{
+                                                                                        startAdornment: (
+                                                                                            <InputAdornment position="start">
+                                                                                                Q.
+                                                                                            </InputAdornment>
+                                                                                        ),
+                                                                                    }}
+                                                                                        data={cuenta} fullWidth />
+                                                                                </ListItem>
+                                                                                <Divider />
+                                                                                <ListItem
+                                                                                >
+
+                                                                                    <ListItemText
+                                                                                        primary="Monto total"
+                                                                                        primaryTypographyProps={{
+                                                                                            fontSize: 18,
+                                                                                            fontWeight: 'medium',
+                                                                                            letterSpacing: 0,
+                                                                                        }}
+                                                                                        style={{ textAlign: "start", paddingRight: "65px" }}
+                                                                                    />
+                                                                                    <InputField type="Number" name={`economicother.${index}.${amountother.name}`} label={amountother.label}
+                                                                                        InputProps={{
+                                                                                            startAdornment: (
+                                                                                                <InputAdornment position="start">
+                                                                                                    Q.
+                                                                                                </InputAdornment>
+                                                                                            ),
+                                                                                        }}
+                                                                                        fullWidth />
+                                                                                </ListItem>
+                                                                                <Divider />
+                                                                                <ListItem
+                                                                                >
+
+                                                                                    <ListItemText
+                                                                                        primary="Saldo a la fecha"
+                                                                                        primaryTypographyProps={{
+                                                                                            fontSize: 18,
+                                                                                            fontWeight: 'medium',
+                                                                                            letterSpacing: 0,
+                                                                                        }}
+                                                                                        style={{ textAlign: "start", paddingRight: "35px" }}
+                                                                                    />
+                                                                                    <InputField type="Number" name={`economicother.${index}.${economic_balanceother.name}`} label={economic_balanceother.label}
+                                                                                        InputProps={{
+                                                                                            startAdornment: (
+                                                                                                <InputAdornment position="start">
+                                                                                                    Q.
+                                                                                                </InputAdornment>
+                                                                                            ),
+                                                                                        }}
+                                                                                        fullWidth />
+                                                                                </ListItem>
+                                                                                <Divider />
+                                                                                <ListItem
+                                                                                >
+
+                                                                                    <ListItemText
+                                                                                        primary="Pago mensual"
+                                                                                        primaryTypographyProps={{
+                                                                                            fontSize: 18,
+                                                                                            fontWeight: 'medium',
+                                                                                            letterSpacing: 0,
+                                                                                        }}
+                                                                                        style={{ textAlign: "start", paddingRight: "45px" }}
+                                                                                    />
+                                                                                    <InputField type="Number" name={`economicother.${index}.${economic_monthly_paymentother.name}`} label={economic_monthly_paymentother.label}
+                                                                                        InputProps={{
+                                                                                            startAdornment: (
+                                                                                                <InputAdornment position="start">
+                                                                                                    Q.
+                                                                                                </InputAdornment>
+                                                                                            ),
+                                                                                        }}
+                                                                                        fullWidth />
+                                                                                </ListItem>
+                                                                                <Divider />
+                                                                                <ListItem
+                                                                                >
+
+                                                                                    <ListItemText
+                                                                                        primary="Pagos en mora"
+                                                                                        primaryTypographyProps={{
+                                                                                            fontSize: 18,
+                                                                                            fontWeight: 'medium',
+                                                                                            letterSpacing: 0,
+                                                                                        }}
+                                                                                        style={{ textAlign: "start", paddingRight: "38px" }}
+                                                                                    />
+                                                                                    <SelectField name={`economicother.${index}.${economic_delinquent_paymentother.name}`} label={economic_delinquent_paymentother.label} data={pagos} fullWidth />
+                                                                                </ListItem>
+                                                                                <Divider />
+                                                                            </List>
+                                                                        </Grid>
+                                                                    </Grid>
+                                                                </Paper>
+                                                            </Box>
+                                                        </div>
+                                                    </>
+                                                    <IconButton
+                                                        onClick={() =>
+                                                            onDelete(arrayHelpers, index, `economicother.${index}`)
                                                         }
                                                         style={{ paddingTop: "10px" }}
                                                     >

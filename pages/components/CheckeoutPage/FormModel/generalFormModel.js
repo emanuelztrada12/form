@@ -1744,6 +1744,52 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    economic_dateother: {
+      name: "economic_dateother",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_useother: {
+      name: "economic_useother",
+      label: "Ingrese para que lo utilizó",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_planother: {
+      name: "economic_planother",
+      label: "¿Debe cancelarlo en un plazo de?",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_billother: {
+      name: "economic_billother",
+      label: "Selecciona una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+    amountother: {
+      name: "amountother",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_balanceother: {
+      name: "economic_balanceother",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    economic_monthly_paymentother: {
+      name: "economic_monthly_paymentother",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_delinquent_paymentother: {
+      name: "economic_delinquent_paymentother",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+    econmic_observaciones: {
+      name: "econmic_observaciones", 
+      label: "Ingrese los detalles de esta deuda",
+      requiredErrorMsg: "La información es requerida",
+    },
+    
     economic_vivienda: {
       name: "economic_vivienda",
       label: "",

@@ -497,7 +497,7 @@ const {
 } = generalFormModel;
 
 export default [
-  yup.object().shape({
+  /*yup.object().shape({
     [validation_form.name]: yup
       .bool()
       .isTrue(`${validation_form.requiredErrorMsg}`),
@@ -5583,5 +5583,5 @@ export default [
     [red_faccebook.name]: yup
       .string()
       .required(`${red_faccebook.requiredErrorMsg}`),
-  }),
+  }),*/
 ];
