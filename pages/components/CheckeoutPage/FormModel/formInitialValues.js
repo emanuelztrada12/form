@@ -281,6 +281,11 @@ const {
     estudie_university_no_sede,
     estudie_university_hour,
     estudie_university_sval,
+    /* add studies */
+    study_magister,
+    wich_career,
+    select_schedules,
+    why_not_schedules,
 
     //Diversificado
     estudie_diversificado_sval,
@@ -718,6 +723,11 @@ export default {
   [estudie_university_no_sede.name]: "",
   [estudie_university_hour.name]: "",
   [estudie_university_sval.name]: "",
+  /* add data */
+  [study_magister.name]: "",
+  [wich_career.name]: "",
+  [select_schedules.name]: "",
+  [why_not_schedules.name]: "",
 
   //Diversificado
   [estudie_diversificado_sval.name]: "",

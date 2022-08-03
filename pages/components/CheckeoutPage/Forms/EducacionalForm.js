@@ -20,6 +20,28 @@ const val = [
     },
 ];
 
+const data_magister = [
+    {
+        value: "Si",
+        label: "Si",
+    },
+    {
+        value: "No",
+        label: "No",
+    },
+]
+
+const data_schedules = [
+    {
+        value: "Si",
+        label: "Si",
+    },
+    {
+        value: "No",
+        label: "No",
+    },
+]
+
 const civil = [
     {
         value: "Soltero",
@@ -50,6 +72,17 @@ const civil = [
 
 export default function EducacionalForm(props) {
 
+    const [magister, setMagister] = useState("");
+    const gettinMagister = (e) => {
+        let { value } = e.target;
+        setMagister(value);
+    };
+
+    const [schedules, setSchedules] = useState("");
+    const gettinSchedules = (e) => {
+        let { value } = e.target;
+        setSchedules(value);
+    };
 
     const [valuesUni, setUni] = useState("");
     const gettingUni = (e) => {
@@ -100,6 +133,11 @@ export default function EducacionalForm(props) {
             estudie_university_year_graduation,
             estudie_university_no_sede,
             estudie_university_hour,
+            /* add data information */
+            study_magister,
+            wich_career,
+            select_schedules,
+            why_not_schedules,
 
             //Diversificado
             estudie_diversificado_sval,
@@ -265,6 +303,26 @@ export default function EducacionalForm(props) {
                                                             </label>
                                                             <InputField name={estudie_university_year_graduation.name} label={estudie_university_year_graduation.label} fullWidth />
                                                         </div>
+                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
+                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                ¿Estudia maestria?
+                                                            </label>
+                                                            <SelectField
+                                                                name={study_magister.name}
+                                                                label={study_magister.label}
+                                                                data={data_magister}
+                                                                onChange={gettinMagister}
+                                                                fullWidth
+                                                            />
+                                                            {magister === 'Si' && (
+                                                                <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
+                                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                        ¿Cual?:
+                                                                    </label>
+                                                                    <InputField name={wich_career.name} label={wich_career.label} fullWidth />
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 )}
 
@@ -281,6 +339,26 @@ export default function EducacionalForm(props) {
                                                                 Horarios:
                                                             </label>
                                                             <InputField name={estudie_university_hour.name} label={estudie_university_hour.label} fullWidth />
+                                                        </div>
+                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
+                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                    ¿Esta dispuesto a cambiar de horario?
+                                                                </label>
+                                                                <SelectField
+                                                                    name={select_schedules.name}
+                                                                    label={select_schedules.label}
+                                                                    data={data_schedules}
+                                                                    onChange={gettinSchedules}
+                                                                    fullWidth
+                                                                />
+                                                                {schedules === "No" && (
+                                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
+                                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                                            ¿Porque no?
+                                                                        </label>
+                                                                        <InputField name={why_not_schedules.name} label={why_not_schedules.label} fullWidth />
+                                                                    </div>
+                                                                )}
                                                         </div>
                                                     </div>
                                                 )}

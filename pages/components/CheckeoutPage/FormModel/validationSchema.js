@@ -344,6 +344,12 @@ const {
     estudie_university_hour,
     estudie_university_sval,
 
+    // add data
+    study_magister,
+    wich_career,
+    select_schedules,
+    why_not_schedules,
+
     //Diversificado
     estudie_diversificado_sval,
     estudie_diversificado_name,
@@ -5546,7 +5552,59 @@ export default [
           }),
       }),
 
-    [estudie_university_year_graduation.name]: yup
+    [study_magister.name]: yup
+      .string()
+      .when(["estudie_university_val", "estudie_university_sval"], {
+        is: (estudie_university_val, estudie_university_sval) =>
+          estudie_university_val === "Si" && estudie_university_sval === "Si",
+        then: yup
+          .string()
+          .required(`${study_magister.requiredErrorMsg}`)
+          .when(["estudie_university_val"], {
+            is: (estudie_university_val, estudie_university_sval) =>
+              estudie_university_val === "No" &&
+              estudie_university_sval === "Si",
+            then: yup.string(),
+          }),
+      }),
+
+      [wich_career.name]: yup
+      .string()
+      .when(["study_magister"], {
+        is: (study_magister) =>
+          study_magister === "Si",
+        then: yup
+          .string()
+          .required(`${wich_career.requiredErrorMsg}`)
+      }),
+
+      [select_schedules.name]: yup
+      .string()
+      .when(["estudie_university_val", "estudie_university_sval"], {
+        is: (estudie_university_val, estudie_university_sval) =>
+          estudie_university_val === "No" && estudie_university_sval === "Si",
+        then: yup
+          .string()
+          .required(`${select_schedules.requiredErrorMsg}`)
+          .when(["estudie_university_val"], {
+            is: (estudie_university_val, estudie_university_sval) =>
+              estudie_university_val === "Si" &&
+              estudie_university_sval === "Si",
+            then: yup.string(),
+          }),
+      }),
+
+      [why_not_schedules.name]: yup
+      .string()
+      .when(["select_schedules"], {
+        is: (select_schedules) =>
+          select_schedules === "No",
+        then: yup
+          .string()
+          .required(`${why_not_schedules.requiredErrorMsg}`)
+      }),
+
+      [estudie_university_year_graduation.name]: yup
       .string()
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>

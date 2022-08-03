@@ -1527,6 +1527,26 @@ export default {
       label: "Seleccione una de las opciones*",
       requiredErrorMsg: "La información es requerida",
     },
+    study_magister: {
+      name: "study_magister",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    wich_career: {
+      name: "wich_career",
+      label: "Ingrese la carrera que estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    select_schedules: {
+      name: "select_schedules",
+      label: "Ingrese la carrera que estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    why_not_schedules: {
+      name: "why_not_schedules",
+      label: "Indique porque no esta dispuesto a cambiar*",
+      requiredErrorMsg: "La información es requerida",
+    },
     estudie_university_title: {
       name: "estudie_university_title",
       label: "Ingrese su título*",

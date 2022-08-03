@@ -395,6 +395,11 @@ const FORMULARIO = gql`
       estudie_university_year_graduation
       estudie_university_no_sede
       estudie_university_hour
+      # add
+      study_magister
+      wich_career
+      select_schedules
+      why_not_schedules
 
       #diversificado
       estudie_diversificado_sval
@@ -983,6 +988,11 @@ export default function CheckoutPage() {
               values.estudie_university_year_graduation,
             estudie_university_no_sede: values.estudie_university_no_sede,
             estudie_university_hour: values.estudie_university_hour,
+            /* add */
+            study_magister: values.study_magister,
+            wich_career: values.wich_career,
+            select_schedules: values.select_schedules,
+            why_not_schedules: values.why_not_schedules,
 
             estudie_diversificado_sval: values.estudie_diversificado_sval,
             estudie_diversificado_name: values.estudie_diversificado_name,
