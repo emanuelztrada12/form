@@ -510,7 +510,7 @@ const {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  /*yup.object().shape({
+  yup.object().shape({
     [validation_form.name]: yup
       .bool()
       .isTrue(`${validation_form.requiredErrorMsg}`),
@@ -3285,7 +3285,7 @@ export default [
               then: yup.string(),
             }),
         }),
-        /
+        
         [family_son_reason_died.name]: yup.string().when("family_son_life", {
           is: "No",
           then: yup
@@ -6266,5 +6266,5 @@ export default [
     [red_faccebook.name]: yup
       .string()
       .required(`${red_faccebook.requiredErrorMsg}`),
-  }),*/
+  }),
 ];
