@@ -1829,7 +1829,7 @@ export default {
       label: "Ingrese los detalles de esta deuda",
       requiredErrorMsg: "La información es requerida",
     },
-    
+
     economic_vivienda: {
       name: "economic_vivienda",
       label: "",
@@ -1963,6 +1963,23 @@ export default {
       label: "Ingrese que fue lo último que consumio",
       requiredErrorMsg: "La información es requerida",
     },
+
+    social_fuma_frequency: {
+      name: "social_fuma_frequency", 
+      label: "Seleccione una de las opciones", 
+      requiredErrorMsg: "La información es requerida"
+    }, 
+    social_alco_howmuch: {
+      name: "social_alco_howmuch", 
+      label: "Ingrese cuanto consumio", 
+      requiredErrorMsg: "La información es requerida"
+    }, 
+    social_alco_frequency: {
+      name: "social_alco_frequency", 
+      label: "Seleccione una de las opciones", 
+      requiredErrorMsg: "La información es requerida"
+    },
+
     social_drog: {
       name: "social_drog",
       label: "Seleccione una de las opciones",
@@ -2070,17 +2087,17 @@ export default {
     },
     criminal_family_civil_status: {
       name: "criminal_family_civil_status",
-      label: "Ingrese el estado civil",
+      label: "Seleccione una de las opciones",
       requiredErrorMsg: "La información es requerida",
     },
     criminal_family_profession: {
       name: "criminal_family_profession",
-      label: "Ingrese la profesión",
+      label: "Ingrese el año de detención",
       requiredErrorMsg: "La información es requerida",
     },
     criminal_family_phone: {
       name: "criminal_family_phone",
-      label: "Ingrese el número de télefono",
+      label: "Ingrese cuanto tiempo estuvo detenido",
       requiredErrorMsg: "La información es requerida",
     },
     criminal_family_reason: {
@@ -2099,6 +2116,18 @@ export default {
       label: "Seleccione una de las opciones",
       requiredErrorMsg: "La información es requerida",
     },
+
+    criminal_was_suedwhy: {
+      name: "criminal_was_suedwhy",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+    criminal_you_demandwhy: {
+      name: "criminal_you_demandwhy",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //Heal
     disease_hipertension_option: {
       name: "disease_hipertension_option",
@@ -2318,11 +2347,22 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
-    red_faccebook: {
-      name: "red_faccebook",
+    red_faccebookOther: {
+      name: "red_faccebookOther",
       label: "Ingrese el link de su Facebook",
       requiredErrorMsg: "La información es requerida",
     },
+    red_faccebookval: {
+      name: "red_faccebookval",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+    red_faccebookOtherVal: {
+      name: "red_faccebookOtherVal",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     validation_form: {
       name: "validation_form",
       label: "Acepto los terminos y condiciones",

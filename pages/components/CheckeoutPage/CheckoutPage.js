@@ -497,6 +497,9 @@ const FORMULARIO = gql`
       social_drog_time
       social_drog_person
       social_tatto
+      social_fuma_frequency 
+      social_alco_howmuch 
+      social_alco_frequency
 
       social {
         social_tatto_descri
@@ -581,6 +584,9 @@ const FORMULARIO = gql`
       honest_p4
 
       red_faccebook
+      red_faccebookOther
+      red_faccebookval
+      red_faccebookOtherVal
       validation_form
     }
   }
@@ -1051,6 +1057,9 @@ export default function CheckoutPage() {
             social_drog_person: values.social_drog_person,
             social_tatto: values.social_tatto,
             social: values.social,
+            social_fuma_frequency: values.social_fuma_frequency, 
+            social_alco_howmuch: values.social_alco_howmuch,
+            social_alco_frequency: values.social_alco_frequency,
 
             criminal_association_option: values.criminal_association_option,
             criminal_relacion: values.criminal_relacion,
@@ -1110,6 +1119,9 @@ export default function CheckoutPage() {
             honest_p4: values.honest_p4,
 
             red_faccebook: values.red_faccebook,
+            red_faccebookOther: values.red_faccebookOther, 
+            red_faccebookval: values.red_faccebookval,
+            red_faccebookOtherVal: values.red_faccebookOtherVal,
             validation_form: values.validation_form,
           },
         },

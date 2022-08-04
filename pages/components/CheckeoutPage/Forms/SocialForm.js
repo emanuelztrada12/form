@@ -20,6 +20,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
 const validate = [{ value: 'Si', label: 'Si' }, { value: 'No', label: 'No' }];
+const consumo = [{ value: 'Semanal', label: 'Semanal' }, { value: 'Social', label: 'Social' },  { value: 'Diario', label: 'Diario' }];
 
 export default function SocialForm(props) {
     if (!props.values[props.formField.social_tatto_fot.name])
@@ -172,6 +173,10 @@ export default function SocialForm(props) {
             social_tatto_sign,
             social_tatto_ubi,
             social_tatto_fot,
+
+            social_fuma_frequency, 
+            social_alco_howmuch, 
+            social_alco_frequency,
         },
     } = props;
 
@@ -240,7 +245,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuanto tiempo le dedica en su tiempo libre?:
+                                            ¿A cuál grupo pertenece?:
                                         </label>
                                         <InputField
                                             name={social_gtime.name}
@@ -357,6 +362,23 @@ export default function SocialForm(props) {
                                         />
                                     </Grid>
 
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                    >
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Con qué frecuencia?:
+                                        </label>
+                                        <SelectField
+                                            name={social_fuma_frequency.name}
+                                            label={social_fuma_frequency.label}
+                                            data={consumo}
+                                            fullWidth
+                                        />
+                                    </Grid>
+
                                 </Grid>
                             )}
                         </Grid>
@@ -410,6 +432,39 @@ export default function SocialForm(props) {
                                         <InputField
                                             name={social_alco_bebida.name}
                                             label={social_alco_bebida.label}
+                                            fullWidth
+                                        />
+                                    </Grid>
+
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                    >
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Cuanto consumio?:
+                                        </label>
+                                        <InputField
+                                            name={social_alco_howmuch.name}
+                                            label={social_alco_howmuch.label}
+                                            fullWidth
+                                        />
+                                    </Grid>
+
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                    >
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Con qué frecuencia?:
+                                        </label>
+                                        <SelectField
+                                            name={social_alco_frequency.name}
+                                            label={social_alco_frequency.label}
+                                            data={consumo}
                                             fullWidth
                                         />
                                     </Grid>

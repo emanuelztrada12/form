@@ -91,9 +91,10 @@ export default function SindicatosForm(props) {
                                 ¿Esta a favor de los sindicatos?:
 
                             </label>
-                            <InputField
+                            <SelectField
                                 name={sindicatos_favor.name}
                                 label={sindicatos_favor.label}
+                                data={value}
                                 fullWidth
                             />
                         </Grid>
