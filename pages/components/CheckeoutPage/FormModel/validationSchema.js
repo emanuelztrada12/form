@@ -393,6 +393,13 @@ const {
     work_ne_detail,
     work_ne_detailIncome,
     work_ne_whatwill,
+    /* add data */
+    work_select_entity,
+    work_name_entity,
+    work_lsname_entity,
+    work_bank,
+    work_relation,
+    work_had_page,
 
     //economia
     economic_date,
@@ -486,6 +493,7 @@ const {
     accident_suffer,
     covid_option,
     covid_dosis,
+    gave_covid,
     validate_sex,
     validate_gestacion,
     validate_children,
@@ -509,6 +517,8 @@ const {
     honest_p2,
     honest_p3,
     honest_p4,
+    whyIdentityHidde,
+    documentInOrder,
 
     red_faccebook,
   },
@@ -5807,12 +5817,80 @@ export default [
           then: yup.string(),
         }),
     }),
+    [work_select_entity.name]: yup.string().required(`${work_select_entity.requiredErrorMsg}`),
+    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_name_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+    // work_select_entity
 
+
+
+
+    [work_lsname_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_lsname_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_name_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_bank.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_bank.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_relation.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_relation.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
     [work_ne_web.name]: yup.string().when(["work_valNe"], {
       is: (work_valNe) => work_valNe === "Si",
       then: yup
         .string()
         .required(`${work_ne_web.requiredErrorMsg}`)
+        .when(["work_valNe"], {
+          is: (work_valNe) => work_valNe === "No",
+          then: yup.string(),
+        }),
+    }),
+    [work_had_page.name]: yup.string().when(["work_valNe"], {
+      is: (work_valNe) => work_valNe === "Si",
+      then: yup
+        .string()
+        .required(`${work_had_page.requiredErrorMsg}`)
         .when(["work_valNe"], {
           is: (work_valNe) => work_valNe === "No",
           then: yup.string(),
@@ -6218,15 +6296,18 @@ export default [
       .string()
       .required(`${covid_option.requiredErrorMsg}`),
     [covid_dosis.name]: yup.string().when(["covid_option"], {
-      is: (covid_option) => covid_option === "Si",
+      is: (covid_option) => covid_option === "No",
       then: yup.string().required(`${covid_dosis.requiredErrorMsg}`),
     }),
+    [gave_covid.name]: yup
+      .string()
+      .required(`${gave_covid.requiredErrorMsg}`),
 
     [validate_sex.name]: yup
       .string()
       .required(`${validate_sex.requiredErrorMsg}`),
     [validate_gestacion.name]: yup.string().when(["validate_sex"], {
-      is: (validate_sex) => validate_sex === "M",
+      is: (validate_sex) => validate_sex === "F",
       then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`),
     }),
 
@@ -6234,12 +6315,12 @@ export default [
       .string()
       .when(["validate_gestacion", "validate_sex"], {
         is: (validate_gestacion, validate_sex) =>
-          validate_sex === "Si" && validate_gestacion === "Si",
+          validate_sex === "F" && validate_gestacion === "No",
         then: yup.string().required(`${validate_children.requiredErrorMsg}`),
       }),
 
     [validate_lactando.name]: yup.string().when(["validate_sex"], {
-      is: (validate_sex) => validate_sex === "M",
+      is: (validate_sex) => validate_sex === "F",
       then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`),
     }),
 
@@ -6247,7 +6328,7 @@ export default [
       .string()
       .when(["validate_lactando", "validate_sex"], {
         is: (validate_lactando, validate_sex) =>
-          validate_sex === "M" && validate_lactando === "Si",
+          validate_sex === "F" && validate_lactando === "Si",
         then: yup.string().required(`${validate_lac_month.requiredErrorMsg}`),
       }),
 
@@ -6255,7 +6336,7 @@ export default [
       .string()
       .when(["validate_lactando", "validate_sex"], {
         is: (validate_lactando, validate_sex) =>
-          validate_sex === "M" && validate_lactando === "Si",
+          validate_sex === "F" && validate_lactando === "Si",
         then: yup.string().required(`${validate_lac_age.requiredErrorMsg}`),
       }),
     [validate_dosis.name]: yup
@@ -6318,6 +6399,14 @@ export default [
     [honest_p2.name]: yup.string().required(`${honest_p2.requiredErrorMsg}`),
     [honest_p3.name]: yup.string().required(`${honest_p3.requiredErrorMsg}`),
     [honest_p4.name]: yup.string().required(`${honest_p4.requiredErrorMsg}`),
+    [whyIdentityHidde.name]: yup.string().when(["honest_p1"], {
+      is: (honest_p1) => honest_p1 === "Si",
+      then: yup.string().required(`${whyIdentityHidde.requiredErrorMsg}`),
+    }),
+    [documentInOrder.name]: yup.string().when(["honest_p4"], {
+      is: (honest_p4) => honest_p4 === "No",
+      then: yup.string().required(`${documentInOrder.requiredErrorMsg}`),
+    }),
   }),
 
   yup.object().shape({

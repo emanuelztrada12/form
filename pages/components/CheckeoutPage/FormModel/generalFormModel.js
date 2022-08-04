@@ -1737,6 +1737,11 @@ export default {
       label: "Ingrese la pagina web",
       requiredErrorMsg: "La información es requerida",
     },
+    work_had_page:{
+      name: "work_had_page",
+      label: "Ingrese si tienen pagina web",
+      requiredErrorMsg: "La informacion es requerida"
+    },
     work_ne_dateInit: {
       name: "work_ne_dateInit",
       requiredErrorMsg: "La información es requerida",
@@ -1761,6 +1766,34 @@ export default {
       label: "¿Qué hara con su negocio al obtener el empleo?",
       requiredErrorMsg: "La información es requerida",
     },
+
+    /* add work data */
+    work_select_entity: {
+      name: "work_select_entity",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
+    work_name_entity: {
+      name: "work_name_entity",
+      label: "Ingrese el nombre",
+      requiredErrorMsg: "La información es requerida",
+    },
+    work_lsname_entity: {
+      name: "work_lsname_entity",
+      label: "Ingrese el apellido",
+      requiredErrorMsg: "La información es requerida",
+    },
+    work_bank: {
+      name: "work_bank",
+      label: "Indique en que banco esta",
+      requiredErrorMsg: "La información es requerida",
+    },
+    work_relation: {
+      name: "work_relation",
+      label: "Indique la relacion que posee con el familiar",
+      requiredErrorMsg: "La información es requerida",
+    },
+
 
     //Economic
     economic_date: {
@@ -2223,6 +2256,11 @@ export default {
       label: "Seleccione una de las opciones",
       requiredErrorMsg: "La información es requerida",
     },
+    gave_covid: {
+      name: "gave_covid",
+      label: "Seleccione una de las opciones",
+      requiredErrorMsg: "La información es requerida",
+    },
     covid_dosis: {
       name: "covid_dosis",
       label: "Ingrese cuando fue la última que tuvo COVID-19",
@@ -2316,6 +2354,18 @@ export default {
       label: "Seleccione una de las opciones",
       requiredErrorMsg: "La información es requerida",
     },
+    /* ---------- */
+    whyIdentityHidde: {
+      name: "whyIdentityHidde",
+      label: "Ingrese porque ha ocultado su identidad",
+      requiredErrorMsg: "La información es requerida",
+    },
+    documentInOrder: {
+      name: "documentInOrder",
+      label: "Ingrese porque no esta en ordenes su documentos",
+      requiredErrorMsg: "La información es requerida",
+    },
+    /* -------------- */
     honest_p2: {
       name: "honest_p2",
       label: "Seleccione una de las opciones",

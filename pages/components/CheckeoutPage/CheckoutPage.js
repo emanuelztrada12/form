@@ -584,6 +584,8 @@ const FORMULARIO = gql`
       honest_p2
       honest_p3
       honest_p4
+      whyIdentityHidde
+      documentInOrder
 
       red_faccebook
       validation_form
@@ -1023,6 +1025,12 @@ export default function CheckoutPage() {
             work_ne_detail: values.work_ne_detail,
             work_ne_detailIncome: values.work_ne_detailIncome,
             work_ne_whatwill: values.work_ne_whatwill,
+            /* add data */
+            work_select_entity: values.work_select_entity,
+            work_name_entity: values.work_name_entity,
+            work_lsname_entity: values.work_lsname_entity,
+            work_bank: values.work_bank,
+            work_relation: values.work_relation,
 
             //economic
             economic: values.economic,
@@ -1118,6 +1126,8 @@ export default function CheckoutPage() {
             honest_p2: values.honest_p2,
             honest_p3: values.honest_p3,
             honest_p4: values.honest_p4,
+            whyIdentityHidde: values.whyIdentityHidde,
+            documentInOrder: values.documentInOrder,
 
             red_faccebook: values.red_faccebook,
             validation_form: values.validation_form,

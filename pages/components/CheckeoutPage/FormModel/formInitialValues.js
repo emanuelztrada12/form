@@ -325,13 +325,20 @@ const {
     work_valNe,
     work_ne_name,
     work_ne_web,
+    work_had_page,
     work_ne_dateInit,
     work_ne_salaryPersonal,
     work_ne_detail,
     work_ne_detailIncome,
     work_ne_whatwill,
-
+    /* add data */
+    work_select_entity,
+    work_name_entity,
+    work_lsname_entity,
+    work_bank,
+    work_relation,
     //ecomomic
+
     economic_vivienda,
     economic_food,
     economic_aporte,
@@ -397,6 +404,7 @@ const {
     accident_detail,
     accident_suffer,
     covid_option,
+    gave_covid,
     covid_dosis,
     validate_sex,
     validate_gestacion,
@@ -418,6 +426,8 @@ const {
     honest_p2,
     honest_p3,
     honest_p4,
+    whyIdentityHidde,
+    documentInOrder,
 
     //facebook
     red_faccebook,
@@ -768,11 +778,18 @@ export default {
   [work_valNe.name]: "",
   [work_ne_name.name]: "",
   [work_ne_web.name]: "",
+  [work_had_page.name]: "",
   [work_ne_dateInit.name]: "",
   [work_ne_salaryPersonal.name]: "",
   [work_ne_detail.name]: "",
   [work_ne_detailIncome.name]: "",
   [work_ne_whatwill.name]: "",
+  /* add data work */
+  [work_select_entity.name]: "",
+  [work_name_entity.name]: "",
+  [work_lsname_entity.name]: "",
+  [work_bank.name]: "",
+  [work_relation.name]: "",
 
   //Economic
   economic: [],
@@ -842,6 +859,7 @@ export default {
   [accident_detail.name]: "",
   [accident_suffer.name]: "",
   [covid_option.name]: "",
+  [gave_covid.name]: "",
   [covid_dosis.name]: "",
   [validate_sex.name]: "",
   [validate_gestacion.name]: "",
@@ -866,6 +884,8 @@ export default {
   [honest_p2.name]: "",
   [honest_p3.name]: "",
   [honest_p4.name]: "",
+  [whyIdentityHidde.name]: "",
+  [documentInOrder.name]: "",
 
   [red_faccebook.name]: "",
 };

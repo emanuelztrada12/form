@@ -66,8 +66,8 @@ const vac = [
 
 const sex = [
     {
-        value: "H",
-        label: "H",
+        value: "F",
+        label: "F",
     },
     {
         value: "M",
@@ -87,6 +87,13 @@ export default function HealForm(props) {
         let { value } = e.target;
         setAcovid19(value);
     }
+
+    const [gCovid, setgCovid] = useState(""); 
+    const gettingaveCovid= (e) => {
+        let { value } = e.target;
+        setgCovid(value);
+    }
+
 
     const [sexo, setSexo] = useState(""); 
     const gettingValidateSexo= (e) => {
@@ -147,6 +154,7 @@ export default function HealForm(props) {
 
             covid_option,
             covid_dosis, 
+            gave_covid,
 
             validate_sex, 
             validate_gestacion,
@@ -550,6 +558,16 @@ export default function HealForm(props) {
 
                         <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "35px" }}>
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                ¿Le dio COVID-19?:
+                            </label>
+                            <SelectField
+                                name={gave_covid.name}
+                                label={gave_covid.label}
+                                data={value}
+                                onChange={gettingaveCovid}
+                                fullWidth
+                            />
+                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                 ¿Posee síntomas de COVID-19?:
                             </label>
                             <SelectField
@@ -587,7 +605,7 @@ export default function HealForm(props) {
                                 fullWidth
                             />
 
-                            {sexo === "M" && (
+                            {sexo === "F" && (
                                 <Grid container>
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
