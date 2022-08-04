@@ -450,6 +450,10 @@ const {
     social_tatto_ubi,
     social_tatto_fot,
 
+    social_fuma_frequency, 
+    social_alco_howmuch, 
+    social_alco_frequency,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -469,6 +473,8 @@ const {
     criminal_family_profession,
     criminal_family_phone,
     criminal_family_reason,
+    criminal_was_suedwhy,
+    criminal_you_demandwhy,
 
     //heal
     disease_hipertension_option,
@@ -521,12 +527,15 @@ const {
     documentInOrder,
 
     red_faccebook,
+    red_faccebookOther,
+    red_faccebookval,
+    red_faccebookOtherVal,
   },
 } = generalFormModel;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  yup.object().shape({
+  /*yup.object().shape({
     [validation_form.name]: yup
       .bool()
       .isTrue(`${validation_form.requiredErrorMsg}`),
@@ -6127,6 +6136,12 @@ export default [
       then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
     }),
 
+    [social_fuma_frequency.name]: yup
+    .string().when(["social_fuma"], {
+      is: (social_fuma) => social_fuma === "Si",
+      then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
+    }), 
+
     [social_alco.name]: yup
       .string()
       .required(`${social_alco.requiredErrorMsg}`),
@@ -6138,6 +6153,16 @@ export default [
       is: (social_alco) => social_alco === "Si",
       then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
     }),
+
+    [social_alco_howmuch.name]: yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
+    }),
+    [social_alco_frequency.name] : yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
+    }),
+
 
     [social_drog.name]: yup
       .string()
@@ -6221,6 +6246,16 @@ export default [
     [criminal_family.name]: yup
       .string()
       .required(`${criminal_family.requiredErrorMsg}`),
+    
+    [criminal_was_suedwhy.name]: yup.string().when(["criminal_you_demand"], {
+      is: (criminal_you_demand) => criminal_you_demand === "Si", 
+      then: yup.string().required(`${criminal_was_suedwhy.requiredErrorMsg}`)
+    }),
+    
+    [criminal_you_demandwhy.name]: yup.string().when(["criminal_was_sued"], {
+      is: (criminal_was_sued) => criminal_was_sued === "Si", 
+      then: yup.string().required(`${criminal_you_demandwhy.requiredErrorMsg}`)
+    }),
 
     criminal: yup.array({}).of(
       yup.object().shape({
@@ -6410,8 +6445,22 @@ export default [
   }),
 
   yup.object().shape({
+
+   
+
+    [red_faccebookval.name]: yup.string().required(`${red_faccebookval.requiredErrorMsg}`),
+    [red_faccebookOtherVal.name]: yup.string().required(`${red_faccebookOtherVal.requiredErrorMsg}`),
+
+     [red_faccebookOther.name]: yup.string().when(["red_faccebookOtherVal"], {
+        is: (red_faccebookOtherVal) => red_faccebookOtherVal === "Si", 
+        then: yup.string().required(`${red_faccebookOther.requiredErrorMsg}`)
+      }),
+
     [red_faccebook.name]: yup
-      .string()
-      .required(`${red_faccebook.requiredErrorMsg}`),
-  }),
+      .string().when(["red_faccebookval"], {
+        is: (red_faccebookval) => red_faccebookval === "Si", 
+        then: yup.string().required(`${red_faccebook.requiredErrorMsg}`)
+      }),
+      
+  }),*/
 ];

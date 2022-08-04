@@ -372,6 +372,9 @@ const {
     social_drog_time,
     social_drog_person,
     social_tatto,
+    social_fuma_frequency, 
+    social_alco_howmuch, 
+    social_alco_frequency,
 
     //delictiva
     criminal_association_option,
@@ -384,6 +387,8 @@ const {
     criminal_family,
     criminal_was_sued,
     criminal_you_demand,
+    criminal_was_suedwhy,
+    criminal_you_demandwhy,
 
     //HEAL
     disease_hipertension_option,
@@ -431,6 +436,9 @@ const {
 
     //facebook
     red_faccebook,
+    red_faccebookOther,
+    red_faccebookval,
+    red_faccebookOtherVal,
     validation_form,
   },
 } = generalFormModel;
@@ -827,6 +835,9 @@ export default {
   [social_drog_time.name]: "",
   [social_drog_person.name]: "",
   [social_tatto.name]: "",
+  [social_fuma_frequency.name]: "", 
+  [social_alco_howmuch.name]: "", 
+  [social_alco_frequency.name]: "",
 
   criminal: [],
   [criminal_association_option.name]: "",
@@ -839,6 +850,8 @@ export default {
   [criminal_family.name]: "",
   [criminal_was_sued.name]: "",
   [criminal_you_demand.name]: "",
+  [criminal_was_suedwhy.name]: "",
+  [criminal_you_demandwhy.name]: "",
 
   //heal
   [disease_hipertension_option.name]: "",
@@ -888,4 +901,7 @@ export default {
   [documentInOrder.name]: "",
 
   [red_faccebook.name]: "",
+  [red_faccebookOther.name]: "",
+  [red_faccebookval.name]: "",
+  [red_faccebookOtherVal.name]: "",
 };
