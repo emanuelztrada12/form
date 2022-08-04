@@ -26,34 +26,36 @@ const value = [
 
 const civil = [
   {
-    value: "Soltero",
-    label: "Soltero",
+    value: "Ti@",
+    label: "Ti@",
   },
   {
-    value: "Casado",
-    label: "Casado",
+    value: "Prim@",
+    label: "Prim@",
   },
   {
-    value: "Divorciado",
-    label: "Divorciado",
+    value: "Herman@",
+    label: "Herman@",
   },
   {
-    value: "Viudo",
-    label: "Viudo",
+    value: "Papa",
+    label: "Papa",
   },
   {
-    value: "Unido",
-    label: "Unido",
+    value: "Mama",
+    label: "Mama",
   },
   {
-    value: "Otra",
-    label: "Otra",
+    value: "Sobrin@",
+    label: "Sobrin@",
   },
 ];
 
 export default function CriminalForm(props) {
   const [associaton, setAssociaton] = useState("");
   const [policiales, setPoliciales] = useState("");
+  const [c, setC] = useState("");
+  const [d, setD] = useState("");
   const [family, setFamily] = useState("");
   const [dense, setDense] = React.useState(false);
 
@@ -65,6 +67,16 @@ export default function CriminalForm(props) {
   const handleChangePolice = (e) => {
     let { value } = e.target;
     setPoliciales(value);
+  }
+
+  const handleChangeC = (e) => {
+    let { value } = e.target;
+    setC(value);
+  }
+
+  const handleChangeD = (e) => {
+    let { value } = e.target;
+    setD(value);
   }
 
   const handleChangeFamily = (e) => {
@@ -100,7 +112,9 @@ export default function CriminalForm(props) {
       criminal_family_reason,
 
       criminal_was_sued,
-      criminal_you_demand
+      criminal_you_demand,
+      criminal_was_suedwhy,
+      criminal_you_demandwhy,
     },
   } = props;
 
@@ -209,7 +223,7 @@ export default function CriminalForm(props) {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee antecendetes policiales o penales?:
+                ¿Posee antecendetes policiales o penales manchados?:
               </label>
               <SelectField
                 name={criminal_police_option.name}
@@ -257,11 +271,30 @@ export default function CriminalForm(props) {
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 ¿Posee demandas en su contra?:
               </label>
-              <InputField
+              <SelectField
                 name={criminal_was_sued.name}
                 label={criminal_was_sued.label}
+                onChange={handleChangeC}
+                data={value}
                 fullWidth
               />
+
+              {c === "Si" && (
+                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Por qué?:
+                    </label>
+                    <InputField
+                      name={criminal_was_suedwhy.name}
+                      label={criminal_was_suedwhy.label}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              )}
             </Grid>
             <Grid
               item
@@ -272,11 +305,30 @@ export default function CriminalForm(props) {
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 ¿Ha demandado a una empresa o persona?:
               </label>
-              <InputField
+              <SelectField
                 name={criminal_you_demand.name}
                 label={criminal_you_demand.label}
+                onChange={handleChangeD}
+                data={value}
                 fullWidth
               />
+
+              {d === "Si" && (
+                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
+                  <Grid item
+                    xs={12}
+                    sm={6}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Por qué?:
+                    </label>
+                    <InputField
+                      name={criminal_you_demandwhy.name}
+                      label={criminal_you_demandwhy.label}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              )}
             </Grid>
           </Grid>
 
@@ -437,31 +489,13 @@ export default function CriminalForm(props) {
                                             >
 
                                               <ListItemText
-                                                primary="Edad"
+                                                primary="Relación familiar"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
                                                   fontWeight: 'medium',
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "80px" }}
-                                              />
-                                              <InputField
-                                                name={`criminal.${index}.${criminal_family_age.name}`}
-                                                label={criminal_family_age.label}
-                                                fullWidth />
-                                            </ListItem>
-                                            <Divider />
-                                            <ListItem
-                                            >
-
-                                              <ListItemText
-                                                primary="Estado civil"
-                                                primaryTypographyProps={{
-                                                  fontSize: 18,
-                                                  fontWeight: 'medium',
-                                                  letterSpacing: 0,
-                                                }}
-                                                style={{ textAlign: "start", paddingRight: "39px" }}
+                                                style={{ textAlign: "start", paddingRight: "0px" }}
 
                                               />
                                               <SelectField
@@ -476,13 +510,13 @@ export default function CriminalForm(props) {
                                             >
 
                                               <ListItemText
-                                                primary="Profesión"
+                                                primary="Año de detención"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
                                                   fontWeight: 'medium',
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "50px" }}
+                                                style={{ textAlign: "start", paddingRight: "0px" }}
 
                                               />
                                               <InputField
@@ -496,13 +530,13 @@ export default function CriminalForm(props) {
                                             >
 
                                               <ListItemText
-                                                primary="Télefono"
+                                                primary="Tiempo detenido"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
                                                   fontWeight: 'medium',
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "55px" }}
+                                                style={{ textAlign: "start", paddingRight: "0px" }}
 
                                               />
                                               <InputField
@@ -516,13 +550,13 @@ export default function CriminalForm(props) {
                                             >
 
                                               <ListItemText
-                                                primary="Razón de detensión"
+                                                primary="Observaciones"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
                                                   fontWeight: 'medium',
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "0px" }}
+                                                style={{ textAlign: "start", paddingRight: "25px" }}
 
                                               />
                                               <InputField

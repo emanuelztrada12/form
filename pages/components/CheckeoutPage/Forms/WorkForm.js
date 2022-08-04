@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -30,6 +31,50 @@ const validate = [
     },
 ];
 
+const banking = [
+    {
+        value: "Si",
+        label: "Si",
+    },
+    {
+        value: "No",
+        label: "No",
+    },
+];
+
+const had_page_data = [
+    {
+        value: "Si",
+        label: "Si",
+    },
+    {
+        value: "No",
+        label: "No",
+    },
+];
+
+const value_relation = [
+    {
+        value: "Ti@",
+        label: "Ti@",
+    },
+    {
+        value: "Herman@",
+        label: "Herman@",
+    },
+    {
+        value: "Padre",
+        label: "Padre",
+    },
+    {
+        value: "Madre",
+        label: "Madre",
+    },
+    {
+        value: "Sobrin@",
+        label: "Sobrin@",
+    },
+];
 export default function WorkForm(props) {
     let [valuess, setValue] = useState({});
     const gettingValue = (name, e) => {
@@ -41,7 +86,23 @@ export default function WorkForm(props) {
         setValue(nvalues);
     };
 
+    const [entity, setEntity] = useState("");
+    const gettinEntity = (e) => {
+        let { value } = e.target;
+        setEntity(value);
+    };
 
+    const [relationFamily, setRelationFamily] = useState("");
+    const gettinRelation = (e) => {
+        let { value } = e.target;
+        setRelationFamily(value);
+    };
+
+    const [had_page, setHadPage] = useState("");
+    const gettinHadPage = (e) => {
+        let { value } = e.target;
+        setHadPage(value);
+    };
     const [valueValidate, setValueValidate] = useState({});
     const gettingValidate = (name, e) => {
         const nvalues = {
@@ -88,7 +149,14 @@ export default function WorkForm(props) {
             work_ne_salaryPersonal,
             work_ne_detail,
             work_ne_detailIncome,
-            work_ne_whatwill
+            work_ne_whatwill,
+            /* add new data */
+            work_select_entity,
+            work_name_entity,
+            work_lsname_entity,
+            work_bank,
+            work_relation,
+            work_had_page
         },
     } = props;
 
@@ -151,12 +219,26 @@ export default function WorkForm(props) {
                                         </label>
                                         <InputField name={work_ne_name.name} label={work_ne_name.label} fullWidth />
                                     </Grid>
-
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Página del negocio:
+                                        ¿Tiene pagina web?:
                                         </label>
-                                        <InputField name={work_ne_web.name} label={work_ne_web.label} fullWidth />
+                                        <SelectField
+                                            // key={`inputwork_${index}`}
+                                            name={work_had_page.name}
+                                            label={work_had_page.label}
+                                            data={had_page_data}
+                                            onChange={(e) => { gettinHadPage(e) }}
+                                            fullWidth
+                                        />
+                                        {had_page === "Si" && (
+                                            <Grid>
+                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    Página del negocio:
+                                                </label>
+                                                <InputField name={work_ne_web.name} label={work_ne_web.label} fullWidth />
+                                            </Grid>
+                                        )}
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -198,6 +280,68 @@ export default function WorkForm(props) {
                         </Grid>
 
 
+                    </Grid>
+
+                </Grid>
+
+                {/* 
+                    aditional data 
+                */}
+                <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                    <Grid container spacing={5}>
+                        <Grid item xs={12} sm={6}>
+                            <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                                ¿Posee un familiar en una entidad bancaria?:
+                            </label>
+                            <SelectField
+                                // key={`inputwork_${index}`}
+                                name={work_select_entity.name}
+                                label={work_select_entity.label}
+                                data={banking}
+                                onChange={(e) => { gettinEntity(e) }}
+                                fullWidth
+                            />
+                            {entity === "Si" && (
+                                <Grid container>
+                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            Nombre del familiar:
+                                        </label>
+                                        <InputField name={work_name_entity.name} label={work_name_entity.label} fullWidth />
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            Apellido del familiar:
+                                        </label>
+                                        <InputField name={work_lsname_entity.name} label={work_lsname_entity.label} fullWidth />
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            Banco:
+                                        </label>
+                                        <InputField name={work_bank.name} label={work_bank.label} fullWidth />
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            Relacion:
+                                        </label>
+                                        <SelectField
+                                            // key={`inputwork_${index}`}
+                                            name={work_relation.name}
+                                            label={work_relation.label}
+                                            data={value_relation}
+                                            onChange={(e) => { gettinRelation(e) }}
+                                            fullWidth
+                                        />
+                                    </Grid>
+                                </Grid>
+                            )}
+                        </Grid>
                     </Grid>
 
                 </Grid>

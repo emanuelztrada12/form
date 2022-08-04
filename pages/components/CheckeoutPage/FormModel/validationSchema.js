@@ -344,6 +344,12 @@ const {
     estudie_university_hour,
     estudie_university_sval,
 
+    // add data
+    study_magister,
+    wich_career,
+    select_schedules,
+    why_not_schedules,
+
     //Diversificado
     estudie_diversificado_sval,
     estudie_diversificado_name,
@@ -387,6 +393,13 @@ const {
     work_ne_detail,
     work_ne_detailIncome,
     work_ne_whatwill,
+    /* add data */
+    work_select_entity,
+    work_name_entity,
+    work_lsname_entity,
+    work_bank,
+    work_relation,
+    work_had_page,
 
     //economia
     economic_date,
@@ -437,6 +450,10 @@ const {
     social_tatto_ubi,
     social_tatto_fot,
 
+    social_fuma_frequency, 
+    social_alco_howmuch, 
+    social_alco_frequency,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -456,6 +473,8 @@ const {
     criminal_family_profession,
     criminal_family_phone,
     criminal_family_reason,
+    criminal_was_suedwhy,
+    criminal_you_demandwhy,
 
     //heal
     disease_hipertension_option,
@@ -480,6 +499,7 @@ const {
     accident_suffer,
     covid_option,
     covid_dosis,
+    gave_covid,
     validate_sex,
     validate_gestacion,
     validate_children,
@@ -503,8 +523,13 @@ const {
     honest_p2,
     honest_p3,
     honest_p4,
+    whyIdentityHidde,
+    documentInOrder,
 
     red_faccebook,
+    red_faccebookOther,
+    red_faccebookval,
+    red_faccebookOtherVal,
   },
 } = generalFormModel;
 
@@ -5546,7 +5571,59 @@ export default [
           }),
       }),
 
-    [estudie_university_year_graduation.name]: yup
+    [study_magister.name]: yup
+      .string()
+      .when(["estudie_university_val", "estudie_university_sval"], {
+        is: (estudie_university_val, estudie_university_sval) =>
+          estudie_university_val === "Si" && estudie_university_sval === "Si",
+        then: yup
+          .string()
+          .required(`${study_magister.requiredErrorMsg}`)
+          .when(["estudie_university_val"], {
+            is: (estudie_university_val, estudie_university_sval) =>
+              estudie_university_val === "No" &&
+              estudie_university_sval === "Si",
+            then: yup.string(),
+          }),
+      }),
+
+      [wich_career.name]: yup
+      .string()
+      .when(["study_magister"], {
+        is: (study_magister) =>
+          study_magister === "Si",
+        then: yup
+          .string()
+          .required(`${wich_career.requiredErrorMsg}`)
+      }),
+
+      [select_schedules.name]: yup
+      .string()
+      .when(["estudie_university_val", "estudie_university_sval"], {
+        is: (estudie_university_val, estudie_university_sval) =>
+          estudie_university_val === "No" && estudie_university_sval === "Si",
+        then: yup
+          .string()
+          .required(`${select_schedules.requiredErrorMsg}`)
+          .when(["estudie_university_val"], {
+            is: (estudie_university_val, estudie_university_sval) =>
+              estudie_university_val === "Si" &&
+              estudie_university_sval === "Si",
+            then: yup.string(),
+          }),
+      }),
+
+      [why_not_schedules.name]: yup
+      .string()
+      .when(["select_schedules"], {
+        is: (select_schedules) =>
+          select_schedules === "No",
+        then: yup
+          .string()
+          .required(`${why_not_schedules.requiredErrorMsg}`)
+      }),
+
+      [estudie_university_year_graduation.name]: yup
       .string()
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>
@@ -5749,12 +5826,80 @@ export default [
           then: yup.string(),
         }),
     }),
+    [work_select_entity.name]: yup.string().required(`${work_select_entity.requiredErrorMsg}`),
+    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_name_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+    // work_select_entity
 
+
+
+
+    [work_lsname_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_lsname_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_name_entity.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_bank.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_bank.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [work_relation.name]: yup.string().when(["work_select_entity"], {
+      is: (work_select_entity) => work_select_entity === "Si",
+      then: yup
+        .string()
+        .required(`${work_relation.requiredErrorMsg}`)
+        .when(["work_select_entity"], {
+          is: (work_select_entity) => work_select_entity === "No",
+          then: yup.string(),
+        }),
+    }),
     [work_ne_web.name]: yup.string().when(["work_valNe"], {
       is: (work_valNe) => work_valNe === "Si",
       then: yup
         .string()
         .required(`${work_ne_web.requiredErrorMsg}`)
+        .when(["work_valNe"], {
+          is: (work_valNe) => work_valNe === "No",
+          then: yup.string(),
+        }),
+    }),
+    [work_had_page.name]: yup.string().when(["work_valNe"], {
+      is: (work_valNe) => work_valNe === "Si",
+      then: yup
+        .string()
+        .required(`${work_had_page.requiredErrorMsg}`)
         .when(["work_valNe"], {
           is: (work_valNe) => work_valNe === "No",
           then: yup.string(),
@@ -5991,6 +6136,12 @@ export default [
       then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
     }),
 
+    [social_fuma_frequency.name]: yup
+    .string().when(["social_fuma"], {
+      is: (social_fuma) => social_fuma === "Si",
+      then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
+    }), 
+
     [social_alco.name]: yup
       .string()
       .required(`${social_alco.requiredErrorMsg}`),
@@ -6002,6 +6153,16 @@ export default [
       is: (social_alco) => social_alco === "Si",
       then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
     }),
+
+    [social_alco_howmuch.name]: yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
+    }),
+    [social_alco_frequency.name] : yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
+    }),
+
 
     [social_drog.name]: yup
       .string()
@@ -6085,6 +6246,16 @@ export default [
     [criminal_family.name]: yup
       .string()
       .required(`${criminal_family.requiredErrorMsg}`),
+    
+    [criminal_was_suedwhy.name]: yup.string().when(["criminal_you_demand"], {
+      is: (criminal_you_demand) => criminal_you_demand === "Si", 
+      then: yup.string().required(`${criminal_was_suedwhy.requiredErrorMsg}`)
+    }),
+    
+    [criminal_you_demandwhy.name]: yup.string().when(["criminal_was_sued"], {
+      is: (criminal_was_sued) => criminal_was_sued === "Si", 
+      then: yup.string().required(`${criminal_you_demandwhy.requiredErrorMsg}`)
+    }),
 
     criminal: yup.array({}).of(
       yup.object().shape({
@@ -6160,15 +6331,18 @@ export default [
       .string()
       .required(`${covid_option.requiredErrorMsg}`),
     [covid_dosis.name]: yup.string().when(["covid_option"], {
-      is: (covid_option) => covid_option === "Si",
+      is: (covid_option) => covid_option === "No",
       then: yup.string().required(`${covid_dosis.requiredErrorMsg}`),
     }),
+    [gave_covid.name]: yup
+      .string()
+      .required(`${gave_covid.requiredErrorMsg}`),
 
     [validate_sex.name]: yup
       .string()
       .required(`${validate_sex.requiredErrorMsg}`),
     [validate_gestacion.name]: yup.string().when(["validate_sex"], {
-      is: (validate_sex) => validate_sex === "M",
+      is: (validate_sex) => validate_sex === "F",
       then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`),
     }),
 
@@ -6176,12 +6350,12 @@ export default [
       .string()
       .when(["validate_gestacion", "validate_sex"], {
         is: (validate_gestacion, validate_sex) =>
-          validate_sex === "Si" && validate_gestacion === "Si",
+          validate_sex === "F" && validate_gestacion === "No",
         then: yup.string().required(`${validate_children.requiredErrorMsg}`),
       }),
 
     [validate_lactando.name]: yup.string().when(["validate_sex"], {
-      is: (validate_sex) => validate_sex === "M",
+      is: (validate_sex) => validate_sex === "F",
       then: yup.string().required(`${validate_gestacion.requiredErrorMsg}`),
     }),
 
@@ -6189,7 +6363,7 @@ export default [
       .string()
       .when(["validate_lactando", "validate_sex"], {
         is: (validate_lactando, validate_sex) =>
-          validate_sex === "M" && validate_lactando === "Si",
+          validate_sex === "F" && validate_lactando === "Si",
         then: yup.string().required(`${validate_lac_month.requiredErrorMsg}`),
       }),
 
@@ -6197,7 +6371,7 @@ export default [
       .string()
       .when(["validate_lactando", "validate_sex"], {
         is: (validate_lactando, validate_sex) =>
-          validate_sex === "M" && validate_lactando === "Si",
+          validate_sex === "F" && validate_lactando === "Si",
         then: yup.string().required(`${validate_lac_age.requiredErrorMsg}`),
       }),
     [validate_dosis.name]: yup
@@ -6260,11 +6434,33 @@ export default [
     [honest_p2.name]: yup.string().required(`${honest_p2.requiredErrorMsg}`),
     [honest_p3.name]: yup.string().required(`${honest_p3.requiredErrorMsg}`),
     [honest_p4.name]: yup.string().required(`${honest_p4.requiredErrorMsg}`),
+    [whyIdentityHidde.name]: yup.string().when(["honest_p1"], {
+      is: (honest_p1) => honest_p1 === "Si",
+      then: yup.string().required(`${whyIdentityHidde.requiredErrorMsg}`),
+    }),
+    [documentInOrder.name]: yup.string().when(["honest_p4"], {
+      is: (honest_p4) => honest_p4 === "No",
+      then: yup.string().required(`${documentInOrder.requiredErrorMsg}`),
+    }),
   }),
 
   yup.object().shape({
+
+   
+
+    [red_faccebookval.name]: yup.string().required(`${red_faccebookval.requiredErrorMsg}`),
+    [red_faccebookOtherVal.name]: yup.string().required(`${red_faccebookOtherVal.requiredErrorMsg}`),
+
+     [red_faccebookOther.name]: yup.string().when(["red_faccebookOtherVal"], {
+        is: (red_faccebookOtherVal) => red_faccebookOtherVal === "Si", 
+        then: yup.string().required(`${red_faccebookOther.requiredErrorMsg}`)
+      }),
+
     [red_faccebook.name]: yup
-      .string()
-      .required(`${red_faccebook.requiredErrorMsg}`),
+      .string().when(["red_faccebookval"], {
+        is: (red_faccebookval) => red_faccebookval === "Si", 
+        then: yup.string().required(`${red_faccebook.requiredErrorMsg}`)
+      }),
+      
   }),
 ];

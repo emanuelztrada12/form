@@ -395,6 +395,11 @@ const FORMULARIO = gql`
       estudie_university_year_graduation
       estudie_university_no_sede
       estudie_university_hour
+      # add
+      study_magister
+      wich_career
+      select_schedules
+      why_not_schedules
 
       #diversificado
       estudie_diversificado_sval
@@ -497,6 +502,9 @@ const FORMULARIO = gql`
       social_drog_time
       social_drog_person
       social_tatto
+      social_fuma_frequency 
+      social_alco_howmuch 
+      social_alco_frequency
 
       social {
         social_tatto_descri
@@ -579,8 +587,13 @@ const FORMULARIO = gql`
       honest_p2
       honest_p3
       honest_p4
+      whyIdentityHidde
+      documentInOrder
 
       red_faccebook
+      red_faccebookOther
+      red_faccebookval
+      red_faccebookOtherVal
       validation_form
     }
   }
@@ -983,6 +996,11 @@ export default function CheckoutPage() {
               values.estudie_university_year_graduation,
             estudie_university_no_sede: values.estudie_university_no_sede,
             estudie_university_hour: values.estudie_university_hour,
+            /* add */
+            study_magister: values.study_magister,
+            wich_career: values.wich_career,
+            select_schedules: values.select_schedules,
+            why_not_schedules: values.why_not_schedules,
 
             estudie_diversificado_sval: values.estudie_diversificado_sval,
             estudie_diversificado_name: values.estudie_diversificado_name,
@@ -1013,6 +1031,12 @@ export default function CheckoutPage() {
             work_ne_detail: values.work_ne_detail,
             work_ne_detailIncome: values.work_ne_detailIncome,
             work_ne_whatwill: values.work_ne_whatwill,
+            /* add data */
+            work_select_entity: values.work_select_entity,
+            work_name_entity: values.work_name_entity,
+            work_lsname_entity: values.work_lsname_entity,
+            work_bank: values.work_bank,
+            work_relation: values.work_relation,
 
             //economic
             economic: values.economic,
@@ -1051,6 +1075,9 @@ export default function CheckoutPage() {
             social_drog_person: values.social_drog_person,
             social_tatto: values.social_tatto,
             social: values.social,
+            social_fuma_frequency: values.social_fuma_frequency, 
+            social_alco_howmuch: values.social_alco_howmuch,
+            social_alco_frequency: values.social_alco_frequency,
 
             criminal_association_option: values.criminal_association_option,
             criminal_relacion: values.criminal_relacion,
@@ -1108,8 +1135,13 @@ export default function CheckoutPage() {
             honest_p2: values.honest_p2,
             honest_p3: values.honest_p3,
             honest_p4: values.honest_p4,
+            whyIdentityHidde: values.whyIdentityHidde,
+            documentInOrder: values.documentInOrder,
 
             red_faccebook: values.red_faccebook,
+            red_faccebookOther: values.red_faccebookOther, 
+            red_faccebookval: values.red_faccebookval,
+            red_faccebookOtherVal: values.red_faccebookOtherVal,
             validation_form: values.validation_form,
           },
         },

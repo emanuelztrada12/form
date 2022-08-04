@@ -281,6 +281,11 @@ const {
     estudie_university_no_sede,
     estudie_university_hour,
     estudie_university_sval,
+    /* add studies */
+    study_magister,
+    wich_career,
+    select_schedules,
+    why_not_schedules,
 
     //Diversificado
     estudie_diversificado_sval,
@@ -320,13 +325,20 @@ const {
     work_valNe,
     work_ne_name,
     work_ne_web,
+    work_had_page,
     work_ne_dateInit,
     work_ne_salaryPersonal,
     work_ne_detail,
     work_ne_detailIncome,
     work_ne_whatwill,
-
+    /* add data */
+    work_select_entity,
+    work_name_entity,
+    work_lsname_entity,
+    work_bank,
+    work_relation,
     //ecomomic
+
     economic_vivienda,
     economic_food,
     economic_aporte,
@@ -360,6 +372,9 @@ const {
     social_drog_time,
     social_drog_person,
     social_tatto,
+    social_fuma_frequency, 
+    social_alco_howmuch, 
+    social_alco_frequency,
 
     //delictiva
     criminal_association_option,
@@ -372,6 +387,8 @@ const {
     criminal_family,
     criminal_was_sued,
     criminal_you_demand,
+    criminal_was_suedwhy,
+    criminal_you_demandwhy,
 
     //HEAL
     disease_hipertension_option,
@@ -392,6 +409,7 @@ const {
     accident_detail,
     accident_suffer,
     covid_option,
+    gave_covid,
     covid_dosis,
     validate_sex,
     validate_gestacion,
@@ -413,9 +431,14 @@ const {
     honest_p2,
     honest_p3,
     honest_p4,
+    whyIdentityHidde,
+    documentInOrder,
 
     //facebook
     red_faccebook,
+    red_faccebookOther,
+    red_faccebookval,
+    red_faccebookOtherVal,
     validation_form,
   },
 } = generalFormModel;
@@ -718,6 +741,11 @@ export default {
   [estudie_university_no_sede.name]: "",
   [estudie_university_hour.name]: "",
   [estudie_university_sval.name]: "",
+  /* add data */
+  [study_magister.name]: "",
+  [wich_career.name]: "",
+  [select_schedules.name]: "",
+  [why_not_schedules.name]: "",
 
   //Diversificado
   [estudie_diversificado_sval.name]: "",
@@ -758,11 +786,18 @@ export default {
   [work_valNe.name]: "",
   [work_ne_name.name]: "",
   [work_ne_web.name]: "",
+  [work_had_page.name]: "",
   [work_ne_dateInit.name]: "",
   [work_ne_salaryPersonal.name]: "",
   [work_ne_detail.name]: "",
   [work_ne_detailIncome.name]: "",
   [work_ne_whatwill.name]: "",
+  /* add data work */
+  [work_select_entity.name]: "",
+  [work_name_entity.name]: "",
+  [work_lsname_entity.name]: "",
+  [work_bank.name]: "",
+  [work_relation.name]: "",
 
   //Economic
   economic: [],
@@ -800,6 +835,9 @@ export default {
   [social_drog_time.name]: "",
   [social_drog_person.name]: "",
   [social_tatto.name]: "",
+  [social_fuma_frequency.name]: "", 
+  [social_alco_howmuch.name]: "", 
+  [social_alco_frequency.name]: "",
 
   criminal: [],
   [criminal_association_option.name]: "",
@@ -812,6 +850,8 @@ export default {
   [criminal_family.name]: "",
   [criminal_was_sued.name]: "",
   [criminal_you_demand.name]: "",
+  [criminal_was_suedwhy.name]: "",
+  [criminal_you_demandwhy.name]: "",
 
   //heal
   [disease_hipertension_option.name]: "",
@@ -832,6 +872,7 @@ export default {
   [accident_detail.name]: "",
   [accident_suffer.name]: "",
   [covid_option.name]: "",
+  [gave_covid.name]: "",
   [covid_dosis.name]: "",
   [validate_sex.name]: "",
   [validate_gestacion.name]: "",
@@ -856,6 +897,11 @@ export default {
   [honest_p2.name]: "",
   [honest_p3.name]: "",
   [honest_p4.name]: "",
+  [whyIdentityHidde.name]: "",
+  [documentInOrder.name]: "",
 
   [red_faccebook.name]: "",
+  [red_faccebookOther.name]: "",
+  [red_faccebookval.name]: "",
+  [red_faccebookOtherVal.name]: "",
 };
