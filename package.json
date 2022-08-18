@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",
@@ -18,7 +19,8 @@
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.9.1",
     "@mui/styles": "^5.8.3",
-    "autoprefixer": "^10.4.7",
+    "tailwindcss": "^3.1.8", 
+    "autoprefixer": "^10.4.8",
     "date-fns": "^2.28.0",
     "firebase": "^9.9.0",
     "formik": "^2.2.9",
@@ -26,7 +28,7 @@
     "json2mq": "^0.2.0",
     "lodash": "^4.17.21",
     "next": "12.1.6",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.16",
     "prop-types": "^15.8.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -34,7 +36,6 @@
   },
   "devDependencies": {
     "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6",
-    "tailwindcss": "^3.0.24"
+    "eslint-config-next": "12.1.6"
   }
 }
