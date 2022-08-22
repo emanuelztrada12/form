@@ -38,6 +38,7 @@ import generalFormModel from "./FormModel/generalFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
 import useStyles from "./styles";
 import EducacionalForm from "./Forms/EducacionalForm";
+import { useRouter } from "next/router";
 
 const QUERY = gql`
   query GetFormularioGolden {
@@ -46,6 +47,27 @@ const QUERY = gql`
     }
   }
 `;
+
+const DELETED = gql`
+  mutation deleteUser($id: ID!) {
+    deleteUser(id: $id){
+      id
+    }
+  }
+`;
+
+const GET_USERS = gql`
+  query getUser {
+    getUser {
+      id
+      nombre
+      apellido
+      email
+      rols
+    }
+  }
+`;
+
 
 const FORMULARIO = gql`
   mutation newform_golden_input($input: form_golden_input) {
@@ -665,9 +687,17 @@ function _renderStepContent(step, values) {
 }
 
 export default function CheckoutPage() {
+  const router = useRouter();
   const [newFormulario] = useMutation(FORMULARIO);
+  const [deleteUser]= useMutation(DELETED); 
+  const { data, loading, error} = useQuery(GET_USERS); 
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
+  const matches = useMediaQuery(
+    json2mq({
+      minWidth: 1400,
+    })
+  );
 
   const currentValidationSchema = validationSchema[activeStep];
 
@@ -1154,9 +1184,25 @@ export default function CheckoutPage() {
     setActiveStep(activeStep + 1);
   }
 
-  function _handleSubmit(values, actions) {
+  if (loading) return null;
+
+  const { id } = data.getUser || {};
+
+  function  _handleSubmit  (values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
+        const { data } =  deleteUser({
+          variables: {
+            id
+          },
+        });
+        // settime out tiempo 
+        // eliminar storage
+        // mandar al login 
+        setTimeout(() => {
+          localStorage.clear()
+          router.push("/LoginPage");
+        }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -1167,12 +1213,6 @@ export default function CheckoutPage() {
   function _handleBack() {
     setActiveStep(activeStep - 1);
   }
-
-  const matches = useMediaQuery(
-    json2mq({
-      minWidth: 1400,
-    })
-  );
 
   return (
     <>
@@ -1263,7 +1303,7 @@ export default function CheckoutPage() {
                       color="primary"
                       className={classes.button}
                     >
-                      {isLastStep ? "Place order" : "Next"}
+                      {isLastStep ? "Enviar" : "Siguiente"}
                     </Button>
                     {isSubmitting && (
                       <CircularProgress
