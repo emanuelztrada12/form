@@ -1,0 +1,63 @@
+.ImgLogo{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.DivLogo {
+    padding-top: 1rem;
+}
+
+.DivText{
+    width: 40rem;
+}
+
+.DivTextLogin{
+    width: 25rem;
+}
+
+.DivReport{
+    display: flex;
+    justify-content: center;
+}
+
+.DivReportDeleted {
+    display: flex;
+    justify-content: center;
+}
+
+.DivDataGrid {
+    padding-Top: 2rem;
+}
+
+.userName {
+    padding: 2rem;
+}
+
+.BoxMenu {
+    padding-bottom: 3rem;  
+}
+
+.DivSelect {
+    padding-top: 1rem;
+}
+
+.ButtonBack{ 
+    padding-left: 2rem;
+}
+
+@media (max-width: 800px) {
+    .ImgLogo {
+        width: 50%;
+        padding-top: 2rem;
+    }
+    .DivText{
+        width: 20rem;
+    }
+    .ButtonBack Button{ 
+        position: absolute;
+        top: 10px;
+        border-radius: 10rem;
+    }
+ 
+}
