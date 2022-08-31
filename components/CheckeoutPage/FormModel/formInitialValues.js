@@ -449,7 +449,7 @@ export default {
   [validation_form.name]: false,
 
   //general
-  [general_name.name]: "",
+  [general_name.name]: "emanuel",
   [general_lastname.name]: "",
   [general_place_birth.name]: "",
   [general_age.name]: "",

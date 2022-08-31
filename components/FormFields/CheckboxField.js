@@ -35,6 +35,7 @@ export default function CheckboxField(props) {
   }
 
   function _onChange(e) {
+    console.log(`event`, e)
     setValue(e.target.checked);
   }
 

@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { CircularProgress, Grid } from "@mui/material";
+import Cookies from 'universal-cookie';
+import { useMutation, useQuery, gql } from "@apollo/client";
+import { useLocalStorage } from "../../Context/useLocalStorage";
 
+import { CircularProgress, Grid } from "@mui/material";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Paper, Divider, Chip } from "@mui/material";
 import MobileStepper from "@mui/material/MobileStepper";
 import { Formik, Form } from "formik";
 import json2mq from "json2mq";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
-import { useMutation, useQuery, gql } from "@apollo/client";
-
 import FamilyForm from "./Forms/FamilyForm";
 import General from "./Forms/General";
 import SonForm from "./Forms/SonForm";
@@ -32,7 +31,6 @@ import HonestidadForm from "./Forms/HonestidadForm";
 import RedSocialForm from "./Forms/RedSocialForm";
 import CheckoutSuccess from "./CheckoutSuccess";
 import AutorizationForm from "./Forms/AutorizationForm";
-
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
@@ -693,11 +691,23 @@ export default function CheckoutPage() {
   const { data, loading, error} = useQuery(GET_USERS); 
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
+  const [getLocal, setLocal] = useLocalStorage("formData", ""); 
   const matches = useMediaQuery(
     json2mq({
       minWidth: 1400,
     })
   );
+
+  const getInitialValues = () => {
+    const formData = getLocal(); 
+    console.log(formData)
+    if(formData == null) {
+      return formInitialValues
+    }
+    return formData; 
+  }
+  const [initialData, setInitialData] = useState(getInitialValues()); 
+  // console.log(initialData)
 
   const currentValidationSchema = validationSchema[activeStep];
 
@@ -1189,20 +1199,24 @@ export default function CheckoutPage() {
   const { id } = data.getUser || {};
 
   function  _handleSubmit  (values, actions) {
+    setLocal(values) 
     if (isLastStep) {
       _submitForm(values, actions);
-        const { data } =  deleteUser({
-          variables: {
-            id
-          },
-        });
+     // Pacman
+        //Eliminacion de usuarios
+        // const { data } =  deleteUser({
+        //   variables: {
+        //     id
+        //   },
+        // });
+
         // settime out tiempo 
-        // eliminar storage
-        // mandar al login 
-        setTimeout(() => {
-          localStorage.clear()
-          router.push("/LoginPage");
-        }, 8000);
+        // setTimeout(() => {
+            // eliminar storage
+        //   localStorage.clear()
+             // mandar al login 
+        //   router.push("/LoginPage");
+        // }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -1281,9 +1295,17 @@ export default function CheckoutPage() {
           <CheckoutSuccess />
         ) : (
           <Formik
-            initialValues={formInitialValues}
+            initialValues={initialData}
             validationSchema={currentValidationSchema}
             onSubmit={_handleSubmit}
+              // (values, actions) => {
+            //   // const cookies = new Cookies();
+            //   // cookies.set('myCat', JSON.stringify(values), { path: '/' });
+            //   // console.log(cookies.get('myCat')); 
+
+            //   console.log(`values`, {values,actions})
+            //   (values, actions)
+            //          }}
           >
             {({ isSubmitting, values }) => (
               <Form id={formId}>

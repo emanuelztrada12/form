@@ -10,6 +10,7 @@ import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import { useLocalStorage } from "../../../Context/useLocalStorage";
 
 const civil = [
   {
@@ -40,6 +41,9 @@ const civil = [
 
 export default function General(props) {
   const [dateYear, setDateYear] = useState("");
+  const [text, setText] = useLocalStorage('text', '')
+  // onChange={e => setText(e.target.value)}
+  // value={text} 
 
   const gettingDateYear = (e) => {
     var years =
