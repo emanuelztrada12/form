@@ -17,6 +17,13 @@ const {
     general_dpi,
     general_nit,
     general_email,
+    /* add new condition */
+    general_nit_select,
+    general_afilacion_select,
+    general_irtra,
+    general_igss,
+    general_lastname_married,
+    general_married_name,
 
     family_dad_name,
     family_dad_age,
@@ -486,6 +493,16 @@ export default {
   general_birth: new Date().toISOString().split("T")[0],
   vehicle: [],
   license: [],
+
+    // add new variables
+  [general_nit_select.name]: "",
+  [general_afilacion_select.name]: "",
+  [general_irtra.name]: "",
+  [general_igss.name]: "",
+  [general_lastname_married.name]: "",
+  [general_married_name.name]: "",
+  biker: [],
+
 
   //validate the inputs
   [family_validate_stepparents.name]: "",

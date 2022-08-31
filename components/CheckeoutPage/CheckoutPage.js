@@ -74,6 +74,8 @@ const FORMULARIO = gql`
     newform_golden_input(input: $input) {
       general_name
       general_lastname
+      general_lastname_married # apellido de casada
+      general_married_name # select de apellido de casada
       general_birth
       general_place_birth
       general_age
@@ -84,27 +86,34 @@ const FORMULARIO = gql`
       general_previous_direction
       general_phone
       general_nit
+      general_nit_select # select nit 
       general_dpi
       general_email
       general_emergency_phone
       general_emergency_name
+      general_afilacion_select # select de afilacion
       general_irtra
       general_igss
       vehicle {
         general_brand
         general_model
+        general_model_propetary
+      }
+      # array biker
+      biker {
+        general_model_biker
+        general_brand_biker
+        general_model_propetary_biker
       }
       license {
         general_license
         general_license_expire
         general_license_type
       }
-
       family_validate_stepparents
       family_validate_son
       family_validate_brothers
       family_validate_stepbrother
-
       #dad
       family_dad_life
       family_dad_name
@@ -129,9 +138,6 @@ const FORMULARIO = gql`
       family_dad_died_last_name
       family_dad_time_died
       family_dad_reason_died
-      family_dad_resident
-      family_dad_no_resident
-      family_dad_condition_resident
       
       #/validation two
       family_dad_lifetwo
@@ -151,10 +157,6 @@ const FORMULARIO = gql`
       family_dad_died_last_nametwo
       family_dad_time_diedtwo
       family_dad_reason_diedtwo
-      family_dad_residenttwo
-      family_dad_no_residenttwo
-      family_dad_condition_residenttwo
-
       #mom
       family_mom_name
       family_mom_age
@@ -179,10 +181,6 @@ const FORMULARIO = gql`
       family_mom_died_first_name
       family_mom_died_last_name
       vive_family
-      family_mom_resident
-      family_mom_no_resident
-      family_mom_condition_resident
-
        #//validation two
        family_mom_lifetwo
        family_mom_nametwo
@@ -201,10 +199,6 @@ const FORMULARIO = gql`
        family_mom_died_last_nametwo
        family_mom_time_diedtwo
        family_mom_reason_diedtwo
-       family_mom_residenttwo
-       family_mom_no_residenttwo
-       family_mom_condition_residenttwo
-
       #aditional information
       you_parents_together
       mother_partner_name
@@ -215,7 +209,6 @@ const FORMULARIO = gql`
       father_relationship
       has_partner_father
       has_partner_mother
-
       #stepfather
       family_stepfather_name
       family_stepfather_age
@@ -233,7 +226,6 @@ const FORMULARIO = gql`
       family_stepfather_working_val
       family_stepfather_info
       family_stepfather_noInfo
-
       #stepmother
       family_stepmother_name
       family_stepmother_age
@@ -251,9 +243,6 @@ const FORMULARIO = gql`
       family_stepmother_phone_val
       family_stepmother_working_val
       family_stepmother_noInfo
-
-
-
       #conyugue
       family_validate_conyugue
       family_conyugue_name
@@ -287,7 +276,6 @@ const FORMULARIO = gql`
       # add name and lastname
       family_conyugue_died_name
       family_conyugue_died_lastname
-
       #son
       son {
         family_son_name
@@ -310,7 +298,6 @@ const FORMULARIO = gql`
         family_son_died_name
         family_son_died_lastname
       }
-
       #brothers
       brothers {
         family_brothers_name
@@ -331,7 +318,6 @@ const FORMULARIO = gql`
         family_brothers_died_name
         family_brothers_died_lastname
       }
-
       #stepbrother
       stepbrother {
         family_stepbrother_name
@@ -352,7 +338,6 @@ const FORMULARIO = gql`
         family_stepbrother_died_name
         family_stepbrother_died_lastname
       }
-
       family_grandfather_name
       family_grandfather_age
       family_grandfather_status
@@ -385,7 +370,6 @@ const FORMULARIO = gql`
       family_grandmother_working_val
       family_grandmother_lifeno_name
       family_grandmother_lifeno_firstname
-
       family_grandfather_nametwo
       family_grandfather_agetwo
       family_grandfather_statustwo
@@ -418,7 +402,6 @@ const FORMULARIO = gql`
       family_grandmother_working_valtwo
       family_grandmother_lifeno_nametwo
       family_grandmother_lifeno_firstnametwo
-
       #estudent
       estudie_university_name
       estudie_university_uniname
@@ -434,26 +417,22 @@ const FORMULARIO = gql`
       wich_career
       select_schedules
       why_not_schedules
-
       #diversificado
       estudie_diversificado_sval
       estudie_diversificado_name
       estudie_diversificado_uniname
       estudie_diversificado_desde
       estudie_diversificado_hasta
-
       #basic
       estudie_basic_sval
       estudie_basic_uniname
       estudie_basic_desde
       estudie_basic_hasta
-
       #primary
       estudie_primary_sval
       estudie_primary_uniname
       estudie_primary_desde
       estudie_primary_hasta
-
       work {
         work_name
         work_position
@@ -470,7 +449,6 @@ const FORMULARIO = gql`
         work_reference
         work_reference_reason
       }
-
       work_valNe
       work_ne_name
       work_ne_web
@@ -479,7 +457,6 @@ const FORMULARIO = gql`
       work_ne_detail
       work_ne_detailIncome
       work_ne_whatwill
-
       economic {
         economic_date
         economic_plan
@@ -490,7 +467,6 @@ const FORMULARIO = gql`
         economic_monthly_payment
         economic_delinquent_payment
       }
-
       economicother {
         economic_dateother
         economic_planother
@@ -502,7 +478,6 @@ const FORMULARIO = gql`
         economic_delinquent_paymentother
         econmic_observaciones
       }
-
       economic_vivienda
       economic_food
       economic_aporte
@@ -518,7 +493,6 @@ const FORMULARIO = gql`
       economic_payment_deuda
       economic_other
       economic_total
-
       #social
       social_group
       social_gtime
@@ -539,14 +513,12 @@ const FORMULARIO = gql`
       social_fuma_frequency 
       social_alco_howmuch 
       social_alco_frequency
-
       social {
         social_tatto_descri
         social_tatto_sign
         social_tatto_ubi
         social_tatto_fot
       }
-
       criminal_association_option
       criminal_relacion
       criminal_name
@@ -557,7 +529,6 @@ const FORMULARIO = gql`
       criminal_family
       criminal_was_sued
       criminal_you_demand
-
       criminal {
         criminal_family_name
         criminal_family_lastname
@@ -567,18 +538,15 @@ const FORMULARIO = gql`
         criminal_family_phone
         criminal_family_reason
       }
-
       dosis {
         dosis_name
         dosis_date
         dosis_dosis
       }
-
       disease {
         disease_name
         disease_observacion
       }
-
       disease_hipertension_option
       disease_diabetes_option
       disease_VIH_option
@@ -605,17 +573,14 @@ const FORMULARIO = gql`
       validate_lac_month
       validate_lac_age
       validate_dosis
-
       #objetives
       objectivs_corto
       objectivs_mediano
       objectives_largo
-
       #sindicatos
       sindicatos_favor
       sindicatos_formar
       sindicatos_why
-
       #honestidad
       honest_p1
       honest_p2
@@ -623,7 +588,6 @@ const FORMULARIO = gql`
       honest_p4
       whyIdentityHidde
       documentInOrder
-
       red_faccebook
       red_faccebookOther
       red_faccebookval
@@ -733,6 +697,8 @@ export default function CheckoutPage() {
             //Informacion general
             general_name: values.general_name,
             general_lastname: values.general_lastname,
+            general_married_name: values.general_married_name, // input select
+            general_lastname_married: values.general_lastname_married, // add lastname married
             general_birth: values.general_birth,
             general_place_birth: values.general_place_birth,
             general_age: year,
@@ -743,13 +709,16 @@ export default function CheckoutPage() {
             general_previous_direction: values.general_previous_direction,
             general_phone: values.general_phone,
             general_nit: values.general_nit,
+            general_nit_select: values.general_nit_select, // input select
             general_dpi: values.general_dpi,
             general_email: values.general_email,
             general_emergency_phone: values.general_emergency_phone,
             general_emergency_name: values.general_emergency_name,
+            general_afilacion_select: values.general_afilacion_select, // input select
             general_irtra: values.general_irtra,
             general_igss: values.general_igss,
             vehicle: values.vehicle,
+            biker: values.biker, // biker array
             license: values.license,
 
             family_validate_stepparents: values.family_validate_stepparents,
@@ -777,15 +746,6 @@ export default function CheckoutPage() {
             family_dad_reason: values.family_dad_reason,
             family_dad_why_negative: values.family_dad_why_negative,
             family_dad_information_negative: values.family_dad_information_negative,
-
-            // #// add changes 2.1
-            family_dad_resident: values.family_dad_resident,
-            family_dad_no_resident: values.family_dad_no_resident,
-            family_dad_condition_resident: values.family_dad_condition_resident,
-            family_dad_residenttwo: values.family_dad_residenttwo,
-            family_dad_no_residenttwo: values.family_dad_no_residenttwo,
-            family_dad_condition_residenttwo: values.family_dad_condition_residenttwo,
-
             // #// add name died
             family_dad_died_first_name: values.family_dad_died_first_name,
             family_dad_died_last_name: values.family_dad_died_last_name,
@@ -835,14 +795,6 @@ export default function CheckoutPage() {
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
             vive_family: values.vive_family,
-
-            // #// add changes 2.1
-            family_mom_resident: values.family_mom_resident,
-            family_mom_no_resident: values.family_mom_no_resident,
-            family_mom_condition_resident: values.family_mom_condition_resident,
-            family_mom_residenttwo: values.family_mom_residenttwo,
-            family_mom_no_residenttwo: values.family_mom_no_residenttwo,
-            family_mom_condition_residenttwo: values.family_mom_condition_residenttwo,
 
             //  #//validation two
             family_mom_lifetwo: values.family_mom_lifetwo,
