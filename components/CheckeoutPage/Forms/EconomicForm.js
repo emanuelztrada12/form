@@ -320,7 +320,7 @@ export default function EconomicForm(props) {
                             paddingLeft: "10px",
                         }}
                     >
-                        Información economica
+                        Información económica
                     </Typography>
                     <Grid>
                         <div>
@@ -334,11 +334,9 @@ export default function EconomicForm(props) {
                                     textAlign: "center",
                                 }}
                             >
-                                Datos exactos de créditos vigentes, créditos de consumo,
-                                tarjetas de crédito, visa cuotas, préstamos o créditos con
-                                personas individuales y cualquier deuda que se encuentre en su
-                                récord crediticio. recuerde que toda la información será
-                                verificada y confrontada)
+                                Datos exactos de créditos vigentes, créditos de consumo, tarjetas de crédito, visa cuotas,
+                                 préstamos o créditos con personas individuales y cualquier deuda que se encuentre en su récord crediticio.
+                                  Recuerde que toda la información será verificada y confrontada.
                             </p>
 
                             <Grid
@@ -418,7 +416,7 @@ export default function EconomicForm(props) {
                                                                     fontWeight: "bold",
                                                                 }}
                                                             >
-                                                                Detalle de la deuda :{" "}
+                                                                Detalle de la deuda:{" "}
                                                             </h1>
                                                             <Grid container spacing={3}>
                                                                 <Grid item xs={12} sm={6}>
@@ -443,7 +441,9 @@ export default function EconomicForm(props) {
                                                                             fontWeight: "bold",
                                                                         }}
                                                                     >
-                                                                        ¿Para que lo utilizó?:
+                                                                        
+                                                                    ¿Para qué lo utilizó?:
+
                                                                     </label>
                                                                     <InputField
                                                                         name={`economic.${index}.${economic_use.name}`}
@@ -634,7 +634,7 @@ export default function EconomicForm(props) {
                                     textAlign: "center"
                                 }}
                             >
-                                Deudas que se encuentran a su nombre pero otra persona realiza los pagos 
+                                Deudas que se encuentran a su nombre, pero otra persona realiza los pagos. 
                             </p>
 
                             <Grid
@@ -715,7 +715,7 @@ export default function EconomicForm(props) {
                                                                     fontWeight: "bold",
                                                                 }}
                                                             >
-                                                                Detalle de la deuda :{" "}
+                                                                Detalle de la deuda:{" "}
                                                             </h1>
                                                             <Grid container spacing={3}>
                                                                 <Grid item xs={12} sm={6}>

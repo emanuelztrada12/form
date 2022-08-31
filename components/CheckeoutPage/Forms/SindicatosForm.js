@@ -88,7 +88,7 @@ export default function SindicatosForm(props) {
                             style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
                         >
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Esta a favor de los sindicatos?:
+                                ¿Está a favor de los sindicatos?:
 
                             </label>
                             <SelectField
@@ -122,7 +122,7 @@ export default function SindicatosForm(props) {
                                     style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
                                 >
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿porque?:
+                                        ¿por qué?:
 
                                     </label>
                                     <InputField

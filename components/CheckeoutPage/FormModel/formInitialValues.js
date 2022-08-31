@@ -3,11 +3,9 @@ const {
   formField: {
     general_name,
     general_lastname,
-    general_lastname_married,
     general_age,
     general_place_birth,
     general_civil_status,
-    general_married_name,
     general_profession,
     general_direction,
     general_time_reside,
@@ -24,6 +22,8 @@ const {
     general_afilacion_select,
     general_irtra,
     general_igss,
+    general_lastname_married,
+    general_married_name,
 
     family_dad_name,
     family_dad_age,
@@ -60,6 +60,15 @@ const {
     family_dad_died_last_nametwo,
     family_dad_time_diedtwo,
     family_dad_reason_diedtwo,
+
+    // changes 2.1
+    family_dad_resident,
+    family_dad_no_resident,
+    family_dad_condition_resident,
+    family_dad_residenttwo,
+    family_dad_no_residenttwo,
+    family_dad_condition_residenttwo,
+
 
     // changes
     family_dad_relation,
@@ -120,6 +129,14 @@ const {
     family_mom_died_last_nametwo,
     family_mom_time_diedtwo,
     family_mom_reason_diedtwo,
+
+    //changes 2.1
+    family_mom_resident,
+    family_mom_no_resident,
+    family_mom_condition_resident,
+    family_mom_residenttwo,
+    family_mom_no_residenttwo,
+    family_mom_condition_residenttwo,
 
     /* for two parents */
     you_parents_together,
@@ -461,8 +478,6 @@ export default {
   [general_place_birth.name]: "",
   [general_age.name]: "",
   [general_civil_status.name]: "",
-  [general_married_name.name]: "",
-  [general_lastname_married.name]: "",
   [general_profession.name]: "",
   [general_direction.name]: "",
   [general_time_reside.name]: "",
@@ -474,16 +489,20 @@ export default {
   [general_dpi.name]: "",
   [general_nit.name]: "",
   [general_email.name]: "",
-  // add new variables
+  // you need to keep the default value
+  general_birth: new Date().toISOString().split("T")[0],
+  vehicle: [],
+  license: [],
+
+    // add new variables
   [general_nit_select.name]: "",
   [general_afilacion_select.name]: "",
   [general_irtra.name]: "",
   [general_igss.name]: "",
-  // you need to keep the default value
-  general_birth: new Date().toISOString().split("T")[0],
-  vehicle: [],
+  [general_lastname_married.name]: "",
+  [general_married_name.name]: "",
   biker: [],
-  license: [],
+
 
   //validate the inputs
   [family_validate_stepparents.name]: "",
@@ -520,6 +539,15 @@ export default {
   [family_dad_why_negative.name]: "",
   [family_dad_information_negative.name]: "",
 
+  // changes dad 2.1
+  [family_dad_resident.name]: "",
+  [family_dad_no_resident.name]: "",
+  [family_dad_condition_resident.name]: "",
+
+  // changestwo dad 2.1
+  [family_dad_residenttwo.name]: "",
+  [family_dad_no_residenttwo.name]: "",
+  [family_dad_condition_residenttwo.name]: "",
 
   [family_dad_lifetwo.name]: "",
   [family_dad_nametwo.name]: "",
@@ -583,6 +611,15 @@ export default {
   [family_mom_time_diedtwo.name]: "",
   [family_mom_reason_diedtwo.name]: "",
   [vive_family.name]: "",
+
+  // changes 2.1
+  [family_mom_resident.name]: "",
+  [family_mom_no_resident.name]: "",
+  [family_mom_condition_resident.name]: "",
+  [family_mom_residenttwo.name]: "",
+  [family_mom_no_residenttwo.name]: "",
+  [family_mom_condition_residenttwo.name]: "",
+
 
   //stepfather
   [family_stepfather_name.name]: "",

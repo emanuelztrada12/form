@@ -110,12 +110,10 @@ const FORMULARIO = gql`
         general_license_expire
         general_license_type
       }
-
       family_validate_stepparents
       family_validate_son
       family_validate_brothers
       family_validate_stepbrother
-
       #dad
       family_dad_life
       family_dad_name
@@ -159,7 +157,6 @@ const FORMULARIO = gql`
       family_dad_died_last_nametwo
       family_dad_time_diedtwo
       family_dad_reason_diedtwo
-
       #mom
       family_mom_name
       family_mom_age
@@ -184,7 +181,6 @@ const FORMULARIO = gql`
       family_mom_died_first_name
       family_mom_died_last_name
       vive_family
-
        #//validation two
        family_mom_lifetwo
        family_mom_nametwo
@@ -203,7 +199,6 @@ const FORMULARIO = gql`
        family_mom_died_last_nametwo
        family_mom_time_diedtwo
        family_mom_reason_diedtwo
-
       #aditional information
       you_parents_together
       mother_partner_name
@@ -214,7 +209,6 @@ const FORMULARIO = gql`
       father_relationship
       has_partner_father
       has_partner_mother
-
       #stepfather
       family_stepfather_name
       family_stepfather_age
@@ -232,7 +226,6 @@ const FORMULARIO = gql`
       family_stepfather_working_val
       family_stepfather_info
       family_stepfather_noInfo
-
       #stepmother
       family_stepmother_name
       family_stepmother_age
@@ -250,9 +243,6 @@ const FORMULARIO = gql`
       family_stepmother_phone_val
       family_stepmother_working_val
       family_stepmother_noInfo
-
-
-
       #conyugue
       family_validate_conyugue
       family_conyugue_name
@@ -286,7 +276,6 @@ const FORMULARIO = gql`
       # add name and lastname
       family_conyugue_died_name
       family_conyugue_died_lastname
-
       #son
       son {
         family_son_name
@@ -309,7 +298,6 @@ const FORMULARIO = gql`
         family_son_died_name
         family_son_died_lastname
       }
-
       #brothers
       brothers {
         family_brothers_name
@@ -330,7 +318,6 @@ const FORMULARIO = gql`
         family_brothers_died_name
         family_brothers_died_lastname
       }
-
       #stepbrother
       stepbrother {
         family_stepbrother_name
@@ -351,7 +338,6 @@ const FORMULARIO = gql`
         family_stepbrother_died_name
         family_stepbrother_died_lastname
       }
-
       family_grandfather_name
       family_grandfather_age
       family_grandfather_status
@@ -384,7 +370,6 @@ const FORMULARIO = gql`
       family_grandmother_working_val
       family_grandmother_lifeno_name
       family_grandmother_lifeno_firstname
-
       family_grandfather_nametwo
       family_grandfather_agetwo
       family_grandfather_statustwo
@@ -417,7 +402,6 @@ const FORMULARIO = gql`
       family_grandmother_working_valtwo
       family_grandmother_lifeno_nametwo
       family_grandmother_lifeno_firstnametwo
-
       #estudent
       estudie_university_name
       estudie_university_uniname
@@ -433,26 +417,22 @@ const FORMULARIO = gql`
       wich_career
       select_schedules
       why_not_schedules
-
       #diversificado
       estudie_diversificado_sval
       estudie_diversificado_name
       estudie_diversificado_uniname
       estudie_diversificado_desde
       estudie_diversificado_hasta
-
       #basic
       estudie_basic_sval
       estudie_basic_uniname
       estudie_basic_desde
       estudie_basic_hasta
-
       #primary
       estudie_primary_sval
       estudie_primary_uniname
       estudie_primary_desde
       estudie_primary_hasta
-
       work {
         work_name
         work_position
@@ -469,7 +449,6 @@ const FORMULARIO = gql`
         work_reference
         work_reference_reason
       }
-
       work_valNe
       work_ne_name
       work_ne_web
@@ -478,7 +457,6 @@ const FORMULARIO = gql`
       work_ne_detail
       work_ne_detailIncome
       work_ne_whatwill
-
       economic {
         economic_date
         economic_plan
@@ -489,7 +467,6 @@ const FORMULARIO = gql`
         economic_monthly_payment
         economic_delinquent_payment
       }
-
       economicother {
         economic_dateother
         economic_planother
@@ -501,7 +478,6 @@ const FORMULARIO = gql`
         economic_delinquent_paymentother
         econmic_observaciones
       }
-
       economic_vivienda
       economic_food
       economic_aporte
@@ -517,7 +493,6 @@ const FORMULARIO = gql`
       economic_payment_deuda
       economic_other
       economic_total
-
       #social
       social_group
       social_gtime
@@ -538,14 +513,12 @@ const FORMULARIO = gql`
       social_fuma_frequency 
       social_alco_howmuch 
       social_alco_frequency
-
       social {
         social_tatto_descri
         social_tatto_sign
         social_tatto_ubi
         social_tatto_fot
       }
-
       criminal_association_option
       criminal_relacion
       criminal_name
@@ -556,7 +529,6 @@ const FORMULARIO = gql`
       criminal_family
       criminal_was_sued
       criminal_you_demand
-
       criminal {
         criminal_family_name
         criminal_family_lastname
@@ -566,18 +538,15 @@ const FORMULARIO = gql`
         criminal_family_phone
         criminal_family_reason
       }
-
       dosis {
         dosis_name
         dosis_date
         dosis_dosis
       }
-
       disease {
         disease_name
         disease_observacion
       }
-
       disease_hipertension_option
       disease_diabetes_option
       disease_VIH_option
@@ -604,17 +573,14 @@ const FORMULARIO = gql`
       validate_lac_month
       validate_lac_age
       validate_dosis
-
       #objetives
       objectivs_corto
       objectivs_mediano
       objectives_largo
-
       #sindicatos
       sindicatos_favor
       sindicatos_formar
       sindicatos_why
-
       #honestidad
       honest_p1
       honest_p2
@@ -622,7 +588,6 @@ const FORMULARIO = gql`
       honest_p4
       whyIdentityHidde
       documentInOrder
-
       red_faccebook
       red_faccebookOther
       red_faccebookval
@@ -634,16 +599,16 @@ const FORMULARIO = gql`
 
 const steps = [
   "Autorización",
-  "Info. general",
-  "Datos padres",
-  "Datos hijos",
-  "Datos hermanos",
-  "Datos hermanastros",
-  "Datos conygue",
-  "Datos abuelos",
+  "Información general",
+  "Información padres",
+  "Información hijos",
+  "Información hermanos",
+  "Información hermanastros",
+  "Información cónyuge",
+  "Información abuelos",
   "Información educacional",
   "Información laboral",
-  "Información economica",
+  "Información económica",
   "Información social",
   "Actividades Delictivas",
   "Factor Salud",
@@ -700,8 +665,8 @@ function _renderStepContent(step, values) {
 export default function CheckoutPage() {
   const router = useRouter();
   const [newFormulario] = useMutation(FORMULARIO);
-  const [deleteUser]= useMutation(DELETED); 
-  const { data, loading, error} = useQuery(GET_USERS); 
+  const [deleteUser] = useMutation(DELETED);
+  const { data, loading, error } = useQuery(GET_USERS);
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const matches = useMediaQuery(
@@ -786,7 +751,7 @@ export default function CheckoutPage() {
             family_dad_died_last_name: values.family_dad_died_last_name,
             family_dad_time_died: values.family_dad_time_died,
             family_dad_reason_died: values.family_dad_reason_died,
-      
+
             //validation two
             family_dad_lifetwo: values.family_dad_lifetwo,
             family_dad_nametwo: values.family_dad_nametwo,
@@ -829,27 +794,27 @@ export default function CheckoutPage() {
             // #// add mother name died
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
-            vive_family: values.vive_family, 
+            vive_family: values.vive_family,
 
             //  #//validation two
-             family_mom_lifetwo: values.family_mom_lifetwo,
-             family_mom_nametwo: values.family_mom_nametwo,
-             family_mom_agetwo: values.family_mom_agetwo,
-             family_mom_statustwo: values.family_mom_statustwo,
-             family_mom_working_valtwo: values.family_mom_working_valtwo,
-             family_mom_placetwo: values.family_mom_placetwo,
-             family_mom_companytwo: values.family_mom_companytwo,
-             family_mom_financial_incometwo: values.family_mom_financial_incometwo,
-             family_mom_dependtwo: values.family_mom_dependtwo,
-             family_mom_phone_valtwo: values.family_mom_phone_valtwo,
-             family_mom_phonetwo: values.family_mom_phonetwo,
-             family_mom_no_phonetwo: values.family_mom_no_phonetwo,
+            family_mom_lifetwo: values.family_mom_lifetwo,
+            family_mom_nametwo: values.family_mom_nametwo,
+            family_mom_agetwo: values.family_mom_agetwo,
+            family_mom_statustwo: values.family_mom_statustwo,
+            family_mom_working_valtwo: values.family_mom_working_valtwo,
+            family_mom_placetwo: values.family_mom_placetwo,
+            family_mom_companytwo: values.family_mom_companytwo,
+            family_mom_financial_incometwo: values.family_mom_financial_incometwo,
+            family_mom_dependtwo: values.family_mom_dependtwo,
+            family_mom_phone_valtwo: values.family_mom_phone_valtwo,
+            family_mom_phonetwo: values.family_mom_phonetwo,
+            family_mom_no_phonetwo: values.family_mom_no_phonetwo,
             //  #// add name died two
-             family_mom_died_first_nametwo: values.family_mom_died_first_nametwo,
-             family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
-             family_mom_time_diedtwo: values.family_mom_time_diedtwo,
-             family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
-      
+            family_mom_died_first_nametwo: values.family_mom_died_first_nametwo,
+            family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
+            family_mom_time_diedtwo: values.family_mom_time_diedtwo,
+            family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
+
             // aditional information 
             you_parents_together: values.you_parents_together,
             mother_partner_name: values.mother_partner_name,
@@ -901,7 +866,7 @@ export default function CheckoutPage() {
             son: values.son,
             brothers: values.brothers,
             stepbrother: values.stepbrother,
-            
+
             // conyugue
             family_conyugue_name: values.family_conyugue_name,
             family_conyugue_age: values.family_conyugue_age,
@@ -1121,7 +1086,7 @@ export default function CheckoutPage() {
             social_drog_person: values.social_drog_person,
             social_tatto: values.social_tatto,
             social: values.social,
-            social_fuma_frequency: values.social_fuma_frequency, 
+            social_fuma_frequency: values.social_fuma_frequency,
             social_alco_howmuch: values.social_alco_howmuch,
             social_alco_frequency: values.social_alco_frequency,
 
@@ -1185,7 +1150,7 @@ export default function CheckoutPage() {
             documentInOrder: values.documentInOrder,
 
             red_faccebook: values.red_faccebook,
-            red_faccebookOther: values.red_faccebookOther, 
+            red_faccebookOther: values.red_faccebookOther,
             red_faccebookval: values.red_faccebookval,
             red_faccebookOtherVal: values.red_faccebookOtherVal,
             validation_form: values.validation_form,
@@ -1204,21 +1169,21 @@ export default function CheckoutPage() {
 
   const { id } = data.getUser || {};
 
-  function  _handleSubmit  (values, actions) {
+  function _handleSubmit(values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
-        // const { data } =  deleteUser({
-        //   variables: {
-        //     id
-        //   },
-        // });
-        // settime out tiempo 
-        // eliminar storage
-        // mandar al login 
-        // setTimeout(() => {
-        //   localStorage.clear()
-        //   router.push("/LoginPage");
-        // }, 8000);
+      // const { data } = deleteUser({
+      //   variables: {
+      //     id
+      //   },
+      // });
+      // settime out tiempo 
+      // eliminar storage
+      // mandar al login 
+      // setTimeout(() => {
+      //   localStorage.clear()
+      //   router.push("/LoginPage");
+      // }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -1244,7 +1209,7 @@ export default function CheckoutPage() {
       {matches == true && (
         <Stepper
           xs={12}
-          sm={6}matchestwo
+          sm={6} matchestwo
           activeStep={activeStep}
           className={classes.stepper}
           alternativeLabel
@@ -1257,7 +1222,7 @@ export default function CheckoutPage() {
         </Stepper>
       )}
 
-      {matches == false  && (
+      {matches == false && (
         <MobileStepper
           style={{ display: "flex", justifyContent: "center" }}
           steps={18}
@@ -1305,10 +1270,10 @@ export default function CheckoutPage() {
               <Form id={formId}>
                 {_renderStepContent(activeStep, values)}
 
-                <div style={{display: 'flex', justifyContent: 'flex-end', paddingRight: '30px', paddingBottom: '15px', paddingTop: '10px'}}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '30px', paddingBottom: '15px', paddingTop: '10px' }}>
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>
-                      Back
+                      Anterior
                     </Button>
                   )}
                   <div>

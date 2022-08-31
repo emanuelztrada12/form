@@ -6,6 +6,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import GirlIcon from '@mui/icons-material/Girl';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const val = [
     {
@@ -168,7 +169,7 @@ export default function ConyugueForm(props) {
                             paddingLeft: "10px"
                         }}
                     >
-                        Información Conyugue
+                        Información cónyuge
                     </Typography>
                     <Divider
                         style={{
@@ -187,12 +188,12 @@ export default function ConyugueForm(props) {
                             }}
                             icon={<GirlIcon />}
                             color="primary"
-                            label="Conyugue"
+                            label="Cónyuge"
                         />
                     </Divider>
                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                            ¿Tiene conyugue?:
+                            ¿Tiene cónyuge?:
                         </label>
                         <SelectField
                             id="family_validate_conyugue"
@@ -207,7 +208,7 @@ export default function ConyugueForm(props) {
 
                             <div>
                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    ¿Vive?:
+                                    ¿Aún vive?:
                                 </label>
                                 <SelectField
                                     id="family_conyugue_life"
@@ -244,6 +245,7 @@ export default function ConyugueForm(props) {
                                                 Edad:
                                             </label>
                                             <InputField
+                                                type= 'Number'
                                                 name={family_conyugue_age.name}
                                                 label={family_conyugue_age.label}
                                                 fullWidth
@@ -283,7 +285,7 @@ export default function ConyugueForm(props) {
                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                 Teléfono:
                                                             </label>
-                                                            <InputField name={family_conyugue_phone.name} label={family_conyugue_phone.label} fullWidth />
+                                                            <InputField type='Number' name={family_conyugue_phone.name} label={family_conyugue_phone.label} fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
@@ -333,7 +335,15 @@ export default function ConyugueForm(props) {
                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                 Ingresos promedio:
                                                             </label>
-                                                            <InputField name={family_conyugue_financial_income.name} label={family_conyugue_financial_income.label} fullWidth />
+                                                            <InputField type='Number' name={family_conyugue_financial_income.name} label={family_conyugue_financial_income.label}
+                                                            InputProps={{
+                                                                startAdornment: (
+                                                                    <InputAdornment position="start">
+                                                                        Q.
+                                                                    </InputAdornment>
+                                                                ),
+                                                            }}
+                                                            fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
@@ -455,6 +465,7 @@ export default function ConyugueForm(props) {
                                                 Edad:
                                             </label>
                                             <InputField
+                                                type= 'Number'
                                                 name={family_conyuguepat_age.name}
                                                 label={family_conyuguepat_age.label}
                                                 fullWidth
@@ -494,7 +505,7 @@ export default function ConyugueForm(props) {
                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                 Teléfono:
                                                             </label>
-                                                            <InputField name={family_conyuguepat_phone.name} label={family_conyuguepat_phone.label} fullWidth />
+                                                            <InputField type='Number' name={family_conyuguepat_phone.name} label={family_conyuguepat_phone.label} fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
@@ -544,7 +555,15 @@ export default function ConyugueForm(props) {
                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                 Ingresos promedio:
                                                             </label>
-                                                            <InputField name={family_conyuguepat_financial_income.name} label={family_conyuguepat_financial_income.label} fullWidth />
+                                                            <InputField type='Number' name={family_conyuguepat_financial_income.name} label={family_conyuguepat_financial_income.label}
+                                                            InputProps={{
+                                                                startAdornment: (
+                                                                    <InputAdornment position="start">
+                                                                        Q.
+                                                                    </InputAdornment>
+                                                                ),
+                                                            }}
+                                                            fullWidth />
                                                         </div>
                                                     </div>
                                                 )}

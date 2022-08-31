@@ -9,6 +9,7 @@ import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 
+
 const life = [
     {
         value: "Si",
@@ -221,7 +222,7 @@ export default function WorkForm(props) {
                                     </Grid>
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Tiene pagina web?:
+                                        ¿Tiene página web?:
                                         </label>
                                         <SelectField
                                             // key={`inputwork_${index}`}
@@ -252,7 +253,15 @@ export default function WorkForm(props) {
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                             Salarios:
                                         </label>
-                                        <InputField  name={work_ne_salaryPersonal.name} label={work_ne_salaryPersonal.label} fullWidth />
+                                        <InputField type='Number' name={work_ne_salaryPersonal.name} label={work_ne_salaryPersonal.label}
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    Q.
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                        fullWidth />
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
@@ -271,7 +280,7 @@ export default function WorkForm(props) {
 
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px", paddingBottom: "40px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Qué hara con el negocio si es contratado?:
+                                            ¿Qué hará con el negocio si es contratado?:
                                         </label>
                                         <InputField name={work_ne_whatwill.name} label={work_ne_whatwill.label} fullWidth />
                                     </Grid>
@@ -328,7 +337,7 @@ export default function WorkForm(props) {
 
                                     <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Relacion:
+                                            Relación:
                                         </label>
                                         <SelectField
                                             // key={`inputwork_${index}`}
@@ -358,7 +367,7 @@ export default function WorkForm(props) {
                                     justifyContent: "center",
                                 }}
                             >
-                                Tener presente que tiene que colocar todos sus trabajos ya sea, vacacionista, temporal, informal, por facturación o planilla
+                                Tener presente que tiene que colocar todos sus trabajos, ya sea, vacacionista, temporal, informal, por facturación o planilla.
                             </p>
 
                             <Grid
@@ -480,7 +489,7 @@ export default function WorkForm(props) {
                                                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                             Nombre del jefe inmediato:
                                                                         </label>
-                                                                        <InputField name={`work.${index}.${work_boss.name}`} label={work_boss.label} fullWidth />
+                                                                        <InputField type='Number' name={`work.${index}.${work_boss.name}`} label={work_boss.label} fullWidth />
                                                                     </div>
                                                                     <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -527,7 +536,7 @@ export default function WorkForm(props) {
                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                         Número de la empresa:
                                                                                     </label>
-                                                                                    <InputField name={`work.${index}.${work_phone.name}`} label={work_phone.label} fullWidth />
+                                                                                    <InputField type='Number' name={`work.${index}.${work_phone.name}`} label={work_phone.label} fullWidth />
                                                                                 </div>
                                                                             )}
 

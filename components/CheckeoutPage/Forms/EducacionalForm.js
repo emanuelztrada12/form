@@ -342,7 +342,7 @@ export default function EducacionalForm(props) {
                                                         </div>
                                                         <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                    ¿Esta dispuesto a cambiar de horario?
+                                                                    ¿Está dispuesto a cambiar de horario?
                                                                 </label>
                                                                 <SelectField
                                                                     name={select_schedules.name}
@@ -354,7 +354,7 @@ export default function EducacionalForm(props) {
                                                                 {schedules === "No" && (
                                                                     <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}>
                                                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                            ¿Porque no?
+                                                                            ¿Por qué no?
                                                                         </label>
                                                                         <InputField name={why_not_schedules.name} label={why_not_schedules.label} fullWidth />
                                                                     </div>
