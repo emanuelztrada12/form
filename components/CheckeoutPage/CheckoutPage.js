@@ -35,6 +35,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MobileStepper from "@mui/material/MobileStepper";
+import CircularProgress from '@mui/material/CircularProgress';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import json2mq from "json2mq";
 
@@ -1212,9 +1213,10 @@ export default function CheckoutPage() {
 
   if (loading) return null;
 
-  const { id } = data.getUser || {};
+  const { id } = data?.getUser || {};
 
   function _handleSubmit(values, actions) {
+    setLocal(values)
     if (isLastStep) {
       _submitForm(values, actions);
       // const { data } = deleteUser({
