@@ -189,27 +189,27 @@ const FORMULARIO = gql`
       family_mom_died_first_name
       family_mom_died_last_name
       vive_family
-      #//validation two
-      family_mom_lifetwo
-      family_mom_nametwo
-      family_mom_agetwo
-      family_mom_statustwo
-      family_mom_working_valtwo
-      family_mom_placetwo
-      family_mom_companytwo
-      family_mom_financial_incometwo
-      family_mom_dependtwo
-      family_mom_phone_valtwo
-      family_mom_phonetwo
-      family_mom_no_phonetwo
-      #// add name died two
-      family_mom_died_first_nametwo
-      family_mom_died_last_nametwo
-      family_mom_time_diedtwo
-      family_mom_reason_diedtwo
-      family_mom_residenttwo
-      family_mom_no_residenttwo
-      family_mom_condition_residenttwo
+       #//validation two
+       family_mom_lifetwo
+       family_mom_nametwo
+       family_mom_agetwo
+       family_mom_statustwo
+       family_mom_working_valtwo
+       family_mom_placetwo
+       family_mom_companytwo
+       family_mom_financial_incometwo
+       family_mom_dependtwo
+       family_mom_phone_valtwo
+       family_mom_phonetwo
+       family_mom_no_phonetwo
+       #// add name died two
+       family_mom_died_first_nametwo
+       family_mom_died_last_nametwo
+       family_mom_time_diedtwo
+       family_mom_reason_diedtwo
+       family_mom_residenttwo
+       family_mom_no_residenttwo
+       family_mom_condition_residenttwo
 
       #aditional information
       you_parents_together
@@ -804,8 +804,8 @@ export default function CheckoutPage() {
             family_dad_reason_diedtwo: values.family_dad_reason_diedtwo,
             family_dad_residenttwo: values.family_dad_residenttwo,
             family_dad_no_residenttwo: values.family_dad_no_residenttwo,
-            family_dad_condition_residenttwo:
-              values.family_dad_condition_residenttwo,
+
+            family_dad_condition_residenttwo: values.family_dad_condition_residenttwo,
 
             //#mom
             family_mom_name: values.family_mom_name,
@@ -845,8 +845,8 @@ export default function CheckoutPage() {
             family_mom_working_valtwo: values.family_mom_working_valtwo,
             family_mom_placetwo: values.family_mom_placetwo,
             family_mom_companytwo: values.family_mom_companytwo,
-            family_mom_financial_incometwo:
-              values.family_mom_financial_incometwo,
+
+            family_mom_financial_incometwo: values.family_mom_financial_incometwo,
             family_mom_dependtwo: values.family_mom_dependtwo,
             family_mom_phone_valtwo: values.family_mom_phone_valtwo,
             family_mom_phonetwo: values.family_mom_phonetwo,
@@ -858,10 +858,9 @@ export default function CheckoutPage() {
             family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
             family_mom_residenttwo: values.family_mom_residenttwo,
             family_mom_no_residenttwo: values.family_mom_no_residenttwo,
-            family_mom_condition_residenttwo:
-              values.family_mom_condition_residenttwo,
+            family_mom_condition_residenttwo: values.family_mom_condition_residenttwo,
 
-            // aditional information
+            // aditional information 
             you_parents_together: values.you_parents_together,
             mother_partner_name: values.mother_partner_name,
             mother_partner_lastname: values.mother_partner_lastname,
@@ -1223,9 +1222,9 @@ export default function CheckoutPage() {
       //     id
       //   },
       // });
-      // settime out tiempo
+      // settime out tiempo 
       // eliminar storage
-      // mandar al login
+      // mandar al login 
       // setTimeout(() => {
       //   localStorage.clear()
       //   router.push("/LoginPage");
