@@ -3,9 +3,11 @@ const {
   formField: {
     general_name,
     general_lastname,
+    general_lastname_married,
     general_age,
     general_place_birth,
     general_civil_status,
+    general_married_name,
     general_profession,
     general_direction,
     general_time_reside,
@@ -17,6 +19,11 @@ const {
     general_dpi,
     general_nit,
     general_email,
+    /* add new condition */
+    general_nit_select,
+    general_afilacion_select,
+    general_irtra,
+    general_igss,
 
     family_dad_name,
     family_dad_age,
@@ -454,6 +461,8 @@ export default {
   [general_place_birth.name]: "",
   [general_age.name]: "",
   [general_civil_status.name]: "",
+  [general_married_name.name]: "",
+  [general_lastname_married.name]: "",
   [general_profession.name]: "",
   [general_direction.name]: "",
   [general_time_reside.name]: "",
@@ -465,9 +474,15 @@ export default {
   [general_dpi.name]: "",
   [general_nit.name]: "",
   [general_email.name]: "",
+  // add new variables
+  [general_nit_select.name]: "",
+  [general_afilacion_select.name]: "",
+  [general_irtra.name]: "",
+  [general_igss.name]: "",
   // you need to keep the default value
   general_birth: new Date().toISOString().split("T")[0],
   vehicle: [],
+  biker: [],
   license: [],
 
   //validate the inputs
