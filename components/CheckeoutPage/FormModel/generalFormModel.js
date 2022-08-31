@@ -18,6 +18,11 @@ export default {
       label: "Ingrese su edad*",
       requiredErrorMsg: "La edad es requerida",
     },
+    general_lastname_married: {
+      name: "general_lastname_married",
+      label: "Ingrese su apellido de casada*",
+      requiredErrorMsg: "El apellido son requeridos",
+    },
     general_birth: {
       name: "general_birth",
       requiredErrorMsg: "La fecha de nacimiento es requerida",
@@ -26,6 +31,11 @@ export default {
       name: "general_place_birth",
       label: "Ingrese su lugar de nacimiento*",
       requiredErrorMsg: "El lugar de nacimiento es requerido",
+    },
+    general_married_name: {
+      name: "general_married_name",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "El estado civil es requerido",
     },
     general_civil_status: {
       name: "general_civil_status",
@@ -83,6 +93,16 @@ export default {
       label: "Ingrese su NIT*",
       requiredErrorMsg: "El NIT es requerido",
     },
+    general_nit_select: {
+      name: "general_nit_select",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "Debe de seleccionar una de las opciones",
+    },
+    general_afilacion_select: {
+      name: "general_afilacion_select",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "Debe de seleccionar una de las opciones",
+    },
     general_igss: {
       name: "general_igss",
       label: "Ingrese la afilación IGSS",
@@ -124,6 +144,26 @@ export default {
       name: "general_brand",
       label: "Ingrese la Marca*",
       requiredErrorMsg: "La marca es requerida",
+    },
+    general_model_propetary: {
+      name: "general_model_propetary",
+      label: "Ingrese la informacion*",
+      requiredErrorMsg: "La informacion es requerida",
+    },
+    general_model_biker: {
+      name: "general_model_biker",
+      label: "Ingrese el Modelo*",
+      requiredErrorMsg: "El modelo es requerido",
+    },
+    general_brand_biker: {
+      name: "general_brand_biker",
+      label: "Ingrese la Marca*",
+      requiredErrorMsg: "La marca es requerida",
+    },
+    general_model_propetary_biker: {
+      name: "general_model_propetary_biker",
+      label: "Ingrese la informacion*",
+      requiredErrorMsg: "La informacion es requerida",
     },
     general_email: {
       name: "general_email",

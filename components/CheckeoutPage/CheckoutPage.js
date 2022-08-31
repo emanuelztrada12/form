@@ -74,6 +74,8 @@ const FORMULARIO = gql`
     newform_golden_input(input: $input) {
       general_name
       general_lastname
+      general_lastname_married # apellido de casada
+      general_married_name # select de apellido de casada
       general_birth
       general_place_birth
       general_age
@@ -84,15 +86,24 @@ const FORMULARIO = gql`
       general_previous_direction
       general_phone
       general_nit
+      general_nit_select # select nit 
       general_dpi
       general_email
       general_emergency_phone
       general_emergency_name
+      general_afilacion_select # select de afilacion
       general_irtra
       general_igss
       vehicle {
         general_brand
         general_model
+        general_model_propetary
+      }
+      # array biker
+      biker {
+        general_model_biker
+        general_brand_biker
+        general_model_propetary_biker
       }
       license {
         general_license
@@ -721,6 +732,8 @@ export default function CheckoutPage() {
             //Informacion general
             general_name: values.general_name,
             general_lastname: values.general_lastname,
+            general_married_name: values.general_married_name, // input select
+            general_lastname_married: values.general_lastname_married, // add lastname married
             general_birth: values.general_birth,
             general_place_birth: values.general_place_birth,
             general_age: year,
@@ -731,13 +744,16 @@ export default function CheckoutPage() {
             general_previous_direction: values.general_previous_direction,
             general_phone: values.general_phone,
             general_nit: values.general_nit,
+            general_nit_select: values.general_nit_select, // input select
             general_dpi: values.general_dpi,
             general_email: values.general_email,
             general_emergency_phone: values.general_emergency_phone,
             general_emergency_name: values.general_emergency_name,
+            general_afilacion_select: values.general_afilacion_select, // input select
             general_irtra: values.general_irtra,
             general_igss: values.general_igss,
             vehicle: values.vehicle,
+            biker: values.biker, // biker array
             license: values.license,
 
             family_validate_stepparents: values.family_validate_stepparents,
@@ -1191,18 +1207,18 @@ export default function CheckoutPage() {
   function  _handleSubmit  (values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
-        const { data } =  deleteUser({
-          variables: {
-            id
-          },
-        });
+        // const { data } =  deleteUser({
+        //   variables: {
+        //     id
+        //   },
+        // });
         // settime out tiempo 
         // eliminar storage
         // mandar al login 
-        setTimeout(() => {
-          localStorage.clear()
-          router.push("/LoginPage");
-        }, 8000);
+        // setTimeout(() => {
+        //   localStorage.clear()
+        //   router.push("/LoginPage");
+        // }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
