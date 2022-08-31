@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { CircularProgress, Grid } from "@mui/material";
-
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Box, Paper, Divider, Chip } from "@mui/material";
-import MobileStepper from "@mui/material/MobileStepper";
-import { Formik, Form } from "formik";
-import json2mq from "json2mq";
-import useMediaQuery from "@mui/material/useMediaQuery";
-
 import { useMutation, useQuery, gql } from "@apollo/client";
+import { useLocalStorage } from "../../Context/useLocalStorage";
+import { useRouter } from "next/router";
+import { Formik, Form } from "formik";
+import useStyles from "./styles";
 
+import AutorizationForm from "./Forms/AutorizationForm";
+import validationSchema from "./FormModel/validationSchema";
+import generalFormModel from "./FormModel/generalFormModel";
+import formInitialValues from "./FormModel/formInitialValues";
 import FamilyForm from "./Forms/FamilyForm";
 import General from "./Forms/General";
 import SonForm from "./Forms/SonForm";
@@ -31,14 +26,17 @@ import SindicatosForm from "./Forms/SindicatosForm";
 import HonestidadForm from "./Forms/HonestidadForm";
 import RedSocialForm from "./Forms/RedSocialForm";
 import CheckoutSuccess from "./CheckoutSuccess";
-import AutorizationForm from "./Forms/AutorizationForm";
-
-import validationSchema from "./FormModel/validationSchema";
-import generalFormModel from "./FormModel/generalFormModel";
-import formInitialValues from "./FormModel/formInitialValues";
-import useStyles from "./styles";
 import EducacionalForm from "./Forms/EducacionalForm";
-import { useRouter } from "next/router";
+
+// Material ui librery
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import MobileStepper from "@mui/material/MobileStepper";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import json2mq from "json2mq";
 
 const QUERY = gql`
   query GetFormularioGolden {
@@ -50,7 +48,7 @@ const QUERY = gql`
 
 const DELETED = gql`
   mutation deleteUser($id: ID!) {
-    deleteUser(id: $id){
+    deleteUser(id: $id) {
       id
     }
   }
@@ -67,7 +65,6 @@ const GET_USERS = gql`
     }
   }
 `;
-
 
 const FORMULARIO = gql`
   mutation newform_golden_input($input: form_golden_input) {
@@ -86,7 +83,7 @@ const FORMULARIO = gql`
       general_previous_direction
       general_phone
       general_nit
-      general_nit_select # select nit 
+      general_nit_select # select nit
       general_dpi
       general_email
       general_emergency_phone
@@ -141,7 +138,7 @@ const FORMULARIO = gql`
       family_dad_resident
       family_dad_no_resident
       family_dad_condition_resident
-      
+
       #/validation two
       family_dad_lifetwo
       family_dad_nametwo
@@ -163,7 +160,7 @@ const FORMULARIO = gql`
       family_dad_residenttwo
       family_dad_no_residenttwo
       family_dad_condition_residenttwo
-      
+
       #mom
       family_mom_name
       family_mom_age
@@ -530,8 +527,8 @@ const FORMULARIO = gql`
       social_drog_time
       social_drog_person
       social_tatto
-      social_fuma_frequency 
-      social_alco_howmuch 
+      social_fuma_frequency
+      social_alco_howmuch
       social_alco_frequency
       social {
         social_tatto_descri
@@ -689,12 +686,22 @@ export default function CheckoutPage() {
   const { data, loading, error } = useQuery(GET_USERS);
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
+  const [getLocal, setLocal] = useLocalStorage("formData", "");
   const matches = useMediaQuery(
     json2mq({
       minWidth: 1400,
     })
   );
 
+  const getInitialValues = () => {
+    const formData = getLocal();
+    console.log(formData);
+    if (formData == null) {
+      return formInitialValues;
+    }
+    return formData;
+  };
+  const [initialData, setInitialData] = useState(getInitialValues());
   const currentValidationSchema = validationSchema[activeStep];
 
   const isLastStep = activeStep === steps.length - 1;
@@ -765,7 +772,8 @@ export default function CheckoutPage() {
             family_dad_information: values.family_dad_information,
             family_dad_reason: values.family_dad_reason,
             family_dad_why_negative: values.family_dad_why_negative,
-            family_dad_information_negative: values.family_dad_information_negative,
+            family_dad_information_negative:
+              values.family_dad_information_negative,
             // #// add name died
             family_dad_died_first_name: values.family_dad_died_first_name,
             family_dad_died_last_name: values.family_dad_died_last_name,
@@ -783,7 +791,8 @@ export default function CheckoutPage() {
             family_dad_working_valtwo: values.family_dad_working_valtwo,
             family_dad_placetwo: values.family_dad_placetwo,
             family_dad_companytwo: values.family_dad_companytwo,
-            family_dad_financial_incometwo: values.family_dad_financial_incometwo,
+            family_dad_financial_incometwo:
+              values.family_dad_financial_incometwo,
             family_dad_dependtwo: values.family_dad_dependtwo,
             family_dad_phone_valtwo: values.family_dad_phone_valtwo,
             family_dad_phonetwo: values.family_dad_phonetwo,
@@ -795,6 +804,7 @@ export default function CheckoutPage() {
             family_dad_reason_diedtwo: values.family_dad_reason_diedtwo,
             family_dad_residenttwo: values.family_dad_residenttwo,
             family_dad_no_residenttwo: values.family_dad_no_residenttwo,
+
             family_dad_condition_residenttwo: values.family_dad_condition_residenttwo,
 
             //#mom
@@ -816,12 +826,13 @@ export default function CheckoutPage() {
             family_mom_information: values.family_mom_information,
             family_mom_reason: values.family_mom_reason,
             family_mom_why_negative: values.family_mom_why_negative,
-            family_mom_information_negative: values.family_mom_information_negative,
+            family_mom_information_negative:
+              values.family_mom_information_negative,
             // #// add mother name died
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
             vive_family: values.vive_family,
-            
+
             family_mom_resident: values.family_mom_resident,
             family_mom_no_resident: values.family_mom_no_resident,
             family_mom_condition_resident: values.family_mom_condition_resident,
@@ -834,6 +845,7 @@ export default function CheckoutPage() {
             family_mom_working_valtwo: values.family_mom_working_valtwo,
             family_mom_placetwo: values.family_mom_placetwo,
             family_mom_companytwo: values.family_mom_companytwo,
+
             family_mom_financial_incometwo: values.family_mom_financial_incometwo,
             family_mom_dependtwo: values.family_mom_dependtwo,
             family_mom_phone_valtwo: values.family_mom_phone_valtwo,
@@ -1234,7 +1246,12 @@ export default function CheckoutPage() {
         component="h1"
         variant="h4"
         align="center"
-        style={{ paddingTop: '20px', paddingBottom: "20px", fontSize: "35px", fontWeight: "bold" }}
+        style={{
+          paddingTop: "20px",
+          paddingBottom: "20px",
+          fontSize: "35px",
+          fontWeight: "bold",
+        }}
       >
         Socioeconómico
       </Typography>
@@ -1242,7 +1259,8 @@ export default function CheckoutPage() {
       {matches == true && (
         <Stepper
           xs={12}
-          sm={6} matchestwo
+          sm={6}
+          matchestwo
           activeStep={activeStep}
           className={classes.stepper}
           alternativeLabel
@@ -1295,7 +1313,7 @@ export default function CheckoutPage() {
           <CheckoutSuccess />
         ) : (
           <Formik
-            initialValues={formInitialValues}
+            initialValues={initialData}
             validationSchema={currentValidationSchema}
             onSubmit={_handleSubmit}
           >
@@ -1303,7 +1321,15 @@ export default function CheckoutPage() {
               <Form id={formId}>
                 {_renderStepContent(activeStep, values)}
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '30px', paddingBottom: '15px', paddingTop: '10px' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    paddingRight: "30px",
+                    paddingBottom: "15px",
+                    paddingTop: "10px",
+                  }}
+                >
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>
                       Anterior
