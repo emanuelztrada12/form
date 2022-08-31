@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from '@mui/icons-material/Boy';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
     {
@@ -251,7 +252,7 @@ export default function BrothersForm(props) {
                                                                                 <label
                                                                                     style={{ fontSize: "18px", fontWeight: "bold" }}
                                                                                 >
-                                                                                    ¿Aún Vive?:
+                                                                                    ¿Aún vive?:
                                                                                 </label>
                                                                                 <SelectField
                                                                                     key={`inputbrothers_${index}`}
@@ -283,7 +284,7 @@ export default function BrothersForm(props) {
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                     Edad:
                                                                                                 </label>
-                                                                                                <InputField name={`brothers.${index}.${family_brothers_age.name}`} label={family_brothers_age.label} fullWidth />
+                                                                                                <InputField type= 'Number' name={`brothers.${index}.${family_brothers_age.name}`} label={family_brothers_age.label} fullWidth />
                                                                                             </div>
                                                                                             <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                                                                                                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -321,7 +322,7 @@ export default function BrothersForm(props) {
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Teléfono:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`brothers.${index}.${family_brothers_phone.name}`} label={family_brothers_phone.label} fullWidth />
+                                                                                                                    <InputField type= 'Number' name={`brothers.${index}.${family_brothers_phone.name}`} label={family_brothers_phone.label} fullWidth />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         )}
@@ -378,7 +379,15 @@ export default function BrothersForm(props) {
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Ingresos promedio:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`brothers.${index}.${family_brothers_financial_income.name}`} label={family_brothers_financial_income.label} fullWidth />
+                                                                                                                    <InputField type='Number' name={`brothers.${index}.${family_brothers_financial_income.name}`} label={family_brothers_financial_income.label}
+                                                                                                                    InputProps={{
+                                                                                                                        startAdornment: (
+                                                                                                                            <InputAdornment position="start">
+                                                                                                                                Q.
+                                                                                                                            </InputAdornment>
+                                                                                                                        ),
+                                                                                                                    }}
+                                                                                                                    fullWidth />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         )}

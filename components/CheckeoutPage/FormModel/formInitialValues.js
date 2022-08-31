@@ -54,6 +54,15 @@ const {
     family_dad_time_diedtwo,
     family_dad_reason_diedtwo,
 
+    // changes 2.1
+    family_dad_resident,
+    family_dad_no_resident,
+    family_dad_condition_resident,
+    family_dad_residenttwo,
+    family_dad_no_residenttwo,
+    family_dad_condition_residenttwo,
+
+
     // changes
     family_dad_relation,
     // yes
@@ -113,6 +122,14 @@ const {
     family_mom_died_last_nametwo,
     family_mom_time_diedtwo,
     family_mom_reason_diedtwo,
+
+    //changes 2.1
+    family_mom_resident,
+    family_mom_no_resident,
+    family_mom_condition_resident,
+    family_mom_residenttwo,
+    family_mom_no_residenttwo,
+    family_mom_condition_residenttwo,
 
     /* for two parents */
     you_parents_together,
@@ -505,6 +522,15 @@ export default {
   [family_dad_why_negative.name]: "",
   [family_dad_information_negative.name]: "",
 
+  // changes dad 2.1
+  [family_dad_resident.name]: "",
+  [family_dad_no_resident.name]: "",
+  [family_dad_condition_resident.name]: "",
+
+  // changestwo dad 2.1
+  [family_dad_residenttwo.name]: "",
+  [family_dad_no_residenttwo.name]: "",
+  [family_dad_condition_residenttwo.name]: "",
 
   [family_dad_lifetwo.name]: "",
   [family_dad_nametwo.name]: "",
@@ -568,6 +594,15 @@ export default {
   [family_mom_time_diedtwo.name]: "",
   [family_mom_reason_diedtwo.name]: "",
   [vive_family.name]: "",
+
+  // changes 2.1
+  [family_mom_resident.name]: "",
+  [family_mom_no_resident.name]: "",
+  [family_mom_condition_resident.name]: "",
+  [family_mom_residenttwo.name]: "",
+  [family_mom_no_residenttwo.name]: "",
+  [family_mom_condition_residenttwo.name]: "",
+
 
   //stepfather
   [family_stepfather_name.name]: "",

@@ -129,6 +129,9 @@ const FORMULARIO = gql`
       family_dad_died_last_name
       family_dad_time_died
       family_dad_reason_died
+      family_dad_resident
+      family_dad_no_resident
+      family_dad_condition_resident
       
       #/validation two
       family_dad_lifetwo
@@ -148,6 +151,9 @@ const FORMULARIO = gql`
       family_dad_died_last_nametwo
       family_dad_time_diedtwo
       family_dad_reason_diedtwo
+      family_dad_residenttwo
+      family_dad_no_residenttwo
+      family_dad_condition_residenttwo
 
       #mom
       family_mom_name
@@ -173,6 +179,9 @@ const FORMULARIO = gql`
       family_mom_died_first_name
       family_mom_died_last_name
       vive_family
+      family_mom_resident
+      family_mom_no_resident
+      family_mom_condition_resident
 
        #//validation two
        family_mom_lifetwo
@@ -192,6 +201,9 @@ const FORMULARIO = gql`
        family_mom_died_last_nametwo
        family_mom_time_diedtwo
        family_mom_reason_diedtwo
+       family_mom_residenttwo
+       family_mom_no_residenttwo
+       family_mom_condition_residenttwo
 
       #aditional information
       you_parents_together
@@ -623,16 +635,16 @@ const FORMULARIO = gql`
 
 const steps = [
   "Autorización",
-  "Info. general",
-  "Datos padres",
-  "Datos hijos",
-  "Datos hermanos",
-  "Datos hermanastros",
-  "Datos conygue",
-  "Datos abuelos",
+  "Información general",
+  "Información padres",
+  "Información hijos",
+  "Información hermanos",
+  "Información hermanastros",
+  "Información cónyuge",
+  "Información abuelos",
   "Información educacional",
   "Información laboral",
-  "Información economica",
+  "Información económica",
   "Información social",
   "Actividades Delictivas",
   "Factor Salud",
@@ -689,8 +701,8 @@ function _renderStepContent(step, values) {
 export default function CheckoutPage() {
   const router = useRouter();
   const [newFormulario] = useMutation(FORMULARIO);
-  const [deleteUser]= useMutation(DELETED); 
-  const { data, loading, error} = useQuery(GET_USERS); 
+  const [deleteUser] = useMutation(DELETED);
+  const { data, loading, error } = useQuery(GET_USERS);
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const matches = useMediaQuery(
@@ -765,12 +777,21 @@ export default function CheckoutPage() {
             family_dad_reason: values.family_dad_reason,
             family_dad_why_negative: values.family_dad_why_negative,
             family_dad_information_negative: values.family_dad_information_negative,
+
+            // #// add changes 2.1
+            family_dad_resident: values.family_dad_resident,
+            family_dad_no_resident: values.family_dad_no_resident,
+            family_dad_condition_resident: values.family_dad_condition_resident,
+            family_dad_residenttwo: values.family_dad_residenttwo,
+            family_dad_no_residenttwo: values.family_dad_no_residenttwo,
+            family_dad_condition_residenttwo: values.family_dad_condition_residenttwo,
+
             // #// add name died
             family_dad_died_first_name: values.family_dad_died_first_name,
             family_dad_died_last_name: values.family_dad_died_last_name,
             family_dad_time_died: values.family_dad_time_died,
             family_dad_reason_died: values.family_dad_reason_died,
-      
+
             //validation two
             family_dad_lifetwo: values.family_dad_lifetwo,
             family_dad_nametwo: values.family_dad_nametwo,
@@ -813,27 +834,35 @@ export default function CheckoutPage() {
             // #// add mother name died
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
-            vive_family: values.vive_family, 
+            vive_family: values.vive_family,
+
+            // #// add changes 2.1
+            family_mom_resident: values.family_mom_resident,
+            family_mom_no_resident: values.family_mom_no_resident,
+            family_mom_condition_resident: values.family_mom_condition_resident,
+            family_mom_residenttwo: values.family_mom_residenttwo,
+            family_mom_no_residenttwo: values.family_mom_no_residenttwo,
+            family_mom_condition_residenttwo: values.family_mom_condition_residenttwo,
 
             //  #//validation two
-             family_mom_lifetwo: values.family_mom_lifetwo,
-             family_mom_nametwo: values.family_mom_nametwo,
-             family_mom_agetwo: values.family_mom_agetwo,
-             family_mom_statustwo: values.family_mom_statustwo,
-             family_mom_working_valtwo: values.family_mom_working_valtwo,
-             family_mom_placetwo: values.family_mom_placetwo,
-             family_mom_companytwo: values.family_mom_companytwo,
-             family_mom_financial_incometwo: values.family_mom_financial_incometwo,
-             family_mom_dependtwo: values.family_mom_dependtwo,
-             family_mom_phone_valtwo: values.family_mom_phone_valtwo,
-             family_mom_phonetwo: values.family_mom_phonetwo,
-             family_mom_no_phonetwo: values.family_mom_no_phonetwo,
+            family_mom_lifetwo: values.family_mom_lifetwo,
+            family_mom_nametwo: values.family_mom_nametwo,
+            family_mom_agetwo: values.family_mom_agetwo,
+            family_mom_statustwo: values.family_mom_statustwo,
+            family_mom_working_valtwo: values.family_mom_working_valtwo,
+            family_mom_placetwo: values.family_mom_placetwo,
+            family_mom_companytwo: values.family_mom_companytwo,
+            family_mom_financial_incometwo: values.family_mom_financial_incometwo,
+            family_mom_dependtwo: values.family_mom_dependtwo,
+            family_mom_phone_valtwo: values.family_mom_phone_valtwo,
+            family_mom_phonetwo: values.family_mom_phonetwo,
+            family_mom_no_phonetwo: values.family_mom_no_phonetwo,
             //  #// add name died two
-             family_mom_died_first_nametwo: values.family_mom_died_first_nametwo,
-             family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
-             family_mom_time_diedtwo: values.family_mom_time_diedtwo,
-             family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
-      
+            family_mom_died_first_nametwo: values.family_mom_died_first_nametwo,
+            family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
+            family_mom_time_diedtwo: values.family_mom_time_diedtwo,
+            family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
+
             // aditional information 
             you_parents_together: values.you_parents_together,
             mother_partner_name: values.mother_partner_name,
@@ -885,7 +914,7 @@ export default function CheckoutPage() {
             son: values.son,
             brothers: values.brothers,
             stepbrother: values.stepbrother,
-            
+
             // conyugue
             family_conyugue_name: values.family_conyugue_name,
             family_conyugue_age: values.family_conyugue_age,
@@ -1105,7 +1134,7 @@ export default function CheckoutPage() {
             social_drog_person: values.social_drog_person,
             social_tatto: values.social_tatto,
             social: values.social,
-            social_fuma_frequency: values.social_fuma_frequency, 
+            social_fuma_frequency: values.social_fuma_frequency,
             social_alco_howmuch: values.social_alco_howmuch,
             social_alco_frequency: values.social_alco_frequency,
 
@@ -1169,7 +1198,7 @@ export default function CheckoutPage() {
             documentInOrder: values.documentInOrder,
 
             red_faccebook: values.red_faccebook,
-            red_faccebookOther: values.red_faccebookOther, 
+            red_faccebookOther: values.red_faccebookOther,
             red_faccebookval: values.red_faccebookval,
             red_faccebookOtherVal: values.red_faccebookOtherVal,
             validation_form: values.validation_form,
@@ -1188,21 +1217,21 @@ export default function CheckoutPage() {
 
   const { id } = data.getUser || {};
 
-  function  _handleSubmit  (values, actions) {
+  function _handleSubmit(values, actions) {
     if (isLastStep) {
       _submitForm(values, actions);
-        const { data } =  deleteUser({
-          variables: {
-            id
-          },
-        });
-        // settime out tiempo 
-        // eliminar storage
-        // mandar al login 
-        setTimeout(() => {
-          localStorage.clear()
-          router.push("/LoginPage");
-        }, 8000);
+      // const { data } = deleteUser({
+      //   variables: {
+      //     id
+      //   },
+      // });
+      // settime out tiempo 
+      // eliminar storage
+      // mandar al login 
+      // setTimeout(() => {
+      //   localStorage.clear()
+      //   router.push("/LoginPage");
+      // }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -1228,7 +1257,7 @@ export default function CheckoutPage() {
       {matches == true && (
         <Stepper
           xs={12}
-          sm={6}matchestwo
+          sm={6} matchestwo
           activeStep={activeStep}
           className={classes.stepper}
           alternativeLabel
@@ -1241,7 +1270,7 @@ export default function CheckoutPage() {
         </Stepper>
       )}
 
-      {matches == false  && (
+      {matches == false && (
         <MobileStepper
           style={{ display: "flex", justifyContent: "center" }}
           steps={18}
@@ -1289,10 +1318,10 @@ export default function CheckoutPage() {
               <Form id={formId}>
                 {_renderStepContent(activeStep, values)}
 
-                <div style={{display: 'flex', justifyContent: 'flex-end', paddingRight: '30px', paddingBottom: '15px', paddingTop: '10px'}}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '30px', paddingBottom: '15px', paddingTop: '10px' }}>
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>
-                      Back
+                      Anterior
                     </Button>
                   )}
                   <div>

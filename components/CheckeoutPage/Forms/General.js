@@ -210,19 +210,19 @@ export default function General(props) {
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 Teléfono celular:
               </label>
-              <InputField name={general_phone.name} label={general_phone.label} fullWidth />
+              <InputField type="Number" name={general_phone.name} label={general_phone.label} fullWidth />
             </Grid>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 DPI:
               </label>
-              <InputField name={general_dpi.name} label={general_dpi.label} fullWidth />
+              <InputField type="Number" name={general_dpi.name} label={general_dpi.label} fullWidth />
             </Grid>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                NIT:
+                NIT :
               </label>
-              <InputField name={general_nit.name} label={general_nit.label} fullWidth />
+              <InputField type="Number" name={general_nit.name} label={general_nit.label} fullWidth />
             </Grid>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -253,7 +253,7 @@ export default function General(props) {
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 Teléfono de emergencia:
               </label>
-              <InputField name={general_emergency_phone.name} label={general_emergency_phone.label} fullWidth />
+              <InputField type="Number" name={general_emergency_phone.name} label={general_emergency_phone.label} fullWidth />
             </Grid>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
@@ -282,22 +282,22 @@ export default function General(props) {
               }}
               icon={< AssignmentIndIcon />}
               color="primary"
-              label="Afilaciones"
+              label="Afiliaciones"
             />
           </Divider>
 
           <Grid container style={{ paddingTop: "18px" }}>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Afilación IRTRA:
+                Afiliación IRTRA:
               </label>
-              <InputField name={general_irtra.name} label={general_irtra.label} fullWidth />
+              <InputField type="Number" name={general_irtra.name} label={general_irtra.label} fullWidth />
             </Grid>
             <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Afilación IGSS:
+               Afiliación IGSS:
               </label>
-              <InputField name={general_igss.name} label={general_igss.label} fullWidth />
+              <InputField type="Number" name={general_igss.name} label={general_igss.label} fullWidth />
             </Grid>
           </Grid>
 
@@ -313,7 +313,7 @@ export default function General(props) {
               }}
               icon={< DirectionsCarIcon />}
               color="primary"
-              label="Vehiculos"
+              label="Vehículos"
             />
           </Divider>
           <p style={{ paddingLeft: "15px", paddingTop: "10px", fontSize: "20px", display: "flex", justifyContent: "center" }}>Ingrese si posee algun vehículo</p>
@@ -387,7 +387,7 @@ export default function General(props) {
               }}
               icon={< CoPresentIcon />}
               color="primary"
-              label="licencias"
+              label="Licencias"
             />
           </Divider>
 
@@ -420,9 +420,10 @@ export default function General(props) {
                       <label
                         style={{ fontSize: "18px", fontWeight: "bold" }}
                       >
-                        No. licencia:
+                        No. Licencia:
                       </label>
                       <InputField
+                      type="Number"
                         name={`license.${index}.${general_license.name}`}
                         label={general_license.label}
                         fullWidth

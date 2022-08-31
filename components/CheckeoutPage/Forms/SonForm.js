@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
     {
@@ -266,7 +267,7 @@ export default function SonForm(props) {
                                                                                 <label
                                                                                     style={{ fontSize: "18px", fontWeight: "bold" }}
                                                                                 >
-                                                                                    ¿Aún Vive?:
+                                                                                    ¿Aún vive?:
                                                                                 </label>
                                                                                 <SelectField
                                                                                     key={`inputSon_${index}`}
@@ -327,7 +328,7 @@ export default function SonForm(props) {
                                                                                                             <InputField name={`son.${index}.${family_son_age.name}`} label={family_son_age.label} fullWidth />
 
                                                                                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                                                                                ¿Quién cuidara de el?:
+                                                                                                                ¿Quién cuidará de él?:
                                                                                                             </label>
                                                                                                             <InputField name={`son.${index}.${family_son_lookafther.name}`} label={family_son_lookafther.label} fullWidth />
                                                                                                             <Divider style={{ paddingTop: "10px" }} />
@@ -388,7 +389,7 @@ export default function SonForm(props) {
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Teléfono:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_phone.name}`} label={family_son_phone.label} fullWidth />
+                                                                                                                    <InputField type= 'Number' name={`son.${index}.${family_son_phone.name}`} label={family_son_phone.label} fullWidth />
                                                                                                                 </div>
                                                                                                                 <Divider style={{ paddingTop: "10px" }} />
                                                                                                             </div>
@@ -446,7 +447,15 @@ export default function SonForm(props) {
                                                                                                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                                                                                         Ingresos promedio:
                                                                                                                     </label>
-                                                                                                                    <InputField name={`son.${index}.${family_son_financial_income.name}`} label={family_son_financial_income.label} fullWidth />
+                                                                                                                    <InputField type= 'Number' name={`son.${index}.${family_son_financial_income.name}`} label={family_son_financial_income.label} 
+                                                                                                                    InputProps={{
+                                                                                                                        startAdornment: (
+                                                                                                                            <InputAdornment position="start">
+                                                                                                                                Q.
+                                                                                                                            </InputAdornment>
+                                                                                                                        ),
+                                                                                                                    }}
+                                                                                                                    fullWidth />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         )}

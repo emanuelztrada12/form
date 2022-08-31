@@ -39,11 +39,11 @@ const civil = [
   },
   {
     value: "Papa",
-    label: "Papa",
+    label: "Papá",
   },
   {
     value: "Mama",
-    label: "Mama",
+    label: "Mamá",
   },
   {
     value: "Sobrin@",
@@ -223,7 +223,7 @@ export default function CriminalForm(props) {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee antecendetes policiales o penales manchados?:
+                ¿Posee antecedentes policiales o penales manchados?:
               </label>
               <SelectField
                 name={criminal_police_option.name}
@@ -250,7 +250,7 @@ export default function CriminalForm(props) {
                     xs={12}
                     sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Cuando los limpio?:
+                      ¿Cuándo los limpio?:
                     </label>
                     <InputField
                       name={criminal_why_clear.name}
