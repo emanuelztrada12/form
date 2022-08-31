@@ -129,7 +129,7 @@ export default function RedSocialForm(props) {
               }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee otra cuenta de facebook?:
+                 ¿Posee otra cuenta de Facebook?:
               </label>
               <SelectField
                 name={red_faccebookOtherVal.name}

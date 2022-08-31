@@ -23,12 +23,19 @@ const {
     general_emergency_phone,
     general_dpi,
     general_nit,
+    general_nit_select,
     general_license,
     general_license_type,
     general_license_expire,
     general_model,
     general_brand,
+    general_model_biker,
+    general_brand_biker,
     general_email,
+    general_afilacion_select,
+    // add new scopes
+    general_model_propetary,
+    general_model_propetary_biker,
 
     family_validate_stepparents,
     family_validate_son,
@@ -560,6 +567,7 @@ export default [
     [general_direction.name]: yup
       .string()
       .required(`${general_direction.requiredErrorMsg}`),
+    [general_age.name]: yup.string(),
     [general_time_reside.name]: yup
       .string()
       .required(`${general_time_reside.requiredErrorMsg}`),
@@ -574,21 +582,39 @@ export default [
       .required(`${general_previous_direction.requiredErrorMsg}`),
     [general_phone.name]: yup
       .string()
-      .required(`${general_phone.requiredErrorMsg}`),
+      .required(`${general_phone.requiredErrorMsg}`)
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .min(8, 'El numero telefonico debe tener 8 digitos')
+      .max(8, 'El numero telefonico debe tener 8 digitos'),
     [general_emergency_phone.name]: yup
       .string()
       .required(`${general_emergency_phone.requiredErrorMsg}`),
     [general_dpi.name]: yup
       .string()
-      .required(`${general_dpi.requiredErrorMsg}`),
-    [general_nit.name]: yup
+      .required(`${general_dpi.requiredErrorMsg}`)
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .min(8, 'El DPI debe tener 13 digitos')
+      .max(8, 'El DPI debe tener 13 digitos'),
+    [general_nit_select.name]: yup
       .string()
-      .required(`${general_nit.requiredErrorMsg}`),
+      .required(`${general_nit_select.requiredErrorMsg}`),
+    [general_nit.name]: yup.string().when("general_nit_select", {
+      is: "Posee",
+      then: yup
+        .string()
+        .required(`${general_nit_select.requiredErrorMsg}`)
+        .when("general_nit", {
+          is: "No Posee",
+          then: yup.string(),
+        }),
+    }),
+    [general_afilacion_select.name]: yup
+      .string()
+      .required(`${general_afilacion_select.requiredErrorMsg}`),
     [general_email.name]: yup
       .string()
       .email("El email no es correcto")
       .required(`${general_email.requiredErrorMsg}`),
-    [general_age.name]: yup.string(),
     [general_birth.name]: yup.string(),
     vehicle: yup.array({}).of(
       yup.object().shape({
@@ -598,6 +624,22 @@ export default [
         [general_model.name]: yup
           .string()
           .required(`${general_model.requiredErrorMsg}`),
+        [general_model_propetary.name]: yup
+          .string()
+          .required(`${general_model_propetary.requiredErrorMsg}`),
+      })
+    ),
+    biker: yup.array({}).of(
+      yup.object().shape({
+        [general_brand_biker.name]: yup
+          .string()
+          .required(`${general_brand_biker.requiredErrorMsg}`),
+        [general_model_biker.name]: yup
+          .string()
+          .required(`${general_model_biker.requiredErrorMsg}`),
+        [general_model_propetary_biker.name]: yup
+          .string()
+          .required(`${general_model_propetary_biker.requiredErrorMsg}`),
       })
     ),
     license: yup.array({}).of(

@@ -103,7 +103,7 @@ export default function HonestidadForm(props) {
                             {whyIdentity === "Si" && (
                                 <Grid>
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Por que?:
+                                        ¿Por qué?:
                                     </label>
                                     <InputField name={whyIdentityHidde.name} label={whyIdentityHidde.label} fullWidth />
                                 </Grid>
@@ -160,7 +160,7 @@ export default function HonestidadForm(props) {
                             {docInOrder === "No" && (
                                 <Grid>
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿Por que?:
+                                    ¿Por qué?:
                                     </label>
                                     <InputField name={documentInOrder.name} label={documentInOrder.label} fullWidth />
                                 </Grid>

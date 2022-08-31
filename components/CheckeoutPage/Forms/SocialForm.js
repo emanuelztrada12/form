@@ -262,7 +262,7 @@ export default function SocialForm(props) {
                             sm={6}
                             style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Tiene un familiar que pertenezca a un partido politico o puesto, persona expuesta al público?
+                             ¿Tiene un familiar que pertenezca a un partido político o puesto, persona expuesta al público?:
                             </label>
                             <SelectField
                                 name={social_politic.name}
@@ -314,7 +314,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Puesto o partido pilitico en el que se encuentra:
+                                            Puesto o partido político en el que se encuentra:
                                         </label>
                                         <InputField
                                             name={social_politic_puesto.name}
@@ -333,7 +333,7 @@ export default function SocialForm(props) {
                             style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                         >
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Tiene el habito de fumar?:
+                                ¿Tiene el hábito de fumar?:
                             </label>
                             <SelectField
                                 name={social_fuma.name}
@@ -353,7 +353,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                             ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <DatePickerField
                                             name={social_fuma_time.name}
@@ -411,7 +411,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                            ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <DatePickerField
                                             name={social_alco_time.name}
@@ -427,7 +427,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Qué fue lo último que consumio?:
+                                            ¿Qué fue lo último que consumió?:
                                         </label>
                                         <InputField
                                             name={social_alco_bebida.name}
@@ -443,7 +443,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuanto consumio?:
+                                            ¿Cuánto consumió?:
                                         </label>
                                         <InputField
                                             name={social_alco_howmuch.name}
@@ -522,7 +522,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                            ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <InputField
                                             name={social_drog_time.name}
@@ -564,7 +564,7 @@ export default function SocialForm(props) {
                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                     >
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                            ¿Posse tatuajes?:
+                            ¿Posee tatuajes?:
                         </label>
                         <SelectField
                             name={social_tatto.name}
