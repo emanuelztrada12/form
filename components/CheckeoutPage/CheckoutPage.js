@@ -138,6 +138,9 @@ const FORMULARIO = gql`
       family_dad_died_last_name
       family_dad_time_died
       family_dad_reason_died
+      family_dad_resident
+      family_dad_no_resident
+      family_dad_condition_resident
       
       #/validation two
       family_dad_lifetwo
@@ -157,6 +160,10 @@ const FORMULARIO = gql`
       family_dad_died_last_nametwo
       family_dad_time_diedtwo
       family_dad_reason_diedtwo
+      family_dad_residenttwo
+      family_dad_no_residenttwo
+      family_dad_condition_residenttwo
+      
       #mom
       family_mom_name
       family_mom_age
@@ -177,6 +184,10 @@ const FORMULARIO = gql`
       family_mom_reason
       family_mom_why_negative
       family_mom_information_negative
+      family_mom_resident
+      family_mom_no_resident
+      family_mom_condition_resident
+
       #// add mother name died
       family_mom_died_first_name
       family_mom_died_last_name
@@ -199,6 +210,10 @@ const FORMULARIO = gql`
        family_mom_died_last_nametwo
        family_mom_time_diedtwo
        family_mom_reason_diedtwo
+       family_mom_residenttwo
+       family_mom_no_residenttwo
+       family_mom_condition_residenttwo
+
       #aditional information
       you_parents_together
       mother_partner_name
@@ -209,6 +224,7 @@ const FORMULARIO = gql`
       father_relationship
       has_partner_father
       has_partner_mother
+
       #stepfather
       family_stepfather_name
       family_stepfather_age
@@ -226,6 +242,7 @@ const FORMULARIO = gql`
       family_stepfather_working_val
       family_stepfather_info
       family_stepfather_noInfo
+
       #stepmother
       family_stepmother_name
       family_stepmother_age
@@ -243,6 +260,7 @@ const FORMULARIO = gql`
       family_stepmother_phone_val
       family_stepmother_working_val
       family_stepmother_noInfo
+
       #conyugue
       family_validate_conyugue
       family_conyugue_name
@@ -273,9 +291,11 @@ const FORMULARIO = gql`
       family_conyuguepat_no_phone
       family_conyuguepat_phone_val
       family_conyuguepat_working_val
+
       # add name and lastname
       family_conyugue_died_name
       family_conyugue_died_lastname
+
       #son
       son {
         family_son_name
@@ -751,6 +771,9 @@ export default function CheckoutPage() {
             family_dad_died_last_name: values.family_dad_died_last_name,
             family_dad_time_died: values.family_dad_time_died,
             family_dad_reason_died: values.family_dad_reason_died,
+            family_dad_resident: values.family_dad_resident,
+            family_dad_no_resident: values.family_dad_no_resident,
+            family_dad_condition_resident: values.family_dad_condition_resident,
 
             //validation two
             family_dad_lifetwo: values.family_dad_lifetwo,
@@ -770,6 +793,9 @@ export default function CheckoutPage() {
             family_dad_died_last_nametwo: values.family_dad_died_last_nametwo,
             family_dad_time_diedtwo: values.family_dad_time_diedtwo,
             family_dad_reason_diedtwo: values.family_dad_reason_diedtwo,
+            family_dad_residenttwo: values.family_dad_residenttwo,
+            family_dad_no_residenttwo: values.family_dad_no_residenttwo,
+            family_dad_condition_residenttwo: values.family_dad_condition_residenttwo,
 
             //#mom
             family_mom_name: values.family_mom_name,
@@ -795,6 +821,10 @@ export default function CheckoutPage() {
             family_mom_died_first_name: values.family_mom_died_first_name,
             family_mom_died_last_name: values.family_mom_died_last_name,
             vive_family: values.vive_family,
+            
+            family_mom_resident: values.family_mom_resident,
+            family_mom_no_resident: values.family_mom_no_resident,
+            family_mom_condition_resident: values.family_mom_condition_resident,
 
             //  #//validation two
             family_mom_lifetwo: values.family_mom_lifetwo,
@@ -814,6 +844,9 @@ export default function CheckoutPage() {
             family_mom_died_last_nametwo: values.family_mom_died_last_nametwo,
             family_mom_time_diedtwo: values.family_mom_time_diedtwo,
             family_mom_reason_diedtwo: values.family_mom_reason_diedtwo,
+            family_mom_residenttwo: values.family_mom_residenttwo,
+            family_mom_no_residenttwo: values.family_mom_no_residenttwo,
+            family_mom_condition_residenttwo: values.family_mom_condition_residenttwo,
 
             // aditional information 
             you_parents_together: values.you_parents_together,
