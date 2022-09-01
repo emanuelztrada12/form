@@ -79,9 +79,8 @@ export default function Login() {
         guardarMensajeTrue("Autenticando...");
 
         //Guardar Token en localstorage
-        const { token } = data.authenticateUser;
+        const { ok, token, refreshToken } = data.authenticateUser;
         localStorage.setItem("token", token);
-
         /* HAY QUE CREAR ESTA RUTA */
         router.push("/");
       } catch (error) {
