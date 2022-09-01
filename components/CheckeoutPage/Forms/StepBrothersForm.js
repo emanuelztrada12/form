@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from "@mui/icons-material/Boy";
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
   {
@@ -285,7 +286,7 @@ export default function StepBrothersForm(props) {
                                             fontWeight: "bold",
                                           }}
                                         >
-                                          ¿Aún Vive?:
+                                          ¿Aún vive?:
                                         </label>
                                         <SelectField
                                           key={`inputstepbrother_${index}`}
@@ -321,7 +322,7 @@ export default function StepBrothersForm(props) {
                                                   fontWeight: "bold",
                                                 }}
                                               >
-                                                Nombre:
+                                                Nombre completo:
                                               </label>
                                               <InputField
                                                 name={`stepbrother.${index}.${family_stepbrother_name.name}`}
@@ -601,10 +602,18 @@ export default function StepBrothersForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
+                                                        type='Number'
                                                         name={`stepbrother.${index}.${family_stepbrother_financial_income.name}`}
                                                         label={
                                                           family_stepbrother_financial_income.label
                                                         }
+                                                        InputProps={{
+                                                          startAdornment: (
+                                                            <InputAdornment position="start">
+                                                              Q.
+                                                            </InputAdornment>
+                                                          ),
+                                                        }}
                                                         fullWidth
                                                       />
                                                     </div>
@@ -669,7 +678,7 @@ export default function StepBrothersForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Nombre
+                                              Nombres:
                                             </label>
                                             <InputField
                                               name={`stepbrother.${index}.${family_stepbrother_died_name.name}`}
@@ -696,7 +705,7 @@ export default function StepBrothersForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Apellido
+                                              Apellidos:
                                             </label>
                                             <InputField
                                               name={`stepbrother.${index}.${family_stepbrother_died_lastname.name}`}

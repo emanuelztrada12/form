@@ -276,7 +276,7 @@ export default function General(props) {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Fecha de Nacimiento:
+                Fecha de nacimiento:
               </label>
               <DatePickerField
                 name={general_birth.name}
@@ -292,7 +292,7 @@ export default function General(props) {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Departamento segun su DPI
+                Departamento según su DPI
               </label>
               <InputField
                 name={general_place_birth.name}
@@ -434,6 +434,7 @@ export default function General(props) {
                 Teléfono celular:
               </label>
               <InputField
+                type='Number'
                 name={general_phone.name}
                 label={general_phone.label}
                 fullWidth
@@ -453,6 +454,7 @@ export default function General(props) {
                 DPI:
               </label>
               <InputField
+                type='Number'
                 name={general_dpi.name}
                 label={general_dpi.label}
                 fullWidth
@@ -481,9 +483,10 @@ export default function General(props) {
               {addNit === "Posee" && (
                 <div style={{ paddingTop: "10px"}}>
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    Ingrese su nit:
+                    Ingrese su NIT:
                   </label>
                   <InputField
+                    type='Number'
                     name={general_nit.name}
                     label={general_nit.label}
                     fullWidth
@@ -539,6 +542,7 @@ export default function General(props) {
                 Teléfono de emergencia:
               </label>
               <InputField
+                type='Number'
                 name={general_emergency_phone.name}
                 label={general_emergency_phone.label}
                 fullWidth
@@ -593,7 +597,7 @@ export default function General(props) {
               }}
               icon={<AssignmentIndIcon />}
               color="primary"
-              label="Afilaciones"
+              label="Afiliaciones"
             />
           </Divider>
 
@@ -609,7 +613,7 @@ export default function General(props) {
               }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Afilación con el IGSS
+                Afiliación con el IGSS
               </label>
               <SelectField
                 name={general_afilacion_select.name}
@@ -627,9 +631,10 @@ export default function General(props) {
                     style={{ paddingLeft: "10px", paddingRight: "10px" }}
                   >
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Afilación IRTRA:
+                      Afiliación IRTRA:
                     </label>
                     <InputField
+                      type='Number'
                       name={general_irtra.name}
                       label={general_irtra.label}
                       fullWidth
@@ -642,9 +647,10 @@ export default function General(props) {
                     style={{ paddingLeft: "10px", paddingRight: "10px" }}
                   >
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Afilación IGSS:
+                      Afiliación IGSS:
                     </label>
                     <InputField
+                      type='Number'
                       name={general_igss.name}
                       label={general_igss.label}
                       fullWidth
@@ -668,7 +674,7 @@ export default function General(props) {
               }}
               icon={<DirectionsCarIcon />}
               color="primary"
-              label="Vehiculos"
+              label="Vehículos"
             />
           </Divider>
           <p
@@ -732,7 +738,7 @@ export default function General(props) {
                         fullWidth
                       />
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿A que nombre se encuentra el vehiculo?:
+                        ¿A nombre de quien se encuentra el vehículo?:
                       </label>
                       <InputField
                         name={`vehicle.${index}.${general_model_propetary.name}`}
@@ -837,7 +843,7 @@ export default function General(props) {
                         fullWidth
                       />
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿A que nombre se encuentra la motocicleta?:
+                        ¿A nombre de quien se encuentra la motocicleta?:
                       </label>
                       <InputField
                         name={`biker.${index}.${general_model_propetary_biker.name}`}
@@ -878,7 +884,7 @@ export default function General(props) {
               }}
               icon={<CoPresentIcon />}
               color="primary"
-              label="licencias"
+              label="Licencias"
             />
           </Divider>
 
@@ -926,9 +932,10 @@ export default function General(props) {
                       style={{ paddingLeft: "10px", paddingRight: "10px" }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        No. licencia:
+                        No. Licencia:
                       </label>
                       <InputField
+                        type='Number'
                         name={`license.${index}.${general_license.name}`}
                         label={general_license.label}
                         fullWidth

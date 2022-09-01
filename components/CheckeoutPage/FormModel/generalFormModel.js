@@ -5,7 +5,7 @@ export default {
     //general
     general_name: {
       name: "general_name",
-      label: "Ingrese su nombre*",
+      label: "Ingrese sus nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     general_lastname: {
@@ -64,7 +64,7 @@ export default {
     },
     general_phone: {
       name: "general_phone",
-      label: "Ingrese el teléfono celular*",
+      label: "Ingrese su número de teléfono*",
       requiredErrorMsg: "La información es requerida",
     },
     general_emergency_phone: {
@@ -125,7 +125,7 @@ export default {
     },
     general_email: {
       name: "general_email",
-      label: "Ingrese su email*",
+      label: "Ingrese su Email*",
       requiredErrorMsg: "La información es requerida",
     },
 
@@ -951,12 +951,12 @@ export default {
     },
     family_son_died_name: {
       name: "family_son_died_name",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_son_died_lastname: {
       name: "family_son_died_lastname",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
     family_son_time_died: {
@@ -1045,12 +1045,12 @@ export default {
     },
     family_brothers_died_name: {
       name: "family_brothers_died_name",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_brothers_died_lastname: {
       name: "family_brothers_died_lastname",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
     family_brothers_reason_died: {
@@ -1124,12 +1124,12 @@ export default {
     },
     family_stepbrother_died_name: {
       name: "family_stepbrother_died_name",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_stepbrother_died_lastname: {
       name: "family_stepbrother_died_lastname",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
     family_stepbrother_reason_died: {
@@ -1370,12 +1370,12 @@ export default {
     },
     family_grandfather_lifeno_name: {
       name: "family_grandfather_lifeno_name",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_grandfather_lifeno_firstname: {
       name: "family_grandfather_lifeno_firstname",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
 
@@ -1452,12 +1452,12 @@ export default {
     },
     family_grandmother_lifeno_name: {
       name: "family_grandmother_lifeno_name",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_grandmother_lifeno_firstname: {
       name: "family_grandmother_lifeno_firstname",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
 
@@ -1535,12 +1535,12 @@ export default {
     },
     family_grandfather_lifeno_nametwo: {
       name: "family_grandfather_lifeno_nametwo",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_grandfather_lifeno_firstnametwo: {
       name: "family_grandfather_lifeno_firstnametwo",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
 
@@ -1617,12 +1617,12 @@ export default {
     },
     family_grandmother_lifeno_nametwo: {
       name: "family_grandmother_lifeno_nametwo",
-      label: "Ingrese el nombre*",
+      label: "Ingrese los nombres*",
       requiredErrorMsg: "La información es requerida",
     },
     family_grandmother_lifeno_firstnametwo: {
       name: "family_grandmother_lifeno_firstnametwo",
-      label: "Ingrese el apellido*",
+      label: "Ingrese los apellidos*",
       requiredErrorMsg: "La información es requerida",
     },
 

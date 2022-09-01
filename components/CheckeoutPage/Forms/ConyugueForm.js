@@ -227,7 +227,7 @@ export default function ConyugueForm(props) {
                                             style={{ paddingLeft: "10px", paddingRight: "10px" }}
                                         >
                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Nombre:
+                                                Nombre completo:
                                             </label>
                                             <InputField
                                                 name={family_conyugue_name.name}
