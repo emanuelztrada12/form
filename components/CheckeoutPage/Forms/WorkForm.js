@@ -186,7 +186,7 @@ export default function WorkForm(props) {
                             <label
                                 style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                                ¿Ha laborado alguna vez en el Grupo financiero Banrural?:
+                                ¿Ha laborado alguna vez en el Grupo Financiero Banrural?:
                             </label>
                             <SelectField
                                 // key={`inputwork_${index}`}

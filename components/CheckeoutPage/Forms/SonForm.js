@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import EscalatorWarningIcon from "@mui/icons-material/EscalatorWarning";
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
   {
@@ -289,7 +290,7 @@ export default function SonForm(props) {
                                             fontWeight: "bold",
                                           }}
                                         >
-                                          ¿Aún Vive?:
+                                          ¿Aún vive?:
                                         </label>
                                         <SelectField
                                           key={`inputSon_${index}`}
@@ -326,7 +327,7 @@ export default function SonForm(props) {
                                                   fontWeight: "bold",
                                                 }}
                                               >
-                                                Nombre:
+                                                Nombre completo:
                                               </label>
                                               <InputField
                                                 name={`son.${index}.${family_son_name.name}`}
@@ -390,6 +391,7 @@ export default function SonForm(props) {
                                                     Edad:
                                                   </label>
                                                   <InputField
+                                                    type='Number'
                                                     name={`son.${index}.${family_son_age.name}`}
                                                     label={family_son_age.label}
                                                     fullWidth
@@ -510,6 +512,7 @@ export default function SonForm(props) {
                                                               Teléfono:
                                                             </label>
                                                             <InputField
+                                                            type='Number'
                                                               name={`son.${index}.${family_son_phone.name}`}
                                                               label={
                                                                 family_son_phone.label
@@ -702,10 +705,18 @@ export default function SonForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
+                                                        type='Number'
                                                         name={`son.${index}.${family_son_financial_income.name}`}
                                                         label={
                                                           family_son_financial_income.label
                                                         }
+                                                        InputProps={{
+                                                          startAdornment: (
+                                                            <InputAdornment position="start">
+                                                              Q.
+                                                            </InputAdornment>
+                                                          ),
+                                                        }}
                                                         fullWidth
                                                       />
                                                     </div>
@@ -770,7 +781,7 @@ export default function SonForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Nombre:
+                                              Nombres:
                                             </label>
                                             <InputField
                                               name={`son.${index}.${family_son_died_name.name}`}
@@ -795,7 +806,7 @@ export default function SonForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Apellido:
+                                              Apellidos:
                                             </label>
                                             <InputField
                                               name={`son.${index}.${family_son_died_lastname.name}`}

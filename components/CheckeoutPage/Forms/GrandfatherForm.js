@@ -303,7 +303,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandfather_name.name}
@@ -612,7 +612,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Nombre:
+                            Nombres:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_name.name}
@@ -650,7 +650,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Apellido:
+                            Apellidos:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_firstname.name}
@@ -730,7 +730,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandmother_name.name}
@@ -1039,7 +1039,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombres:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_name.name}
@@ -1076,7 +1076,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Apellido:
+                              Apellidos:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_firstname.name}
@@ -1190,7 +1190,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandfather_nametwo.name}
@@ -1491,7 +1491,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Nombre:
+                            Nombres:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_nametwo.name}
@@ -1529,7 +1529,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Apellido:
+                            Apellidos:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_firstnametwo.name}
@@ -1609,7 +1609,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandmother_nametwo.name}
@@ -1910,7 +1910,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombres:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_nametwo.name}
@@ -1947,7 +1947,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Apellido:
+                              Apellidos:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_firstnametwo.name}
