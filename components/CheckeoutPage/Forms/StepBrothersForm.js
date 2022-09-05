@@ -350,6 +350,7 @@ export default function StepBrothersForm(props) {
                                                 Edad:
                                               </label>
                                               <InputField
+                                                type="Number"
                                                 name={`stepbrother.${index}.${family_stepbrother_age.name}`}
                                                 label={
                                                   family_stepbrother_age.label

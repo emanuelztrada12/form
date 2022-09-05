@@ -838,8 +838,8 @@ export default function FamilyForm(props) {
                                 ¿Reside en Guatemala?:
                               </label>
                               <SelectField
-                                name={family_dad_residenttwo.name}
-                                label={family_dad_residenttwo.label}
+                                name={family_dad_resident.name}
+                                label={family_dad_resident.label}
                                 data={selectValue}
                                 onChange={gettingResident}
                                 fullWidth
@@ -868,8 +868,8 @@ export default function FamilyForm(props) {
                                         ¿De qué país es residente?:
                                       </label>
                                       <InputField
-                                        name={family_dad_no_residenttwo.name}
-                                        label={family_dad_no_residenttwo.label}
+                                        name={family_dad_no_resident.name}
+                                        label={family_dad_no_resident.label}
                                         fullWidth
                                       />
                                     </Grid>
@@ -887,12 +887,12 @@ export default function FamilyForm(props) {
                                           fontWeight: "bold",
                                         }}
                                       >
-                                        ¿Reside legal o ilegal?
+                                        ¿Reside legal o ilegalsss?
                                       </label>
                                       <SelectField
                                         id="dad_conditiontwo"
-                                        name={family_dad_condition_residenttwo.name}
-                                        label={family_dad_condition_residenttwo.label}
+                                        name={family_dad_condition_resident.name}
+                                        label={family_dad_condition_resident.label}
                                         data={condition_resident}
                                         fullWidth
                                       />
@@ -1355,8 +1355,8 @@ export default function FamilyForm(props) {
                                 ¿Reside en Guatemala?:
                               </label>
                               <SelectField
-                                name={family_dad_resident.name}
-                                label={family_dad_resident.label}
+                                name={family_dad_residenttwo.name}
+                                label={family_dad_residenttwo.label}
                                 data={selectValue}
                                 onChange={gettingResidentTwo}
                                 fullWidth
@@ -1383,8 +1383,8 @@ export default function FamilyForm(props) {
                                         ¿De qué país es residente?:
                                       </label>
                                       <InputField
-                                        name={family_dad_no_resident.name}
-                                        label={family_dad_no_resident.label}
+                                        name={family_dad_no_residenttwo.name}
+                                        label={family_dad_no_residenttwo.label}
                                         fullWidth
                                       />
                                     </Grid>
@@ -1408,8 +1408,8 @@ export default function FamilyForm(props) {
                                       </label>
                                       <SelectField
                                         id="dad_condition"
-                                        name={family_dad_condition_resident.name}
-                                        label={family_dad_condition_resident.label}
+                                        name={family_dad_condition_residenttwo.name}
+                                        label={family_dad_condition_residenttwo.label}
                                         data={condition_resident}
                                         fullWidth
                                       />

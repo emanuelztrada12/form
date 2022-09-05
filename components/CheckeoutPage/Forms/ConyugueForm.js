@@ -19,6 +19,21 @@ const val = [
     },
 ];
 
+const relation = [
+    {
+        value: "Espos@",
+        label: "Espos@",
+    },
+    {
+        value: "Noviazgo",
+        label: "Noviazgo",
+    },
+    {
+        value: "Conviviente",
+        label: "Conviviente",
+    },
+];
+
 const civil = [
     {
         value: "Soltero",
@@ -149,7 +164,10 @@ export default function ConyugueForm(props) {
             family_conyuguepat_working_val,
             /* add name and lastname */
             family_conyugue_died_name,
-            family_conyugue_died_lastname
+            family_conyugue_died_lastname,
+
+            // changes 2.1
+            family_conyugue_relation,
         },
     } = props;
 
@@ -447,7 +465,7 @@ export default function ConyugueForm(props) {
                                             style={{ paddingLeft: "10px", paddingRight: "10px" }}
                                         >
                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Nombre:
+                                                Nombre completo:
                                             </label>
                                             <InputField
                                                 name={family_conyuguepat_name.name}
@@ -578,6 +596,30 @@ export default function ConyugueForm(props) {
                                                 )}
                                             </div>
                                         </Grid>
+                                        <Grid item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingTop: "10px",
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}>
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Que relación tienen?
+                                      </label>
+                                      <SelectField
+                                        id="conyuge_relation"
+                                        name={family_conyugue_relation.name}
+                                        label={family_conyugue_relation.label}
+                                        data={relation}
+                                        fullWidth
+                                      />
+                                    </Grid>
                                     </Grid>
                                 )}
                             </Grid>

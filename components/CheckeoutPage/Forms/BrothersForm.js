@@ -350,6 +350,7 @@ export default function BrothersForm(props) {
                                                 Edad:
                                               </label>
                                               <InputField
+                                                type="Number"
                                                 name={`brothers.${index}.${family_brothers_age.name}`}
                                                 label={
                                                   family_brothers_age.label
@@ -445,6 +446,7 @@ export default function BrothersForm(props) {
                                                           Teléfono:
                                                         </label>
                                                         <InputField
+                                                          type="Number"
                                                           name={`brothers.${index}.${family_brothers_phone.name}`}
                                                           label={
                                                             family_brothers_phone.label

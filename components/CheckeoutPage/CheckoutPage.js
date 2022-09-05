@@ -290,9 +290,12 @@ const FORMULARIO = gql`
       family_conyuguepat_phone_val
       family_conyuguepat_working_val
 
-      # add name and lastname
+      #add name and lastname
       family_conyugue_died_name
       family_conyugue_died_lastname
+
+      #conyugue changes 2.1
+      family_conyugue_relation
 
       #son
       son {
@@ -511,6 +514,7 @@ const FORMULARIO = gql`
       economic_payment_deuda
       economic_other
       economic_total
+
       #social
       social_group
       social_gtime
@@ -537,6 +541,11 @@ const FORMULARIO = gql`
         social_tatto_ubi
         social_tatto_fot
       }
+      #social changes 2.1
+      social_drug
+      social_drug_relation
+      social_drug_position
+
       criminal_association_option
       criminal_relacion
       criminal_name
@@ -595,10 +604,14 @@ const FORMULARIO = gql`
       objectivs_corto
       objectivs_mediano
       objectives_largo
+      
       #sindicatos
       sindicatos_favor
       sindicatos_formar
       sindicatos_why
+      #sindicatos changes 2.1
+      sindicatos_why_two
+
       #honestidad
       honest_p1
       honest_p2
@@ -611,6 +624,7 @@ const FORMULARIO = gql`
       red_faccebookval
       red_faccebookOtherVal
       validation_form
+      red_faccebookval_two
     }
   }
 `;
@@ -947,8 +961,9 @@ export default function CheckoutPage() {
             family_conyuguepat_depend: values.family_conyuguepat_depend,
             family_conyuguepat_no_phone: values.family_conyuguepat_no_phone,
             family_conyuguepat_phone_val: values.family_conyuguepat_phone_val,
-            family_conyuguepat_working_val:
-              values.family_conyuguepat_working_val,
+            family_conyuguepat_working_val: values.family_conyuguepat_working_val,
+            //Changes 2.1
+            family_conyugue_relation: values.family_conyugue_relation,
 
             //abuelo papa y mama
             family_grandfather_name: values.family_grandfather_name,
@@ -1135,6 +1150,10 @@ export default function CheckoutPage() {
             social_fuma_frequency: values.social_fuma_frequency,
             social_alco_howmuch: values.social_alco_howmuch,
             social_alco_frequency: values.social_alco_frequency,
+            // changes 2.1
+            social_drug: values.social_drug,
+            social_drug_relation: values.social_drug_relation,
+            social_drug_position: values.social_drug_position,
 
             criminal_association_option: values.criminal_association_option,
             criminal_relacion: values.criminal_relacion,
@@ -1187,6 +1206,8 @@ export default function CheckoutPage() {
             sindicatos_favor: values.sindicatos_favor,
             sindicatos_formar: values.sindicatos_formar,
             sindicatos_why: values.sindicatos_why,
+            //changes 2.1
+            sindicatos_why_two: values.sindicatos_why_two,
 
             honest_p1: values.honest_p1,
             honest_p2: values.honest_p2,
@@ -1200,6 +1221,8 @@ export default function CheckoutPage() {
             red_faccebookval: values.red_faccebookval,
             red_faccebookOtherVal: values.red_faccebookOtherVal,
             validation_form: values.validation_form,
+            red_faccebookval_two: values.red_faccebookval_two
+
           },
         },
       });

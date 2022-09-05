@@ -331,12 +331,13 @@ export default function CriminalForm(props) {
               )}
             </Grid>
           </Grid>
-
+          <Divider style={{ paddingTop: "40px" }}>
+                    </Divider>
           <Grid
             item
             xs={12}
             sm={6}
-            style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+            style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "30px" }}
           >
             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
               ¿Tiene familiares detenidos?:
@@ -430,7 +431,7 @@ export default function CriminalForm(props) {
                                       }}
                                       icon={<GavelIcon />}
                                       color="primary"
-                                      label={`Tatuaje ${index + 1}`}
+                                      label={`Familiar detenido ${index + 1}`}
                                     />
                                   </Divider>
 

@@ -226,6 +226,9 @@ const {
     family_conyugue_died_name,
     family_conyugue_died_lastname,
 
+    // changes 2.1
+    family_conyugue_relation,
+
     //parte del padre (abuelos)
     family_grandfather_name,
     family_grandfather_age,
@@ -400,6 +403,11 @@ const {
     social_alco_howmuch, 
     social_alco_frequency,
 
+    // changes 2.1
+    social_drug,
+    social_drug_relation,
+    social_drug_position,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -450,6 +458,8 @@ const {
     sindicatos_favor,
     sindicatos_formar,
     sindicatos_why,
+    //changes 2.1
+    sindicatos_why_two,
 
     honest_p1,
     honest_p2,
@@ -464,6 +474,8 @@ const {
     red_faccebookval,
     red_faccebookOtherVal,
     validation_form,
+    red_faccebookval_two
+
   },
 } = generalFormModel;
 
@@ -699,6 +711,10 @@ export default {
   [family_conyugue_died_name.name]: "",
   [family_conyugue_died_lastname.name]: "",
 
+  // changes 2.1 conyugue
+
+  [family_conyugue_relation.name]:"",
+
   //conyuguepat
   [family_conyuguepat_name.name]: "",
   [family_conyuguepat_age.name]: "",
@@ -891,6 +907,11 @@ export default {
   [social_alco_howmuch.name]: "", 
   [social_alco_frequency.name]: "",
 
+  // changes 2.1
+  [social_drug.name]: "",
+  [social_drug_relation.name]: "",
+  [social_drug_position.name]: "",
+
   criminal: [],
   [criminal_association_option.name]: "",
   [criminal_relacion.name]: "",
@@ -944,6 +965,8 @@ export default {
   [sindicatos_favor.name]: "",
   [sindicatos_formar.name]: "",
   [sindicatos_why.name]: "",
+  //changes 2.1
+  [sindicatos_why_two.name]: "",
 
   [honest_p1.name]: "",
   [honest_p2.name]: "",
@@ -956,4 +979,5 @@ export default {
   [red_faccebookOther.name]: "",
   [red_faccebookval.name]: "",
   [red_faccebookOtherVal.name]: "",
+  [red_faccebookval_two.name]: "",
 };

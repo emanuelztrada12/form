@@ -356,13 +356,15 @@ export default function WorkForm(props) {
                 </Grid>
 
                 <Grid>
+                <Divider style={{ paddingTop: "20px" }}>
+                </Divider>
                     <Grid>
                         <div>
                             <p
                                 style={{
                                     paddingLeft: "15px",
-                                    paddingTop: "10px",
-                                    fontSize: "15px",
+                                    paddingTop: "40px",
+                                    fontSize: "20px",
                                     display: "flex",
                                     justifyContent: "center",
                                 }}

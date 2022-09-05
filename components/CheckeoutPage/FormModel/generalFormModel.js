@@ -746,6 +746,13 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    //changes 2.1
+    family_conyugue_relation: {
+      name: "family_conyugue_relation",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //stepFather
     family_stepfather_name: {
       name: "family_stepfather_name",
@@ -2200,6 +2207,24 @@ export default {
       name: "social_tatto_foto",
     },
 
+    //changes 2.1
+    social_drug: {
+      name: "social_drug",
+      label: "Ingrese como obtuvo la droga*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_drug_relation: {
+      name: "social_drug_relation",
+      label: "Ingrese la relación que tiene:*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_drug_position: {
+      name: "social_drug_position",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+
     //Delictivas
     criminal_association_option: {
       name: "criminal_association_option",
@@ -2497,6 +2522,13 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    // changes 2.1
+    sindicatos_why_two: {
+      name: "sindicatos_why_two",
+      label: "Ingrese el motivo*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //Honestidad
     honest_p1: {
       name: "honest_p1",
@@ -2539,7 +2571,7 @@ export default {
 
     red_faccebookOther: {
       name: "red_faccebookOther",
-      label: "Ingrese el link de su Facebook*",
+      label: "Ingrese el link de su red social*",
       requiredErrorMsg: "La información es requerida",
     },
     red_faccebookval: {
@@ -2555,6 +2587,11 @@ export default {
 
     validation_form: {
       name: "validation_form",
+      label: "Acepto los términos y condiciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    red_faccebookval_two: {
+      name: "red_faccebookval_two",
       label: "Acepto los términos y condiciones*",
       requiredErrorMsg: "La información es requerida",
     },

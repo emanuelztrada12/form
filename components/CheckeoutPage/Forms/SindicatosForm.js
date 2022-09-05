@@ -22,6 +22,12 @@ export default function SindicatosForm(props) {
         setSin(value)
     }
 
+    const [sinTwo, setSinTwo] = useState("");
+    const handleChangeTwo = (e) => {
+        let { value } = e.target;
+        setSinTwo(value)
+    }
+
     const [isSSR, setIsSSR] = useState(true);
     useEffect(() => {
         setIsSSR(false);
@@ -32,7 +38,8 @@ export default function SindicatosForm(props) {
         formField: {
             sindicatos_favor,
             sindicatos_formar,
-            sindicatos_why
+            sindicatos_why,
+            sindicatos_why_two
         },
     } = props;
 
@@ -94,9 +101,28 @@ export default function SindicatosForm(props) {
                             <SelectField
                                 name={sindicatos_favor.name}
                                 label={sindicatos_favor.label}
+                                onChange={handleChangeTwo}
                                 data={value}
                                 fullWidth
                             />
+                            {sinTwo === "Si" && (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+                                >
+                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        ¿Por qué?:
+
+                                    </label>
+                                    <InputField
+                                        name={sindicatos_why_two.name}
+                                        label={sindicatos_why_two.label}
+                                        fullWidth
+                                    />
+                                </Grid>
+                            )}
                         </Grid>
                         <Grid
                             item
@@ -122,7 +148,7 @@ export default function SindicatosForm(props) {
                                     style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
                                 >
                                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                        ¿por qué?:
+                                        ¿Por qué?:
 
                                     </label>
                                     <InputField

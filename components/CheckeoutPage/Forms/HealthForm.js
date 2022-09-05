@@ -207,11 +207,36 @@ export default function HealForm(props) {
                         />
                     </Divider>
 
+                    <div>
+                    <p
+                                style={{
+                                    paddingLeft: "15px",
+                                    paddingTop: "30px",
+                                    fontSize: "20px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                }}
+                            >
+                               <strong
+                               style={{
+                                paddingLeft: "15px",
+                                paddingTop: "0px",
+                                paddingRight: "6px",
+                                fontSize: "20px",
+                                display: "flex",
+                                justifyContent: "center",
+                                color: "red",
+                            }}
+                               >Nota:*</strong> Si su respuesta es sí, indique en observaciones el año que 
+                                 fue diagnosticado y si toma algún medicamento.
+                            </p>
+                    </div>
+
                     <div
                         style={{
                             display: "flex",
                             justifyContent: "center",
-                            paddingTop: "10px",
+                            paddingTop: "15px",
                         }}
                     >
                         <Box
