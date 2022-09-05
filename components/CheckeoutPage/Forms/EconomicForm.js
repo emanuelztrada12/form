@@ -320,25 +320,26 @@ export default function EconomicForm(props) {
                             paddingLeft: "10px",
                         }}
                     >
-                        Información economica
+                        Información económica
                     </Typography>
+                    <Divider style={{ paddingTop: "20px" }}>
+                    </Divider>
                     <Grid>
                         <div>
                             <p
                                 style={{
                                     paddingLeft: "15px",
-                                    paddingTop: "10px",
+                                    paddingTop: "20px",
                                     fontSize: "20px",
                                     // fontWeight: "bold",
                                     display: "flex",
                                     textAlign: "center",
                                 }}
                             >
-                                Datos exactos de créditos vigentes, créditos de consumo,
-                                tarjetas de crédito, visa cuotas, préstamos o créditos con
-                                personas individuales y cualquier deuda que se encuentre en su
-                                récord crediticio. recuerde que toda la información será
-                                verificada y confrontada)
+                                Datos exactos de créditos vigentes, créditos de consumo, tarjetas de crédito,
+                                 visa cuotas, préstamos o créditos con personas individuales y cualquier deuda
+                                  que se encuentre en su récord crediticio. Recuerde que toda la información será
+                                   verificada y confrontada:
                             </p>
 
                             <Grid
@@ -634,7 +635,7 @@ export default function EconomicForm(props) {
                                     textAlign: "center"
                                 }}
                             >
-                                Deudas que se encuentran a su nombre pero otra persona realiza los pagos 
+                                Deudas que se encuentran a su nombre, pero otra persona realiza los pagos:
                             </p>
 
                             <Grid

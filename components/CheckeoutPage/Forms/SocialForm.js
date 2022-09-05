@@ -19,8 +19,39 @@ import CircularProgress from '@mui/material/CircularProgress';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
-const validate = [{ value: 'Si', label: 'Si' }, { value: 'No', label: 'No' }];
-const consumo = [{ value: 'Semanal', label: 'Semanal' }, { value: 'Social', label: 'Social' },  { value: 'Diario', label: 'Diario' }];
+const validate = [{
+    value: 'Si',
+    label: 'Si'
+},
+{
+    value: 'No',
+    label: 'No'
+}];
+const consumo = [{
+    value: 'Semanal',
+    label: 'Semanal'
+},
+{
+    value: 'Social',
+    label: 'Social'
+},
+{
+    value: 'Diario',
+    label: 'Diario'
+}];
+
+const drug_position = [{
+    value: 'Vende',
+    label: 'Vende'
+},
+{
+    value: 'Consume',
+    label: 'Consume'
+},
+{
+    value: 'Destribuye',
+    label: 'Destribuye'
+}];
 
 export default function SocialForm(props) {
     if (!props.values[props.formField.social_tatto_fot.name])
@@ -92,7 +123,7 @@ export default function SocialForm(props) {
             ...archivoUrl,
             [index]: value,
         }
-        setIsLoading(nvalues); 
+        setIsLoading(nvalues);
     }
 
     const onDelete = (arrayHelpers, index, prefix) => {
@@ -109,6 +140,13 @@ export default function SocialForm(props) {
     const gettingWorking = (e) => {
         let { value } = e.target;
         setValues(value);
+    }
+
+    //changes 2.1
+    const [valueDrugs, setDrugs] = useState({});
+    const gettingDrugs = (e) => {
+        let { value } = e.target;
+        setDrugs(value);
     }
 
     const [valueF, setValuesF] = useState({});
@@ -174,9 +212,14 @@ export default function SocialForm(props) {
             social_tatto_ubi,
             social_tatto_fot,
 
-            social_fuma_frequency, 
-            social_alco_howmuch, 
+            social_fuma_frequency,
+            social_alco_howmuch,
             social_alco_frequency,
+
+            //changes 2.1
+            social_drug,
+            social_drug_relation,
+            social_drug_position
         },
     } = props;
 
@@ -262,7 +305,7 @@ export default function SocialForm(props) {
                             sm={6}
                             style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Tiene un familiar que pertenezca a un partido politico o puesto, persona expuesta al público?
+                                ¿Tiene un familiar que pertenezca a un partido político o puesto, persona expuesta al público?:
                             </label>
                             <SelectField
                                 name={social_politic.name}
@@ -314,7 +357,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            Puesto o partido pilitico en el que se encuentra:
+                                            Puesto o partido político en el que se encuentra:
                                         </label>
                                         <InputField
                                             name={social_politic_puesto.name}
@@ -333,7 +376,7 @@ export default function SocialForm(props) {
                             style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                         >
                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Tiene el habito de fumar?:
+                                ¿Tiene el hábito de fumar?:
                             </label>
                             <SelectField
                                 name={social_fuma.name}
@@ -353,7 +396,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                            ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <DatePickerField
                                             name={social_fuma_time.name}
@@ -411,7 +454,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                            ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <DatePickerField
                                             name={social_alco_time.name}
@@ -427,7 +470,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Qué fue lo último que consumio?:
+                                            ¿Qué fue lo último que consumió?:
                                         </label>
                                         <InputField
                                             name={social_alco_bebida.name}
@@ -443,7 +486,7 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuanto consumio?:
+                                            ¿Cuánto consumió?:
                                         </label>
                                         <InputField
                                             name={social_alco_howmuch.name}
@@ -468,14 +511,9 @@ export default function SocialForm(props) {
                                             fullWidth
                                         />
                                     </Grid>
-
-
-
                                 </Grid>
                             )}
                         </Grid>
-
-
                         <Grid
                             item
                             xs={12}
@@ -514,7 +552,6 @@ export default function SocialForm(props) {
                                         />
 
                                     </Grid>
-
                                     <Grid
                                         item
                                         xs={12}
@@ -522,7 +559,23 @@ export default function SocialForm(props) {
                                         style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
                                     >
                                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                            ¿Cuando fue la última vez que consumio?:
+                                            ¿Como obtuvo la droga?:
+                                        </label>
+                                        <InputField
+                                            name={social_drug.name}
+                                            label={social_drug.label}
+                                            fullWidth
+                                        />
+
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                    >
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Cuándo fue la última vez que consumió?:
                                         </label>
                                         <InputField
                                             name={social_drog_time.name}
@@ -530,41 +583,75 @@ export default function SocialForm(props) {
                                             fullWidth
                                         />
                                     </Grid>
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                    >
+                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            ¿Tiene relación con personas que distribuyan?:
+                                        </label>
+                                        <SelectField
+                                            name={social_drog_person.name}
+                                            label={social_drog_person.label}
+                                            data={validate}
+                                            onChange={(e) =>
+                                                gettingDrugs(e)}
+                                            fullWidth
+                                        />
+                                        {valueDrugs === "Si" && (
+                                            <Grid container>
 
+                                                <Grid
+                                                    item
+                                                    xs={12}
+                                                    sm={15}
+                                                    style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                                >
+                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        Parentesco:
+                                                    </label>
+                                                    <InputField
+                                                        name={social_drug_relation.name}
+                                                        label={social_drug_relation.label}
+                                                        fullWidth
+                                                    />
+                                                </Grid>
+
+                                                <Grid
+                                                    item
+                                                    xs={12}
+                                                    sm={15}
+                                                    style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                                                >
+                                                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        La persona realiza:
+                                                    </label>
+                                                    <SelectField
+                                                        name={social_drug_position.name}
+                                                        label={social_drug_position.label}
+                                                        data={drug_position}
+                                                        fullWidth
+                                                    />
+                                                </Grid>
+                                            </Grid>
+                                        )}
+                                    </Grid>
                                 </Grid>
                             )}
                         </Grid>
-
-                        <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
-                        >
-                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                ¿Tiene relación con personas que las vendan, consuman o distribuyan?:
-                            </label>
-                            <SelectField
-                                name={social_drog_person.name}
-                                label={social_drog_person.label}
-                                data={validate}
-                                fullWidth
-                            />
-                        </Grid>
-
-
-
-
                     </Grid>
-
+                    <Divider style={{ paddingTop: "40px" }}>
+                    </Divider>
                     <Grid
                         item
                         xs={12}
                         sm={6}
-                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                        style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "30px" }}
                     >
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                            ¿Posse tatuajes?:
+                            ¿Posee tatuajes?:
                         </label>
                         <SelectField
                             name={social_tatto.name}
@@ -575,9 +662,7 @@ export default function SocialForm(props) {
                             }
                             fullWidth
                         />
-
                         {valueTato === "Si" && (
-
                             <Grid>
                                 <div>
                                     <Typography
@@ -592,7 +677,6 @@ export default function SocialForm(props) {
                                             paddingLeft: "10px"
                                         }}
                                     >
-
                                         Ingrese la información de todos sus tatuajes
                                     </Typography>
                                     <Grid
@@ -603,7 +687,6 @@ export default function SocialForm(props) {
                                             justifyContent: "center",
                                         }}
                                     >
-
                                         <FieldArray
                                             name="social"
                                             render={(arrayHelpers) => (
@@ -751,12 +834,12 @@ export default function SocialForm(props) {
                                                                                                     <CircularProgress variant="determinate" value={isLoading[`social.${index}.${social_tatto_fot.name}`]} />
                                                                                                 )}
                                                                                                 {isLoading[`social.${index}.${social_tatto_fot.name}`] == 100 && (
-                                                                                                   <>
-                                                                                                       <p style={{fontSize: "20px", color: "green", paddingRight: "2px" }}>Imagen subida</p>
-                                                                                                        <CheckCircleOutlineIcon sx={{ color: "green" }}/> 
-                                                                                                   </>
-                                                                                               
-                                                                                                )}  
+                                                                                                    <>
+                                                                                                        <p style={{ fontSize: "20px", color: "green", paddingRight: "2px" }}>Imagen subida</p>
+                                                                                                        <CheckCircleOutlineIcon sx={{ color: "green" }} />
+                                                                                                    </>
+
+                                                                                                )}
                                                                                                 <input onChange={(e) => { gettingValue(`social.${index}.${social_tatto_fot.name}`, e, index) }}
                                                                                                     hidden accept="image/*" type="file" />
 

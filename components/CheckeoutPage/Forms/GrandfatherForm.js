@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from "@mui/icons-material/Boy";
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
   {
@@ -218,7 +219,7 @@ export default function GrandfatherForm(props) {
               paddingLeft: "10px",
             }}
           >
-            Datos de los Abuelos
+            Datos de los abuelos
           </Typography>
           <Divider
             style={{
@@ -275,7 +276,7 @@ export default function GrandfatherForm(props) {
                       }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Aún Vive?:
+                        ¿Aún vive su abuelo?:
                       </label>
                       <SelectField
                         name={family_grandfather_life.name}
@@ -302,7 +303,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandfather_name.name}
@@ -325,6 +326,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
+                              type= 'Number'
                               name={family_grandfather_age.name}
                               label={family_grandfather_age.label}
                               fullWidth
@@ -402,6 +404,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={family_grandfather_phone.name}
                                       label={family_grandfather_phone.label}
                                       fullWidth
@@ -539,12 +542,20 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={
                                         family_grandfather_financial_income.name
                                       }
                                       label={
                                         family_grandfather_financial_income.label
                                       }
+                                      InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                Q.
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                       fullWidth
                                     />
                                   </div>
@@ -601,7 +612,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Nombre?:
+                            Nombres:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_name.name}
@@ -639,7 +650,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Apellido?:
+                            Apellidos:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_firstname.name}
@@ -692,7 +703,7 @@ export default function GrandfatherForm(props) {
                       }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Aún Vive?:
+                        ¿Aún vive su abuela?:
                       </label>
                       <SelectField
                         name={family_grandmother_life.name}
@@ -719,7 +730,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandmother_name.name}
@@ -742,6 +753,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
+                              type= 'Number'
                               name={family_grandmother_age.name}
                               label={family_grandmother_age.label}
                               fullWidth
@@ -819,6 +831,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={family_grandmother_phone.name}
                                       label={family_grandmother_phone.label}
                                       fullWidth
@@ -956,12 +969,20 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={
                                         family_grandmother_financial_income.name
                                       }
                                       label={
                                         family_grandmother_financial_income.label
                                       }
+                                      InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                Q.
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                       fullWidth
                                     />
                                   </div>
@@ -1018,7 +1039,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Nombre?:
+                              Nombres:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_name.name}
@@ -1055,7 +1076,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Apellido?:
+                              Apellidos:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_firstname.name}
@@ -1142,7 +1163,7 @@ export default function GrandfatherForm(props) {
                       }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Aún Vive?:
+                        ¿Aún vive su abuelo?:
                       </label>
                       <SelectField
                         name={family_grandfather_lifetwo.name}
@@ -1169,7 +1190,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandfather_nametwo.name}
@@ -1192,6 +1213,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
+                              type= 'Number'
                               name={family_grandfather_agetwo.name}
                               label={family_grandfather_agetwo.label}
                               fullWidth
@@ -1267,6 +1289,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={family_grandfather_phonetwo.name}
                                       label={family_grandfather_phonetwo.label}
                                       fullWidth
@@ -1400,12 +1423,20 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={
                                         family_grandfather_financial_incometwo.name
                                       }
                                       label={
                                         family_grandfather_financial_incometwo.label
                                       }
+                                      InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                Q.
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                       fullWidth
                                     />
                                   </div>
@@ -1460,7 +1491,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Nombre?:
+                            Nombres:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_nametwo.name}
@@ -1498,7 +1529,7 @@ export default function GrandfatherForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Apellido?:
+                            Apellidos:
                           </label>
                           <InputField
                             name={family_grandfather_lifeno_firstnametwo.name}
@@ -1551,7 +1582,7 @@ export default function GrandfatherForm(props) {
                       }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Aún Vive?:
+                        ¿Aún vive su abuela?:
                       </label>
                       <SelectField
                         name={family_grandmother_lifetwo.name}
@@ -1578,7 +1609,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              Nombre:
+                              Nombre completo:
                             </label>
                             <InputField
                               name={family_grandmother_nametwo.name}
@@ -1601,6 +1632,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
+                              type= 'Number'
                               name={family_grandmother_agetwo.name}
                               label={family_grandmother_agetwo.label}
                               fullWidth
@@ -1676,6 +1708,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={family_grandmother_phonetwo.name}
                                       label={family_grandmother_phonetwo.label}
                                       fullWidth
@@ -1809,12 +1842,20 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
+                                      type= 'Number'
                                       name={
                                         family_grandmother_financial_incometwo.name
                                       }
                                       label={
                                         family_grandmother_financial_incometwo.label
                                       }
+                                      InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                Q.
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                       fullWidth
                                     />
                                   </div>
@@ -1869,7 +1910,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Nombre?:
+                              Nombres:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_nametwo.name}
@@ -1906,7 +1947,7 @@ export default function GrandfatherForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Apellido?:
+                              Apellidos:
                             </label>
                             <InputField
                               name={family_grandmother_lifeno_firstnametwo.name}

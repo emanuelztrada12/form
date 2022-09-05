@@ -87,6 +87,14 @@ const {
     family_dad_time_diedtwo,
     family_dad_reason_diedtwo,
 
+    //changes 2.1
+    family_dad_no_resident,
+    family_dad_resident,
+    family_dad_condition_resident,
+    family_dad_residenttwo,
+    family_dad_no_residenttwo,
+    family_dad_condition_residenttwo,
+
     //mom
     family_mom_name,
     family_mom_age,
@@ -128,6 +136,14 @@ const {
     family_mom_died_last_nametwo,
     family_mom_time_diedtwo,
     family_mom_reason_diedtwo,
+
+    // add changes 2.1
+    family_mom_resident,
+    family_mom_no_resident,
+    family_mom_condition_resident,
+    family_mom_residenttwo,
+    family_mom_no_residenttwo,
+    family_mom_condition_residenttwo,
 
     // aditional information
     you_parents_together,
@@ -457,9 +473,14 @@ const {
     social_tatto_ubi,
     social_tatto_fot,
 
-    social_fuma_frequency, 
-    social_alco_howmuch, 
+    social_fuma_frequency,
+    social_alco_howmuch,
     social_alco_frequency,
+
+    //changes 2.1
+    social_drug,
+    social_drug_relation,
+    social_drug_position,
 
     //delictiva
     criminal_association_option,
@@ -525,6 +546,7 @@ const {
     sindicatos_favor,
     sindicatos_formar,
     sindicatos_why,
+    sindicatos_why_two,
 
     honest_p1,
     honest_p2,
@@ -537,16 +559,19 @@ const {
     red_faccebookOther,
     red_faccebookval,
     red_faccebookOtherVal,
+    red_faccebookval_two
   },
 } = generalFormModel;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  /*yup.object().shape({
+
+  yup.object().shape({
     [validation_form.name]: yup
       .bool()
       .isTrue(`${validation_form.requiredErrorMsg}`),
   }),
+
 
   yup.object().shape({
     [general_name.name]: yup
@@ -577,9 +602,11 @@ export default [
     [general_emergency_kinship.name]: yup
       .string()
       .required(`${general_emergency_kinship.requiredErrorMsg}`),
-    [general_previous_direction.name]: yup
-      .string()
-      .required(`${general_previous_direction.requiredErrorMsg}`),
+    [general_previous_direction.name]: yup.string().when(["general_time_reside"],
+      {
+        is: (general_time_reside) => general_time_reside === 0,
+        then: yup.string().required(`${general_previous_direction.requiredErrorMsg}`)
+      }),
     [general_phone.name]: yup
       .string()
       .required(`${general_phone.requiredErrorMsg}`)
@@ -714,6 +741,7 @@ export default [
           then: yup.string().required(`${family_dad_name.requiredErrorMsg}`),
         }
       ),
+
     [family_dad_age.name]: yup
       .string()
       .when(
@@ -980,6 +1008,57 @@ export default [
           then: yup.string().required(`${family_dad_depend.requiredErrorMsg}`),
         }
       ),
+
+    // resident dad changes 2.1
+    [family_dad_resident.name]: yup
+      .string()
+      .when(
+        ["family_dad_life", "family_dad_relation", "family_dad_information"],
+        {
+          is: (family_dad_life, family_dad_relation, family_dad_information) =>
+            family_dad_life === "Si" &&
+            family_dad_relation === "Si" &&
+            family_dad_information === "Si",
+          then: yup
+            .string()
+            .required(`${family_dad_resident.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_dad_no_resident.name]: yup
+      .string()
+      .when(
+        ["family_dad_life", "family_dad_relation", "family_dad_information", "family_dad_resident"],
+        {
+          is: (family_dad_life, family_dad_relation, family_dad_information, family_dad_resident) =>
+            family_dad_life === "Si" &&
+            family_dad_relation === "Si" &&
+            family_dad_information === "Si" &&
+            family_dad_resident === "No",
+          then: yup
+            .string()
+            .required(`${family_dad_no_resident.requiredErrorMsg}`),
+        }
+      ),
+
+
+    [family_dad_condition_resident.name]: yup
+      .string()
+      .when(
+        ["family_dad_life", "family_dad_relation", "family_dad_information", "family_dad_resident"],
+        {
+          is: (family_dad_life, family_dad_relation, family_dad_information, family_dad_resident) =>
+            family_dad_life === "Si" &&
+            family_dad_relation === "Si" &&
+            family_dad_information === "Si" &&
+            family_dad_resident === "No",
+          then: yup
+            .string()
+            .required(`${family_dad_condition_resident.requiredErrorMsg}`),
+        }
+      ),
+
+
 
     //two dad
     [family_dad_lifetwo.name]: yup
@@ -1352,6 +1431,55 @@ export default [
         }
       ),
 
+    // residentTwo dad changes 2.1
+    [family_dad_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_dad_lifetwo", "family_dad_relation", "family_dad_information_negative"],
+        {
+          is: (family_dad_lifetwo, family_dad_relation, family_dad_information_negative) =>
+            family_dad_lifetwo === "Si" &&
+            family_dad_relation === "No" &&
+            family_dad_information_negative === "Si",
+          then: yup
+            .string()
+            .required(`${family_dad_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_dad_no_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_dad_lifetwo", "family_dad_relation", "family_dad_information_negative", "family_dad_residenttwo"],
+        {
+          is: (family_dad_lifetwo, family_dad_relation, family_dad_information_negative, family_dad_residenttwo) =>
+            family_dad_lifetwo === "Si" &&
+            family_dad_relation === "No" &&
+            family_dad_information_negative === "Si" &&
+            family_dad_residenttwo === "No",
+          then: yup
+            .string()
+            .required(`${family_dad_no_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
+
+    [family_dad_condition_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_dad_lifetwo", "family_dad_relation", "family_dad_information_negative", "family_dad_residenttwo"],
+        {
+          is: (family_dad_lifetwo, family_dad_relation, family_dad_information_negative, family_dad_residenttwo) =>
+            family_dad_lifetwo === "Si" &&
+            family_dad_relation === "No" &&
+            family_dad_information_negative === "Si" &&
+            family_dad_residenttwo === "No",
+          then: yup
+            .string()
+            .required(`${family_dad_condition_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
     ////////////////////////////////////////mom /////////////////////////////////////////////////
     [family_mom_relation.name]: yup
       .string()
@@ -1668,6 +1796,54 @@ export default [
             family_mom_information === "Si" &&
             family_mom_working_val === "No",
           then: yup.string().required(`${family_mom_depend.requiredErrorMsg}`),
+        }
+      ),
+
+    // resident mom changes 2.1
+    [family_mom_resident.name]: yup
+      .string()
+      .when(
+        ["family_mom_life", "family_mom_relation", "family_mom_information"],
+        {
+          is: (family_mom_life, family_mom_relation, family_mom_information) =>
+            family_mom_life === "Si" &&
+            family_mom_relation === "Si" &&
+            family_mom_information === "Si",
+          then: yup
+            .string()
+            .required(`${family_mom_resident.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_mom_no_resident.name]: yup
+      .string()
+      .when(
+        ["family_mom_life", "family_mom_relation", "family_mom_information", "family_mom_resident"],
+        {
+          is: (family_mom_life, family_mom_relation, family_mom_information, family_mom_resident) =>
+            family_mom_life === "Si" &&
+            family_mom_relation === "Si" &&
+            family_mom_information === "Si" &&
+            family_mom_resident === "No",
+          then: yup
+            .string()
+            .required(`${family_mom_no_resident.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_mom_condition_resident.name]: yup
+      .string()
+      .when(
+        ["family_mom_life", "family_mom_relation", "family_mom_information", "family_mom_resident"],
+        {
+          is: (family_mom_life, family_mom_relation, family_mom_information, family_mom_resident) =>
+            family_mom_life === "Si" &&
+            family_mom_relation === "Si" &&
+            family_mom_information === "Si" &&
+            family_mom_resident === "No",
+          then: yup
+            .string()
+            .required(`${family_mom_condition_resident.requiredErrorMsg}`),
         }
       ),
 
@@ -2041,6 +2217,57 @@ export default [
             .required(`${family_mom_dependtwo.requiredErrorMsg}`),
         }
       ),
+
+    // resident mom changes 2.1
+    [family_mom_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_mom_lifetwo", "family_mom_relation", "family_mom_information_negative"],
+        {
+          is: (family_mom_lifetwo, family_mom_relation, family_mom_information_negative) =>
+            family_mom_lifetwo === "Si" &&
+            family_mom_relation === "No" &&
+            family_mom_information_negative === "Si",
+          then: yup
+            .string()
+            .required(`${family_mom_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_mom_no_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_mom_lifetwo", "family_mom_relation", "family_mom_information_negative", "family_mom_residenttwo"],
+        {
+          is: (family_mom_lifetwo, family_mom_relation, family_mom_information_negative, family_mom_residenttwo) =>
+            family_mom_lifetwo === "Si" &&
+            family_mom_relation === "No" &&
+            family_mom_information_negative === "Si" &&
+            family_mom_residenttwo === "No",
+          then: yup
+            .string()
+            .required(`${family_mom_no_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_mom_condition_residenttwo.name]: yup
+      .string()
+      .when(
+        ["family_mom_lifetwo", "family_mom_relation", "family_mom_information_negative", "family_mom_residenttwo"],
+        {
+          is: (family_mom_lifetwo, family_mom_relation, family_mom_information_negative, family_mom_residenttwo) =>
+            family_mom_lifetwo === "Si" &&
+            family_mom_relation === "No" &&
+            family_mom_information_negative === "Si" &&
+            family_mom_residenttwo === "No",
+          then: yup
+            .string()
+            .required(`${family_mom_condition_residenttwo.requiredErrorMsg}`),
+        }
+      ),
+
+
+
 
     ////////////////////////////////////Inicio de informacion adicional///////////////////////////
 
@@ -3352,7 +3579,7 @@ export default [
               then: yup.string(),
             }),
         }),
-        
+
         [family_son_reason_died.name]: yup.string().when("family_son_life", {
           is: "No",
           then: yup
@@ -5629,7 +5856,7 @@ export default [
           }),
       }),
 
-      [wich_career.name]: yup
+    [wich_career.name]: yup
       .string()
       .when(["study_magister"], {
         is: (study_magister) =>
@@ -5639,7 +5866,7 @@ export default [
           .required(`${wich_career.requiredErrorMsg}`)
       }),
 
-      [select_schedules.name]: yup
+    [select_schedules.name]: yup
       .string()
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>
@@ -5655,7 +5882,7 @@ export default [
           }),
       }),
 
-      [why_not_schedules.name]: yup
+    [why_not_schedules.name]: yup
       .string()
       .when(["select_schedules"], {
         is: (select_schedules) =>
@@ -5665,7 +5892,7 @@ export default [
           .required(`${why_not_schedules.requiredErrorMsg}`)
       }),
 
-      [estudie_university_year_graduation.name]: yup
+    [estudie_university_year_graduation.name]: yup
       .string()
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>
@@ -6179,10 +6406,10 @@ export default [
     }),
 
     [social_fuma_frequency.name]: yup
-    .string().when(["social_fuma"], {
-      is: (social_fuma) => social_fuma === "Si",
-      then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
-    }), 
+      .string().when(["social_fuma"], {
+        is: (social_fuma) => social_fuma === "Si",
+        then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
+      }),
 
     [social_alco.name]: yup
       .string()
@@ -6200,7 +6427,7 @@ export default [
       is: (social_alco) => social_alco === "Si",
       then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
     }),
-    [social_alco_frequency.name] : yup.string().when(["social_alco"], {
+    [social_alco_frequency.name]: yup.string().when(["social_alco"], {
       is: (social_alco) => social_alco === "Si",
       then: yup.string().required(`${social_alco_bebida.requiredErrorMsg}`),
     }),
@@ -6216,6 +6443,22 @@ export default [
     [social_drog_time.name]: yup.string().when(["social_drog"], {
       is: (social_drog) => social_drog === "Si",
       then: yup.string().required(`${social_drog_time.requiredErrorMsg}`),
+    }),
+
+    //changes 2.1
+    [social_drug.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drug.requiredErrorMsg}`),
+    }),
+
+    [social_drug_relation.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drug_relation.requiredErrorMsg}`),
+    }),
+
+    [social_drug_position.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drug_position.requiredErrorMsg}`),
     }),
 
     [social_drog_person.name]: yup
@@ -6288,15 +6531,15 @@ export default [
     [criminal_family.name]: yup
       .string()
       .required(`${criminal_family.requiredErrorMsg}`),
-    
-    [criminal_was_suedwhy.name]: yup.string().when(["criminal_you_demand"], {
-      is: (criminal_you_demand) => criminal_you_demand === "Si", 
-      then: yup.string().required(`${criminal_was_suedwhy.requiredErrorMsg}`)
-    }),
-    
-    [criminal_you_demandwhy.name]: yup.string().when(["criminal_was_sued"], {
-      is: (criminal_was_sued) => criminal_was_sued === "Si", 
+
+    [criminal_you_demandwhy.name]: yup.string().when(["criminal_you_demand"], {
+      is: (criminal_you_demand) => criminal_you_demand === "Si",
       then: yup.string().required(`${criminal_you_demandwhy.requiredErrorMsg}`)
+    }),
+
+    [criminal_was_suedwhy.name]: yup.string().when(["criminal_was_sued"], {
+      is: (criminal_was_sued) => criminal_was_sued === "Si",
+      then: yup.string().required(`${criminal_was_suedwhy.requiredErrorMsg}`)
     }),
 
     criminal: yup.array({}).of(
@@ -6457,6 +6700,10 @@ export default [
       is: (sindicatos_formar) => sindicatos_formar === "Si",
       then: yup.string().required(`${sindicatos_why.requiredErrorMsg}`),
     }),
+    [sindicatos_why_two.name]: yup.string().when(["sindicatos_favor"], {
+      is: (sindicatos_favor) => sindicatos_favor === "Si",
+      then: yup.string().required(`${sindicatos_why_two.requiredErrorMsg}`),
+    }),
   }),
 
   yup.object().shape({
@@ -6488,21 +6735,31 @@ export default [
 
   yup.object().shape({
 
-   
+
 
     [red_faccebookval.name]: yup.string().required(`${red_faccebookval.requiredErrorMsg}`),
-    [red_faccebookOtherVal.name]: yup.string().required(`${red_faccebookOtherVal.requiredErrorMsg}`),
-
-     [red_faccebookOther.name]: yup.string().when(["red_faccebookOtherVal"], {
-        is: (red_faccebookOtherVal) => red_faccebookOtherVal === "Si", 
-        then: yup.string().required(`${red_faccebookOther.requiredErrorMsg}`)
-      }),
+    [red_faccebookOtherVal.name]: yup.string().when(["red_faccebookval"], {
+      is: (red_faccebookval) => red_faccebookval === "Si",
+      then: yup.string().required(`${red_faccebookOtherVal.requiredErrorMsg}`)
+    }),
+    
+    [red_faccebookOther.name]: yup.string().when(["red_faccebookOtherVal", "red_faccebookval" ], {
+      is: (red_faccebookOtherVal, red_faccebookval) => red_faccebookOtherVal === "Si" && red_faccebookval === "Si",
+      then: yup.string().required(`${red_faccebookOther.requiredErrorMsg}`)
+    }),
 
     [red_faccebook.name]: yup
       .string().when(["red_faccebookval"], {
-        is: (red_faccebookval) => red_faccebookval === "Si", 
+        is: (red_faccebookval) => red_faccebookval === "Si",
         then: yup.string().required(`${red_faccebook.requiredErrorMsg}`)
       }),
-      
-  }),*/
+
+    [red_faccebookval_two.name]: yup
+      .string().when(["red_faccebookval"], {
+        is: (red_faccebookval) => red_faccebookval === "No",
+        then: yup.string().required(`${red_faccebookval_two.requiredErrorMsg}`)
+      }),
+
+  }),
+
 ];

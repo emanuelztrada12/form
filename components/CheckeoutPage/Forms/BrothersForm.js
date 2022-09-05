@@ -6,6 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from "@mui/icons-material/Boy";
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
   {
@@ -284,7 +285,7 @@ export default function BrothersForm(props) {
                                             fontWeight: "bold",
                                           }}
                                         >
-                                          ¿Aún Vive?:
+                                          ¿Aún vive?:
                                         </label>
                                         <SelectField
                                           key={`inputbrothers_${index}`}
@@ -321,7 +322,7 @@ export default function BrothersForm(props) {
                                                   fontWeight: "bold",
                                                 }}
                                               >
-                                                Nombre:
+                                                Nombre completo:
                                               </label>
                                               <InputField
                                                 name={`brothers.${index}.${family_brothers_name.name}`}
@@ -349,6 +350,7 @@ export default function BrothersForm(props) {
                                                 Edad:
                                               </label>
                                               <InputField
+                                                type="Number"
                                                 name={`brothers.${index}.${family_brothers_age.name}`}
                                                 label={
                                                   family_brothers_age.label
@@ -444,6 +446,7 @@ export default function BrothersForm(props) {
                                                           Teléfono:
                                                         </label>
                                                         <InputField
+                                                          type="Number"
                                                           name={`brothers.${index}.${family_brothers_phone.name}`}
                                                           label={
                                                             family_brothers_phone.label
@@ -600,10 +603,18 @@ export default function BrothersForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
+                                                        type='Number'
                                                         name={`brothers.${index}.${family_brothers_financial_income.name}`}
                                                         label={
                                                           family_brothers_financial_income.label
                                                         }
+                                                        InputProps={{
+                                                          startAdornment: (
+                                                            <InputAdornment position="start">
+                                                              Q.
+                                                            </InputAdornment>
+                                                          ),
+                                                        }}
                                                         fullWidth
                                                       />
                                                     </div>
@@ -668,7 +679,7 @@ export default function BrothersForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Nombre:
+                                              Nombres:
                                             </label>
                                             <InputField
                                               name={`brothers.${index}.${family_brothers_died_name.name}`}
@@ -695,7 +706,7 @@ export default function BrothersForm(props) {
                                                 fontWeight: "bold",
                                               }}
                                             >
-                                              Apellido:
+                                              Apellidos:
                                             </label>
                                             <InputField
                                               name={`brothers.${index}.${family_brothers_died_lastname.name}`}

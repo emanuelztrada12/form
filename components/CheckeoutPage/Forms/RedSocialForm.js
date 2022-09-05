@@ -39,6 +39,8 @@ export default function RedSocialForm(props) {
       red_faccebookOther,
       red_faccebookval,
       red_faccebookOtherVal,
+      red_faccebookval_two
+
     },
   } = props;
 
@@ -97,69 +99,93 @@ export default function RedSocialForm(props) {
                 fullWidth
               />
               {vali === "Si" && (
+                <Grid container>
+
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "15px",
+                    }}
+                  >
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      Perfil de Facebook:
+                    </label>
+                    <InputField
+                      name={red_faccebook.name}
+                      label={red_faccebook.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "15px",
+                    }}
+                  >
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Posee otra red social?:
+                    </label>
+                    <SelectField
+                      name={red_faccebookOtherVal.name}
+                      label={red_faccebookOtherVal.label}
+                      onChange={handleChangetwo}
+                      data={value}
+                      fullWidth
+                    />
+                    {valitwo === "Si" && (
+                      <div
+                        item
+                        xs={12}
+                        sm={6}
+                        style={{
+                          paddingLeft: "10px",
+                          paddingRight: "10px",
+                          paddingTop: "15px",
+                        }}
+                      >
+                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                          Red social:
+                        </label>
+                        <InputField
+                          name={red_faccebookOther.name}
+                          label={red_faccebookOther.label}
+                          fullWidth
+                        />
+                      </div>
+                    )}
+                  </Grid>
+
+
+                </Grid>
+              )}
+              {vali === "No" && (
                 <Grid
                   item
                   xs={12}
                   sm={6}
-                  style={{
-                    paddingLeft: "10px",
-                    paddingRight: "10px",
-                    paddingTop: "15px",
-                  }}
+                  style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
                 >
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    Perfil de Facebook:
+                    ¿Por qué?:
+
                   </label>
                   <InputField
-                    name={red_faccebook.name}
-                    label={red_faccebook.label}
+                    name={red_faccebookval_two.name}
+                    label={red_faccebookval_two.label}
                     fullWidth
                   />
                 </Grid>
               )}
             </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              style={{
-                paddingLeft: "10px",
-                paddingRight: "10px",
-                paddingTop: "15px",
-              }}
-            >
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee otra cuenta de facebook?:
-              </label>
-              <SelectField
-                name={red_faccebookOtherVal.name}
-                label={red_faccebookOtherVal.label}
-                onChange={handleChangetwo}
-                data={value}
-                fullWidth
-              />
-              {valitwo === "Si" && (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  style={{
-                    paddingLeft: "10px",
-                    paddingRight: "10px",
-                    paddingTop: "15px",
-                  }}
-                >
-                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    Perfil de Facebook:
-                  </label>
-                  <InputField
-                    name={red_faccebookOther.name}
-                    label={red_faccebookOther.label}
-                    fullWidth
-                  />
-                </Grid>
-              )}
-            </Grid>
+
           </Grid>
         </Grid>
       </>

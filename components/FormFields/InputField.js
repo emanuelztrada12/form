@@ -5,8 +5,11 @@ import { TextField, Alert, Stack } from '@mui/material';
 
 export default function InputField(props) {
   const { errorText, ...rest} = props;
-  const [field, meta] = useField(props);
+  const [field, meta] = useField(props); 
+  const { value } = props; 
 
+
+  // console.log(field)
   function _renderHelperText() {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
@@ -33,7 +36,7 @@ export default function InputField(props) {
         try {
           if (field.onChange) field.onChange(val);
         } catch (error) {}
-        if (props.onChange) props.onChange(val, { field, meta });
+        if (props.onChange) props.onChange(val, { field, meta, value });
       }}
     />
     

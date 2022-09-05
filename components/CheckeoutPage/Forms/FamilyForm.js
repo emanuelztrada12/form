@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
-import { InputField, SelectField, DatePickerField } from "../../FormFields";
-import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
+import { InputField, SelectField } from "../../FormFields";
+
+import { Grid, Typography, Divider, Chip } from "@mui/material";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import WomanIcon from "@mui/icons-material/Woman";
 import BoyIcon from "@mui/icons-material/Boy";
+import InputAdornment from '@mui/material/InputAdornment';
 
 const civil = [
   {
@@ -34,7 +35,7 @@ const civil = [
   },
 ];
 
-const life = [
+const selectValue = [
   {
     value: "Si",
     label: "Si",
@@ -45,91 +46,14 @@ const life = [
   },
 ];
 
-const validate = [
+const condition_resident = [
   {
-    value: "Si",
-    label: "Si",
+    value: "Legal",
+    label: "Legal",
   },
   {
-    value: "No",
-    label: "No",
-  },
-];
-
-const information = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const information_reason = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const informationMom = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const information_reasonMom = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const parents_together = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const mom_partners = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
-  },
-];
-
-const dad_partners = [
-  {
-    value: "Si",
-    label: "Si",
-  },
-  {
-    value: "No",
-    label: "No",
+    value: "Ilegal",
+    label: "Ilegal",
   },
 ];
 
@@ -149,10 +73,17 @@ const relationship = [
 ];
 
 export default function FamilyForm(props) {
+
   const [values, setValue] = useState("");
   const gettingValue = (e) => {
     let { value } = e.target;
     setValue(value);
+  };
+
+  const [valuesTwo, setValuesTwo] = useState("");
+  const gettingValuesTwo = (e) => {
+    let { value } = e.target;
+    setValuesTwo(value);
   };
 
   /* ADD INFORMATION DAD */
@@ -161,6 +92,31 @@ export default function FamilyForm(props) {
     let { value } = e.target;
     setRelation(value);
   };
+
+  const [resident, setResident] = useState("");
+  const gettingResident = (e) => {
+    let { value } = e.target;
+    setResident(value);
+  };
+
+  const [residentTwo, setResidentTwo] = useState("");
+  const gettingResidentTwo = (e) => {
+    let { value } = e.target;
+    setResidentTwo(value);
+  };
+
+  const [residentMom, setResidentMom] = useState("");
+  const gettingResidentMom = (e) => {
+    let { value } = e.target;
+    setResidentMom(value);
+  };
+
+  const [residentMomTwo, setResidentMomTwo] = useState("");
+  const gettingResidentMomTwo = (e) => {
+    let { value } = e.target;
+    setResidentMomTwo(value);
+  }
+
 
   const [reason, setReason] = useState("");
   const gettingReason = (e) => {
@@ -336,6 +292,16 @@ export default function FamilyForm(props) {
       family_dad_reason,
       family_dad_why_negative,
       family_dad_information_negative,
+
+      // add changes 2.1
+      family_dad_resident,
+      family_dad_no_resident,
+      family_dad_condition_resident,
+      family_dad_residenttwo,
+      family_dad_no_residenttwo,
+      family_dad_condition_residenttwo,
+
+
       // add name died
       family_dad_died_first_name,
       family_dad_died_last_name,
@@ -403,6 +369,14 @@ export default function FamilyForm(props) {
       family_mom_died_last_nametwo,
       family_mom_time_diedtwo,
       family_mom_reason_diedtwo,
+
+      // add changes 2.1
+      family_mom_resident,
+      family_mom_no_resident,
+      family_mom_condition_resident,
+      family_mom_residenttwo,
+      family_mom_no_residenttwo,
+      family_mom_condition_residenttwo,
 
       // aditional information
       you_parents_together,
@@ -472,6 +446,7 @@ export default function FamilyForm(props) {
             Datos de los padres
           </Typography>
 
+          {/* INFORMACION DEL PADRE */}
           <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
               style={{
@@ -504,7 +479,7 @@ export default function FamilyForm(props) {
               <SelectField
                 name={family_dad_relation.name}
                 label={family_dad_relation.label}
-                data={information}
+                data={selectValue}
                 onChange={gettingRelation}
                 fullWidth
               />
@@ -518,12 +493,12 @@ export default function FamilyForm(props) {
                         paddingTop: "10px",
                       }}
                     >
-                      ¿Posee informacion de su padre?
+                      ¿Posee información de su padre?
                     </label>
                     <SelectField
                       name={family_dad_information.name}
                       label={family_dad_information.label}
-                      data={information}
+                      data={selectValue}
                       onChange={gettingReason}
                       fullWidth
                     />
@@ -533,7 +508,7 @@ export default function FamilyForm(props) {
                     <Grid>
                       <div style={{ paddingTop: "10px" }}>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          Motivo:
+                          ¿Razón de no poseer la información?:
                         </label>
                         <InputField
                           name={family_dad_reason.name}
@@ -547,12 +522,12 @@ export default function FamilyForm(props) {
                     <>
                       <div style={{ paddingTop: "10px" }}>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          ¿Aún Vive?:
+                          ¿Aún vive?:
                         </label>
                         <SelectField
                           name={family_dad_life.name}
                           label={family_dad_life.label}
-                          data={life}
+                          data={selectValue}
                           onChange={gettingValue}
                           fullWidth
                         />
@@ -573,7 +548,7 @@ export default function FamilyForm(props) {
                               <label
                                 style={{ fontSize: "18px", fontWeight: "bold" }}
                               >
-                                Nombre:
+                                Nombre completo del padre:
                               </label>
                               <InputField
                                 name={family_dad_name.name}
@@ -596,6 +571,7 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
+                                type='Number'
                                 name={family_dad_age.name}
                                 label={family_dad_age.label}
                                 fullWidth
@@ -642,7 +618,7 @@ export default function FamilyForm(props) {
                               <SelectField
                                 name={family_dad_phone_val.name}
                                 label={family_dad_phone_val.label}
-                                data={validate}
+                                data={selectValue}
                                 onChange={gettingPhone}
                                 fullWidth
                               />
@@ -667,6 +643,7 @@ export default function FamilyForm(props) {
                                         Teléfono:
                                       </label>
                                       <InputField
+                                        type='Number'
                                         name={family_dad_phone.name}
                                         label={family_dad_phone.label}
                                         fullWidth
@@ -675,7 +652,7 @@ export default function FamilyForm(props) {
                                   </Grid>
                                 )}
 
-                                {valuesPhone === "No" ? (
+                                {valuesPhone === "No" && (
                                   <Grid
                                     item
                                     xs={12}
@@ -700,11 +677,10 @@ export default function FamilyForm(props) {
                                       fullWidth
                                     />
                                   </Grid>
-                                ) : (
-                                  <h1></h1>
                                 )}
                               </Grid>
                             </Grid>
+
                             <Grid
                               item
                               xs={12}
@@ -723,12 +699,12 @@ export default function FamilyForm(props) {
                               <SelectField
                                 name={family_dad_working_val.name}
                                 label={family_dad_working_val.label}
-                                data={validate}
+                                data={selectValue}
                                 onChange={gettingWorking}
                                 fullWidth
                               />
                               <Grid>
-                                {valuesWorking === "Si" ? (
+                                {valuesWorking === "Si" && (
                                   <Grid
                                     container
                                     style={{ paddingTop: "10px" }}
@@ -798,19 +774,25 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
+                                        type='Number'
                                         name={family_dad_financial_income.name}
                                         label={
                                           family_dad_financial_income.label
                                         }
+                                        InputProps={{
+                                          startAdornment: (
+                                            <InputAdornment position="start">
+                                              Q.
+                                            </InputAdornment>
+                                          ),
+                                        }}
                                         fullWidth
                                       />
                                     </Grid>
                                   </Grid>
-                                ) : (
-                                  <h1></h1>
                                 )}
 
-                                {valuesWorking === "No" ? (
+                                {valuesWorking === "No" && (
                                   <Grid
                                     item
                                     xs={12}
@@ -835,17 +817,101 @@ export default function FamilyForm(props) {
                                       fullWidth
                                     />
                                   </Grid>
+                                )}
+                              </Grid>
+                            </Grid>
+
+
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                ¿Reside en Guatemala?:
+                              </label>
+                              <SelectField
+                                name={family_dad_resident.name}
+                                label={family_dad_resident.label}
+                                data={selectValue}
+                                onChange={gettingResident}
+                                fullWidth
+                              />
+                              <Grid>
+                                {resident === "No" ? (
+                                  <Grid
+                                    container
+                                  >
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿De qué país es residente?:
+                                      </label>
+                                      <InputField
+                                        name={family_dad_no_resident.name}
+                                        label={family_dad_no_resident.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingTop: "10px",
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}>
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Reside legal o ilegalsss?
+                                      </label>
+                                      <SelectField
+                                        id="dad_conditiontwo"
+                                        name={family_dad_condition_resident.name}
+                                        label={family_dad_condition_resident.label}
+                                        data={condition_resident}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                  </Grid>
+
                                 ) : (
                                   <h1></h1>
                                 )}
                               </Grid>
                             </Grid>
+
+
                           </Grid>
                         </Grid>
                       ) : (
                         <h1></h1>
                       )}
-                      {values === "No" ? (
+                      {values === "No" && (
                         <Grid>
                           <Grid container>
                             <Grid
@@ -858,37 +924,33 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-                              <div style={{ paddingTop: "10px" }}>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Nombre del padre:
-                                </label>
-                                <InputField
-                                  name={family_dad_died_first_name.name}
-                                  label={family_dad_died_first_name.label}
-                                  fullWidth
-                                />
-                              </div>
 
-                              <div style={{ paddingTop: "10px" }}>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  ¿Tiempo fallecido?:
-                                </label>
-                                <InputField
-                                  name={family_dad_time_died.name}
-                                  label={family_dad_time_died.label}
-                                  fullWidth
-                                />
-                              </div>
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Nombres del padre:
+                              </label>
+                              <InputField
+                                name={family_dad_died_first_name.name}
+                                label={family_dad_died_first_name.label}
+                                fullWidth
+                              />
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                ¿Tiempo fallecido?:
+                              </label>
+                              <InputField
+                                name={family_dad_time_died.name}
+                                label={family_dad_time_died.label}
+                                fullWidth
+                              />
                             </Grid>
                             <Grid
                               item
@@ -900,42 +962,40 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-                              <div style={{ paddingTop: "10px" }}>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Apellido del padre:
-                                </label>
-                                <InputField
-                                  name={family_dad_died_last_name.name}
-                                  label={family_dad_died_last_name.label}
-                                  fullWidth
-                                />
-                              </div>
 
-                              <div style={{ paddingTop: "10px" }}>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  ¿Razón de fallecimiento?:
-                                </label>
-                                <InputField
-                                  name={family_dad_reason_died.name}
-                                  label={family_dad_reason_died.label}
-                                  fullWidth
-                                />
-                              </div>
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Apellidos del padre:
+                              </label>
+                              <InputField
+                                name={family_dad_died_last_name.name}
+                                label={family_dad_died_last_name.label}
+                                fullWidth
+                              />
+
+
+
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                ¿Razón de fallecimiento?:
+                              </label>
+                              <InputField
+                                name={family_dad_reason_died.name}
+                                label={family_dad_reason_died.label}
+                                fullWidth
+                              />
+
                             </Grid>
                           </Grid>
                         </Grid>
-                      ) : (
-                        <h1></h1>
                       )}
                     </>
                   )}
@@ -946,7 +1006,7 @@ export default function FamilyForm(props) {
                 <Grid>
                   <div style={{ paddingTop: "10px" }}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Por que?
+                      ¿Por qué?
                     </label>
                     <InputField
                       name={family_dad_why_negative.name}
@@ -957,12 +1017,12 @@ export default function FamilyForm(props) {
 
                   <div style={{ paddingTop: "10px" }}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Posee informacion de su padre?
+                      ¿Posee información de su padre?
                     </label>
                     <SelectField
                       name={family_dad_information_negative.name}
                       label={family_dad_information_negative.label}
-                      data={information_reason}
+                      data={selectValue}
                       onChange={gettingReasonNegative}
                       fullWidth
                     />
@@ -972,18 +1032,18 @@ export default function FamilyForm(props) {
                     <>
                       <div style={{ paddingTop: "10px" }}>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          ¿Aún Vive?:
+                          ¿Aún vive?:
                         </label>
                         <SelectField
                           name={family_dad_lifetwo.name}
                           label={family_dad_lifetwo.label}
-                          data={life}
-                          onChange={gettingValue}
+                          data={selectValue}
+                          onChange={gettingValuesTwo}
                           fullWidth
                         />
                       </div>
 
-                      {values === "Si" ? (
+                      {valuesTwo === "Si" && (
                         <Grid>
                           <Grid container style={{ paddingTop: "10px" }}>
                             <Grid
@@ -998,7 +1058,7 @@ export default function FamilyForm(props) {
                               <label
                                 style={{ fontSize: "18px", fontWeight: "bold" }}
                               >
-                                Nombre:
+                                Nombre completo del padre:
                               </label>
                               <InputField
                                 name={family_dad_nametwo.name}
@@ -1021,6 +1081,7 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
+                                type='Number'
                                 name={family_dad_agetwo.name}
                                 label={family_dad_agetwo.label}
                                 fullWidth
@@ -1067,7 +1128,7 @@ export default function FamilyForm(props) {
                               <SelectField
                                 name={family_dad_phone_valtwo.name}
                                 label={family_dad_phone_valtwo.label}
-                                data={validate}
+                                data={selectValue}
                                 onChange={gettingPhone}
                                 fullWidth
                               />
@@ -1092,6 +1153,7 @@ export default function FamilyForm(props) {
                                         Teléfono:
                                       </label>
                                       <InputField
+                                        type='Number'
                                         name={family_dad_phonetwo.name}
                                         label={family_dad_phonetwo.label}
                                         fullWidth
@@ -1102,7 +1164,7 @@ export default function FamilyForm(props) {
                                   <h1></h1>
                                 )}
 
-                                {valuesPhone === "No" ? (
+                                {valuesPhone === "No" && (
                                   <Grid
                                     item
                                     xs={12}
@@ -1127,8 +1189,6 @@ export default function FamilyForm(props) {
                                       fullWidth
                                     />
                                   </Grid>
-                                ) : (
-                                  <h1></h1>
                                 )}
                               </Grid>
                             </Grid>
@@ -1150,7 +1210,7 @@ export default function FamilyForm(props) {
                               <SelectField
                                 name={family_dad_working_valtwo.name}
                                 label={family_dad_working_valtwo.label}
-                                data={validate}
+                                data={selectValue}
                                 onChange={gettingWorking}
                                 fullWidth
                               />
@@ -1225,12 +1285,20 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
+                                        type='Number'
                                         name={
                                           family_dad_financial_incometwo.name
                                         }
                                         label={
                                           family_dad_financial_incometwo.label
                                         }
+                                        InputProps={{
+                                          startAdornment: (
+                                            <InputAdornment position="start">
+                                              Q.
+                                            </InputAdornment>
+                                          ),
+                                        }}
                                         fullWidth
                                       />
                                     </Grid>
@@ -1269,12 +1337,96 @@ export default function FamilyForm(props) {
                                 )}
                               </Grid>
                             </Grid>
+
+
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                ¿Reside en Guatemala?:
+                              </label>
+                              <SelectField
+                                name={family_dad_residenttwo.name}
+                                label={family_dad_residenttwo.label}
+                                data={selectValue}
+                                onChange={gettingResidentTwo}
+                                fullWidth
+                              />
+                              <Grid>
+                                {residentTwo === "No" ? (
+                                  <Grid
+                                    container
+                                  >
+                                    <Grid item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingTop: "10px",
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}>
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿De qué país es residente?:
+                                      </label>
+                                      <InputField
+                                        name={family_dad_no_residenttwo.name}
+                                        label={family_dad_no_residenttwo.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+
+
+                                    <Grid item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingTop: "10px",
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}>
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Reside legal o ilegal?
+                                      </label>
+                                      <SelectField
+                                        id="dad_condition"
+                                        name={family_dad_condition_residenttwo.name}
+                                        label={family_dad_condition_residenttwo.label}
+                                        data={condition_resident}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                  </Grid>
+
+                                ) : (
+                                  <h1></h1>
+                                )}
+                              </Grid>
+                            </Grid>
+
+
                           </Grid>
                         </Grid>
-                      ) : (
-                        <h1></h1>
                       )}
-                      {values === "No" ? (
+                      {valuesTwo === "No" && (
                         <Grid>
                           <Grid container>
                             <Grid
@@ -1287,37 +1439,33 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-                              <div>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Nombre del padre:
-                                </label>
-                                <InputField
-                                  name={family_dad_died_first_nametwo.name}
-                                  label={family_dad_died_first_nametwo.label}
-                                  fullWidth
-                                />
-                              </div>
 
-                              <div>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  ¿Tiempo fallecido?:
-                                </label>
-                                <InputField
-                                  name={family_dad_time_diedtwo.name}
-                                  label={family_dad_time_diedtwo.label}
-                                  fullWidth
-                                />
-                              </div>
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Nombres del padre:
+                              </label>
+                              <InputField
+                                name={family_dad_died_first_nametwo.name}
+                                label={family_dad_died_first_nametwo.label}
+                                fullWidth
+                              />
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                ¿Tiempo fallecido?:
+                              </label>
+                              <InputField
+                                name={family_dad_time_diedtwo.name}
+                                label={family_dad_time_diedtwo.label}
+                                fullWidth
+                              />
                             </Grid>
                             <Grid
                               item
@@ -1329,42 +1477,40 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-                              <div>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Apellido del padre:
-                                </label>
-                                <InputField
-                                  name={family_dad_died_last_nametwo.name}
-                                  label={family_dad_died_last_nametwo.label}
-                                  fullWidth
-                                />
-                              </div>
 
-                              <div>
-                                <label
-                                  style={{
-                                    fontSize: "18px",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  ¿Razón de fallecimiento?:
-                                </label>
-                                <InputField
-                                  name={family_dad_reason_diedtwo.name}
-                                  label={family_dad_reason_diedtwo.label}
-                                  fullWidth
-                                />
-                              </div>
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Apellidos del padre:
+                              </label>
+                              <InputField
+                                name={family_dad_died_last_nametwo.name}
+                                label={family_dad_died_last_nametwo.label}
+                                fullWidth
+                              />
+
+
+
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                ¿Razón de fallecimiento?:
+                              </label>
+                              <InputField
+                                name={family_dad_reason_diedtwo.name}
+                                label={family_dad_reason_diedtwo.label}
+                                fullWidth
+                              />
+
                             </Grid>
                           </Grid>
                         </Grid>
-                      ) : (
-                        <h1></h1>
                       )}
                     </>
                   )}
@@ -1407,7 +1553,7 @@ export default function FamilyForm(props) {
                 <SelectField
                   name={family_mom_relation.name}
                   label={family_mom_relation.label}
-                  data={informationMom}
+                  data={selectValue}
                   onChange={gettingRelationMom}
                   fullWidth
                 />
@@ -1420,7 +1566,7 @@ export default function FamilyForm(props) {
                       <SelectField
                         name={family_mom_information.name}
                         label={family_mom_information.label}
-                        data={informationMom}
+                        data={selectValue}
                         onChange={gettingReasonMom}
                         fullWidth
                       />
@@ -1429,7 +1575,7 @@ export default function FamilyForm(props) {
                     {reasonMom === "No" && (
                       <Grid>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          Motivo:
+                          ¿Razón de no poseer la información?:
                         </label>
                         <InputField
                           name={family_mom_reason.name}
@@ -1441,14 +1587,13 @@ export default function FamilyForm(props) {
 
                     {reasonMom === "Si" && (
                       <>
-                        <div></div>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          ¿Aún Vive?:
+                          ¿Aún vive?:
                         </label>
                         <SelectField
                           name={family_mom_life.name}
                           label={family_mom_life.label}
-                          data={life}
+                          data={selectValue}
                           onChange={gettingValueMom}
                           fullWidth
                         />
@@ -1471,7 +1616,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Nombre:
+                                  Nombre completo de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_name.name}
@@ -1497,6 +1642,7 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
+                                  type='Number'
                                   name={family_mom_age.name}
                                   label={family_mom_age.label}
                                   fullWidth
@@ -1549,7 +1695,7 @@ export default function FamilyForm(props) {
                                 <SelectField
                                   name={family_mom_phone_val.name}
                                   label={family_mom_phone_val.label}
-                                  data={validate}
+                                  data={selectValue}
                                   onChange={gettingPhoneMom}
                                   fullWidth
                                 />
@@ -1574,6 +1720,7 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
+                                          type='Number'
                                           name={family_mom_phone.name}
                                           label={family_mom_phone.label}
                                           fullWidth
@@ -1631,7 +1778,7 @@ export default function FamilyForm(props) {
                                 <SelectField
                                   name={family_mom_working_val.name}
                                   label={family_mom_working_val.label}
-                                  data={validate}
+                                  data={selectValue}
                                   onChange={gettingWorkingMom}
                                   fullWidth
                                 />
@@ -1706,12 +1853,20 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
+                                          type='Number'
                                           name={
                                             family_mom_financial_income.name
                                           }
                                           label={
                                             family_mom_financial_income.label
                                           }
+                                          InputProps={{
+                                            startAdornment: (
+                                              <InputAdornment position="start">
+                                                Q.
+                                              </InputAdornment>
+                                            ),
+                                          }}
                                           fullWidth
                                         />
                                       </Grid>
@@ -1746,6 +1901,93 @@ export default function FamilyForm(props) {
                                   )}
                                 </Grid>
                               </Grid>
+
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                style={{
+                                  paddingLeft: "10px",
+                                  paddingRight: "10px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                <label
+                                  style={{ fontSize: "18px", fontWeight: "bold" }}
+                                >
+                                  ¿Reside en Guatemala?:
+                                </label>
+                                <SelectField
+                                  name={family_mom_resident.name}
+                                  label={family_mom_resident.label}
+                                  data={selectValue}
+                                  onChange={gettingResidentMom}
+                                  fullWidth
+                                />
+                                <Grid>
+
+                                  {residentMom === "No" ? (
+                                    <Grid
+                                      container
+                                    >
+                                      <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{
+                                          paddingLeft: "10px",
+                                          paddingRight: "10px",
+                                          paddingTop: "10px",
+                                        }}
+                                      >
+                                        <label
+                                          style={{
+                                            fontSize: "18px",
+                                            fontWeight: "bold",
+                                          }}
+                                        >
+                                          ¿De qué país es residente?:
+                                        </label>
+                                        <InputField
+                                          name={family_mom_no_resident.name}
+                                          label={family_mom_no_resident.label}
+                                          fullWidth
+                                        />
+                                      </Grid>
+
+                                      <Grid item
+                                        xs={12}
+                                        sm={6}
+                                        style={{
+                                          paddingTop: "10px",
+                                          paddingLeft: "10px",
+                                          paddingRight: "10px",
+                                        }}>
+                                        <label
+                                          style={{
+                                            fontSize: "18px",
+                                            fontWeight: "bold",
+                                          }}
+                                        >
+                                          ¿Reside legal o ilegal?
+                                        </label>
+                                        <SelectField
+                                          id="mom_condition"
+                                          name={family_mom_condition_resident.name}
+                                          label={family_mom_condition_resident.label}
+                                          data={condition_resident}
+                                          fullWidth
+                                        />
+                                      </Grid>
+                                    </Grid>
+
+                                  ) : (
+                                    <h1></h1>
+                                  )}
+                                </Grid>
+                              </Grid>
+
+
                             </Grid>
                           </Grid>
                         )}
@@ -1769,7 +2011,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Nombre de la madre:
+                                  Nombres de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_died_first_name.name}
@@ -1806,7 +2048,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Apellido de la madre:
+                                  Apellidos de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_died_last_name.name}
@@ -1839,7 +2081,7 @@ export default function FamilyForm(props) {
                   <Grid>
                     <div style={{ paddingTop: "10px" }}>
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Por que?
+                        ¿Por qué?
                       </label>
                       <InputField
                         name={family_mom_why_negative.name}
@@ -1855,7 +2097,7 @@ export default function FamilyForm(props) {
                       <SelectField
                         name={family_mom_information_negative.name}
                         label={family_mom_information_negative.label}
-                        data={information_reasonMom}
+                        data={selectValue}
                         onChange={gettingReasonNegativeMom}
                         fullWidth
                       />
@@ -1864,12 +2106,12 @@ export default function FamilyForm(props) {
                     {reasonNegativeMom === "Si" && (
                       <>
                         <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                          ¿Aún Vive?:
+                          ¿Aún vive?:
                         </label>
                         <SelectField
                           name={family_mom_lifetwo.name}
                           label={family_mom_lifetwo.label}
-                          data={life}
+                          data={selectValue}
                           onChange={gettingValueMomTwo}
                           fullWidth
                         />
@@ -1892,7 +2134,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Nombre:
+                                  Nombre completo de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_nametwo.name}
@@ -1918,6 +2160,7 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
+                                  type='Number'
                                   name={family_mom_agetwo.name}
                                   label={family_mom_agetwo.label}
                                   fullWidth
@@ -1970,7 +2213,7 @@ export default function FamilyForm(props) {
                                 <SelectField
                                   name={family_mom_phone_valtwo.name}
                                   label={family_mom_phone_valtwo.label}
-                                  data={validate}
+                                  data={selectValue}
                                   onChange={gettingPhoneMom}
                                   fullWidth
                                 />
@@ -1995,6 +2238,7 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
+                                          type='Number'
                                           name={family_mom_phonetwo.name}
                                           label={family_mom_phonetwo.label}
                                           fullWidth
@@ -2052,7 +2296,7 @@ export default function FamilyForm(props) {
                                 <SelectField
                                   name={family_mom_working_valtwo.name}
                                   label={family_mom_working_valtwo.label}
-                                  data={validate}
+                                  data={selectValue}
                                   onChange={gettingWorkingMom}
                                   fullWidth
                                 />
@@ -2127,14 +2371,23 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
+                                          type='Number'
                                           name={
                                             family_mom_financial_incometwo.name
                                           }
                                           label={
                                             family_mom_financial_incometwo.label
                                           }
+                                          InputProps={{
+                                            startAdornment: (
+                                              <InputAdornment position="start">
+                                                Q.
+                                              </InputAdornment>
+                                            ),
+                                          }}
                                           fullWidth
                                         />
+
                                       </Grid>
                                     </Grid>
                                   ) : (
@@ -2171,6 +2424,95 @@ export default function FamilyForm(props) {
                                   )}
                                 </Grid>
                               </Grid>
+
+
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                style={{
+                                  paddingLeft: "10px",
+                                  paddingRight: "10px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                <label
+                                  style={{ fontSize: "18px", fontWeight: "bold" }}
+                                >
+                                  ¿Reside en Guatemala?:
+                                </label>
+                                <SelectField
+                                  name={family_mom_residenttwo.name}
+                                  label={family_mom_residenttwo.label}
+                                  data={selectValue}
+                                  onChange={gettingResidentMomTwo}
+                                  fullWidth
+                                />
+                                <Grid>
+
+                                  {residentMomTwo === "No" ? (
+
+                                    <Grid
+                                      container
+                                    >
+                                      <Grid
+                                        item
+                                        xs={12}
+                                        sm={6}
+                                        style={{
+                                          paddingLeft: "10px",
+                                          paddingRight: "10px",
+                                          paddingTop: "10px",
+                                        }}
+                                      >
+                                        <label
+                                          style={{
+                                            fontSize: "18px",
+                                            fontWeight: "bold",
+                                          }}
+                                        >
+                                          ¿De qué país es residente?:
+                                        </label>
+                                        <InputField
+                                          name={family_mom_no_residenttwo.name}
+                                          label={family_mom_no_residenttwo.label}
+                                          fullWidth
+                                        />
+                                      </Grid>
+
+                                      <Grid item
+                                        xs={12}
+                                        sm={6}
+                                        style={{
+                                          paddingTop: "10px",
+                                          paddingLeft: "10px",
+                                          paddingRight: "10px",
+                                        }}>
+                                        <label
+                                          style={{
+                                            fontSize: "18px",
+                                            fontWeight: "bold",
+                                          }}
+                                        >
+                                          ¿Reside legal o ilegal?
+                                        </label>
+                                        <SelectField
+                                          id="mom_conditiontwo"
+                                          name={family_mom_condition_residenttwo.name}
+                                          label={family_mom_condition_residenttwo.label}
+                                          data={condition_resident}
+                                          fullWidth
+                                        />
+                                      </Grid>
+                                    </Grid>
+
+                                  ) : (
+                                    <h1></h1>
+                                  )}
+                                </Grid>
+                              </Grid>
+
+
                             </Grid>
                           </Grid>
                         )}
@@ -2194,7 +2536,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Nombre de la madre:
+                                  Nombres de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_died_first_nametwo.name}
@@ -2231,7 +2573,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Apellido de la madre:
+                                  Apellidos de la madre:
                                 </label>
                                 <InputField
                                   name={family_mom_died_last_nametwo.name}
@@ -2274,10 +2616,11 @@ export default function FamilyForm(props) {
                 paddingLeft: "15px",
                 paddingRight: "15px",
               }}
-              color="success"
-              label="Información adicional"
+              color="primary"
+              label="Relación de sus padres"
             />
           </Divider>
+
           <Grid>
             <Grid
               item
@@ -2292,13 +2635,13 @@ export default function FamilyForm(props) {
               <div>
                 {" "}
                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                  ¿Siguen juntos sus papas?:
+                  ¿Siguen juntos sus papás?:
                 </label>
                 <SelectField
                   id="you_parents_together"
                   name={you_parents_together.name}
                   label={you_parents_together.label}
-                  data={parents_together}
+                  data={selectValue}
                   onChange={gettingTogetherParents}
                   fullWidth
                 />
@@ -2324,13 +2667,13 @@ export default function FamilyForm(props) {
                         />
                       </Divider>
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Su papa tiene pareja?:
+                        ¿Su papá tiene pareja?:
                       </label>
                       <SelectField
                         id="has_partner_father"
                         name={has_partner_father.name}
                         label={has_partner_father.label}
-                        data={dad_partners}
+                        data={selectValue}
                         onChange={gettingPartnerFather}
                         fullWidth
                       />
@@ -2361,7 +2704,7 @@ export default function FamilyForm(props) {
                                     fontWeight: "bold",
                                   }}
                                 >
-                                  Relacion:
+                                  Relación:
                                 </label>
                                 <SelectField
                                   id="father_relationship"
@@ -2413,13 +2756,13 @@ export default function FamilyForm(props) {
                         />
                       </Divider>
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Su mama tiene pareja?:
+                        ¿Su mamá tiene pareja?:
                       </label>
                       <SelectField
                         id="has_partner_mother"
                         name={has_partner_mother.name}
                         label={has_partner_mother.label}
-                        data={mom_partners}
+                        data={selectValue}
                         onChange={gettingPartnerMom}
                         fullWidth
                       />
@@ -2448,7 +2791,7 @@ export default function FamilyForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            Relacion:
+                            Relación:
                           </label>
                           <SelectField
                             id="mother_relationship"
@@ -2464,11 +2807,25 @@ export default function FamilyForm(props) {
                 )}
               </div>
 
-              <div style={{ paddingTop: "10px"}}>
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                  ¿Con quien vive?:
+              <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                <Chip
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    paddingTop: "20px",
+                    paddingBottom: "20px",
+                    paddingLeft: "15px",
+                    paddingRight: "15px",
+                  }}
+                  color="success"
+                  label="Información adicional"
+                />
+              </Divider>
+              <div style={{ paddingTop: "10px" }}>
+                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  ¿Con quién vive?:
                 </label>
-                <InputField name={vive_family.name} label={vive_family.label} fullWidth/>
+                <InputField name={vive_family.name} label={vive_family.label} fullWidth />
               </div>
             </Grid>
           </Grid>
@@ -2500,13 +2857,13 @@ export default function FamilyForm(props) {
               }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Usted tienes padrastros?:
+                ¿Usted tiene padrastros?:
               </label>
               <SelectField
                 id="family_validate_stepparents"
                 name={family_validate_stepparents.name}
                 label={family_validate_stepparents.label}
-                data={validate}
+                data={selectValue}
                 onChange={gettingValidate}
                 fullWidth
               />
@@ -2547,7 +2904,7 @@ export default function FamilyForm(props) {
                         id="family_stepfather_info"
                         name={family_stepfather_info.name}
                         label={family_stepfather_info.label}
-                        data={validate}
+                        data={selectValue}
                         onChange={gettingInfoStepfather}
                         fullWidth
                       />
@@ -2566,12 +2923,12 @@ export default function FamilyForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Aún Vive?:
+                            ¿Aún vive?:
                           </label>
                           <SelectField
                             name={family_stepfather_life.name}
                             label={family_stepfather_life.label}
-                            data={life}
+                            data={selectValue}
                             onChange={gettingValueStepfather}
                             fullWidth
                           />
@@ -2594,7 +2951,7 @@ export default function FamilyForm(props) {
                                       fontWeight: "bold",
                                     }}
                                   >
-                                    Nombre:
+                                    Nombre completo de su padrastro:
                                   </label>
                                   <InputField
                                     name={family_stepfather_name.name}
@@ -2620,6 +2977,7 @@ export default function FamilyForm(props) {
                                     Edad:
                                   </label>
                                   <InputField
+                                    type='Number'
                                     name={family_stepfather_age.name}
                                     label={family_stepfather_age.label}
                                     fullWidth
@@ -2672,7 +3030,7 @@ export default function FamilyForm(props) {
                                   <SelectField
                                     name={family_stepfather_phone_val.name}
                                     label={family_stepfather_phone_val.label}
-                                    data={validate}
+                                    data={selectValue}
                                     onChange={gettingPhoneStepfather}
                                     fullWidth
                                   />
@@ -2697,6 +3055,7 @@ export default function FamilyForm(props) {
                                             Teléfono:
                                           </label>
                                           <InputField
+                                            type='Number'
                                             name={family_stepfather_phone.name}
                                             label={
                                               family_stepfather_phone.label
@@ -2763,7 +3122,7 @@ export default function FamilyForm(props) {
                                   <SelectField
                                     name={family_stepfather_working_val.name}
                                     label={family_stepfather_working_val.label}
-                                    data={validate}
+                                    data={selectValue}
                                     onChange={gettingWorkingStepfather}
                                     fullWidth
                                   />
@@ -2844,12 +3203,20 @@ export default function FamilyForm(props) {
                                             Ingresos promedio:
                                           </label>
                                           <InputField
+                                            type='Number'
                                             name={
                                               family_stepfather_financial_income.name
                                             }
                                             label={
                                               family_stepfather_financial_income.label
                                             }
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
                                             fullWidth
                                           />
                                         </Grid>
@@ -2888,6 +3255,8 @@ export default function FamilyForm(props) {
                                     )}
                                   </Grid>
                                 </Grid>
+
+
                               </Grid>
                             </Grid>
                           ) : (
@@ -2970,7 +3339,7 @@ export default function FamilyForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Razón de poseer la información?:
+                              ¿Razón de no poseer la información?:
                             </label>
                             <InputField
                               name={family_stepfather_noInfo.name}
@@ -2998,7 +3367,7 @@ export default function FamilyForm(props) {
                       }}
                       icon={<WomanIcon />}
                       color="primary"
-                      label="Informaciń general madrastra"
+                      label="Información general madrastra"
                     />
                   </Divider>
                   <Grid>
@@ -3020,7 +3389,7 @@ export default function FamilyForm(props) {
                         id="family_stepmother_info"
                         name={family_stepmother_info.name}
                         label={family_stepmother_info.label}
-                        data={validate}
+                        data={selectValue}
                         onChange={gettingInfoStepmother}
                         fullWidth
                       />
@@ -3039,12 +3408,12 @@ export default function FamilyForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Aún Vive?:
+                            ¿Aún vive?:
                           </label>
                           <SelectField
                             name={family_stepmother_life.name}
                             label={family_stepmother_life.label}
-                            data={life}
+                            data={selectValue}
                             onChange={gettingValueStepmother}
                             fullWidth
                           />
@@ -3067,7 +3436,7 @@ export default function FamilyForm(props) {
                                       fontWeight: "bold",
                                     }}
                                   >
-                                    Nombre:
+                                    Nombre completo de su madrastra:
                                   </label>
                                   <InputField
                                     name={family_stepmother_name.name}
@@ -3093,6 +3462,7 @@ export default function FamilyForm(props) {
                                     Edad:
                                   </label>
                                   <InputField
+                                    type='Number'
                                     name={family_stepmother_age.name}
                                     label={family_stepmother_age.label}
                                     fullWidth
@@ -3145,7 +3515,7 @@ export default function FamilyForm(props) {
                                   <SelectField
                                     name={family_stepmother_phone_val.name}
                                     label={family_stepmother_phone_val.label}
-                                    data={validate}
+                                    data={selectValue}
                                     onChange={gettingPhoneStepmother}
                                     fullWidth
                                   />
@@ -3170,6 +3540,7 @@ export default function FamilyForm(props) {
                                             Teléfono:
                                           </label>
                                           <InputField
+                                            type='Number'
                                             name={family_stepmother_phone.name}
                                             label={
                                               family_stepmother_phone.label
@@ -3237,7 +3608,7 @@ export default function FamilyForm(props) {
                                   <SelectField
                                     name={family_stepmother_working_val.name}
                                     label={family_stepmother_working_val.label}
-                                    data={validate}
+                                    data={selectValue}
                                     onChange={gettingWorkingStepmother}
                                     fullWidth
                                   />
@@ -3319,12 +3690,20 @@ export default function FamilyForm(props) {
                                             Ingresos promedio:
                                           </label>
                                           <InputField
+                                            type='Number'
                                             name={
                                               family_stepmother_financial_income.name
                                             }
                                             label={
                                               family_stepmother_financial_income.label
                                             }
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
                                             fullWidth
                                           />
                                         </Grid>
@@ -3364,6 +3743,8 @@ export default function FamilyForm(props) {
                                     )}
                                   </Grid>
                                 </Grid>
+
+
                               </Grid>
                             </Grid>
                           ) : (
@@ -3446,7 +3827,7 @@ export default function FamilyForm(props) {
                             <label
                               style={{ fontSize: "18px", fontWeight: "bold" }}
                             >
-                              ¿Razón de poseer la información?:
+                              ¿Razón de no poseer la información?:
                             </label>
                             <InputField
                               name={family_stepmother_noInfo.name}
