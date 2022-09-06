@@ -1156,6 +1156,17 @@ export default {
       name: "family_stepbrother_working_val",
       label: "Seleccione una de las opciones*",
     },
+    /* select and input information */
+    family_stepbrother_has_information: {
+      name: "family_stepbrother_has_information",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_stepbrother_reason_dont_has: {
+      name: "family_stepbrother_reason_dont_has",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
 
     //conyugue
     family_conyugue_name: {
@@ -1674,6 +1685,27 @@ export default {
       label: "Indique por qué no está dispuesto a cambiar*",
       requiredErrorMsg: "La información es requerida",
     },
+    /* add information master */
+    study_master_name: {
+      name: "study_master_name",
+      label: "Ingrese la maestria que estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_place: {
+      name: "study_master_place",
+      label: "Ingrese la sede donde estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_complete: {
+      name: "study_master_complete",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_schedule: {
+      name: "study_master_schedule",
+      label: "Ingrese sus horarios de estudio*",
+      requiredErrorMsg: "La información es requerida",
+    },
     estudie_university_title: {
       name: "estudie_university_title",
       label: "Ingrese su título*",
@@ -1731,6 +1763,22 @@ export default {
       label: "Hasta*",
       requiredErrorMsg: "La información es requerida",
     },
+    estudie_diversificado_place: {
+      name: "estudie_diversificado_place",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    /* add information finish diver */
+    estudies_diversificado_finish_place: {
+      name: "estudies_diversificado_finish_place",
+      label: "Ingrese donde culminó sus estudios*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudies_diversificado_finish_grade: {
+      name: "estudies_diversificado_finish_grade",
+      label: "Ingrese el grado que estudió*",
+      requiredErrorMsg: "La información es requerida",
+    },
 
     //basico
     estudie_basic_sval: {
@@ -1753,6 +1801,7 @@ export default {
       label: "Hasta*",
       requiredErrorMsg: "La información es requerida",
     },
+    
 
     //primario
     estudie_primary_sval: {
@@ -1773,6 +1822,12 @@ export default {
     estudie_primary_hasta: {
       name: "estudie_primary_hasta",
       label: "Hasta*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    /* add year condition */
+    estudies_year_condition: {
+      name: "estudies_year_condition",
+      label: "Ingrese el año que perdio*",
       requiredErrorMsg: "La información es requerida",
     },
 
