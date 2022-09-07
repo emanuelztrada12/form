@@ -265,7 +265,6 @@ export default function GrandfatherForm(props) {
                 <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
-                      item
                       xs={12}
                       sm={6}
                       style={{
@@ -292,7 +291,6 @@ export default function GrandfatherForm(props) {
                       <div>
                         <div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -312,7 +310,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -333,7 +330,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -355,7 +351,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -387,7 +382,6 @@ export default function GrandfatherForm(props) {
                               ] === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -417,7 +411,6 @@ export default function GrandfatherForm(props) {
                                 `family_grandfather_phone_val.name}`
                               ] === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -445,7 +438,6 @@ export default function GrandfatherForm(props) {
                           </div>
 
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -478,7 +470,6 @@ export default function GrandfatherForm(props) {
                               ] === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -501,7 +492,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -524,7 +514,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -566,7 +555,6 @@ export default function GrandfatherForm(props) {
                                 `family_grandfather_working_val.name}`
                               ] === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -692,7 +680,6 @@ export default function GrandfatherForm(props) {
                 <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
-                      item
                       xs={12}
                       sm={6}
                       style={{
@@ -719,7 +706,6 @@ export default function GrandfatherForm(props) {
                       <div>
                         <div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -739,7 +725,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -760,7 +745,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -782,7 +766,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -814,7 +797,6 @@ export default function GrandfatherForm(props) {
                               ] === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -844,7 +826,6 @@ export default function GrandfatherForm(props) {
                                 `family_grandmother_phone_val.name}`
                               ] === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -872,7 +853,6 @@ export default function GrandfatherForm(props) {
                           </div>
 
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -905,7 +885,6 @@ export default function GrandfatherForm(props) {
                               ] === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -928,7 +907,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -951,7 +929,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -993,7 +970,6 @@ export default function GrandfatherForm(props) {
                                 `family_grandmother_working_val.name}`
                               ] === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -1152,7 +1128,6 @@ export default function GrandfatherForm(props) {
                 <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
-                      item
                       xs={12}
                       sm={6}
                       style={{
@@ -1179,7 +1154,6 @@ export default function GrandfatherForm(props) {
                       <div>
                         <div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1199,7 +1173,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1220,7 +1193,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1242,7 +1214,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1272,7 +1243,6 @@ export default function GrandfatherForm(props) {
                               {valuesPhonetwo  === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1300,7 +1270,6 @@ export default function GrandfatherForm(props) {
 
                               {valuesPhonetwo === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -1328,7 +1297,6 @@ export default function GrandfatherForm(props) {
                           </div>
 
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1359,7 +1327,6 @@ export default function GrandfatherForm(props) {
                               {valuesWorkingtwo === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1382,7 +1349,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1405,7 +1371,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1445,7 +1410,6 @@ export default function GrandfatherForm(props) {
 
                               {valuesWorkingtwo === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -1571,7 +1535,6 @@ export default function GrandfatherForm(props) {
                 <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
-                      item
                       xs={12}
                       sm={6}
                       style={{
@@ -1598,7 +1561,6 @@ export default function GrandfatherForm(props) {
                       <div>
                         <div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1618,7 +1580,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1639,7 +1600,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1661,7 +1621,6 @@ export default function GrandfatherForm(props) {
                             />
                           </div>
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1691,7 +1650,6 @@ export default function GrandfatherForm(props) {
                               {valuesPhoneMonTwo  === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1719,7 +1677,6 @@ export default function GrandfatherForm(props) {
 
                               {valuesPhoneMonTwo === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{
@@ -1747,7 +1704,6 @@ export default function GrandfatherForm(props) {
                           </div>
 
                           <div
-                            item
                             xs={12}
                             sm={6}
                             style={{
@@ -1778,7 +1734,6 @@ export default function GrandfatherForm(props) {
                               {valuesWorkingMonTwo === "Si" && (
                                 <div style={{ paddingTop: "10px" }}>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1801,7 +1756,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1824,7 +1778,6 @@ export default function GrandfatherForm(props) {
                                     />
                                   </div>
                                   <div
-                                    item
                                     xs={12}
                                     sm={6}
                                     style={{
@@ -1864,7 +1817,6 @@ export default function GrandfatherForm(props) {
 
                               {valuesWorkingMonTwo === "No" && (
                                 <div
-                                  item
                                   xs={12}
                                   sm={6}
                                   style={{

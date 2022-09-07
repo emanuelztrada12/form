@@ -540,6 +540,9 @@ const {
     covid_option,
     covid_dosis,
     gave_covid,
+    reason_no_vaccines_covid,
+    need_vacinnes,
+    reason_no_true,
     validate_sex,
     validate_gestacion,
     validate_children,
@@ -577,7 +580,7 @@ const {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  /* 
+/*
   yup.object().shape({
     [validation_form.name]: yup
       .bool()
@@ -6770,11 +6773,14 @@ export default [
     [covid_option.name]: yup
       .string()
       .required(`${covid_option.requiredErrorMsg}`),
-    [covid_dosis.name]: yup.string().when(["covid_option"], {
-      is: (covid_option) => covid_option === "No",
+    
+    [gave_covid.name]: yup.string().required(`${gave_covid.requiredErrorMsg}`),
+    
+    [covid_dosis.name]: yup.string().when(["gave_covid"], {
+      // is: (gave_covid) => gave_covid === "No",
+      is: (gave_covid) => gave_covid === "Si",
       then: yup.string().required(`${covid_dosis.requiredErrorMsg}`),
     }),
-    [gave_covid.name]: yup.string().required(`${gave_covid.requiredErrorMsg}`),
 
     [validate_sex.name]: yup
       .string()
@@ -6812,10 +6818,29 @@ export default [
           validate_sex === "F" && validate_lactando === "Si",
         then: yup.string().required(`${validate_lac_age.requiredErrorMsg}`),
       }),
+
     [validate_dosis.name]: yup
       .string()
       .required(`${validate_dosis.requiredErrorMsg}`),
-
+      
+    [reason_no_vaccines_covid.name]: yup
+      .string()
+      .when(["validate_dosis"], {
+        is: (validate_dosis) => validate_dosis === "No",
+      then: yup.string().required(`${reason_no_vaccines_covid.requiredErrorMsg}`),
+      }),
+    
+    [need_vacinnes.name]: yup
+      .string()
+      .required(`${need_vacinnes.requiredErrorMsg}`),
+    
+    [reason_no_true.name]: yup
+      .string()
+      .when(["need_vacinnes"], {
+        is: (need_vacinnes) => need_vacinnes === "No",
+        then: yup.string().required(`${reason_no_true.requiredErrorMsg}`)
+      }),
+      
     disease: yup.array({}).of(
       yup.object().shape({
         [disease_name.name]: yup

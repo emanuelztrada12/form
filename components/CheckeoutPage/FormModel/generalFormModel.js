@@ -2495,6 +2495,22 @@ export default {
       label: "Ingrese cuando fue la última que tuvo COVID-19*",
       requiredErrorMsg: "La información es requerida",
     },
+    /* porque no tiene vacunas */
+    reason_no_vaccines_covid: {
+      name: "reason_no_vaccines_covid",
+      label: "Razón por la que no tiene vacunas*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    need_vacinnes: {
+      name: "need_vacinnes",
+      label: "Razón por la que no tiene vacunas*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    reason_no_true: {
+      name: "reason_no_true",
+      label: "Razón por la que no se vacunaría*",
+      requiredErrorMsg: "La información es requerida",
+    },
     validate_sex: {
       name: "validate_sex",
       label: "Seleccione una de las opciones*",

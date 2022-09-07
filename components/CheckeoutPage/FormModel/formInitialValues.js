@@ -446,6 +446,10 @@ const {
     covid_option,
     gave_covid,
     covid_dosis,
+    /* porque no tiene vacunas */
+    reason_no_vaccines_covid,
+    need_vacinnes,
+    reason_no_true,
     validate_sex,
     validate_gestacion,
     validate_children,
@@ -955,6 +959,10 @@ export default {
   [covid_option.name]: "",
   [gave_covid.name]: "",
   [covid_dosis.name]: "",
+  /* porque no tiene vacunas */
+  [reason_no_vaccines_covid.name]: "",
+  [need_vacinnes.name]: "",
+  [reason_no_true.nmae]: "",
   [validate_sex.name]: "",
   [validate_gestacion.name]: "",
   [validate_children.name]: "",

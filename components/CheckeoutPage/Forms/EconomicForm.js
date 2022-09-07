@@ -1111,7 +1111,7 @@ export default function EconomicForm(props) {
                 >
                   Ingresos proyectados
                 </Typography>
-                <Grid spacing={3}>
+                <Grid>
                   <Grid>
                     <Divider />
                     <List dense={dense}>

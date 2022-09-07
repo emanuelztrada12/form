@@ -613,6 +613,11 @@ const FORMULARIO = gql`
       accident_suffer
       covid_option
       covid_dosis
+      gave_covid
+      # add data covid
+      reason_no_vaccines_covid
+      need_vacinnes
+      reason_no_true
       validate_sex
       validate_gestacion
       validate_children
@@ -730,7 +735,7 @@ export default function CheckoutPage() {
 
   const getInitialValues = () => {
     const formData = getLocal();
-    console.log(formData);
+    //console.log(formData);
     if (formData == null) {
       return formInitialValues;
     }
@@ -750,7 +755,7 @@ export default function CheckoutPage() {
     var years =
       new Date(new Date() - new Date(values.general_birth)).getFullYear() -
       1970;
-    console.log(`years ${years}`);
+    //console.log(`years ${years}`);
     var year = years.toString();
     try {
       const { data } = await newFormulario({
@@ -1222,6 +1227,11 @@ export default function CheckoutPage() {
             accident_suffer: values.accident_suffer,
             covid_option: values.covid_option,
             covid_dosis: values.covid_dosis,
+            gave_covid: values.gave_covid,
+            /* add covid information */
+            reason_no_vaccines_covid: values.reason_no_vaccines_covid,
+            need_vacinnes: values.need_vacinnes,
+            reason_no_true: values.reason_no_true,
             validate_sex: values.validate_sex,
             validate_gestacion: values.validate_gestacion,
             validate_children: values.validate_children,
@@ -1256,7 +1266,7 @@ export default function CheckoutPage() {
           },
         },
       });
-      console.log(`data ${data}`);
+      //console.log(`data ${data}`);
     } catch (error) {
       console.log(error);
     }
@@ -1311,7 +1321,7 @@ export default function CheckoutPage() {
         Socioeconómico
       </Typography>
 
-      {matches == true && (
+      {matches === true && (
         <Stepper
           xs={12}
           sm={6}
@@ -1328,7 +1338,7 @@ export default function CheckoutPage() {
         </Stepper>
       )}
 
-      {matches == false && (
+      {matches === false && (
         <MobileStepper
           style={{ display: "flex", justifyContent: "center" }}
           steps={18}
@@ -1354,7 +1364,6 @@ export default function CheckoutPage() {
         xs={12}
         sm={6}
         className={classes.stepper}
-        alternativeLabel
         style={{ display: "flex", justifyContent: "center" }}
       >
         {steps.map((label) => (

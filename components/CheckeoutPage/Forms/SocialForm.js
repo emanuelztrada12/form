@@ -53,8 +53,8 @@ const drug_position = [
     label: "Consume",
   },
   {
-    value: "Destribuye",
-    label: "Destribuye",
+    value: "Distribuye",
+    label: "Distribuye",
   },
 ];
 

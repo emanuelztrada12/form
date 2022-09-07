@@ -14,6 +14,7 @@ import ListItemText from "@mui/material/ListItemText";
 import VaccinesIcon from "@mui/icons-material/Vaccines";
 import CarCrashIcon from "@mui/icons-material/CarCrash";
 import BloodtypeIcon from "@mui/icons-material/Bloodtype";
+import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
 
 const vacunas = [
   {
@@ -118,6 +119,12 @@ export default function HealForm(props) {
     setDosis(value);
   };
 
+  const [trueVaccine, setSetTrueVaccine] = useState("");
+  const gettingAccept = (e) => {
+    let { value } = e.target;
+    setSetTrueVaccine(value);
+  };
+
   const [dense, setDense] = React.useState(false);
 
   const [isSSR, setIsSSR] = useState(true);
@@ -154,6 +161,10 @@ export default function HealForm(props) {
       covid_option,
       covid_dosis,
       gave_covid,
+      /* porque no tiene vacunas */
+      reason_no_vaccines_covid,
+      need_vacinnes,
+      reason_no_true,
 
       validate_sex,
       validate_gestacion,
@@ -244,7 +255,7 @@ export default function HealForm(props) {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Paper elevation={3}>
-                <Grid spacing={3}>
+                <Grid>
                   <Typography
                     variant="h6"
                     gutterBottom
@@ -276,12 +287,12 @@ export default function HealForm(props) {
                           name={disease_hipertension_option.name}
                           label={disease_hipertension_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_hipertension_observacion.name}
                           label={disease_hipertension_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -299,12 +310,12 @@ export default function HealForm(props) {
                           name={disease_diabetes_option.name}
                           label={disease_diabetes_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_diabetes_observacion.name}
                           label={disease_diabetes_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -319,17 +330,15 @@ export default function HealForm(props) {
                           style={{ textAlign: "start", paddingRight: "10px" }}
                         />
                         <SelectField
-                          sx={6}
                           name={disease_VIH_option.name}
                           label={disease_VIH_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
-                          sx={6}
                           name={disease_VIH_observacion.name}
                           label={disease_VIH_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -347,12 +356,12 @@ export default function HealForm(props) {
                           name={disease_ITS_option.name}
                           label={disease_ITS_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_ITS_observacion.name}
                           label={disease_ITS_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -370,12 +379,12 @@ export default function HealForm(props) {
                           name={disease_gastritis_option.name}
                           label={disease_gastritis_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_gastritis_observacion.name}
                           label={disease_gastritis_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -393,12 +402,12 @@ export default function HealForm(props) {
                           name={disease_cancer_option.name}
                           label={disease_cancer_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_cancer_observacion.name}
                           label={disease_cancer_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <Divider />
@@ -416,12 +425,12 @@ export default function HealForm(props) {
                           name={disease_cardiopatias_option.name}
                           label={disease_cardiopatias_option.label}
                           data={value}
-                          autoWidth
+                          
                         />
                         <InputField
                           name={disease_cardiopatias_observacion.name}
                           label={disease_cardiopatias_observacion.label}
-                          autoWidth
+                          
                         />
                       </ListItem>
                       <ListItem style={{ paddingBottom: "" }}>
@@ -498,14 +507,14 @@ export default function HealForm(props) {
                                                     <InputField
                                                       name={`disease.${index}.${disease_name.name}`}
                                                       label={disease_name.label}
-                                                      autoWidth
+                                                      
                                                     />
                                                     <InputField
                                                       name={`disease.${index}.${disease_observacion.name}`}
                                                       label={
                                                         disease_observacion.label
                                                       }
-                                                      autoWidth
+                                                      
                                                     />
                                                   </ListItem>
                                                 </List>
@@ -606,56 +615,11 @@ export default function HealForm(props) {
               style={{
                 paddingLeft: "10px",
                 paddingRight: "10px",
-                paddingTop: "35px",
+                paddingTop: "10px",
               }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Le dio COVID-19?:
-              </label>
-              <SelectField
-                name={gave_covid.name}
-                label={gave_covid.label}
-                data={value}
-                onChange={gettingaveCovid}
-                fullWidth
-              />
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee síntomas de COVID-19?:
-              </label>
-              <SelectField
-                name={covid_option.name}
-                label={covid_option.label}
-                data={value}
-                onChange={gettingValidateCovid}
-                fullWidth
-              />
-
-              {covid19 === "No" && (
-                <div>
-                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    ¿Cuando fue la última vez que le dio COVID-19?:
-                  </label>
-                  <InputField
-                    name={covid_dosis.name}
-                    label={covid_dosis.label}
-                    fullWidth
-                  />
-                </div>
-              )}
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              style={{
-                paddingLeft: "10px",
-                paddingRight: "10px",
-                paddingTop: "35px",
-              }}
-            >
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Sexo?:
+                ¿Generó?:
               </label>
               <SelectField
                 name={validate_sex.name}
@@ -769,6 +733,95 @@ export default function HealForm(props) {
                   </Grid>
                 </Grid>
               )}
+            </Grid>
+          </Grid>
+
+          {/* Temas de covid */}
+          <Divider
+            style={{
+              paddingTop: "20px",
+              paddingBottom: "20px",
+            }}
+          >
+            <Chip
+              style={{
+                fontSize: "14px",
+                fontWeight: "bold",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                paddingLeft: "15px",
+                paddingRight: "15px",
+              }}
+              icon={<MedicalInformationIcon />}
+              color="primary"
+              label={`Covid`}
+            />
+          </Divider>
+
+          <Grid container>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingTop: "10px",
+              }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Le dio COVID-19?:
+              </label>
+              <SelectField
+                name={gave_covid.name}
+                label={gave_covid.label}
+                data={value}
+                onChange={gettingaveCovid}
+                fullWidth
+              />
+              {gCovid === "Si" && (
+                <div
+                  xs={12}
+                  sm={6}
+                  style={{
+                    paddingLeft: "10px",
+                    paddingRight: "10px",
+                    paddingTop: "10px",
+                  }}
+                >
+                  <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    ¿Cuando fue la última vez que le dio COVID-19?:
+                  </label>
+                  <InputField
+                    name={covid_dosis.name}
+                    label={covid_dosis.label}
+                    fullWidth
+                  />
+                </div>
+              )}
+            </Grid>
+
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingBottom: "10px",
+                paddingTop: "10px",
+              }}
+            >
+              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                ¿Posee síntomas de COVID-19?:
+              </label>
+              <SelectField
+                name={covid_option.name}
+                label={covid_option.label}
+                data={value}
+                onChange={gettingValidateCovid}
+                fullWidth
+              />
             </Grid>
           </Grid>
 
@@ -964,6 +1017,20 @@ export default function HealForm(props) {
                                 </div>
                               </>
                               <IconButton
+                                onClick={() =>
+                                  arrayHelpers.push({
+                                    [dosis_name.name]: "",
+                                    [dosis_date.name]: "",
+                                    [dosis_dosis.name]: "",
+                                  })
+                                }
+                              >
+                                <AddBoxIcon
+                                  color="primary"
+                                  sx={{ fontSize: 30 }}
+                                />
+                              </IconButton>
+                              <IconButton
                                 onClick={() => arrayHelpers.remove(index)}
                               >
                                 <RemoveCircleIcon sx={{ color: "red" }} />
@@ -974,6 +1041,55 @@ export default function HealForm(props) {
                       )}
                     />
                   </Grid>
+                </div>
+              </Grid>
+            )}
+            {dosis === "No" && (
+              <Grid>
+                <div
+                  xs={12}
+                  sm={6}
+                  style={{
+                    paddingLeft: "10px",
+                    paddingRight: "10px",
+                    paddingTop: "10px",
+                  }}
+                >
+                  <div>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Por qué no tiene vacunas contra el COVID-19?:
+                    </label>
+                    <InputField
+                      name={reason_no_vaccines_covid.name}
+                      label={reason_no_vaccines_covid.label}
+                      fullWidth
+                    />
+                  </div>
+
+                  <div style={{ paddingTop: "10px" }}>
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      Si es necesario vacunarse, ¿Aceptaría vacunarse?
+                    </label>
+                    <SelectField
+                      name={need_vacinnes.name}
+                      label={need_vacinnes.label}
+                      data={value}
+                      onChange={gettingAccept}
+                      fullWidth
+                    />
+                    {trueVaccine === "No" && (
+                      <div style={{ paddingTop: "10px" }}>
+                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                          ¿Por qué no aceptaría vacunarse?:
+                        </label>
+                        <InputField
+                          name={reason_no_true.name}
+                          label={reason_no_true.label}
+                          fullWidth
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </Grid>
             )}

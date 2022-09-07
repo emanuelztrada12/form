@@ -87,7 +87,7 @@ export default function SonForm(props) {
     // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
     setPhone(nvalues);
   };
-  console.log(valuesPhone);
+  //console.log(valuesPhone);
 
   const [valuesWorking, setWorking] = useState("");
   const gettingWorking = (name, e) => {
