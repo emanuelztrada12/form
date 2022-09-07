@@ -262,7 +262,7 @@ export default function GrandfatherForm(props) {
                   paddingTop: "10px",
                 }}
               >
-                <Box sx={{ flexGrow: 1, maxWidth: 750 }}>
+                <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
                       item
@@ -689,7 +689,7 @@ export default function GrandfatherForm(props) {
                   paddingTop: "10px",
                 }}
               >
-                <Box sx={{ flexGrow: 1, maxWidth: 750 }}>
+                <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
                       item
@@ -1149,7 +1149,7 @@ export default function GrandfatherForm(props) {
                   paddingTop: "10px",
                 }}
               >
-                <Box sx={{ flexGrow: 1, maxWidth: 750 }}>
+                <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
                       item
@@ -1568,7 +1568,7 @@ export default function GrandfatherForm(props) {
                   paddingTop: "10px",
                 }}
               >
-                <Box sx={{ flexGrow: 1, maxWidth: 750 }}>
+                <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                   <Paper elevation={3}>
                     <div
                       item

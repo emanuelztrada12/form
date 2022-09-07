@@ -271,7 +271,7 @@ export default function SonForm(props) {
                                     />
                                   </Divider>
 
-                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                  <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                     <Paper elevation={3}>
                                       <div
                                         item

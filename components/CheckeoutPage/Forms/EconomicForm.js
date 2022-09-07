@@ -498,7 +498,7 @@ export default function EconomicForm(props) {
 
                               <Divider />
 
-                              <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                              <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                 <Paper elevation={3}>
                                   <Grid>
                                     <Grid>
@@ -667,6 +667,22 @@ export default function EconomicForm(props) {
                               </Box>
                             </div>
                           </>
+                          <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [economic_date.name]: "",
+                                [economic_use.name]: "",
+                                [economic_plan.name]: "",
+                                [economic_bill.name]: "",
+                                [amount.name]: 0,
+                                [economic_balance.name]: 0,
+                                [economic_monthly_payment.name]: 0,
+                                [economic_delinquent_payment.name]: "",
+                              })
+                            }
+                          >
+                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                          </IconButton>
                           <IconButton
                             onClick={() =>
                               onDelete(arrayHelpers, index, `economic.${index}`)
@@ -851,7 +867,7 @@ export default function EconomicForm(props) {
 
                               <Divider />
 
-                              <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                              <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                 <Paper elevation={3}>
                                   <Grid>
                                     <Grid>
@@ -1014,6 +1030,23 @@ export default function EconomicForm(props) {
                               </Box>
                             </div>
                           </>
+                          <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [economic_dateother.name]: "",
+                                [economic_useother.name]: "",
+                                [economic_planother.name]: "",
+                                [economic_billother.name]: "",
+                                [amountother.name]: 0,
+                                [economic_balanceother.name]: 0,
+                                [economic_monthly_paymentother.name]: 0,
+                                [economic_delinquent_paymentother.name]: "",
+                                [econmic_observaciones.name]: "",
+                              })
+                            }
+                          >
+                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                          </IconButton>
                           <IconButton
                             onClick={() =>
                               onDelete(

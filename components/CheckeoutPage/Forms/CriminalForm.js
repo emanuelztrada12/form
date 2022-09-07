@@ -10,8 +10,8 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import GavelIcon from '@mui/icons-material/Gavel';
-import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import GavelIcon from "@mui/icons-material/Gavel";
+import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 
 const value = [
   {
@@ -62,28 +62,27 @@ export default function CriminalForm(props) {
   const handleChangeAssociation = (e) => {
     let { value } = e.target;
     setAssociaton(value);
-  }
+  };
 
   const handleChangePolice = (e) => {
     let { value } = e.target;
     setPoliciales(value);
-  }
+  };
 
   const handleChangeC = (e) => {
     let { value } = e.target;
     setC(value);
-  }
+  };
 
   const handleChangeD = (e) => {
     let { value } = e.target;
     setD(value);
-  }
+  };
 
   const handleChangeFamily = (e) => {
     let { value } = e.target;
     setFamily(value);
-  }
-
+  };
 
   const [isSSR, setIsSSR] = useState(true);
   useEffect(() => {
@@ -131,10 +130,9 @@ export default function CriminalForm(props) {
               fontSize: "20px",
               fontWeight: "bold",
               paddingTop: "40px",
-              paddingLeft: "10px"
+              paddingLeft: "10px",
             }}
           >
-
             Actividades Delictivas
           </Typography>
           <Divider
@@ -165,7 +163,8 @@ export default function CriminalForm(props) {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee amigos que sean miembros de una asociación con delincuentes o grupos delictivos?:
+                ¿Posee amigos que sean miembros de una asociación con
+                delincuentes o grupos delictivos?:
               </label>
               <SelectField
                 name={criminal_association_option.name}
@@ -176,9 +175,7 @@ export default function CriminalForm(props) {
               />
               {associaton === "Si" && (
                 <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       Qué relación tiene con la persona:
                     </label>
@@ -188,9 +185,7 @@ export default function CriminalForm(props) {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       Nombre de la persona:
                     </label>
@@ -200,9 +195,7 @@ export default function CriminalForm(props) {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿A qué grupo pertenece?:
                     </label>
@@ -234,9 +227,7 @@ export default function CriminalForm(props) {
               />
               {policiales === "Si" && (
                 <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿Por qué los tiene manchados?:
                     </label>
@@ -246,9 +237,7 @@ export default function CriminalForm(props) {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿Cuándo los limpio?:
                     </label>
@@ -266,7 +255,11 @@ export default function CriminalForm(props) {
               item
               xs={12}
               sm={6}
-              style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingTop: "15px",
+              }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 ¿Posee demandas en su contra?:
@@ -281,9 +274,7 @@ export default function CriminalForm(props) {
 
               {c === "Si" && (
                 <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿Por qué?:
                     </label>
@@ -300,7 +291,11 @@ export default function CriminalForm(props) {
               item
               xs={12}
               sm={6}
-              style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "15px" }}
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingTop: "15px",
+              }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 ¿Ha demandado a una empresa o persona?:
@@ -315,9 +310,7 @@ export default function CriminalForm(props) {
 
               {d === "Si" && (
                 <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item
-                    xs={12}
-                    sm={6}>
+                  <Grid item xs={12} sm={6}>
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿Por qué?:
                     </label>
@@ -331,13 +324,16 @@ export default function CriminalForm(props) {
               )}
             </Grid>
           </Grid>
-          <Divider style={{ paddingTop: "40px" }}>
-                    </Divider>
+          <Divider style={{ paddingTop: "40px" }}></Divider>
           <Grid
             item
             xs={12}
             sm={6}
-            style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "30px" }}
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              paddingTop: "30px",
+            }}
           >
             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
               ¿Tiene familiares detenidos?:
@@ -361,10 +357,9 @@ export default function CriminalForm(props) {
                       fontSize: "20px",
                       // fontWeight: "bold",
                       paddingTop: "40px",
-                      paddingLeft: "10px"
+                      paddingLeft: "10px",
                     }}
                   >
-
                     Ingrese la información sus familiares detenidos
                   </Typography>
                   <Grid
@@ -375,7 +370,6 @@ export default function CriminalForm(props) {
                       justifyContent: "center",
                     }}
                   >
-
                     <FieldArray
                       name="criminal"
                       render={(arrayHelpers) => (
@@ -401,7 +395,10 @@ export default function CriminalForm(props) {
                               item
                               xs={12}
                               sm={6}
-                              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                              }}
                             >
                               <>
                                 <div
@@ -435,7 +432,7 @@ export default function CriminalForm(props) {
                                     />
                                   </Divider>
 
-                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                  <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                     <Paper elevation={3}>
                                       <Grid>
                                         <Grid>
@@ -454,115 +451,137 @@ export default function CriminalForm(props) {
                                           </Typography>
                                           <Divider />
                                           <List dense={dense}>
-                                            <ListItem style={{ paddingBottom: "" }}
+                                            <ListItem
+                                              style={{ paddingBottom: "" }}
                                             >
                                               <ListItemText
                                                 primary="Nombre "
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "62px" }}
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "62px",
+                                                }}
                                               />
-                                              <InputField name={`criminal.${index}.${criminal_family_name.name}`} label={criminal_family_name.label}
-                                                fullWidth />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_name.name}`}
+                                                label={
+                                                  criminal_family_name.label
+                                                }
+                                                fullWidth
+                                              />
                                             </ListItem>
                                             <Divider />
-                                            <ListItem
-                                            >
-
+                                            <ListItem>
                                               <ListItemText
                                                 primary="Apellido"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "62px" }}
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "62px",
+                                                }}
                                               />
-                                              <InputField name={`criminal.${index}.${criminal_family_lastname.name}`} label={criminal_family_lastname.label}
-
-                                                fullWidth />
+                                              <InputField
+                                                name={`criminal.${index}.${criminal_family_lastname.name}`}
+                                                label={
+                                                  criminal_family_lastname.label
+                                                }
+                                                fullWidth
+                                              />
                                             </ListItem>
                                             <Divider />
-                                            <ListItem
-                                            >
-
+                                            <ListItem>
                                               <ListItemText
                                                 primary="Relación familiar"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "0px" }}
-
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "0px",
+                                                }}
                                               />
                                               <SelectField
                                                 name={`criminal.${index}.${criminal_family_civil_status.name}`}
-                                                label={criminal_family_civil_status.label}
+                                                label={
+                                                  criminal_family_civil_status.label
+                                                }
                                                 data={civil}
                                                 fullWidth
                                               />
                                             </ListItem>
                                             <Divider />
-                                            <ListItem
-                                            >
-
+                                            <ListItem>
                                               <ListItemText
                                                 primary="Año de detención"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "0px" }}
-
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "0px",
+                                                }}
                                               />
                                               <InputField
                                                 name={`criminal.${index}.${criminal_family_profession.name}`}
-                                                label={criminal_family_profession.label}
+                                                label={
+                                                  criminal_family_profession.label
+                                                }
                                                 fullWidth
                                               />
                                             </ListItem>
                                             <Divider />
-                                            <ListItem
-                                            >
-
+                                            <ListItem>
                                               <ListItemText
                                                 primary="Tiempo detenido"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "0px" }}
-
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "0px",
+                                                }}
                                               />
                                               <InputField
                                                 name={`criminal.${index}.${criminal_family_phone.name}`}
-                                                label={criminal_family_phone.label}
+                                                label={
+                                                  criminal_family_phone.label
+                                                }
                                                 fullWidth
                                               />
                                             </ListItem>
                                             <Divider />
-                                            <ListItem
-                                            >
-
+                                            <ListItem>
                                               <ListItemText
                                                 primary="Observaciones"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
-                                                  fontWeight: 'medium',
+                                                  fontWeight: "medium",
                                                   letterSpacing: 0,
                                                 }}
-                                                style={{ textAlign: "start", paddingRight: "25px" }}
-
+                                                style={{
+                                                  textAlign: "start",
+                                                  paddingRight: "25px",
+                                                }}
                                               />
                                               <InputField
                                                 name={`criminal.${index}.${criminal_family_reason.name}`}
-                                                label={criminal_family_reason.label}
+                                                label={
+                                                  criminal_family_reason.label
+                                                }
                                                 fullWidth
                                               />
                                             </ListItem>
@@ -573,6 +592,21 @@ export default function CriminalForm(props) {
                                   </Box>
                                 </div>
                               </>
+                              <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [criminal_family_name.name]: "",
+                                [criminal_family_lastname.name]: "",
+                                [criminal_family_age.name]: "",
+                                [criminal_family_civil_status.name]: "",
+                                [criminal_family_profession.name]: "",
+                                [criminal_family_phone.name]: "",
+                                [criminal_family_reason.name]: "",
+                              })
+                            }
+                          >
+                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                          </IconButton>
                               <IconButton
                                 onClick={() => arrayHelpers.remove(index)}
                               >
@@ -586,12 +620,8 @@ export default function CriminalForm(props) {
                   </Grid>
                 </div>
               </Grid>
-
-
             )}
           </Grid>
-
-
         </Grid>
       </>
     )

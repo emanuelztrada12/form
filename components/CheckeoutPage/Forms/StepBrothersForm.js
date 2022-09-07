@@ -283,7 +283,7 @@ export default function StepBrothersForm(props) {
                                       label={`Hermanastro ${index + 1}`}
                                     />
                                   </Divider>
-                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                  <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                     <Paper elevation={3}>
                                       <div
                                         item
@@ -299,7 +299,7 @@ export default function StepBrothersForm(props) {
                                         <label
                                           style={{
                                             fontSize: "18px",
-                                            fontWeight: "bold",
+                                            fontWeight: "bold"
                                           }}
                                         >
                                           ¿Posee información?:

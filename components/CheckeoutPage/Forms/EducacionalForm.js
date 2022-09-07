@@ -9,6 +9,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { FieldArray } from "formik";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 const val = [
   {
@@ -668,59 +669,86 @@ export default function EducacionalForm(props) {
                                         paddingRight: "10px",
                                       }}
                                     >
-                                      <div
-                                        item
-                                        xs={12}
-                                        sm={6}
+                                      <Divider
                                         style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "15px",
+                                          paddingTop: "20px",
+                                          paddingBottom: "20px",
                                         }}
                                       >
-                                        <label
+                                        <Chip
                                           style={{
-                                            fontSize: "18px",
+                                            fontSize: "14px",
                                             fontWeight: "bold",
+                                            paddingTop: "20px",
+                                            paddingBottom: "20px",
+                                            paddingLeft: "15px",
+                                            paddingRight: "15px",
                                           }}
-                                        >
-                                          Institución donde finalizó sus
-                                          estudios:
-                                        </label>
-                                        <InputField
-                                          name={`diversificado.${index}.${estudies_diversificado_finish_place.name}`}
-                                          label={
-                                            estudies_diversificado_finish_place.label
-                                          }
-                                          fullWidth
+                                          icon={<MenuBookIcon />}
+                                          color="primary"
+                                          label={`Insituto ${index + 1}`}
                                         />
-                                      </div>
-                                      <div
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "15px",
-                                        }}
+                                      </Divider>
+                                      <Box
+                                        sx={{ flexGrow: 1, maxWidth: "auto" }}
                                       >
-                                        <label
-                                          style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
-                                          }}
-                                        >
-                                          Grado que estudió:
-                                        </label>
-                                        <InputField
-                                          name={`diversificado.${index}.${estudies_diversificado_finish_grade.name}`}
-                                          label={
-                                            estudies_diversificado_finish_grade.label
-                                          }
-                                          fullWidth
-                                        />
-                                      </div>
+                                        <Paper elevation={3}>
+                                          <div
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingTop: "15px",
+                                            }}
+                                          >
+                                            <label
+                                              style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
+                                              }}
+                                            >
+                                              Institución donde finalizó sus
+                                              estudios:
+                                            </label>
+                                            <InputField
+                                              name={`diversificado.${index}.${estudies_diversificado_finish_place.name}`}
+                                              label={
+                                                estudies_diversificado_finish_place.label
+                                              }
+                                              fullWidth
+                                            />
+                                          </div>
+                                          <div
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingBottom: "10px",
+                                              paddingTop: "10px",
+                                            }}
+                                          >
+                                            <label
+                                              style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
+                                              }}
+                                            >
+                                              Grado que estudió:
+                                            </label>
+                                            <InputField
+                                              name={`diversificado.${index}.${estudies_diversificado_finish_grade.name}`}
+                                              label={
+                                                estudies_diversificado_finish_grade.label
+                                              }
+                                              fullWidth
+                                            />
+                                          </div>
+                                        </Paper>
+                                      </Box>
 
                                       <IconButton
                                         onClick={() =>
@@ -845,170 +873,202 @@ export default function EducacionalForm(props) {
                       />
                     </Grid>
 
-                    <Grid
-                      item
-                      xs={12}
-                      sm={6}
+                    <label
                       style={{
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        paddingTop: "15px",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        paddingTop: "10px",
                       }}
                     >
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Estudios completos?:
-                      </label>
-                      <SelectField
-                        name={estudie_university_val.name}
-                        label={estudie_university_val.label}
-                        data={val}
-                        onChange={gettingUni}
-                        fullWidth
-                      />
-                      <Grid>
-                        {valuesUni === "Si" && (
-                          <div style={{ paddingTop: "10px" }}>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Título:
-                              </label>
-                              <InputField
-                                name={estudie_university_title.name}
-                                label={estudie_university_title.label}
-                                fullWidth
-                              />
-                            </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Sede:
-                              </label>
-                              <InputField
-                                name={estudie_university_sede.name}
-                                label={estudie_university_sede.label}
-                                fullWidth
-                              />
-                            </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Año graduación:
-                              </label>
-                              <InputField
-                                name={estudie_university_year_graduation.name}
-                                label={estudie_university_year_graduation.label}
-                                fullWidth
-                              />
-                            </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                ¿Estudia maestria?
-                              </label>
-                              <SelectField
-                                name={study_magister.name}
-                                label={study_magister.label}
-                                data={data_magister}
-                                onChange={gettinMagister}
-                                fullWidth
-                              />
-                              {magister === "Si" && (
-                                <div>
-                                  <p
-                                    style={{
-                                      paddingLeft: "15px",
-                                      paddingTop: "10px",
-                                      fontSize: "20px",
-                                      display: "flex",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    Ingrese la información de sus maestría
-                                    estudiadas
-                                  </p>
+                      ¿Estudios completos?:
+                    </label>
+                    <SelectField
+                      name={estudie_university_val.name}
+                      label={estudie_university_val.label}
+                      data={val}
+                      onChange={gettingUni}
+                      fullWidth
+                    />
 
-                                  <Grid
-                                    container
-                                    style={{
-                                      paddingTop: "18px",
-                                      display: "flex",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    <FieldArray
-                                      name="magister"
-                                      render={(arrayHelpers) => (
-                                        <>
-                                          <IconButton
-                                            onClick={() =>
-                                              arrayHelpers.push({
-                                                [study_master_name.name]: "",
-                                                [study_master_place.name]: "",
-                                                [study_master_complete.name]:
-                                                  "",
-                                                [study_master_schedule.name]:
-                                                  "",
-                                              })
-                                            }
+                    {valuesUni === "Si" && (
+                      <Grid
+                        container
+                        style={{
+                          paddingTop: "18px",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Título:
+                          </label>
+                          <InputField
+                            name={estudie_university_title.name}
+                            label={estudie_university_title.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Sede:
+                          </label>
+                          <InputField
+                            name={estudie_university_sede.name}
+                            label={estudie_university_sede.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Año graduación:
+                          </label>
+                          <InputField
+                            name={estudie_university_year_graduation.name}
+                            label={estudie_university_year_graduation.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            ¿Estudia maestria?
+                          </label>
+                          <SelectField
+                            name={study_magister.name}
+                            label={study_magister.label}
+                            p
+                            data={data_magister}
+                            onChange={gettinMagister}
+                            fullWidth
+                          />
+                          {magister === "Si" && (
+                            <div>
+                              <p
+                                style={{
+                                  paddingLeft: "15px",
+                                  paddingTop: "10px",
+                                  fontSize: "20px",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                Ingrese la información de sus maestría
+                                estudiadas
+                              </p>
+
+                              <Grid
+                                container
+                                style={{
+                                  paddingTop: "18px",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <FieldArray
+                                  name="magister"
+                                  render={(arrayHelpers) => (
+                                    <>
+                                      <IconButton
+                                        onClick={() =>
+                                          arrayHelpers.push({
+                                            [study_master_name.name]: "",
+                                            [study_master_place.name]: "",
+                                            [study_master_complete.name]: "",
+                                            [study_master_schedule.name]: "",
+                                          })
+                                        }
+                                      >
+                                        <AddBoxIcon
+                                          color="primary"
+                                          sx={{ fontSize: 30 }}
+                                        />
+                                      </IconButton>
+                                      {(values.magister || []).map(
+                                        (_, index) => (
+                                          <Grid
+                                            key={`inputMagister${index}`}
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                            }}
                                           >
-                                            <AddBoxIcon
-                                              color="primary"
-                                              sx={{ fontSize: 30 }}
-                                            />
-                                          </IconButton>
-                                          {(values.magister || []).map(
-                                            (_, index) => (
-                                              <Grid
-                                                key={`inputMagister${index}`}
-                                                item
-                                                xs={12}
-                                                sm={6}
+                                            <Divider
+                                              style={{
+                                                paddingTop: "20px",
+                                                paddingBottom: "20px",
+                                              }}
+                                            >
+                                              <Chip
                                                 style={{
-                                                  paddingLeft: "10px",
-                                                  paddingRight: "10px",
+                                                  fontSize: "14px",
+                                                  fontWeight: "bold",
+                                                  paddingTop: "20px",
+                                                  paddingBottom: "20px",
+                                                  paddingLeft: "15px",
+                                                  paddingRight: "15px",
                                                 }}
-                                              >
+                                                icon={<MenuBookIcon />}
+                                                color="primary"
+                                                label={`Maestría  ${index + 1}`}
+                                              />
+                                            </Divider>
+                                            <Box
+                                              sx={{
+                                                flexGrow: 1,
+                                                maxWidth: "auto",
+                                              }}
+                                            >
+                                              <Paper elevation={3}>
                                                 <div
                                                   item
                                                   xs={12}
@@ -1016,7 +1076,8 @@ export default function EducacionalForm(props) {
                                                   style={{
                                                     paddingLeft: "10px",
                                                     paddingRight: "10px",
-                                                    paddingTop: "15px",
+                                                    paddingBottom: "10px",
+                                                    paddingTop: "10px",
                                                   }}
                                                 >
                                                   <label
@@ -1035,6 +1096,7 @@ export default function EducacionalForm(props) {
                                                     fullWidth
                                                   />
                                                 </div>
+
                                                 <div
                                                   item
                                                   xs={12}
@@ -1042,7 +1104,8 @@ export default function EducacionalForm(props) {
                                                   style={{
                                                     paddingLeft: "10px",
                                                     paddingRight: "10px",
-                                                    paddingTop: "15px",
+                                                    paddingBottom: "10px",
+                                                    paddingTop: "10px",
                                                   }}
                                                 >
                                                   <label
@@ -1069,7 +1132,8 @@ export default function EducacionalForm(props) {
                                                   style={{
                                                     paddingLeft: "10px",
                                                     paddingRight: "10px",
-                                                    paddingTop: "15px",
+                                                    paddingBottom: "10px",
+                                                    paddingTop: "10px",
                                                   }}
                                                 >
                                                   <label
@@ -1099,7 +1163,8 @@ export default function EducacionalForm(props) {
                                                       style={{
                                                         paddingLeft: "10px",
                                                         paddingRight: "10px",
-                                                        paddingTop: "15px",
+                                                        paddingBottom: "10px",
+                                                        paddingTop: "10px",
                                                       }}
                                                     >
                                                       <label
@@ -1120,166 +1185,174 @@ export default function EducacionalForm(props) {
                                                     </div>
                                                   )}
                                                 </div>
-                                                <IconButton
-                                                  onClick={() =>
-                                                    arrayHelpers.push({
-                                                      [study_master_name.name]:
-                                                        "",
-                                                      [study_master_place.name]:
-                                                        "",
-                                                      [study_master_complete.name]:
-                                                        "",
-                                                      [study_master_schedule.name]:
-                                                        "",
-                                                    })
-                                                  }
-                                                >
-                                                  <AddBoxIcon
-                                                    color="primary"
-                                                    sx={{ fontSize: 30 }}
-                                                  />
-                                                </IconButton>
-                                                <IconButton
-                                                  onClick={() =>
-                                                    arrayHelpers.remove(index)
-                                                  }
-                                                >
-                                                  <RemoveCircleIcon
-                                                    sx={{ color: "red" }}
-                                                  />
-                                                </IconButton>
-                                              </Grid>
-                                            )
-                                          )}
-                                        </>
-                                      )}
-                                    />
-                                  </Grid>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        )}
+                                              </Paper>
+                                            </Box>
 
-                        {valuesUni === "No" && (
-                          <div style={{ paddingTop: "10px" }}>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Sede:
-                              </label>
-                              <InputField
-                                name={estudie_university_no_sede.name}
-                                label={estudie_university_no_sede.label}
-                                fullWidth
-                              />
+                                            <IconButton
+                                              onClick={() =>
+                                                arrayHelpers.push({
+                                                  [study_master_name.name]: "",
+                                                  [study_master_place.name]: "",
+                                                  [study_master_complete.name]:
+                                                    "",
+                                                  [study_master_schedule.name]:
+                                                    "",
+                                                })
+                                              }
+                                            >
+                                              <AddBoxIcon
+                                                color="primary"
+                                                sx={{ fontSize: 30 }}
+                                              />
+                                            </IconButton>
+                                            <IconButton
+                                              onClick={() =>
+                                                arrayHelpers.remove(index)
+                                              }
+                                            >
+                                              <RemoveCircleIcon
+                                                sx={{ color: "red" }}
+                                              />
+                                            </IconButton>
+                                          </Grid>
+                                        )
+                                      )}
+                                    </>
+                                  )}
+                                />
+                              </Grid>
                             </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Semestre:
-                              </label>
-                              <InputField
-                                name={estudie_university_semester.name}
-                                label={estudie_university_semester.label}
-                                fullWidth
-                              />
-                            </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                Horarios:
-                              </label>
-                              <InputField
-                                name={estudie_university_hour.name}
-                                label={estudie_university_hour.label}
-                                fullWidth
-                              />
-                            </div>
-                            <div
-                              item
-                              xs={12}
-                              sm={6}
-                              style={{
-                                paddingLeft: "10px",
-                                paddingRight: "10px",
-                                paddingTop: "15px",
-                              }}
-                            >
-                              <label
-                                style={{ fontSize: "18px", fontWeight: "bold" }}
-                              >
-                                ¿Está dispuesto a cambiar de horario?
-                              </label>
-                              <SelectField
-                                name={select_schedules.name}
-                                label={select_schedules.label}
-                                data={data_schedules}
-                                onChange={gettinSchedules}
-                                fullWidth
-                              />
-                              {schedules === "No" && (
-                                <div
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "15px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Por qué no?
-                                  </label>
-                                  <InputField
-                                    name={why_not_schedules.name}
-                                    label={why_not_schedules.label}
-                                    fullWidth
-                                  />
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        )}
+                          )}
+                        </Grid>
                       </Grid>
-                    </Grid>
-                    
+                    )}
+
+                    {valuesUni === "No" && (
+                      <Grid
+                        container
+                        style={{
+                          paddingTop: "18px",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Sede:
+                          </label>
+                          <InputField
+                            name={estudie_university_no_sede.name}
+                            label={estudie_university_no_sede.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Semestre:
+                          </label>
+                          <InputField
+                            name={estudie_university_semester.name}
+                            label={estudie_university_semester.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            Horarios:
+                          </label>
+                          <InputField
+                            name={estudie_university_hour.name}
+                            label={estudie_university_hour.label}
+                            fullWidth
+                          />
+                        </Grid>
+
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "15px",
+                          }}
+                        >
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            ¿Está dispuesto a cambiar de horario?
+                          </label>
+                          <SelectField
+                            name={select_schedules.name}
+                            label={select_schedules.label}
+                            data={data_schedules}
+                            onChange={gettinSchedules}
+                            fullWidth
+                          />
+                          {schedules === "No" && (
+                            <div
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "15px",
+                              }}
+                            >
+                              <label
+                                style={{
+                                  fontSize: "18px",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                ¿Por qué no?
+                              </label>
+                              <InputField
+                                name={why_not_schedules.name}
+                                label={why_not_schedules.label}
+                                fullWidth
+                              />
+                            </div>
+                          )}
+                        </Grid>
+                      </Grid>
+                    )}
                   </Grid>
                 </div>
               )}
