@@ -189,7 +189,7 @@ const {
     family_stepmother_working_val,
     family_stepmother_noInfo,
 
-    //conyugue
+    // conyugue
     family_conyugue_name,
     family_conyugue_age,
     family_conyugue_status,
@@ -203,12 +203,10 @@ const {
     family_conyugue_reason_died,
     family_conyugue_life,
     family_conyugue_phone_val,
-
     family_conyugue_working_val,
     family_conyugue_married_val,
     family_conyugue_married,
     family_conyugue_partner_val,
-
     family_conyuguepat_name,
     family_conyuguepat_age,
     family_conyuguepat_status,
@@ -226,7 +224,10 @@ const {
     family_conyugue_died_name,
     family_conyugue_died_lastname,
 
-    //parte del padre (abuelos)
+    // changes 2.1
+    family_conyugue_relation,
+
+    // parte del padre (abuelos)
     family_grandfather_name,
     family_grandfather_age,
     family_grandfather_status,
@@ -260,7 +261,7 @@ const {
     family_grandmother_lifeno_name,
     family_grandmother_lifeno_firstname,
 
-    //parte de la madre (abuelos)
+    // parte de la madre (abuelos)
     family_grandfather_nametwo,
     family_grandfather_agetwo,
     family_grandfather_statustwo,
@@ -294,7 +295,7 @@ const {
     family_grandmother_lifeno_nametwo,
     family_grandmother_lifeno_firstnametwo,
 
-    //estudent
+    // estudent
     estudie_university_name,
     estudie_university_uniname,
     estudie_university_semester,
@@ -310,25 +311,30 @@ const {
     wich_career,
     select_schedules,
     why_not_schedules,
+    
 
-    //Diversificado
+    // Diversificado
     estudie_diversificado_sval,
     estudie_diversificado_name,
     estudie_diversificado_uniname,
     estudie_diversificado_desde,
     estudie_diversificado_hasta,
-
-    //basico
+    // finisher
+    estudie_diversificado_place,
+   
+    // basico
     estudie_basic_sval,
     estudie_basic_uniname,
     estudie_basic_desde,
     estudie_basic_hasta,
 
-    //primary
+    // primary
     estudie_primary_sval,
     estudie_primary_uniname,
     estudie_primary_desde,
     estudie_primary_hasta,
+    // maximo anos posibles estudiados
+    estudies_year_condition,
 
     //work
     work_name,
@@ -400,6 +406,11 @@ const {
     social_alco_howmuch, 
     social_alco_frequency,
 
+    // changes 2.1
+    social_drug,
+    social_drug_relation,
+    social_drug_position,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -435,6 +446,10 @@ const {
     covid_option,
     gave_covid,
     covid_dosis,
+    /* porque no tiene vacunas */
+    reason_no_vaccines_covid,
+    need_vacinnes,
+    reason_no_true,
     validate_sex,
     validate_gestacion,
     validate_children,
@@ -450,6 +465,8 @@ const {
     sindicatos_favor,
     sindicatos_formar,
     sindicatos_why,
+    //changes 2.1
+    sindicatos_why_two,
 
     honest_p1,
     honest_p2,
@@ -464,6 +481,8 @@ const {
     red_faccebookval,
     red_faccebookOtherVal,
     validation_form,
+    red_faccebookval_two
+
   },
 } = generalFormModel;
 
@@ -639,7 +658,7 @@ export default {
   [family_stepfather_working_val.name]: "",
   [family_stepfather_noInfo.name]: "",
 
-  //stepmother
+  // stepmother
   [family_stepmother_name.name]: "",
   [family_stepmother_age.name]: "",
   [family_stepmother_status.name]: "",
@@ -677,7 +696,7 @@ export default {
   [has_partner_father.name]: "",
   [has_partner_mother.name]: "",
 
-  //conyugue
+  // conyugue
   [family_conyugue_name.name]: "",
   [family_conyugue_age.name]: "",
   [family_conyugue_status.name]: "",
@@ -698,8 +717,10 @@ export default {
   /* add name and lastname */
   [family_conyugue_died_name.name]: "",
   [family_conyugue_died_lastname.name]: "",
+  // changes 2.1 conyugue
+  [family_conyugue_relation.name]:"",
 
-  //conyuguepat
+  // conyuguepat
   [family_conyuguepat_name.name]: "",
   [family_conyuguepat_age.name]: "",
   [family_conyuguepat_status.name]: "",
@@ -714,7 +735,7 @@ export default {
   [family_conyuguepat_life.name]: "",
   [family_conyuguepat_phone_val.name]: "",
 
-  //abuelos parte del papa
+  // abuelos parte del papa
   [family_grandfather_name.name]: "",
   [family_grandfather_age.name]: "",
   [family_grandfather_status.name]: "",
@@ -748,7 +769,7 @@ export default {
   [family_grandmother_lifeno_name.name]: "",
   [family_grandmother_lifeno_firstname.name]: "",
 
-  //abuelos por parte de la mama
+  // abuelos por parte de la mama
   [family_grandfather_nametwo.name]: "",
   [family_grandfather_agetwo.name]: "",
   [family_grandfather_statustwo.name]: "",
@@ -798,27 +819,34 @@ export default {
   [wich_career.name]: "",
   [select_schedules.name]: "",
   [why_not_schedules.name]: "",
+  // masterData
+  magister: [],
 
-  //Diversificado
+  // Diversificado
   [estudie_diversificado_sval.name]: "",
   [estudie_diversificado_name.name]: "",
   [estudie_diversificado_uniname.name]: "",
   [estudie_diversificado_desde.name]: "",
   [estudie_diversificado_hasta.name]: "",
+  [estudie_diversificado_place.name]: "",
+  // array to data diversificado
+  diversificado: [],
 
-  //Basico
+  // Basico
   [estudie_basic_sval.name]: "",
   [estudie_basic_uniname.name]: "",
   [estudie_basic_desde.name]: "",
   [estudie_basic_hasta.name]: "",
 
-  //primary
+  // primary
   [estudie_primary_sval.name]: "",
   [estudie_primary_uniname.name]: "",
   [estudie_primary_desde.name]: "",
   [estudie_primary_hasta.name]: "",
+  // maximo anos posibles estudiados
+  [estudies_year_condition.name]: "",
 
-  //work
+  // work
   [work_name.name]: "",
   [work_position.name]: "",
   [work_entry.name]: "",
@@ -891,6 +919,11 @@ export default {
   [social_alco_howmuch.name]: "", 
   [social_alco_frequency.name]: "",
 
+  // changes 2.1
+  [social_drug.name]: "",
+  [social_drug_relation.name]: "",
+  [social_drug_position.name]: "",
+
   criminal: [],
   [criminal_association_option.name]: "",
   [criminal_relacion.name]: "",
@@ -926,6 +959,10 @@ export default {
   [covid_option.name]: "",
   [gave_covid.name]: "",
   [covid_dosis.name]: "",
+  /* porque no tiene vacunas */
+  [reason_no_vaccines_covid.name]: "",
+  [need_vacinnes.name]: "",
+  [reason_no_true.nmae]: "",
   [validate_sex.name]: "",
   [validate_gestacion.name]: "",
   [validate_children.name]: "",
@@ -944,6 +981,8 @@ export default {
   [sindicatos_favor.name]: "",
   [sindicatos_formar.name]: "",
   [sindicatos_why.name]: "",
+  //changes 2.1
+  [sindicatos_why_two.name]: "",
 
   [honest_p1.name]: "",
   [honest_p2.name]: "",
@@ -956,4 +995,5 @@ export default {
   [red_faccebookOther.name]: "",
   [red_faccebookval.name]: "",
   [red_faccebookOtherVal.name]: "",
+  [red_faccebookval_two.name]: "",
 };

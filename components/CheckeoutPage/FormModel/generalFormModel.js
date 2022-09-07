@@ -746,6 +746,13 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    //changes 2.1
+    family_conyugue_relation: {
+      name: "family_conyugue_relation",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //stepFather
     family_stepfather_name: {
       name: "family_stepfather_name",
@@ -1148,6 +1155,17 @@ export default {
     family_stepbrother_working_val: {
       name: "family_stepbrother_working_val",
       label: "Seleccione una de las opciones*",
+    },
+    /* select and input information */
+    family_stepbrother_has_information: {
+      name: "family_stepbrother_has_information",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_stepbrother_reason_dont_has: {
+      name: "family_stepbrother_reason_dont_has",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
     },
 
     //conyugue
@@ -1667,6 +1685,27 @@ export default {
       label: "Indique por qué no está dispuesto a cambiar*",
       requiredErrorMsg: "La información es requerida",
     },
+    /* add information master */
+    study_master_name: {
+      name: "study_master_name",
+      label: "Ingrese la maestria que estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_place: {
+      name: "study_master_place",
+      label: "Ingrese la sede donde estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_complete: {
+      name: "study_master_complete",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_schedule: {
+      name: "study_master_schedule",
+      label: "Ingrese sus horarios de estudio*",
+      requiredErrorMsg: "La información es requerida",
+    },
     estudie_university_title: {
       name: "estudie_university_title",
       label: "Ingrese su título*",
@@ -1724,6 +1763,22 @@ export default {
       label: "Hasta*",
       requiredErrorMsg: "La información es requerida",
     },
+    estudie_diversificado_place: {
+      name: "estudie_diversificado_place",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    /* add information finish diver */
+    estudies_diversificado_finish_place: {
+      name: "estudies_diversificado_finish_place",
+      label: "Ingrese donde culminó sus estudios*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudies_diversificado_finish_grade: {
+      name: "estudies_diversificado_finish_grade",
+      label: "Ingrese el grado que estudió*",
+      requiredErrorMsg: "La información es requerida",
+    },
 
     //basico
     estudie_basic_sval: {
@@ -1746,6 +1801,7 @@ export default {
       label: "Hasta*",
       requiredErrorMsg: "La información es requerida",
     },
+    
 
     //primario
     estudie_primary_sval: {
@@ -1766,6 +1822,12 @@ export default {
     estudie_primary_hasta: {
       name: "estudie_primary_hasta",
       label: "Hasta*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    /* add year condition */
+    estudies_year_condition: {
+      name: "estudies_year_condition",
+      label: "Ingrese el año que perdio*",
       requiredErrorMsg: "La información es requerida",
     },
 
@@ -2200,6 +2262,24 @@ export default {
       name: "social_tatto_foto",
     },
 
+    //changes 2.1
+    social_drug: {
+      name: "social_drug",
+      label: "Ingrese como obtuvo la droga*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_drug_relation: {
+      name: "social_drug_relation",
+      label: "Ingrese la relación que tiene:*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_drug_position: {
+      name: "social_drug_position",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+
     //Delictivas
     criminal_association_option: {
       name: "criminal_association_option",
@@ -2415,6 +2495,22 @@ export default {
       label: "Ingrese cuando fue la última que tuvo COVID-19*",
       requiredErrorMsg: "La información es requerida",
     },
+    /* porque no tiene vacunas */
+    reason_no_vaccines_covid: {
+      name: "reason_no_vaccines_covid",
+      label: "Razón por la que no tiene vacunas*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    need_vacinnes: {
+      name: "need_vacinnes",
+      label: "Razón por la que no tiene vacunas*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    reason_no_true: {
+      name: "reason_no_true",
+      label: "Razón por la que no se vacunaría*",
+      requiredErrorMsg: "La información es requerida",
+    },
     validate_sex: {
       name: "validate_sex",
       label: "Seleccione una de las opciones*",
@@ -2497,6 +2593,13 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    // changes 2.1
+    sindicatos_why_two: {
+      name: "sindicatos_why_two",
+      label: "Ingrese el motivo*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //Honestidad
     honest_p1: {
       name: "honest_p1",
@@ -2539,7 +2642,7 @@ export default {
 
     red_faccebookOther: {
       name: "red_faccebookOther",
-      label: "Ingrese el link de su Facebook*",
+      label: "Ingrese el link de su red social*",
       requiredErrorMsg: "La información es requerida",
     },
     red_faccebookval: {
@@ -2555,6 +2658,11 @@ export default {
 
     validation_form: {
       name: "validation_form",
+      label: "Acepto los términos y condiciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    red_faccebookval_two: {
+      name: "red_faccebookval_two",
       label: "Acepto los términos y condiciones*",
       requiredErrorMsg: "La información es requerida",
     },

@@ -6,7 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from "@mui/icons-material/Boy";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
 const civil = [
   {
@@ -60,6 +60,16 @@ const validate = [
 export default function StepBrothersForm(props) {
   let [valuess, setValue] = useState({});
   const [conditionYear, setConditionYear] = useState("");
+  let [information, setInformation] = useState({});
+  const gettingInformation = (name, e) => {
+    const nvalues = {
+      ...information,
+      [name]: e.target.value,
+    };
+    // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+    setInformation(nvalues);
+  };
+
   /* funcion para obtener los datos del input */
   const conditionEdad = (e) => {
     const yearLiving = e.target.value;
@@ -129,6 +139,9 @@ export default function StepBrothersForm(props) {
       /* add name and lastname */
       family_stepbrother_died_name,
       family_stepbrother_died_lastname,
+      /* select and input information */
+      family_stepbrother_has_information,
+      family_stepbrother_reason_dont_has,
     },
   } = props;
 
@@ -220,6 +233,9 @@ export default function StepBrothersForm(props) {
                                 /* add name and lastname */
                                 [family_stepbrother_died_name.name]: "",
                                 [family_stepbrother_died_lastname.name]: "",
+                                /* select and input information */
+                                [family_stepbrother_has_information.name]: "",
+                                [family_stepbrother_reason_dont_has.name]: "",
                               })
                             }
                           >
@@ -267,7 +283,7 @@ export default function StepBrothersForm(props) {
                                       label={`Hermanastro ${index + 1}`}
                                     />
                                   </Divider>
-                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                  <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                     <Paper elevation={3}>
                                       <div
                                         item
@@ -283,346 +299,152 @@ export default function StepBrothersForm(props) {
                                         <label
                                           style={{
                                             fontSize: "18px",
-                                            fontWeight: "bold",
+                                            fontWeight: "bold"
                                           }}
                                         >
-                                          ¿Aún vive?:
+                                          ¿Posee información?:
                                         </label>
                                         <SelectField
                                           key={`inputstepbrother_${index}`}
-                                          name={`stepbrother.${index}.${family_stepbrother_life.name}`}
-                                          label={family_stepbrother_life.label}
+                                          name={`stepbrother.${index}.${family_stepbrother_has_information.name}`}
+                                          label={
+                                            family_stepbrother_has_information.label
+                                          }
                                           data={life}
                                           onChange={(e) => {
-                                            gettingValue(
-                                              `stepbrother.${index}.${family_stepbrother_life.name}`,
+                                            gettingInformation(
+                                              `stepbrother.${index}.${family_stepbrother_has_information.name}`,
                                               e
                                             );
                                           }}
                                           fullWidth
                                         />
                                       </div>
-                                      {valuess[
-                                        `stepbrother.${index}.${family_stepbrother_life.name}`
+                                      {information[
+                                        `stepbrother.${index}.${family_stepbrother_has_information.name}`
                                       ] === "Si" && (
                                         <div>
-                                          <div>
-                                            <div
-                                              item
-                                              xs={12}
-                                              sm={6}
+                                          <div
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingBottom: "10px",
+                                              paddingTop: "10px",
+                                            }}
+                                          >
+                                            <label
                                               style={{
-                                                paddingLeft: "10px",
-                                                paddingRight: "10px",
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
                                               }}
                                             >
-                                              <label
-                                                style={{
-                                                  fontSize: "18px",
-                                                  fontWeight: "bold",
-                                                }}
-                                              >
-                                                Nombre completo:
-                                              </label>
-                                              <InputField
-                                                name={`stepbrother.${index}.${family_stepbrother_name.name}`}
-                                                label={
-                                                  family_stepbrother_name.label
-                                                }
-                                                fullWidth
-                                              />
-                                            </div>
-                                            <div
-                                              item
-                                              xs={12}
-                                              sm={6}
-                                              style={{
-                                                paddingLeft: "10px",
-                                                paddingRight: "10px",
+                                              ¿Aún vive?:
+                                            </label>
+                                            <SelectField
+                                              key={`inputstepbrother_${index}`}
+                                              name={`stepbrother.${index}.${family_stepbrother_life.name}`}
+                                              label={
+                                                family_stepbrother_life.label
+                                              }
+                                              data={life}
+                                              onChange={(e) => {
+                                                gettingValue(
+                                                  `stepbrother.${index}.${family_stepbrother_life.name}`,
+                                                  e
+                                                );
                                               }}
-                                            >
-                                              <label
-                                                style={{
-                                                  fontSize: "18px",
-                                                  fontWeight: "bold",
-                                                }}
-                                              >
-                                                Edad:
-                                              </label>
-                                              <InputField
-                                                name={`stepbrother.${index}.${family_stepbrother_age.name}`}
-                                                label={
-                                                  family_stepbrother_age.label
-                                                }
-                                                onChange={conditionEdad}
-                                                fullWidth
-                                              />
-                                            </div>
-                                            <div
-                                              item
-                                              xs={12}
-                                              sm={6}
-                                              style={{
-                                                paddingLeft: "10px",
-                                                paddingRight: "10px",
-                                                paddingTop: "10px",
-                                              }}
-                                            >
-                                              <label
-                                                style={{
-                                                  fontSize: "18px",
-                                                  fontWeight: "bold",
-                                                }}
-                                              >
-                                                Estado civil:
-                                              </label>
-                                              <SelectField
-                                                name={`stepbrother.${index}.${family_stepbrother_status.name}`}
-                                                label={
-                                                  family_stepbrother_status.label
-                                                }
-                                                data={civil}
-                                                fullWidth
-                                              />
-                                            </div>
-
-                                            {conditionYear >= 18 && (
-                                              <div
-                                                item
-                                                xs={12}
-                                                sm={6}
-                                                style={{
-                                                  paddingLeft: "10px",
-                                                  paddingRight: "10px",
-                                                  paddingTop: "10px",
-                                                }}
-                                              >
-                                                <label
+                                              fullWidth
+                                            />
+                                          </div>
+                                          {valuess[
+                                            `stepbrother.${index}.${family_stepbrother_life.name}`
+                                          ] === "Si" && (
+                                            <div>
+                                              <div>
+                                                <div
+                                                  item
+                                                  xs={12}
+                                                  sm={6}
                                                   style={{
-                                                    fontSize: "18px",
-                                                    fontWeight: "bold",
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
                                                   }}
                                                 >
-                                                  ¿Tiene teléfono?:
-                                                </label>
-                                                <SelectField
-                                                  name={`stepbrother.${index}.${family_stepbrother_phone_val.name}`}
-                                                  label={
-                                                    family_stepbrother_phone_val.label
-                                                  }
-                                                  data={validate}
-                                                  onChange={(e) => {
-                                                    gettingPhone(
-                                                      `stepbrother.${index}.${family_stepbrother_phone_val.name}`,
-                                                      e
-                                                    );
-                                                  }}
-                                                  fullWidth
-                                                />
-                                                <div>
-                                                  {valuesPhone[
-                                                    `stepbrother.${index}.${family_stepbrother_phone_val.name}`
-                                                  ] === "Si" && (
-                                                    <div
-                                                      style={{
-                                                        paddingTop: "10px",
-                                                      }}
-                                                    >
-                                                      <div
-                                                        item
-                                                        xs={12}
-                                                        sm={6}
-                                                        style={{
-                                                          paddingLeft: "10px",
-                                                          paddingRight: "10px",
-                                                        }}
-                                                      >
-                                                        <label
-                                                          style={{
-                                                            fontSize: "18px",
-                                                            fontWeight: "bold",
-                                                          }}
-                                                        >
-                                                          Teléfono:
-                                                        </label>
-                                                        <InputField
-                                                          name={`stepbrother.${index}.${family_stepbrother_phone.name}`}
-                                                          label={
-                                                            family_stepbrother_phone.label
-                                                          }
-                                                          fullWidth
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  )}
-
-                                                  {valuesPhone[
-                                                    `stepbrother.${index}.${family_stepbrother_phone_val.name}`
-                                                  ] === "No" && (
-                                                    <div
-                                                      item
-                                                      xs={12}
-                                                      sm={6}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        paddingRight: "10px",
-                                                        paddingTop: "10px",
-                                                      }}
-                                                    >
-                                                      <label
-                                                        style={{
-                                                          fontSize: "18px",
-                                                          fontWeight: "bold",
-                                                        }}
-                                                      >
-                                                        ¿Motivo del por qué no
-                                                        tiene teléfono?:
-                                                      </label>
-                                                      <InputField
-                                                        name={`stepbrother.${index}.${family_stepbrother_no_phone.name}`}
-                                                        label={
-                                                          family_stepbrother_no_phone.label
-                                                        }
-                                                        fullWidth
-                                                      />
-                                                    </div>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            )}
-
-                                            <div
-                                              item
-                                              xs={12}
-                                              sm={6}
-                                              style={{
-                                                paddingLeft: "10px",
-                                                paddingRight: "10px",
-                                                paddingTop: "10px",
-                                                paddingBottom: "10px",
-                                              }}
-                                            >
-                                              <label
-                                                style={{
-                                                  fontSize: "18px",
-                                                  fontWeight: "bold",
-                                                }}
-                                              >
-                                                ¿Labora?:
-                                              </label>
-                                              <SelectField
-                                                name={`stepbrother.${index}.${family_stepbrother_working_val.name}`}
-                                                label={
-                                                  family_stepbrother_working_val.label
-                                                }
-                                                data={validate}
-                                                onChange={(e) => {
-                                                  gettingWorking(
-                                                    `stepbrother.${index}.${family_stepbrother_working_val.name}`,
-                                                    e
-                                                  );
-                                                }}
-                                                fullWidth
-                                              />
-                                              <div>
-                                                {valuesWorking[
-                                                  `stepbrother.${index}.${family_stepbrother_working_val.name}`
-                                                ] === "Si" && (
-                                                  <div
+                                                  <label
                                                     style={{
-                                                      paddingTop: "10px",
+                                                      fontSize: "18px",
+                                                      fontWeight: "bold",
                                                     }}
                                                   >
-                                                    <div
-                                                      item
-                                                      xs={12}
-                                                      sm={6}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        paddingRight: "10px",
-                                                      }}
-                                                    >
-                                                      <label
-                                                        style={{
-                                                          fontSize: "18px",
-                                                          fontWeight: "bold",
-                                                        }}
-                                                      >
-                                                        Puesto donde labora:
-                                                      </label>
-                                                      <InputField
-                                                        name={`stepbrother.${index}.${family_stepbrother_place.name}`}
-                                                        label={
-                                                          family_stepbrother_place.label
-                                                        }
-                                                        fullWidth
-                                                      />
-                                                    </div>
-                                                    <div
-                                                      item
-                                                      xs={12}
-                                                      sm={6}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        paddingRight: "10px",
-                                                      }}
-                                                    >
-                                                      <label
-                                                        style={{
-                                                          fontSize: "18px",
-                                                          fontWeight: "bold",
-                                                        }}
-                                                      >
-                                                        Empresa donde labora:
-                                                      </label>
-                                                      <InputField
-                                                        name={`stepbrother.${index}.${family_stepbrother_company.name}`}
-                                                        label={
-                                                          family_stepbrother_company.label
-                                                        }
-                                                        fullWidth
-                                                      />
-                                                    </div>
-                                                    <div
-                                                      item
-                                                      xs={12}
-                                                      sm={6}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        paddingRight: "10px",
-                                                        paddingTop: "10px",
-                                                      }}
-                                                    >
-                                                      <label
-                                                        style={{
-                                                          fontSize: "18px",
-                                                          fontWeight: "bold",
-                                                        }}
-                                                      >
-                                                        Ingresos promedio:
-                                                      </label>
-                                                      <InputField
-                                                        type='Number'
-                                                        name={`stepbrother.${index}.${family_stepbrother_financial_income.name}`}
-                                                        label={
-                                                          family_stepbrother_financial_income.label
-                                                        }
-                                                        InputProps={{
-                                                          startAdornment: (
-                                                            <InputAdornment position="start">
-                                                              Q.
-                                                            </InputAdornment>
-                                                          ),
-                                                        }}
-                                                        fullWidth
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                )}
+                                                    Nombre completo:
+                                                  </label>
+                                                  <InputField
+                                                    name={`stepbrother.${index}.${family_stepbrother_name.name}`}
+                                                    label={
+                                                      family_stepbrother_name.label
+                                                    }
+                                                    fullWidth
+                                                  />
+                                                </div>
+                                                <div
+                                                  item
+                                                  xs={12}
+                                                  sm={6}
+                                                  style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                  }}
+                                                >
+                                                  <label
+                                                    style={{
+                                                      fontSize: "18px",
+                                                      fontWeight: "bold",
+                                                    }}
+                                                  >
+                                                    Edad:
+                                                  </label>
+                                                  <InputField
+                                                    type="Number"
+                                                    name={`stepbrother.${index}.${family_stepbrother_age.name}`}
+                                                    label={
+                                                      family_stepbrother_age.label
+                                                    }
+                                                    onChange={conditionEdad}
+                                                    fullWidth
+                                                  />
+                                                </div>
+                                                <div
+                                                  item
+                                                  xs={12}
+                                                  sm={6}
+                                                  style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px",
+                                                  }}
+                                                >
+                                                  <label
+                                                    style={{
+                                                      fontSize: "18px",
+                                                      fontWeight: "bold",
+                                                    }}
+                                                  >
+                                                    Estado civil:
+                                                  </label>
+                                                  <SelectField
+                                                    name={`stepbrother.${index}.${family_stepbrother_status.name}`}
+                                                    label={
+                                                      family_stepbrother_status.label
+                                                    }
+                                                    data={civil}
+                                                    fullWidth
+                                                  />
+                                                </div>
 
-                                                {valuesWorking[
-                                                  `stepbrother.${index}.${family_stepbrother_working_val.name}`
-                                                ] === "No" && (
+                                                {conditionYear >= 18 && (
                                                   <div
                                                     item
                                                     xs={12}
@@ -639,136 +461,418 @@ export default function StepBrothersForm(props) {
                                                         fontWeight: "bold",
                                                       }}
                                                     >
-                                                      ¿De quién depende
-                                                      económicamente?:
+                                                      ¿Tiene teléfono?:
                                                     </label>
-                                                    <InputField
-                                                      name={`stepbrother.${index}.${family_stepbrother_depend.name}`}
+                                                    <SelectField
+                                                      name={`stepbrother.${index}.${family_stepbrother_phone_val.name}`}
                                                       label={
-                                                        family_stepbrother_depend.label
+                                                        family_stepbrother_phone_val.label
                                                       }
+                                                      data={validate}
+                                                      onChange={(e) => {
+                                                        gettingPhone(
+                                                          `stepbrother.${index}.${family_stepbrother_phone_val.name}`,
+                                                          e
+                                                        );
+                                                      }}
                                                       fullWidth
                                                     />
+                                                    <div>
+                                                      {valuesPhone[
+                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
+                                                      ] === "Si" && (
+                                                        <div
+                                                          style={{
+                                                            paddingTop: "10px",
+                                                          }}
+                                                        >
+                                                          <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                              paddingLeft:
+                                                                "10px",
+                                                              paddingRight:
+                                                                "10px",
+                                                            }}
+                                                          >
+                                                            <label
+                                                              style={{
+                                                                fontSize:
+                                                                  "18px",
+                                                                fontWeight:
+                                                                  "bold",
+                                                              }}
+                                                            >
+                                                              Teléfono:
+                                                            </label>
+                                                            <InputField
+                                                              name={`stepbrother.${index}.${family_stepbrother_phone.name}`}
+                                                              label={
+                                                                family_stepbrother_phone.label
+                                                              }
+                                                              fullWidth
+                                                            />
+                                                          </div>
+                                                        </div>
+                                                      )}
+
+                                                      {valuesPhone[
+                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
+                                                      ] === "No" && (
+                                                        <div
+                                                          item
+                                                          xs={12}
+                                                          sm={6}
+                                                          style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight:
+                                                              "10px",
+                                                            paddingTop: "10px",
+                                                          }}
+                                                        >
+                                                          <label
+                                                            style={{
+                                                              fontSize: "18px",
+                                                              fontWeight:
+                                                                "bold",
+                                                            }}
+                                                          >
+                                                            ¿Motivo del por qué
+                                                            no tiene teléfono?:
+                                                          </label>
+                                                          <InputField
+                                                            name={`stepbrother.${index}.${family_stepbrother_no_phone.name}`}
+                                                            label={
+                                                              family_stepbrother_no_phone.label
+                                                            }
+                                                            fullWidth
+                                                          />
+                                                        </div>
+                                                      )}
+                                                    </div>
                                                   </div>
                                                 )}
+
+                                                <div
+                                                  item
+                                                  xs={12}
+                                                  sm={6}
+                                                  style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px",
+                                                    paddingBottom: "10px",
+                                                  }}
+                                                >
+                                                  <label
+                                                    style={{
+                                                      fontSize: "18px",
+                                                      fontWeight: "bold",
+                                                    }}
+                                                  >
+                                                    ¿Labora?:
+                                                  </label>
+                                                  <SelectField
+                                                    name={`stepbrother.${index}.${family_stepbrother_working_val.name}`}
+                                                    label={
+                                                      family_stepbrother_working_val.label
+                                                    }
+                                                    data={validate}
+                                                    onChange={(e) => {
+                                                      gettingWorking(
+                                                        `stepbrother.${index}.${family_stepbrother_working_val.name}`,
+                                                        e
+                                                      );
+                                                    }}
+                                                    fullWidth
+                                                  />
+                                                  <div>
+                                                    {valuesWorking[
+                                                      `stepbrother.${index}.${family_stepbrother_working_val.name}`
+                                                    ] === "Si" && (
+                                                      <div
+                                                        style={{
+                                                          paddingTop: "10px",
+                                                        }}
+                                                      >
+                                                        <div
+                                                          item
+                                                          xs={12}
+                                                          sm={6}
+                                                          style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight:
+                                                              "10px",
+                                                          }}
+                                                        >
+                                                          <label
+                                                            style={{
+                                                              fontSize: "18px",
+                                                              fontWeight:
+                                                                "bold",
+                                                            }}
+                                                          >
+                                                            Puesto donde labora:
+                                                          </label>
+                                                          <InputField
+                                                            name={`stepbrother.${index}.${family_stepbrother_place.name}`}
+                                                            label={
+                                                              family_stepbrother_place.label
+                                                            }
+                                                            fullWidth
+                                                          />
+                                                        </div>
+                                                        <div
+                                                          item
+                                                          xs={12}
+                                                          sm={6}
+                                                          style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight:
+                                                              "10px",
+                                                          }}
+                                                        >
+                                                          <label
+                                                            style={{
+                                                              fontSize: "18px",
+                                                              fontWeight:
+                                                                "bold",
+                                                            }}
+                                                          >
+                                                            Empresa donde
+                                                            labora:
+                                                          </label>
+                                                          <InputField
+                                                            name={`stepbrother.${index}.${family_stepbrother_company.name}`}
+                                                            label={
+                                                              family_stepbrother_company.label
+                                                            }
+                                                            fullWidth
+                                                          />
+                                                        </div>
+                                                        <div
+                                                          item
+                                                          xs={12}
+                                                          sm={6}
+                                                          style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight:
+                                                              "10px",
+                                                            paddingTop: "10px",
+                                                          }}
+                                                        >
+                                                          <label
+                                                            style={{
+                                                              fontSize: "18px",
+                                                              fontWeight:
+                                                                "bold",
+                                                            }}
+                                                          >
+                                                            Ingresos promedio:
+                                                          </label>
+                                                          <InputField
+                                                            type="Number"
+                                                            name={`stepbrother.${index}.${family_stepbrother_financial_income.name}`}
+                                                            label={
+                                                              family_stepbrother_financial_income.label
+                                                            }
+                                                            InputProps={{
+                                                              startAdornment: (
+                                                                <InputAdornment position="start">
+                                                                  Q.
+                                                                </InputAdornment>
+                                                              ),
+                                                            }}
+                                                            fullWidth
+                                                          />
+                                                        </div>
+                                                      </div>
+                                                    )}
+
+                                                    {valuesWorking[
+                                                      `stepbrother.${index}.${family_stepbrother_working_val.name}`
+                                                    ] === "No" && (
+                                                      <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                          paddingLeft: "10px",
+                                                          paddingRight: "10px",
+                                                          paddingTop: "10px",
+                                                        }}
+                                                      >
+                                                        <label
+                                                          style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold",
+                                                          }}
+                                                        >
+                                                          ¿De quién depende
+                                                          económicamente?:
+                                                        </label>
+                                                        <InputField
+                                                          name={`stepbrother.${index}.${family_stepbrother_depend.name}`}
+                                                          label={
+                                                            family_stepbrother_depend.label
+                                                          }
+                                                          fullWidth
+                                                        />
+                                                      </div>
+                                                    )}
+                                                  </div>
+                                                </div>
                                               </div>
                                             </div>
-                                          </div>
+                                          )}
+                                          {valuess[
+                                            `stepbrother.${index}.${family_stepbrother_life.name}`
+                                          ] === "No" && (
+                                            <div>
+                                              {/* add name and lastname */}
+                                              <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  paddingRight: "10px",
+                                                  paddingTop: "10px",
+                                                }}
+                                              >
+                                                <label
+                                                  style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold",
+                                                  }}
+                                                >
+                                                  Nombres:
+                                                </label>
+                                                <InputField
+                                                  name={`stepbrother.${index}.${family_stepbrother_died_name.name}`}
+                                                  label={
+                                                    family_stepbrother_died_name.label
+                                                  }
+                                                  fullWidth
+                                                />
+                                              </div>
+
+                                              <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  paddingRight: "10px",
+                                                  paddingTop: "10px",
+                                                }}
+                                              >
+                                                <label
+                                                  style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold",
+                                                  }}
+                                                >
+                                                  Apellidos:
+                                                </label>
+                                                <InputField
+                                                  name={`stepbrother.${index}.${family_stepbrother_died_lastname.name}`}
+                                                  label={
+                                                    family_stepbrother_died_lastname.label
+                                                  }
+                                                  fullWidth
+                                                />
+                                              </div>
+                                              {/* --------------------- */}
+                                              <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  paddingRight: "10px",
+                                                  paddingTop: "10px",
+                                                }}
+                                              >
+                                                <label
+                                                  style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold",
+                                                  }}
+                                                >
+                                                  ¿Tiempo fallecido?:
+                                                </label>
+                                                <InputField
+                                                  name={`stepbrother.${index}.${family_stepbrother_time_died.name}`}
+                                                  label={
+                                                    family_stepbrother_time_died.label
+                                                  }
+                                                  fullWidth
+                                                />
+                                              </div>
+                                              <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  paddingRight: "10px",
+                                                  paddingTop: "10px",
+                                                  paddingBottom: "10px",
+                                                }}
+                                              >
+                                                <label
+                                                  style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold",
+                                                  }}
+                                                >
+                                                  ¿Razón de fallecimiento?:
+                                                </label>
+                                                <InputField
+                                                  name={`stepbrother.${index}.${family_stepbrother_reason_died.name}`}
+                                                  label={
+                                                    family_stepbrother_reason_died.label
+                                                  }
+                                                  fullWidth
+                                                />
+                                              </div>
+                                            </div>
+                                          )}
                                         </div>
                                       )}
-
-                                      {valuess[
-                                        `stepbrother.${index}.${family_stepbrother_life.name}`
+                                      {information[
+                                        `stepbrother.${index}.${family_stepbrother_has_information.name}`
                                       ] === "No" && (
-                                        <div>
-                                          {/* add name and lastname */}
-                                          <div
-                                            item
-                                            xs={12}
-                                            sm={6}
+                                        <div
+                                          item
+                                          xs={12}
+                                          sm={6}
+                                          style={{
+                                            paddingLeft: "10px",
+                                            paddingRight: "10px",
+                                            paddingBottom: "10px",
+                                            paddingTop: "10px",
+                                          }}
+                                        >
+                                          <label
                                             style={{
-                                              paddingLeft: "10px",
-                                              paddingRight: "10px",
-                                              paddingTop: "10px",
+                                              fontSize: "18px",
+                                              fontWeight: "bold",
                                             }}
                                           >
-                                            <label
-                                              style={{
-                                                fontSize: "18px",
-                                                fontWeight: "bold",
-                                              }}
-                                            >
-                                              Nombres:
-                                            </label>
-                                            <InputField
-                                              name={`stepbrother.${index}.${family_stepbrother_died_name.name}`}
-                                              label={
-                                                family_stepbrother_died_name.label
-                                              }
-                                              fullWidth
-                                            />
-                                          </div>
-
-                                          <div
-                                            item
-                                            xs={12}
-                                            sm={6}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              paddingRight: "10px",
-                                              paddingTop: "10px",
-                                            }}
-                                          >
-                                            <label
-                                              style={{
-                                                fontSize: "18px",
-                                                fontWeight: "bold",
-                                              }}
-                                            >
-                                              Apellidos:
-                                            </label>
-                                            <InputField
-                                              name={`stepbrother.${index}.${family_stepbrother_died_lastname.name}`}
-                                              label={
-                                                family_stepbrother_died_lastname.label
-                                              }
-                                              fullWidth
-                                            />
-                                          </div>
-                                          {/* --------------------- */}
-                                          <div
-                                            item
-                                            xs={12}
-                                            sm={6}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              paddingRight: "10px",
-                                              paddingTop: "10px",
-                                            }}
-                                          >
-                                            <label
-                                              style={{
-                                                fontSize: "18px",
-                                                fontWeight: "bold",
-                                              }}
-                                            >
-                                              ¿Tiempo fallecido?:
-                                            </label>
-                                            <InputField
-                                              name={`stepbrother.${index}.${family_stepbrother_time_died.name}`}
-                                              label={
-                                                family_stepbrother_time_died.label
-                                              }
-                                              fullWidth
-                                            />
-                                          </div>
-                                          <div
-                                            item
-                                            xs={12}
-                                            sm={6}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              paddingRight: "10px",
-                                              paddingTop: "10px",
-                                              paddingBottom: "10px",
-                                            }}
-                                          >
-                                            <label
-                                              style={{
-                                                fontSize: "18px",
-                                                fontWeight: "bold",
-                                              }}
-                                            >
-                                              ¿Razón de fallecimiento?:
-                                            </label>
-                                            <InputField
-                                              name={`stepbrother.${index}.${family_stepbrother_reason_died.name}`}
-                                              label={
-                                                family_stepbrother_reason_died.label
-                                              }
-                                              fullWidth
-                                            />
-                                          </div>
+                                            ¿Motivo del por qué no tiene
+                                            información?:
+                                          </label>
+                                          <InputField
+                                            name={`stepbrother.${index}.${family_stepbrother_reason_dont_has.name}`}
+                                            label={
+                                              family_stepbrother_reason_dont_has.label
+                                            }
+                                            fullWidth
+                                          />
                                         </div>
                                       )}
                                     </Paper>
@@ -796,6 +900,11 @@ export default function StepBrothersForm(props) {
                                     /* add name and lastname */
                                     [family_stepbrother_died_name.name]: "",
                                     [family_stepbrother_died_lastname.name]: "",
+                                    /* select and input information */
+                                    [family_stepbrother_has_information.name]:
+                                      "",
+                                    [family_stepbrother_reason_dont_has.name]:
+                                      "",
                                   })
                                 }
                               >

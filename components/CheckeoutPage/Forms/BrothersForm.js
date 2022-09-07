@@ -6,7 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import BoyIcon from "@mui/icons-material/Boy";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
 const civil = [
   {
@@ -266,7 +266,7 @@ export default function BrothersForm(props) {
                                       label={`Hermano ${index + 1}`}
                                     />
                                   </Divider>
-                                  <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+                                  <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
                                     <Paper elevation={3}>
                                       <div
                                         item
@@ -350,6 +350,7 @@ export default function BrothersForm(props) {
                                                 Edad:
                                               </label>
                                               <InputField
+                                                type="Number"
                                                 name={`brothers.${index}.${family_brothers_age.name}`}
                                                 label={
                                                   family_brothers_age.label
@@ -445,6 +446,7 @@ export default function BrothersForm(props) {
                                                           Teléfono:
                                                         </label>
                                                         <InputField
+                                                          type="Number"
                                                           name={`brothers.${index}.${family_brothers_phone.name}`}
                                                           label={
                                                             family_brothers_phone.label
@@ -601,7 +603,7 @@ export default function BrothersForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
-                                                        type='Number'
+                                                        type="Number"
                                                         name={`brothers.${index}.${family_brothers_financial_income.name}`}
                                                         label={
                                                           family_brothers_financial_income.label

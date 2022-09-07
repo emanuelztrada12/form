@@ -8,7 +8,6 @@ export default function InputField(props) {
   const [field, meta] = useField(props); 
   const { value } = props; 
 
-
   // console.log(field)
   function _renderHelperText() {
     const [touched, error] = at(meta, 'touched', 'error');

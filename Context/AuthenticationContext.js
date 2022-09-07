@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from "react";
 import Login from "../components/LoginPage";
-import Layout from "../components/Layout/Layout";
 import { useRouter } from "next/router";
 
 function AuthenticationContext({ children }) {
