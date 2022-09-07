@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import CheckeoutPage from '../components/CheckeoutPage';
-import Layout from '../components/Layout/Layout'; 
+import Header from "../components/Header/Header";
+
 
  function Home() {
   const [isSSR, setIsSSR] = useState(true);
@@ -9,9 +10,10 @@ import Layout from '../components/Layout/Layout';
   }, []);
 
   return !isSSR && (
-        <Layout>
-          <CheckeoutPage/>
-        </Layout>
+    <>
+      <Header/>
+      <CheckeoutPage/>
+    </>
   );
 }
 
