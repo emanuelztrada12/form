@@ -489,7 +489,7 @@ const {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   //validation form
-  [validation_form.name]: false,
+  [validation_form.name]: "",
 
   //general
   [general_name.name]: "",
