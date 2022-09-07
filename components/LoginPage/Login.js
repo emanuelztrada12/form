@@ -16,8 +16,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
 import styles from "../../styles/Account.module.css";
+
+const theme = createTheme();
+const AUTHENTICATE_USER = gql`
+  mutation authenticateUser($input: AuthenticateUser) {
+    authenticateUser(input: $input) {
+      token
+    }
+  }
+`;
 
 function Copyright(props) {
   return (
@@ -34,16 +42,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-const AUTHENTICATE_USER = gql`
-  mutation authenticateUser($input: AuthenticateUser) {
-    authenticateUser(input: $input) {
-      token
-    }
-  }
-`;
-
-const theme = createTheme();
 
 export default function Login() {
   //Routing
@@ -77,7 +75,6 @@ export default function Login() {
         });
 
         guardarMensajeTrue("Autenticando...");
-
         //Guardar Token en localstorage
         const { ok, token, refreshToken } = data.authenticateUser;
         localStorage.setItem("token", token);
@@ -85,6 +82,9 @@ export default function Login() {
         router.push("/");
       } catch (error) {
         guardarMensaje(error.message.replace("GraphQL error: ", ""));
+        setTimeout(() => {
+          guardarMensaje(null);
+        }, 4000);
       }
     },
   });
@@ -182,6 +182,7 @@ export default function Login() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
+                  autoComplete="on"
                 />
               </div>
 

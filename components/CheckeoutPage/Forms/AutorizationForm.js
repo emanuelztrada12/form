@@ -15,6 +15,13 @@ export default function AutorizationForm(props) {
     formField: { validation_form },
   } = props;
 
+  const validate = [
+    {
+      value: "Acepto ",
+      label: "Acepto ",
+    },
+  ];
+
   return (
     !isSSR && (
       <>
@@ -86,16 +93,15 @@ export default function AutorizationForm(props) {
                 magna, vel scelerisque nisl consectetur et.
               </p>
             
-            <div style={{ textAlign: 'center'}}>
-            <CheckboxField
+            <div style={{ display: "flex", justifyContent: "center", paddingTop: "10px"}}>
+              <SelectField
                 name={validation_form.name}
+                label={validation_form.label}
+                data={validate}
+                sx={{ m: 1, width: '30ch' }}
               />
             </div>
               
-              <div style={{ textAlign: 'center'}}>
-              <label style={{ fontSize: '20px'}}>Acepto terminos y condiciones</label>
-              </div>
-
               
             </Box>
           </Container>

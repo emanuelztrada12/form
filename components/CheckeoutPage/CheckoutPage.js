@@ -1287,13 +1287,14 @@ export default function CheckoutPage() {
       //     id
       //   },
       // });
+      
       // settime out tiempo
-      // eliminar storage
-      // mandar al login
-      // setTimeout(() => {
-      //   localStorage.clear()
-      //   router.push("/LoginPage");
-      // }, 8000);
+      setTimeout(async () => {
+        // eliminar storage
+        await localStorage.clear()
+        // mandar al login
+        router.push("/LoginPage");
+      }, 8000);
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
