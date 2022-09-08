@@ -1326,7 +1326,6 @@ export default function CheckoutPage() {
         <Stepper
           xs={12}
           sm={6}
-          matchestwo
           activeStep={activeStep}
           className={classes.stepper}
           alternativeLabel

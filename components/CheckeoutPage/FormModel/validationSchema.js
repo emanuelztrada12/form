@@ -578,6 +578,7 @@ const {
   },
 } = generalFormModel;
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   yup.object().shape({
     [validation_form.name]: yup
@@ -847,7 +848,12 @@ export default [
             family_dad_relation === "Si" &&
             family_dad_information === "Si" &&
             family_dad_phone_val === "Si",
-          then: yup.string().required(`${family_dad_phone.requiredErrorMsg}`),
+          then: 
+            yup.string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
+            .required(`${family_dad_phone.requiredErrorMsg}`),
         }
       ),
 
@@ -1240,6 +1246,9 @@ export default [
             family_dad_phone_valtwo === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${family_dad_phonetwo.requiredErrorMsg}`),
         }
       ),
@@ -1681,7 +1690,11 @@ export default [
             family_mom_relation === "Si" &&
             family_mom_information === "Si" &&
             family_mom_phone_val === "Si",
-          then: yup.string().required(`${family_mom_phone.requiredErrorMsg}`),
+          then: yup.string()
+            .required(`${family_mom_phone.requiredErrorMsg}`)
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos"),
         }
       ),
 
@@ -2074,6 +2087,9 @@ export default [
             family_mom_phone_valtwo === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${family_mom_phonetwo.requiredErrorMsg}`),
         }
       ),
@@ -2691,6 +2707,9 @@ export default [
             family_stepfather_info === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${family_stepfather_phone.requiredErrorMsg}`)
             .when(
               [
@@ -3255,6 +3274,9 @@ export default [
             family_stepmother_info === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${family_stepmother_phone.requiredErrorMsg}`)
             .when(
               [
@@ -3721,6 +3743,9 @@ export default [
               family_son_phone_val === "Si" && family_son_life === "Si",
             then: yup
               .string()
+              .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+              .min(8, "El numero telefonico debe tener 8 digitos")
+              .max(8, "El numero telefonico debe tener 8 digitos")
               .required(`${family_son_no_phone.requiredErrorMsg}`)
               .when(["family_son_phone_val", "family_son_life"], {
                 is: (family_son_phone_val, family_son_life) =>
@@ -3937,6 +3962,9 @@ export default [
               family_brothers_life === "Si",
             then: yup
               .string()
+              .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+              .min(8, "El numero telefonico debe tener 8 digitos")
+              .max(8, "El numero telefonico debe tener 8 digitos")
               .required(`${family_brothers_no_phone.requiredErrorMsg}`)
               .when(["family_brothers_phone_val", "family_brothers_life"], {
                 is: (family_brothers_phone_val, family_brothers_life) =>
@@ -4194,6 +4222,9 @@ export default [
               family_stepbrother_life === "Si",
             then: yup
               .string()
+              .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+              .min(8, "El numero telefonico debe tener 8 digitos")
+              .max(8, "El numero telefonico debe tener 8 digitos")
               .required(`${family_stepbrother_no_phone.requiredErrorMsg}`)
               .when(
                 ["family_stepbrother_phone_val", "family_stepbrother_life"],
@@ -4559,6 +4590,9 @@ export default [
             family_validate_conyugue === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${family_conyugue_no_phone.requiredErrorMsg}`)
             .when(["family_conyugue_phone_val", "family_conyugue_life"], {
               is: (
@@ -5333,6 +5367,9 @@ export default [
           family_grandfather_phone_val === "Si",
         then: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .min(8, "El numero telefonico debe tener 8 digitos")
+          .max(8, "El numero telefonico debe tener 8 digitos")
           .required(`${family_grandfather_name.requiredErrorMsg}`),
       }),
     [family_grandfather_no_phone.name]: yup
@@ -5473,6 +5510,9 @@ export default [
           family_grandmother_phone_val === "Si",
         then: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .min(8, "El numero telefonico debe tener 8 digitos")
+          .max(8, "El numero telefonico debe tener 8 digitos")
           .required(`${family_grandmother_name.requiredErrorMsg}`),
       }),
     [family_grandmother_no_phone.name]: yup
@@ -5611,6 +5651,9 @@ export default [
           family_grandfather_phone_valtwo === "Si",
         then: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .min(8, "El numero telefonico debe tener 8 digitos")
+          .max(8, "El numero telefonico debe tener 8 digitos")
           .required(`${family_grandfather_phonetwo.requiredErrorMsg}`),
       }),
     [family_grandfather_no_phonetwo.name]: yup
@@ -5763,6 +5806,9 @@ export default [
           family_grandmother_phone_valtwo === "Si",
         then: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .min(8, "El numero telefonico debe tener 8 digitos")
+          .max(8, "El numero telefonico debe tener 8 digitos")
           .required(`${family_grandmother_phonetwo.requiredErrorMsg}`),
       }),
     [family_grandmother_no_phonetwo.name]: yup
@@ -6135,9 +6181,12 @@ export default [
       }),
 
     [estudie_diversificado_place.name]: yup
-      .string().when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si", 
-        then: yup.string().required(`${estudie_diversificado_place.requiredErrorMsg}`)
+      .string()
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_place.requiredErrorMsg}`),
       }),
 
     diversificado: yup.array({}).of(
@@ -6235,7 +6284,7 @@ export default [
           estudie_primary_hasta - estudie_primary_desde > "6",
         then: yup
           .string()
-          .required(`${estudies_year_condition.requiredErrorMsg}`)
+          .required(`${estudies_year_condition.requiredErrorMsg}`),
       }),
   }),
 
@@ -6411,6 +6460,9 @@ export default [
           .required(`${work_chiefposition.requiredErrorMsg}`),
         [work_phone_boss.name]: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .min(8, "El numero telefonico debe tener 8 digitos")
+          .max(8, "El numero telefonico debe tener 8 digitos")
           .required(`${work_phone_boss.requiredErrorMsg}`),
         [work_withdrawalreason.name]: yup.string(),
         [work_phone_val.name]: yup
@@ -6600,26 +6652,32 @@ export default [
       is: (social_drog) => social_drog === "Si",
       then: yup.string().required(`${social_drog_time.requiredErrorMsg}`),
     }),
-
-    //changes 2.1
     [social_drug.name]: yup.string().when(["social_drog"], {
       is: (social_drog) => social_drog === "Si",
-      then: yup.string().required(`${social_drug.requiredErrorMsg}`),
-    }),
+      then: yup.string().required(`${social_drug.requiredErrorMsg}`)}),
 
-    [social_drug_relation.name]: yup.string().when(["social_drog"], {
-      is: (social_drog) => social_drog === "Si",
+    //changes 2.1
+    [social_drog_person.name]: yup
+      .string()
+      .when(["social_drog"], {
+        is: (social_drog) => social_drog === "Si",
+        then: yup.string().required(`${social_drog_person.requiredErrorMsg}`)
+      }),
+
+    // [social_drug.name]: yup.string().when(["social_drog", "social_drog_person"], {
+    //   is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
+    //   then: yup.string().required(`${social_drug.requiredErrorMsg}`),
+    // }),
+
+    [social_drug_relation.name]: yup.string().when(["social_drog", "social_drog_person"], {
+      is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
       then: yup.string().required(`${social_drug_relation.requiredErrorMsg}`),
     }),
 
-    [social_drug_position.name]: yup.string().when(["social_drog"], {
-      is: (social_drog) => social_drog === "Si",
+    [social_drug_position.name]: yup.string().when(["social_drog", "social_drog_person"], {
+      is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
       then: yup.string().required(`${social_drug_position.requiredErrorMsg}`),
     }),
-
-    [social_drog_person.name]: yup
-      .string()
-      .required(`${social_drog_person.requiredErrorMsg}`),
 
     [social_tatto.name]: yup
       .string()
@@ -6771,9 +6829,9 @@ export default [
     [covid_option.name]: yup
       .string()
       .required(`${covid_option.requiredErrorMsg}`),
-    
+
     [gave_covid.name]: yup.string().required(`${gave_covid.requiredErrorMsg}`),
-    
+
     [covid_dosis.name]: yup.string().when(["gave_covid"], {
       // is: (gave_covid) => gave_covid === "No",
       is: (gave_covid) => gave_covid === "Si",
@@ -6820,25 +6878,23 @@ export default [
     [validate_dosis.name]: yup
       .string()
       .required(`${validate_dosis.requiredErrorMsg}`),
-      
-    [reason_no_vaccines_covid.name]: yup
-      .string()
-      .when(["validate_dosis"], {
-        is: (validate_dosis) => validate_dosis === "No",
-      then: yup.string().required(`${reason_no_vaccines_covid.requiredErrorMsg}`),
-      }),
-    
+
+    [reason_no_vaccines_covid.name]: yup.string().when(["validate_dosis"], {
+      is: (validate_dosis) => validate_dosis === "No",
+      then: yup
+        .string()
+        .required(`${reason_no_vaccines_covid.requiredErrorMsg}`),
+    }),
+
     [need_vacinnes.name]: yup
       .string()
       .required(`${need_vacinnes.requiredErrorMsg}`),
-    
-    [reason_no_true.name]: yup
-      .string()
-      .when(["need_vacinnes"], {
-        is: (need_vacinnes) => need_vacinnes === "No",
-        then: yup.string().required(`${reason_no_true.requiredErrorMsg}`)
-      }),
-      
+
+    [reason_no_true.name]: yup.string().when(["need_vacinnes"], {
+      is: (need_vacinnes) => need_vacinnes === "No",
+      then: yup.string().required(`${reason_no_true.requiredErrorMsg}`),
+    }),
+
     disease: yup.array({}).of(
       yup.object().shape({
         [disease_name.name]: yup

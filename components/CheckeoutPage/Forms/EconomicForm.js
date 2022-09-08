@@ -200,25 +200,6 @@ export default function EconomicForm(props) {
     calculate(nvalues);
   };
 
-  // const Input = (o, name, _more) => {
-  //     const more = {
-  //       InputProps: {
-  //         startAdornment: <InputAdornment position="start">Q.</InputAdornment>,
-  //       },
-  //       ..._more,
-  //     };
-  //     if (more.InputProps === null) delete more.InputProps;
-  //     return (
-  //       <InputField
-  //         name={name || o.name}
-  //         label={o.label}
-  //         onChange={(e) => onChange(`${name || o.name}`, e)}
-  //         fullWidth
-  //         {...more}
-  //       />
-  //     );
-  //   };
-
   const [valuess, set_values] = useState({
     economic_vivienda: 0,
     economic_food: 0,
@@ -562,12 +543,6 @@ export default function EconomicForm(props) {
                                             type="Number"
                                             name={`economic.${index}.${amount.name}`}
                                             label={amount.label}
-                                            onChange={(e) => {
-                                              onChange(
-                                                `economic.${index}.${amount.name}`,
-                                                e
-                                              );
-                                            }}
                                             InputProps={{
                                               startAdornment: (
                                                 <InputAdornment position="start">
@@ -626,6 +601,12 @@ export default function EconomicForm(props) {
                                             label={
                                               economic_monthly_payment.label
                                             }
+                                            onChange={(e) => {
+                                              onChange(
+                                                `economic.${index}.${economic_monthly_payment.name}`,
+                                                e
+                                              );
+                                            }}
                                             InputProps={{
                                               startAdornment: (
                                                 <InputAdornment position="start">
