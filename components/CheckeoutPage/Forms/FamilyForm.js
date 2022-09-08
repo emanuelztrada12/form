@@ -571,7 +571,7 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
-                                type='Number'
+                                
                                 name={family_dad_age.name}
                                 label={family_dad_age.label}
                                 fullWidth
@@ -643,7 +643,7 @@ export default function FamilyForm(props) {
                                         Teléfono:
                                       </label>
                                       <InputField
-                                        type='Number'
+                                        
                                         name={family_dad_phone.name}
                                         label={family_dad_phone.label}
                                         fullWidth
@@ -774,7 +774,7 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
-                                        type='Number'
+                                        
                                         name={family_dad_financial_income.name}
                                         label={
                                           family_dad_financial_income.label
@@ -1081,7 +1081,7 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
-                                type='Number'
+                                
                                 name={family_dad_agetwo.name}
                                 label={family_dad_agetwo.label}
                                 fullWidth
@@ -1153,7 +1153,7 @@ export default function FamilyForm(props) {
                                         Teléfono:
                                       </label>
                                       <InputField
-                                        type='Number'
+                                        
                                         name={family_dad_phonetwo.name}
                                         label={family_dad_phonetwo.label}
                                         fullWidth
@@ -1285,7 +1285,7 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
-                                        type='Number'
+                                        
                                         name={
                                           family_dad_financial_incometwo.name
                                         }
@@ -1642,7 +1642,7 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
-                                  type='Number'
+                                  
                                   name={family_mom_age.name}
                                   label={family_mom_age.label}
                                   fullWidth
@@ -1720,7 +1720,7 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
-                                          type='Number'
+                                          
                                           name={family_mom_phone.name}
                                           label={family_mom_phone.label}
                                           fullWidth
@@ -1853,7 +1853,7 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
-                                          type='Number'
+                                          
                                           name={
                                             family_mom_financial_income.name
                                           }
@@ -2160,7 +2160,7 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
-                                  type='Number'
+                                  
                                   name={family_mom_agetwo.name}
                                   label={family_mom_agetwo.label}
                                   fullWidth
@@ -2238,7 +2238,7 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
-                                          type='Number'
+                                          
                                           name={family_mom_phonetwo.name}
                                           label={family_mom_phonetwo.label}
                                           fullWidth
@@ -2371,7 +2371,7 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
-                                          type='Number'
+                                          
                                           name={
                                             family_mom_financial_incometwo.name
                                           }
@@ -2978,7 +2978,7 @@ export default function FamilyForm(props) {
                                     Edad:
                                   </label>
                                   <InputField
-                                    type='Number'
+                                    
                                     name={family_stepfather_age.name}
                                     label={family_stepfather_age.label}
                                     fullWidth
@@ -3056,7 +3056,7 @@ export default function FamilyForm(props) {
                                             Teléfono:
                                           </label>
                                           <InputField
-                                            type='Number'
+                                            
                                             name={family_stepfather_phone.name}
                                             label={
                                               family_stepfather_phone.label
@@ -3204,7 +3204,7 @@ export default function FamilyForm(props) {
                                             Ingresos promedio:
                                           </label>
                                           <InputField
-                                            type='Number'
+                                            
                                             name={
                                               family_stepfather_financial_income.name
                                             }
@@ -3463,7 +3463,7 @@ export default function FamilyForm(props) {
                                     Edad:
                                   </label>
                                   <InputField
-                                    type='Number'
+                                    
                                     name={family_stepmother_age.name}
                                     label={family_stepmother_age.label}
                                     fullWidth
@@ -3541,7 +3541,6 @@ export default function FamilyForm(props) {
                                             Teléfono:
                                           </label>
                                           <InputField
-                                            type='Number'
                                             name={family_stepmother_phone.name}
                                             label={
                                               family_stepmother_phone.label
@@ -3691,7 +3690,7 @@ export default function FamilyForm(props) {
                                             Ingresos promedio:
                                           </label>
                                           <InputField
-                                            type='Number'
+                                            
                                             name={
                                               family_stepmother_financial_income.name
                                             }

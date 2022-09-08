@@ -401,7 +401,7 @@ export default function General(props) {
                 Tiempo de residir en la vivienda:
               </label>
               <InputField
-                type="Number"
+                
                 name={general_time_reside.name}
                 label={general_time_reside.label}
                 onChange={conditionLive}
@@ -437,7 +437,6 @@ export default function General(props) {
                 Teléfono celular:
               </label>
               <InputField
-                type="Number"
                 name={general_phone.name}
                 label={general_phone.label}
                 fullWidth
@@ -457,7 +456,7 @@ export default function General(props) {
                 DPI:
               </label>
               <InputField
-                type="Number"
+                
                 name={general_dpi.name}
                 label={general_dpi.label}
                 fullWidth
@@ -489,7 +488,7 @@ export default function General(props) {
                     Ingrese su NIT:
                   </label>
                   <InputField
-                    type="Number"
+                    
                     name={general_nit.name}
                     label={general_nit.label}
                     fullWidth
@@ -545,7 +544,6 @@ export default function General(props) {
                 Teléfono de emergencia:
               </label>
               <InputField
-                type="Number"
                 name={general_emergency_phone.name}
                 label={general_emergency_phone.label}
                 fullWidth
@@ -637,7 +635,7 @@ export default function General(props) {
                       Afiliación IRTRA:
                     </label>
                     <InputField
-                      type="Number"
+                      
                       name={general_irtra.name}
                       label={general_irtra.label}
                       fullWidth
@@ -653,7 +651,7 @@ export default function General(props) {
                       Afiliación IGSS:
                     </label>
                     <InputField
-                      type="Number"
+                      
                       name={general_igss.name}
                       label={general_igss.label}
                       fullWidth
@@ -1094,7 +1092,7 @@ export default function General(props) {
                               No. Documento:
                             </label>
                             <InputField
-                              type="Number"
+                              
                               name={`license.${index}.${general_license.name}`}
                               label={general_license.label}
                               fullWidth
