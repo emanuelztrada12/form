@@ -323,7 +323,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
-                              type= 'Number'
+                              
                               name={family_grandfather_age.name}
                               label={family_grandfather_age.label}
                               fullWidth
@@ -398,7 +398,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={family_grandfather_phone.name}
                                       label={family_grandfather_phone.label}
                                       fullWidth
@@ -531,7 +531,7 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={
                                         family_grandfather_financial_income.name
                                       }
@@ -738,7 +738,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
-                              type= 'Number'
+                              
                               name={family_grandmother_age.name}
                               label={family_grandmother_age.label}
                               fullWidth
@@ -813,7 +813,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={family_grandmother_phone.name}
                                       label={family_grandmother_phone.label}
                                       fullWidth
@@ -946,7 +946,7 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={
                                         family_grandmother_financial_income.name
                                       }
@@ -1186,7 +1186,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
-                              type= 'Number'
+                              
                               name={family_grandfather_agetwo.name}
                               label={family_grandfather_agetwo.label}
                               fullWidth
@@ -1259,7 +1259,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={family_grandfather_phonetwo.name}
                                       label={family_grandfather_phonetwo.label}
                                       fullWidth
@@ -1388,7 +1388,7 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={
                                         family_grandfather_financial_incometwo.name
                                       }
@@ -1593,7 +1593,7 @@ export default function GrandfatherForm(props) {
                               Edad:
                             </label>
                             <InputField
-                              type= 'Number'
+                              
                               name={family_grandmother_agetwo.name}
                               label={family_grandmother_agetwo.label}
                               fullWidth
@@ -1666,7 +1666,7 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      type='Number'
                                       name={family_grandmother_phonetwo.name}
                                       label={family_grandmother_phonetwo.label}
                                       fullWidth
@@ -1795,7 +1795,7 @@ export default function GrandfatherForm(props) {
                                       Ingresos promedio:
                                     </label>
                                     <InputField
-                                      type= 'Number'
+                                      
                                       name={
                                         family_grandmother_financial_incometwo.name
                                       }

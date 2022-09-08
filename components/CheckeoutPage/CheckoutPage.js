@@ -735,7 +735,7 @@ export default function CheckoutPage() {
 
   const getInitialValues = () => {
     const formData = getLocal();
-    //console.log(formData);
+    console.log(formData);
     if (formData == null) {
       return formInitialValues;
     }
@@ -1266,7 +1266,7 @@ export default function CheckoutPage() {
           },
         },
       });
-      //console.log(`data ${data}`);
+      console.log(`data ${data}`);
     } catch (error) {
       console.log(error);
     }

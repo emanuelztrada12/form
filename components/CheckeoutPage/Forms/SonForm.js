@@ -391,7 +391,7 @@ export default function SonForm(props) {
                                                     Edad:
                                                   </label>
                                                   <InputField
-                                                    type='Number'
+                                                    
                                                     name={`son.${index}.${family_son_age.name}`}
                                                     label={family_son_age.label}
                                                     fullWidth
@@ -512,7 +512,7 @@ export default function SonForm(props) {
                                                               Teléfono:
                                                             </label>
                                                             <InputField
-                                                            type='Number'
+                                                            
                                                               name={`son.${index}.${family_son_phone.name}`}
                                                               label={
                                                                 family_son_phone.label
@@ -705,7 +705,6 @@ export default function SonForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
-                                                        type='Number'
                                                         name={`son.${index}.${family_son_financial_income.name}`}
                                                         label={
                                                           family_son_financial_income.label
