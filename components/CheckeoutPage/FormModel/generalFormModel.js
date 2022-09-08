@@ -2663,7 +2663,7 @@ export default {
     },
     red_faccebookval_two: {
       name: "red_faccebookval_two",
-      label: "Acepto los términos y condiciones*",
+      label: "Ingrese el motivo*",
       requiredErrorMsg: "La información es requerida",
     },
   },

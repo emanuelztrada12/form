@@ -67,7 +67,7 @@ export default function Header({ children }) {
             Golden
           </Typography>
           <p className={styles.userName}>
-            {nombre} {apellido} {rols}
+            {nombre} {apellido} 
           </p>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Opciones">

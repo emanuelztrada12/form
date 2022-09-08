@@ -126,7 +126,7 @@ export default function General(props) {
       general_lastname,
       /* add  married name */
       general_married_name, // select apellido
-      general_lastname_married,// input apellido
+      general_lastname_married, // input apellido
       /* ------------------ */
       general_age,
       general_birth,
@@ -159,7 +159,7 @@ export default function General(props) {
       /* array de biker */
       general_model_biker,
       general_brand_biker,
-      general_model_propetary_biker
+      general_model_propetary_biker,
     },
   } = props;
 
@@ -235,26 +235,29 @@ export default function General(props) {
               sm={6}
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
-              <div style={{ paddingTop: "10px"}}>
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee apellido de casada?:
-              </label>
-              <SelectField
-                name={general_married_name.name}
-                label={general_married_name.label}
-                onChange={addMarriedName}
-                data={validate}
-                fullWidth
-              />
+              <div style={{ paddingTop: "10px" }}>
+                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  ¿Posee apellido de casada?:
+                </label>
+                <SelectField
+                  name={general_married_name.name}
+                  label={general_married_name.label}
+                  onChange={addMarriedName}
+                  data={validate}
+                  fullWidth
+                />
               </div>
-              
             </Grid>
             {marriedName === "Posee" && (
               <Grid
                 item
                 xs={12}
                 sm={6}
-                style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}
+                style={{
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  paddingTop: "10px",
+                }}
               >
                 <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                   Apellido de casada:
@@ -434,7 +437,7 @@ export default function General(props) {
                 Teléfono celular:
               </label>
               <InputField
-                type='Number'
+                type="Number"
                 name={general_phone.name}
                 label={general_phone.label}
                 fullWidth
@@ -454,7 +457,7 @@ export default function General(props) {
                 DPI:
               </label>
               <InputField
-                type='Number'
+                type="Number"
                 name={general_dpi.name}
                 label={general_dpi.label}
                 fullWidth
@@ -481,12 +484,12 @@ export default function General(props) {
                 fullWidth
               />
               {addNit === "Posee" && (
-                <div style={{ paddingTop: "10px"}}>
+                <div style={{ paddingTop: "10px" }}>
                   <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Ingrese su NIT:
                   </label>
                   <InputField
-                    type='Number'
+                    type="Number"
                     name={general_nit.name}
                     label={general_nit.label}
                     fullWidth
@@ -542,7 +545,7 @@ export default function General(props) {
                 Teléfono de emergencia:
               </label>
               <InputField
-                type='Number'
+                type="Number"
                 name={general_emergency_phone.name}
                 label={general_emergency_phone.label}
                 fullWidth
@@ -634,7 +637,7 @@ export default function General(props) {
                       Afiliación IRTRA:
                     </label>
                     <InputField
-                      type='Number'
+                      type="Number"
                       name={general_irtra.name}
                       label={general_irtra.label}
                       fullWidth
@@ -650,7 +653,7 @@ export default function General(props) {
                       Afiliación IGSS:
                     </label>
                     <InputField
-                      type='Number'
+                      type="Number"
                       name={general_igss.name}
                       label={general_igss.label}
                       fullWidth
@@ -706,7 +709,7 @@ export default function General(props) {
                       arrayHelpers.push({
                         [general_brand.name]: "",
                         [general_model.name]: "",
-                        [general_model_propetary.name]: ""
+                        [general_model_propetary.name]: "",
                       })
                     }
                   >
@@ -721,36 +724,100 @@ export default function General(props) {
                       sm={6}
                       style={{ paddingLeft: "10px", paddingRight: "10px" }}
                     >
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Modelo:
-                      </label>
-                      <InputField
-                        name={`vehicle.${index}.${general_model.name}`}
-                        label={general_model.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Marca:
-                      </label>
-                      <InputField
-                        name={`vehicle.${index}.${general_brand.name}`}
-                        label={general_brand.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿A nombre de quien se encuentra el vehículo?:
-                      </label>
-                      <InputField
-                        name={`vehicle.${index}.${general_model_propetary.name}`}
-                        label={general_model_propetary.label}
-                        fullWidth
-                      />
+                      <Divider
+                        style={{ paddingTop: "20px", paddingBottom: "20px" }}
+                      >
+                        <Chip
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                            paddingLeft: "15px",
+                            paddingRight: "15px",
+                          }}
+                          icon={<DirectionsCarIcon />}
+                          color="primary"
+                          label={index + 1}
+                        />
+                      </Divider>
+                      <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
+                        <Paper elevation={3}>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Modelo:
+                            </label>
+                            <InputField
+                              name={`vehicle.${index}.${general_model.name}`}
+                              label={general_model.label}
+                              fullWidth
+                            />
+                          </div>
+
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Marca:
+                            </label>
+                            <InputField
+                              name={`vehicle.${index}.${general_brand.name}`}
+                              label={general_brand.label}
+                              fullWidth
+                            />
+                          </div>
+
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿A nombre de quien se encuentra el vehículo?:
+                            </label>
+                            <InputField
+                              name={`vehicle.${index}.${general_model_propetary.name}`}
+                              label={general_model_propetary.label}
+                              fullWidth
+                            />
+                          </div>
+                        </Paper>
+                      </Box>
+
                       <IconButton
                         onClick={() =>
                           arrayHelpers.push({
                             [general_brand.name]: "",
                             [general_model.name]: "",
-                            [general_model_propetary.name]: ""
+                            [general_model_propetary.name]: "",
                           })
                         }
                       >
@@ -811,7 +878,7 @@ export default function General(props) {
                       arrayHelpers.push({
                         [general_brand_biker.name]: "",
                         [general_model_biker.name]: "",
-                        [general_model_propetary_biker.name]: ""
+                        [general_model_propetary_biker.name]: "",
                       })
                     }
                   >
@@ -826,36 +893,97 @@ export default function General(props) {
                       sm={6}
                       style={{ paddingLeft: "10px", paddingRight: "10px" }}
                     >
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Modelo:
-                      </label>
-                      <InputField
-                        name={`biker.${index}.${general_model_biker.name}`}
-                        label={general_model_biker.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Marca:
-                      </label>
-                      <InputField
-                        name={`biker.${index}.${general_brand_biker.name}`}
-                        label={general_brand_biker.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿A nombre de quien se encuentra la motocicleta?:
-                      </label>
-                      <InputField
-                        name={`biker.${index}.${general_model_propetary_biker.name}`}
-                        label={general_model_propetary_biker.label}
-                        fullWidth
-                      />
+                      <Divider
+                        style={{ paddingTop: "20px", paddingBottom: "20px" }}
+                      >
+                        <Chip
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                            paddingLeft: "15px",
+                            paddingRight: "15px",
+                          }}
+                          icon={<TwoWheelerIcon />}
+                          color="primary"
+                          label={index + 1}
+                        />
+                      </Divider>
+                      <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
+                        <Paper elevation={3}>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Modelo:
+                            </label>
+                            <InputField
+                              name={`biker.${index}.${general_model_biker.name}`}
+                              label={general_model_biker.label}
+                              fullWidth
+                            />
+                          </div>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Marca:
+                            </label>
+                            <InputField
+                              name={`biker.${index}.${general_brand_biker.name}`}
+                              label={general_brand_biker.label}
+                              fullWidth
+                            />
+                          </div>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿A nombre de quien se encuentra la motocicleta?:
+                            </label>
+                            <InputField
+                              name={`biker.${index}.${general_model_propetary_biker.name}`}
+                              label={general_model_propetary_biker.label}
+                              fullWidth
+                            />
+                          </div>
+                        </Paper>
+                      </Box>
                       <IconButton
                         onClick={() =>
                           arrayHelpers.push({
                             [general_brand_biker.name]: "",
                             [general_model_biker.name]: "",
-                            [general_model_propetary_biker.name]: ""
+                            [general_model_propetary_biker.name]: "",
                           })
                         }
                       >
@@ -931,36 +1059,93 @@ export default function General(props) {
                       sm={6}
                       style={{ paddingLeft: "10px", paddingRight: "10px" }}
                     >
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        No. Licencia:
-                      </label>
-                      <InputField
-                        type='Number'
-                        name={`license.${index}.${general_license.name}`}
-                        label={general_license.label}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Tipo de licencia:
-                      </label>
-                      {/* <InputField
-                        name={`license.${index}.${general_license_type.name}`}
-                        label={general_license_type.label}
-                        fullWidth
-                      /> */}
-                      <SelectField
-                        name={`license.${index}.${general_license_type.name}`}
-                        label={general_license_type.label}
-                        data={typeLicense}
-                        fullWidth
-                      />
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        Fecha de vencimiento:
-                      </label>
-                      <DatePickerField
-                        name={`license.${index}.${general_license_expire.name}`}
-                        fullWidth
-                      />
+                      <Divider
+                        style={{ paddingTop: "20px", paddingBottom: "20px" }}
+                      >
+                        <Chip
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: "bold",
+                            paddingTop: "20px",
+                            paddingBottom: "20px",
+                            paddingLeft: "15px",
+                            paddingRight: "15px",
+                          }}
+                          icon={<CoPresentIcon />}
+                          color="primary"
+                          label={index + 1}
+                        />
+                      </Divider>
+                      <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
+                        <Paper elevation={3}>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              No. Documento:
+                            </label>
+                            <InputField
+                              type="Number"
+                              name={`license.${index}.${general_license.name}`}
+                              label={general_license.label}
+                              fullWidth
+                            />
+                          </div>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Tipo de licencia:
+                            </label>
+                            <SelectField
+                              name={`license.${index}.${general_license_type.name}`}
+                              label={general_license_type.label}
+                              data={typeLicense}
+                              fullWidth
+                            />
+                          </div>
+                          <div
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              Fecha de vencimiento:
+                            </label>
+                            <DatePickerField
+                              name={`license.${index}.${general_license_expire.name}`}
+                              fullWidth
+                            />
+                          </div>
+                        </Paper>
+                      </Box>
+
                       <IconButton
                         onClick={() =>
                           arrayHelpers.push({
@@ -982,8 +1167,6 @@ export default function General(props) {
               )}
             />
           </Grid>
-          {/* </Paper>
-          </Box> */}
         </Grid>
       </>
     )

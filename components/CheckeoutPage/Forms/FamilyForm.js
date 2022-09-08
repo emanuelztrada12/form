@@ -2817,7 +2817,8 @@ export default function FamilyForm(props) {
                     paddingLeft: "15px",
                     paddingRight: "15px",
                   }}
-                  color="success"
+                  // color="success"
+                  color="info"
                   label="Información adicional"
                 />
               </Divider>
