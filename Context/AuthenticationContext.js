@@ -15,7 +15,7 @@ function AuthenticationContext({ children }) {
   }, []);
 
   setTimeout(async function () {
-    await localStorage.removeItem("token");
+    await localStorage.clear();
     router.push("/LoginPage");
   }, 86400000);
 
