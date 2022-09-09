@@ -735,7 +735,7 @@ export default function CheckoutPage() {
 
   const getInitialValues = () => {
     const formData = getLocal();
-    console.log(formData);
+    // console.log(formData);
     if (formData == null) {
       return formInitialValues;
     }
@@ -751,7 +751,7 @@ export default function CheckoutPage() {
   }
 
   async function _submitForm(values, actions) {
-    console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
+    // console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
     var years =
       new Date(new Date() - new Date(values.general_birth)).getFullYear() -
       1970;
@@ -1266,7 +1266,7 @@ export default function CheckoutPage() {
           },
         },
       });
-      console.log(`data ${data}`);
+      //console.log(`data ${data}`);
     } catch (error) {
       console.log(error);
     }

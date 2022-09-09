@@ -962,7 +962,7 @@ export default {
   /* porque no tiene vacunas */
   [reason_no_vaccines_covid.name]: "",
   [need_vacinnes.name]: "",
-  [reason_no_true.nmae]: "",
+  [reason_no_true.name]: "",
   [validate_sex.name]: "",
   [validate_gestacion.name]: "",
   [validate_children.name]: "",
