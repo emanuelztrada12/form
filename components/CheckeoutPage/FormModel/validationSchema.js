@@ -848,8 +848,8 @@ export default [
             family_dad_relation === "Si" &&
             family_dad_information === "Si" &&
             family_dad_phone_val === "Si",
-          then: 
-            yup.string()
+          then: yup
+            .string()
             .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
             .min(8, "El numero telefonico debe tener 8 digitos")
             .max(8, "El numero telefonico debe tener 8 digitos")
@@ -1690,7 +1690,8 @@ export default [
             family_mom_relation === "Si" &&
             family_mom_information === "Si" &&
             family_mom_phone_val === "Si",
-          then: yup.string()
+          then: yup
+            .string()
             .required(`${family_mom_phone.requiredErrorMsg}`)
             .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
             .min(8, "El numero telefonico debe tener 8 digitos")
@@ -5987,13 +5988,7 @@ export default [
           estudie_university_val === "Si" && estudie_university_sval === "Si",
         then: yup
           .string()
-          .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "No" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
+          .required(`${estudie_university_title.requiredErrorMsg}`),
       }),
 
     [study_magister.name]: yup
@@ -6001,21 +5996,36 @@ export default [
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>
           estudie_university_val === "Si" && estudie_university_sval === "Si",
-        then: yup
-          .string()
-          .required(`${study_magister.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "No" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
+        then: yup.string().required(`${study_magister.requiredErrorMsg}`),
       }),
 
-    [wich_career.name]: yup.string().when(["study_magister"], {
-      is: (study_magister) => study_magister === "Si",
-      then: yup.string().required(`${wich_career.requiredErrorMsg}`),
-    }),
+    magister: yup.array({}).of(
+      yup.object().shape({
+        [study_master_name.name]: yup
+          .string()
+          .required(`${study_master_name.requiredErrorMsg}`),
+        [study_master_place.name]: yup
+          .string()
+          .required(`${study_master_place.requiredErrorMsg}`),
+        [study_master_complete.name]: yup
+          .string()
+          .required(`${study_master_complete.requiredErrorMsg}`),
+        [study_master_schedule.name]: yup
+          .string()
+          .required(`${study_master_schedule.requiredErrorMsg}`),
+      })
+    ),
+
+    diversificado: yup.array({}).of(
+      yup.object().shape({
+        [estudies_diversificado_finish_place.name]: yup
+          .string()
+          .required(`${estudies_diversificado_finish_place.requiredErrorMsg}`),
+        [estudies_diversificado_finish_grade.name]: yup
+          .string()
+          .required(`${estudies_diversificado_finish_grade.requiredErrorMsg}`),
+      })
+    ),
 
     [select_schedules.name]: yup
       .string()
@@ -6045,13 +6055,7 @@ export default [
           estudie_university_val === "Si" && estudie_university_sval === "Si",
         then: yup
           .string()
-          .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "No" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
+          .required(`${estudie_university_title.requiredErrorMsg}`),
       }),
 
     [estudie_university_no_sede.name]: yup
@@ -6101,23 +6105,6 @@ export default [
             then: yup.string(),
           }),
       }),
-
-    magister: yup.array({}).of(
-      yup.object().shape({
-        [study_master_name.name]: yup
-          .string()
-          .required(`${study_master_name.requiredErrorMsg}`),
-        [study_master_place.name]: yup
-          .string()
-          .required(`${study_master_place.requiredErrorMsg}`),
-        [study_master_complete.name]: yup
-          .string()
-          .required(`${study_master_complete.requiredErrorMsg}`),
-        [study_master_schedule.name]: yup
-          .string()
-          .required(`${study_master_schedule.requiredErrorMsg}`),
-      })
-    ),
 
     //diversificado
     [estudie_diversificado_sval.name]: yup
@@ -6654,30 +6641,35 @@ export default [
     }),
     [social_drug.name]: yup.string().when(["social_drog"], {
       is: (social_drog) => social_drog === "Si",
-      then: yup.string().required(`${social_drug.requiredErrorMsg}`)}),
+      then: yup.string().required(`${social_drug.requiredErrorMsg}`),
+    }),
 
     //changes 2.1
-    [social_drog_person.name]: yup
-      .string()
-      .when(["social_drog"], {
-        is: (social_drog) => social_drog === "Si",
-        then: yup.string().required(`${social_drog_person.requiredErrorMsg}`)
-      }),
+    [social_drog_person.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_drog_person.requiredErrorMsg}`),
+    }),
 
     // [social_drug.name]: yup.string().when(["social_drog", "social_drog_person"], {
     //   is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
     //   then: yup.string().required(`${social_drug.requiredErrorMsg}`),
     // }),
 
-    [social_drug_relation.name]: yup.string().when(["social_drog", "social_drog_person"], {
-      is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
-      then: yup.string().required(`${social_drug_relation.requiredErrorMsg}`),
-    }),
+    [social_drug_relation.name]: yup
+      .string()
+      .when(["social_drog", "social_drog_person"], {
+        is: (social_drog, social_drog_person) =>
+          social_drog === "Si" && social_drog_person === "Si",
+        then: yup.string().required(`${social_drug_relation.requiredErrorMsg}`),
+      }),
 
-    [social_drug_position.name]: yup.string().when(["social_drog", "social_drog_person"], {
-      is: (social_drog, social_drog_person) => social_drog === "Si" && social_drog_person === "Si",
-      then: yup.string().required(`${social_drug_position.requiredErrorMsg}`),
-    }),
+    [social_drug_position.name]: yup
+      .string()
+      .when(["social_drog", "social_drog_person"], {
+        is: (social_drog, social_drog_person) =>
+          social_drog === "Si" && social_drog_person === "Si",
+        then: yup.string().required(`${social_drug_position.requiredErrorMsg}`),
+      }),
 
     [social_tatto.name]: yup
       .string()
