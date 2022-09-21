@@ -191,7 +191,6 @@ export default function EducacionalForm(props) {
       estudie_university_hour,
       /* add data information */
       study_magister,
-      wich_career,
       select_schedules,
       why_not_schedules,
       /* add information additional */
@@ -983,7 +982,6 @@ export default function EducacionalForm(props) {
                           <SelectField
                             name={study_magister.name}
                             label={study_magister.label}
-                            p
                             data={data_magister}
                             onChange={gettinMagister}
                             fullWidth
