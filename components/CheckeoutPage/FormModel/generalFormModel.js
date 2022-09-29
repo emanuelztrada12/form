@@ -577,7 +577,7 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
     family_mom_financial_incometwo: {
-      name: "family_mom_placetwo",
+      name: "family_mom_financial_incometwo",
       label:"Ingresos promedio de la madre*",
       requiredErrorMsg: "La información es requerida",
     },

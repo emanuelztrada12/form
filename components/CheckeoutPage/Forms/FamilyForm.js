@@ -887,7 +887,7 @@ export default function FamilyForm(props) {
                                           fontWeight: "bold",
                                         }}
                                       >
-                                        ¿Reside legal o ilegalsss?
+                                        ¿Reside legal o ilegal?
                                       </label>
                                       <SelectField
                                         id="dad_conditiontwo"
