@@ -835,14 +835,6 @@ export default function General(props) {
           {/* comienza las motocicletas */}
           <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
             <Chip
-              style={{
-                fontSize: "14px",
-                fontWeight: "bold",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-                paddingLeft: "15px",
-                paddingRight: "15px",
-              }}
               icon={<TwoWheelerIcon />}
               color="primary"
               label="Motocicletas"
