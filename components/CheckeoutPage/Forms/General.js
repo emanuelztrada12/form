@@ -399,9 +399,19 @@ export default function General(props) {
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                 Tiempo de residir en la vivienda:
+
+                <span
+                  style={{
+                    paddingLeft: "15px",
+                    paddingRight: "6px",
+                    color: "red"
+                  }}
+                >
+                  Nota:</span>
+                Indicarlo en años, meses o días
               </label>
               <InputField
-                
+
                 name={general_time_reside.name}
                 label={general_time_reside.label}
                 onChange={conditionLive}
@@ -456,7 +466,7 @@ export default function General(props) {
                 DPI:
               </label>
               <InputField
-                
+
                 name={general_dpi.name}
                 label={general_dpi.label}
                 fullWidth
@@ -488,7 +498,7 @@ export default function General(props) {
                     Ingrese su NIT:
                   </label>
                   <InputField
-                    
+
                     name={general_nit.name}
                     label={general_nit.label}
                     fullWidth
@@ -635,7 +645,7 @@ export default function General(props) {
                       Afiliación IRTRA:
                     </label>
                     <InputField
-                      
+                      type='number'
                       name={general_irtra.name}
                       label={general_irtra.label}
                       fullWidth
@@ -651,7 +661,7 @@ export default function General(props) {
                       Afiliación IGSS:
                     </label>
                     <InputField
-                      
+                      type='number'
                       name={general_igss.name}
                       label={general_igss.label}
                       fullWidth
@@ -757,6 +767,7 @@ export default function General(props) {
                               Modelo:
                             </label>
                             <InputField
+                              type='number'
                               name={`vehicle.${index}.${general_model.name}`}
                               label={general_model.label}
                               fullWidth
@@ -918,6 +929,7 @@ export default function General(props) {
                               Modelo:
                             </label>
                             <InputField
+                              type='number'
                               name={`biker.${index}.${general_model_biker.name}`}
                               label={general_model_biker.label}
                               fullWidth
@@ -1084,7 +1096,7 @@ export default function General(props) {
                               No. Documento:
                             </label>
                             <InputField
-                              
+
                               name={`license.${index}.${general_license.name}`}
                               label={general_license.label}
                               fullWidth

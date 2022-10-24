@@ -172,6 +172,16 @@ const {
     family_stepfather_info,
     family_stepfather_noInfo,
 
+    //changes 2.2
+    family_stepfather_val,
+    family_stepfather_nametwo,
+    family_stepfather_surnametwo,
+
+    //changes stepmother 2.2
+    family_stepmother_val,
+    family_stepmother_nametwo,
+    family_stepmother_surnametwo,
+
     family_stepmother_name,
     family_stepmother_age,
     family_stepmother_status,
@@ -226,6 +236,11 @@ const {
 
     // changes 2.1
     family_conyugue_relation,
+    
+    // changes 2.2
+    family_conyugue_time_relation,
+    family_conyugue_marriage_val,
+    family_conyugue_time_marriage,
 
     // parte del padre (abuelos)
     family_grandfather_name,
@@ -336,6 +351,16 @@ const {
     // maximo anos posibles estudiados
     estudies_year_condition,
 
+    //changes 2.2
+    estudie_primary_department,
+    estudie_basic_department,
+    estudie_diversificado_department,
+    estudie_university_department,
+    //study_master_semester,
+    study_magistertwo,
+    study_currently,
+    estudies_year_conditiontwo,
+
     //work
     work_name,
     work_position,
@@ -385,6 +410,9 @@ const {
     economic_other,
     economic_total,
 
+    // changes 2.2
+    economic_payment_card,
+
     //social
     social_group,
     social_gtime,
@@ -411,6 +439,13 @@ const {
     social_drug_relation,
     social_drug_position,
 
+    // changes 2.2
+    social_value_gather,
+    social_value_howOften,
+    social_value_time,
+    social_value_conditionWork,
+    social_value_amount,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -424,6 +459,16 @@ const {
     criminal_you_demand,
     criminal_was_suedwhy,
     criminal_you_demandwhy,
+
+    //Changes 2.2
+    criminal_validation_background,
+    criminal_because_record,
+    criminal_because_clear,
+    criminal_becauseTwo_record,
+    criminal_becauseTwo_clear,
+    criminal_whyTwo_stained,
+    criminal_whyTwo_clear,
+    criminal_you_demandwhom,
 
     //HEAL
     disease_hipertension_option,
@@ -658,6 +703,18 @@ export default {
   [family_stepfather_working_val.name]: "",
   [family_stepfather_noInfo.name]: "",
 
+  //changes 2.2
+  [family_stepfather_val.name]: "",
+  [family_stepfather_nametwo.name]: "",
+  [family_stepfather_surnametwo.name]: "",
+  
+
+
+  //changes stepmother 2.2
+  [family_stepmother_val.name]: "",
+  [family_stepmother_nametwo.name]: "",
+  [family_stepmother_surnametwo.name]: "",
+  
   // stepmother
   [family_stepmother_name.name]: "",
   [family_stepmother_age.name]: "",
@@ -734,6 +791,11 @@ export default {
   [family_conyuguepat_reason_died.name]: "",
   [family_conyuguepat_life.name]: "",
   [family_conyuguepat_phone_val.name]: "",
+
+  //changes 2.2
+  [family_conyugue_marriage_val.name]: "",
+  [family_conyugue_time_relation.name]: "",
+  [family_conyugue_time_marriage.name]: "",
 
   // abuelos parte del papa
   [family_grandfather_name.name]: "",
@@ -822,6 +884,11 @@ export default {
   // masterData
   magister: [],
 
+  //changes 2.2
+  magistertwo: [],
+  [study_magistertwo.name]: "",
+  [study_currently.name]: "",
+
   // Diversificado
   [estudie_diversificado_sval.name]: "",
   [estudie_diversificado_name.name]: "",
@@ -845,6 +912,14 @@ export default {
   [estudie_primary_hasta.name]: "",
   // maximo anos posibles estudiados
   [estudies_year_condition.name]: "",
+
+  //changes 2.2
+  [estudie_primary_department.name]: "",
+  [estudie_basic_department.name]: "",
+  [estudie_diversificado_department.name]: "",
+  [estudie_university_department.name]: "",
+  //[study_master_semester.name]: "",
+  [estudies_year_conditiontwo.name]: "",
 
   // work
   [work_name.name]: "",
@@ -882,6 +957,7 @@ export default {
   //Economic
   economic: [],
   economicother: [], 
+  economicthree: [],
   [economic_vivienda.name]: "",
   [economic_food.name]: "",
   [economic_aporte.name]: "",
@@ -897,6 +973,8 @@ export default {
   [economic_payment_deuda.name]: "",
   [economic_other.name]: "",
   [economic_total.name]: "",
+  //changes 2.2
+  [economic_payment_card.name]: "",
 
   social: [],
   [social_group.name]: "",
@@ -924,6 +1002,13 @@ export default {
   [social_drug_relation.name]: "",
   [social_drug_position.name]: "",
 
+  // changes 2.2
+  [social_value_gather.name]: "",
+  [social_value_howOften.name]: "",
+  [social_value_time.name]: "",
+  [social_value_conditionWork.name]: "",
+  [social_value_amount.name]: "",
+
   criminal: [],
   [criminal_association_option.name]: "",
   [criminal_relacion.name]: "",
@@ -937,6 +1022,16 @@ export default {
   [criminal_you_demand.name]: "",
   [criminal_was_suedwhy.name]: "",
   [criminal_you_demandwhy.name]: "",
+
+  // Changes 2.2
+  [criminal_validation_background.name]: "",
+  [criminal_because_record.name]: "",
+  [criminal_because_clear.name]: "",
+  [criminal_becauseTwo_record.name]: "",
+  [criminal_becauseTwo_clear.name]: "",
+  [criminal_whyTwo_stained.name]: "",
+  [criminal_whyTwo_clear.name]: "",
+  [criminal_you_demandwhom.name]: "",
 
   //heal
   [disease_hipertension_option.name]: "",

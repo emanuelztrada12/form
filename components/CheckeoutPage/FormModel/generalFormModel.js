@@ -831,6 +831,41 @@ export default {
       label: "Ingrese la razón de no poseer dicha información*",
       requiredErrorMsg: "La información es requerida",
     },
+
+    //changes 2.2 
+    family_stepfather_val: {
+      name: "family_stepfather_val",
+      label: "Seleccione una de las opciones*",
+    },
+    family_stepfather_nametwo: {
+      name: "family_stepfather_nametwo",
+      label: "Ingrese el nombre de su padrastro*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_stepfather_surnametwo: {
+      name: "family_stepfather_surnametwo",
+      label: "Ingrese los apellidos de su padrastro*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    //changes stepmother 2.2 
+    family_stepmother_val: {
+      name: "family_stepmother_val",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+
+    },
+    family_stepmother_nametwo: {
+      name: "family_stepmother_nametwo",
+      label: "Ingrese el nombre de su madrastra*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_stepmother_surnametwo: {
+      name: "family_stepmother_surnametwo",
+      label: "Ingrese los apellidos de su madrastra*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //stepMother
     family_stepmother_name: {
       name: "family_stepmother_name",
@@ -1313,6 +1348,23 @@ export default {
     family_conyuguepat_working_val: {
       name: "family_conyuguepat_working_val",
       label: "Seleccione una de las opciones*",
+    },
+
+    // changes 2.2
+    family_conyugue_marriage_val: {
+      name: "family_conyugue_marriage_val",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_conyugue_time_relation: {
+      name: "family_conyugue_time_relation",
+      label: "Ingrese hace cuanto posee la relación*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    family_conyugue_time_marriage: {
+      name: "family_conyugue_time_marriage",
+      label: "Ingrese el tiempo en que pretende contraer matrimonio*",
+      requiredErrorMsg: "La información es requerida",
     },
 
     //grandfather
@@ -1831,6 +1883,78 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    //changes 2.2
+    estudie_primary_department: {
+      name: "estudie_primary_department",
+      label: "Ingrese el departamento donde se encuentra el establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_basic_department: {
+      name: "estudie_basic_department",
+      label: "Ingrese el departamento donde se encuentra el establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_diversificado_department: {
+      name: "estudie_diversificado_department",
+      label: "Ingrese el departamento donde se encuentra el establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_university_department: {
+      name: "estudie_university_department",
+      label: "Ingrese el departamento donde se encuentra la universidad*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    study_master_semester: {
+      name: "study_master_semester",
+      label: "Ingrese el semestre que esta cursando*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    //
+    study_master_nametwo: {
+      name: "study_master_nametwo",
+      label: "Ingrese la maestria que estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_placetwo: {
+      name: "study_master_placetwo",
+      label: "Ingrese la sede donde estudia*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_completetwo: {
+      name: "study_master_completetwo",
+      label: "seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_scheduletwo: {
+      name: "study_master_scheduletwo",
+      label: "Ingrese sus horarios de estudio*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_master_semestertwo: {
+      name: "study_master_semestertwo",
+      label: "Ingrese el semestre que esta cursando*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    study_magistertwo: {
+      name: "study_magistertwo",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    study_currently: {
+      name: "study_currently",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudies_year_conditiontwo: {
+      name: "estudies_year_conditiontwo",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    
+
     //working
     work_name: {
       name: "work_name",
@@ -1940,7 +2064,7 @@ export default {
     },
     work_ne_detailIncome: {
       name: "work_ne_detailIncome",
-      label: "Detalle sus ingresos*",
+      label: "Detalle sus ganancias*",
       requiredErrorMsg: "La información es requerida",
     },
     work_ne_whatwill: {
@@ -2141,6 +2265,48 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    // changes 2.2
+    economic_usethree: {
+      name: "economic_usethree",
+      label: "Ingrese para que lo utilizó*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_billthree: {
+      name: "economic_billthree",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    amountthree: {
+      name: "amountthree",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_balancethree: {
+      name: "economic_balancethree",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_monthly_paymentthree: {
+      name: "economic_monthly_paymentthree",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_delinquent_paymentthree: {
+      name: "economic_delinquent_paymentthree",
+      label: "Ingrese una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    econmic_observacionesthree: {
+      name: "econmic_observacionesthree",
+      label: "Ingrese los detalles de esta deuda*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    economic_payment_card: {
+      name: "economic_payment_card",
+      label: "",
+      requiredErrorMsg: "La información es requerida",
+    },
+
     //social
     social_group: {
       name: "social_group",
@@ -2279,6 +2445,33 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
 
+    //changes 2.2
+    social_value_gather: {
+      name: "social_value_gather",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_value_howOften: {
+      name: "social_value_howOften",
+      label: "Indique cada cuanto se reúnen*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_value_time: {
+      name: "social_value_time",
+      label: "Indique en que horario*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_value_conditionWork: {
+      name: "social_value_conditionWork",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    social_value_amount: {
+      name: "social_value_amount",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
 
     //Delictivas
     criminal_association_option: {
@@ -2378,6 +2571,52 @@ export default {
     criminal_you_demandwhy: {
       name: "criminal_you_demandwhy",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    // changes 2.2 criminal
+    criminal_validation_background: {
+      name: "criminal_validation_background",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    //penales
+    criminal_because_record: {
+      name: "criminal_because_record",
+      label: "Ingrese el motivo*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    criminal_because_clear: {
+      name: "criminal_because_clear",
+      label: "Ingrese cuando los limpio*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    // ambos penales
+    criminal_becauseTwo_record: {
+      name: "criminal_becauseTwo_record",
+      label: "Ingrese el motivo*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    criminal_becauseTwo_clear: {
+      name: "criminal_becauseTwo_clear",
+      label: "Ingrese cuando los limpio*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    // policiacos
+    criminal_whyTwo_stained: {
+      name: "criminal_whyTwo_stained",
+      label: "Ingrese el motivo*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    criminal_whyTwo_clear: {
+      name: "criminal_whyTwo_clear",
+      label: "Ingrese cuando los limpio*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    //a quien demando
+    criminal_you_demandwhom: {
+      name: "criminal_you_demandwhom",
+      label: "Ingrese a quién demando*",
       requiredErrorMsg: "La información es requerida",
     },
 

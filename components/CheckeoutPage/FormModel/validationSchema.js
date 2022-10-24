@@ -174,6 +174,16 @@ const {
     family_stepfather_info,
     family_stepfather_noInfo,
 
+    //changes 2.2
+    family_stepfather_val,
+    family_stepfather_nametwo,
+    family_stepfather_surnametwo,
+
+    //changes stepmother 2.2
+    family_stepmother_val,
+    family_stepmother_nametwo,
+    family_stepmother_surnametwo,
+
     //stepmother
     family_stepmother_name,
     family_stepmother_age,
@@ -290,6 +300,11 @@ const {
     family_conyuguepat_phone_val,
     family_conyuguepat_working_val,
 
+    //changes 2.1
+    family_conyugue_time_relation,
+    family_conyugue_marriage_val,
+    family_conyugue_time_marriage,
+
     //abuelos por parte del papa
     family_grandfather_name,
     family_grandfather_age,
@@ -375,6 +390,13 @@ const {
     study_master_complete,
     study_master_schedule,
 
+    //changes 2.2
+    study_master_nametwo,
+    study_master_placetwo,
+    study_master_completetwo,
+    study_master_scheduletwo,
+    study_master_semestertwo,
+
     // add data
     study_magister,
     wich_career,
@@ -403,6 +425,16 @@ const {
     estudie_primary_desde,
     estudie_primary_hasta,
     estudies_year_condition,
+
+    //changes 2.2
+    estudie_primary_department,
+    estudie_basic_department,
+    estudie_diversificado_department,
+    estudie_university_department,
+    study_master_semester,
+    study_magistertwo,
+    study_currently,
+    estudies_year_conditiontwo,
 
     //work
     work_name,
@@ -462,6 +494,9 @@ const {
     economic_other,
     economic_total,
 
+    //changes 2.2
+    economic_payment_card,
+
     //economic
     social_group,
     social_gtime,
@@ -494,6 +529,13 @@ const {
     social_drug_relation,
     social_drug_position,
 
+    // changes 2.2
+    social_value_gather,
+    social_value_howOften,
+    social_value_time,
+    social_value_conditionWork,
+    social_value_amount,
+
     //delictiva
     criminal_association_option,
     criminal_relacion,
@@ -515,6 +557,16 @@ const {
     criminal_family_reason,
     criminal_was_suedwhy,
     criminal_you_demandwhy,
+
+    //changes 2.2
+    criminal_validation_background,
+    criminal_because_record,
+    criminal_because_clear,
+    criminal_becauseTwo_record,
+    criminal_becauseTwo_clear,
+    criminal_whyTwo_stained,
+    criminal_whyTwo_clear,
+    criminal_you_demandwhom,
 
     //heal
     disease_hipertension_option,
@@ -580,7 +632,8 @@ const {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  /*yup.object().shape({
+  /*
+  yup.object().shape({
     [validation_form.name]: yup
       .string()
       .required(`${validation_form.requiredErrorMsg}`),
@@ -6983,5 +7036,6 @@ export default [
       is: (red_faccebookval) => red_faccebookval === "No",
       then: yup.string().required(`${red_faccebookval_two.requiredErrorMsg}`),
     }),
-  }),*/
+  }),
+  */
 ];

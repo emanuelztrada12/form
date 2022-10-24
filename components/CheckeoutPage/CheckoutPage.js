@@ -241,6 +241,18 @@ const FORMULARIO = gql`
       family_stepfather_info
       family_stepfather_noInfo
 
+
+
+      #changes stepfather 2.2
+      family_stepfather_val
+      family_stepfather_nametwo
+      family_stepfather_surnametwo
+
+      #changes stepmother 2.2
+      family_stepmother_val
+      family_stepmother_nametwo
+      family_stepmother_surnametwo
+
       #stepmother
       family_stepmother_name
       family_stepmother_age
@@ -296,6 +308,11 @@ const FORMULARIO = gql`
 
       #conyugue changes 2.1
       family_conyugue_relation
+
+      #changes 2.2 conyugue
+      family_conyugue_time_relation
+      family_conyugue_marriage_val
+      family_conyugue_time_marriage
 
       #son
       son {
@@ -442,7 +459,17 @@ const FORMULARIO = gql`
         study_master_place
         study_master_complete
         study_master_schedule
+        study_master_semester
       }
+
+      magistertwo {
+        study_master_nametwo
+        study_master_placetwo
+        study_master_completetwo
+        study_master_scheduletwo
+        study_master_semestertwo
+      }
+      
       # add
       study_magister
       wich_career
@@ -461,6 +488,15 @@ const FORMULARIO = gql`
         estudies_diversificado_finish_grade
       }
 
+
+      #changes 2.2
+      estudie_primary_department
+      estudie_basic_department
+      estudie_diversificado_department
+      estudie_university_department
+      study_magistertwo
+      study_currently
+      estudies_year_conditiontwo
 
       #basic
       estudie_basic_sval
@@ -519,6 +555,17 @@ const FORMULARIO = gql`
         economic_delinquent_paymentother
         econmic_observaciones
       }
+
+      economicthree {
+        economic_usethree
+        economic_billthree
+        amountthree
+        economic_balancethree
+        economic_monthly_paymentthree
+        economic_delinquent_paymentthree
+        econmic_observacionesthree
+      }
+
       economic_vivienda
       economic_food
       economic_aporte
@@ -534,6 +581,9 @@ const FORMULARIO = gql`
       economic_payment_deuda
       economic_other
       economic_total
+
+      #changes 2.2
+      economic_payment_card
 
       #social
       social_group
@@ -566,6 +616,13 @@ const FORMULARIO = gql`
       social_drug_relation
       social_drug_position
 
+      #changes 2.2
+      social_value_gather
+      social_value_howOften
+      social_value_time
+      social_value_conditionWork
+      social_value_amount
+
       criminal_association_option
       criminal_relacion
       criminal_name
@@ -585,6 +642,17 @@ const FORMULARIO = gql`
         criminal_family_phone
         criminal_family_reason
       }
+
+      #changes 2.2
+      criminal_validation_background
+    criminal_because_record
+    criminal_because_clear
+    criminal_becauseTwo_record
+    criminal_becauseTwo_clear
+    criminal_whyTwo_stained
+    criminal_whyTwo_clear
+    criminal_you_demandwhom
+
       dosis {
         dosis_name
         dosis_date
@@ -691,11 +759,11 @@ function _renderStepContent(step, values) {
     case 5:
       return <StepBrothersForm formField={formField} values={values} />;
     case 6:
-      return <ConyugueForm formField={formField} values={values}/>;
+      return <ConyugueForm formField={formField} values={values} />;
     case 7:
       return <GrandfatherForm formField={formField} values={values} />;
     case 8:
-      return <EducacionalForm formField={formField} values={values}/>;
+      return <EducacionalForm formField={formField} values={values} />;
     case 9:
       return <WorkForm formField={formField} values={values} />;
     case 10:
@@ -932,6 +1000,9 @@ export default function CheckoutPage() {
             family_stepfather_working_val: values.family_stepfather_working_val,
             family_stepfather_info: values.family_stepfather_info,
             family_stepfather_noInfo: values.family_stepfather_noInfo,
+            family_stepfather_val: values.family_stepfather_val,
+            family_stepfather_nametwo: values.family_stepfather_nametwo,
+            family_stepfather_surnametwo: values.family_stepfather_surnametwo,
 
             // #stepmother
             family_stepmother_name: values.family_stepmother_name,
@@ -951,9 +1022,13 @@ export default function CheckoutPage() {
             family_stepmother_phone_val: values.family_stepmother_phone_val,
             family_stepmother_working_val: values.family_stepmother_working_val,
             family_stepmother_noInfo: values.family_stepmother_noInfo,
+            family_stepmother_val: values.family_stepmother_val,
+            family_stepmother_nametwo: values.family_stepmother_nametwo,
+            family_stepmother_surnametwo: values.family_stepmother_surnametwo,
             son: values.son,
             brothers: values.brothers,
             stepbrother: values.stepbrother,
+
 
             // conyugue
             family_conyugue_name: values.family_conyugue_name,
@@ -993,7 +1068,10 @@ export default function CheckoutPage() {
               values.family_conyuguepat_working_val,
             //Changes 2.1
             family_conyugue_relation: values.family_conyugue_relation,
-
+            //changes 2.2
+            family_conyugue_time_relation: values.family_conyugue_time_relation,
+            family_conyugue_marriage_val: values.family_conyugue_marriage_val,
+            family_conyugue_time_marriage: values.family_conyugue_time_marriage,
             //abuelo papa y mama
             family_grandfather_name: values.family_grandfather_name,
             family_grandfather_age: values.family_grandfather_age,
@@ -1104,6 +1182,10 @@ export default function CheckoutPage() {
             why_not_schedules: values.why_not_schedules,
             /* add master data */
             magister: values.magister,
+            //changes 2.2
+            study_magistertwo: values.study_magistertwo,
+            magistertwo: values.magistertwo,
+            study_currently: values.study_currently,
 
             estudie_diversificado_sval: values.estudie_diversificado_sval,
             estudie_diversificado_name: values.estudie_diversificado_name,
@@ -1125,8 +1207,16 @@ export default function CheckoutPage() {
             estudie_primary_uniname: values.estudie_primary_uniname,
             estudie_primary_desde: values.estudie_primary_desde,
             estudie_primary_hasta: values.estudie_primary_hasta,
+
+            //#changes 2.2
+            estudie_primary_department: values.estudie_primary_department,
+            estudie_basic_department: values.estudie_basic_department,
+            estudie_diversificado_department: values.estudie_diversificado_department,
+            estudie_university_department: values.estudie_university_department,
+            //study_master_semester: values.study_master_semester,
             // repeate year
             estudies_year_condition: values.estudies_year_condition,
+            estudies_year_conditiontwo: values.estudies_year_conditiontwo,
 
             //work
             work: values.work,
@@ -1149,6 +1239,8 @@ export default function CheckoutPage() {
             //economic
             economic: values.economic,
             economicother: values.economicother,
+            // changes 2.2
+            economicthree: values.economicthree,
             economic_vivienda: values.economic_vivienda,
             economic_food: values.economic_food,
             economic_aporte: values.economic_aporte,
@@ -1164,6 +1256,9 @@ export default function CheckoutPage() {
             economic_payment_deuda: values.economic_payment_deuda,
             economic_other: values.economic_other,
             economic_total: values.economic_total,
+
+            //changes 2.2
+            economic_payment_card: values.economic_payment_card,
 
             //social
             social_group: values.social_group,
@@ -1191,6 +1286,13 @@ export default function CheckoutPage() {
             social_drug_relation: values.social_drug_relation,
             social_drug_position: values.social_drug_position,
 
+            // changes 2.2
+            social_value_gather: values.social_value_gather,
+            social_value_howOften: values.social_value_howOften,
+            social_value_time: values.social_value_time,
+            social_value_conditionWork: values.social_value_conditionWork,
+            social_value_amount: values.social_value_amount,
+
             criminal_association_option: values.criminal_association_option,
             criminal_relacion: values.criminal_relacion,
             criminal_name: values.criminal_name,
@@ -1202,6 +1304,16 @@ export default function CheckoutPage() {
             criminal_was_sued: values.criminal_was_sued,
             criminal_you_demand: values.criminal_you_demand,
             criminal: values.criminal,
+
+            //changes 2.2
+            criminal_validation_background: values.criminal_validation_background,
+            criminal_because_record: values.criminal_because_record,
+            criminal_because_clear: values.criminal_because_clear,
+            criminal_becauseTwo_record: values.criminal_becauseTwo_record,
+            criminal_becauseTwo_clear: values.criminal_becauseTwo_clear,
+            criminal_whyTwo_stained: values.criminal_whyTwo_stained,
+            criminal_whyTwo_clear: values.criminal_whyTwo_clear,
+            criminal_you_demandwhom: values.criminal_you_demandwhom,
 
             dosis: values.dosis,
             disease: values.disease,
@@ -1287,7 +1399,7 @@ export default function CheckoutPage() {
       //     id
       //   },
       // });
-      
+
       // settime out tiempo
       setTimeout(async () => {
         // eliminar storage

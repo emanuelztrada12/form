@@ -156,6 +156,13 @@ export default function SocialForm(props) {
     setDrugs(value);
   };
 
+  //changes 2.2
+  const [valueGroup, setGroup] = useState({});
+  const gettingGroup = (e) => {
+    let { value } = e.target;
+    setGroup(value);
+  };
+
   const [valueF, setValuesF] = useState({});
   const gettingFamily = (e) => {
     let { value } = e.target;
@@ -226,6 +233,13 @@ export default function SocialForm(props) {
       social_drug,
       social_drug_relation,
       social_drug_position,
+
+      //changes 2.2
+      social_value_gather,
+      social_value_howOften,
+      social_value_time,
+      social_value_conditionWork,
+      social_value_amount,
     },
   } = props;
 
@@ -291,24 +305,90 @@ export default function SocialForm(props) {
               />
               {value === "Si" && (
                 <>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿A cuál grupo pertenece?:
-                    </label>
-                    <InputField
-                      name={social_gtime.name}
-                      label={social_gtime.label}
-                      fullWidth
-                    />
+                  <Grid container>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      style={{
+                        paddingLeft: "10px",
+                        paddingRight: "10px",
+                        paddingTop: "10px",
+                      }}
+                    >
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        ¿A cuál grupo pertenece?:
+                      </label>
+                      <InputField
+                        name={social_gtime.name}
+                        label={social_gtime.label}
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      style={{
+                        paddingLeft: "10px",
+                        paddingRight: "10px",
+                        paddingTop: "10px",
+                      }}
+                    >
+                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        ¿Se reúnen?:
+                      </label>
+                      <SelectField
+                        name={social_value_gather.name}
+                        label={social_value_gather.label}
+                        onChange={gettingGroup}
+                        data={validate}
+                        fullWidth
+
+                      />
+                      {valueGroup === "Si" && (
+                        <>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={12}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "10px",
+                            }}
+                          >
+                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                              ¿Cada cuanto?:
+                            </label>
+                            <InputField
+                              name={social_value_howOften.name}
+                              label={social_value_howOften.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={12}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              paddingTop: "10px",
+                            }}
+                          >
+                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                              ¿En que horario?:
+                            </label>
+                            <InputField
+                              name={social_value_time.name}
+                              label={social_value_time.label}
+                              fullWidth
+                            />
+                          </Grid>
+                        </>
+                      )}
+                    </Grid>
                   </Grid>
                 </>
               )}
@@ -581,6 +661,26 @@ export default function SocialForm(props) {
                       fullWidth
                     />
                   </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "10px",
+                    }}
+                  >
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Se ha presentado a laborar en estado de ebriedad, aliento a alcohol o resaca?:
+                    </label>
+                    <SelectField
+                      name={social_value_conditionWork.name}
+                      label={social_value_conditionWork.label}
+                      data={validate}
+                      fullWidth
+                    />
+                  </Grid>
                 </Grid>
               )}
             </Grid>
@@ -661,6 +761,25 @@ export default function SocialForm(props) {
                     <InputField
                       name={social_drog_time.name}
                       label={social_drog_time.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "10px",
+                    }}
+                  >
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Cuantas veces lo ha consumido?:
+                    </label>
+                    <InputField
+                      name={social_value_amount.name}
+                      label={social_value_amount.label}
                       fullWidth
                     />
                   </Grid>
@@ -943,7 +1062,7 @@ export default function SocialForm(props) {
                                                 label={social_tatto_fot.label}
                                                 value={
                                                   archivoUrl[
-                                                    `social.${index}.${social_tatto_fot.name}`
+                                                  `social.${index}.${social_tatto_fot.name}`
                                                   ]
                                                 }
                                                 fullWidth
@@ -956,33 +1075,33 @@ export default function SocialForm(props) {
                                                 {isLoading[
                                                   `social.${index}.${social_tatto_fot.name}`
                                                 ] < 100 && (
-                                                  <CircularProgress
-                                                    variant="determinate"
-                                                    value={
-                                                      isLoading[
+                                                    <CircularProgress
+                                                      variant="determinate"
+                                                      value={
+                                                        isLoading[
                                                         `social.${index}.${social_tatto_fot.name}`
-                                                      ]
-                                                    }
-                                                  />
-                                                )}
+                                                        ]
+                                                      }
+                                                    />
+                                                  )}
                                                 {isLoading[
                                                   `social.${index}.${social_tatto_fot.name}`
                                                 ] == 100 && (
-                                                  <>
-                                                    <p
-                                                      style={{
-                                                        fontSize: "20px",
-                                                        color: "green",
-                                                        paddingRight: "2px",
-                                                      }}
-                                                    >
-                                                      Imagen subida
-                                                    </p>
-                                                    <CheckCircleOutlineIcon
-                                                      sx={{ color: "green" }}
-                                                    />
-                                                  </>
-                                                )}
+                                                    <>
+                                                      <p
+                                                        style={{
+                                                          fontSize: "20px",
+                                                          color: "green",
+                                                          paddingRight: "2px",
+                                                        }}
+                                                      >
+                                                        Imagen subida
+                                                      </p>
+                                                      <CheckCircleOutlineIcon
+                                                        sx={{ color: "green" }}
+                                                      />
+                                                    </>
+                                                  )}
                                                 <input
                                                   onChange={(e) => {
                                                     gettingValue(
