@@ -21,10 +21,6 @@ const val = [
 
 const relation = [
     {
-        value: "Espos@",
-        label: "Espos@",
-    },
-    {
         value: "Noviazgo",
         label: "Noviazgo",
     },
@@ -121,6 +117,23 @@ export default function ConyugueForm(props) {
         setWorkingp(value);
     };
 
+    const [relationTime, setRelationTime] = useState("");
+    const gettingRelationTime = (e) => {
+        let { value } = e.target;
+        setRelationTime(value);
+    };
+
+    const [marriage_val, setMarriage] = useState("");
+    const gettingMarriage = (e) => {
+        let { value } = e.target;
+        setMarriage(value);
+    };
+
+    const [timeMarriage, setTimeMarriage] = useState("");
+    const gettingTimeMarriage = (e) => {
+        let { value } = e.target;
+        setTimeMarriage(value);
+    }
 
     const [isSSR, setIsSSR] = useState(true);
     useEffect(() => {
@@ -168,6 +181,11 @@ export default function ConyugueForm(props) {
 
             // changes 2.1
             family_conyugue_relation,
+
+            //changes 2.2
+            family_conyugue_time_relation,
+            family_conyugue_marriage_val,
+            family_conyugue_time_marriage
         },
     } = props;
 
@@ -209,8 +227,18 @@ export default function ConyugueForm(props) {
                             label="Cónyuge"
                         />
                     </Divider>
-                    <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    <Grid item
+                        xs={12}
+                        sm={6}
+                        style={{
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
+                            paddingTop: "10px"
+                        }}>
+                        <label style={{
+                            fontSize: "18px",
+                            fontWeight: "bold"
+                        }}>
                             ¿Tiene cónyuge?:
                         </label>
                         <SelectField
@@ -237,14 +265,23 @@ export default function ConyugueForm(props) {
                                     fullWidth
                                 />
                                 {validateLife === "Si" && (
-                                    <Grid container spacing={0} style={{ paddingTop: "18px" }}>
+                                    <Grid container spacing={0}
+                                        style={{
+                                            paddingTop: "18px"
+                                        }}>
                                         <Grid
                                             item
                                             xs={12}
                                             sm={6}
-                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px"
+                                            }}
                                         >
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 Nombre completo:
                                             </label>
                                             <InputField
@@ -257,21 +294,37 @@ export default function ConyugueForm(props) {
                                             item
                                             xs={12}
                                             sm={6}
-                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px"
+                                            }}
                                         >
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 Edad:
                                             </label>
                                             <InputField
-                                                type= 'Number'
+                                                type='Number'
                                                 name={family_conyugue_age.name}
                                                 label={family_conyugue_age.label}
                                                 fullWidth
                                             />
                                         </Grid>
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 Estado civil:
                                             </label>
                                             <SelectField
@@ -283,8 +336,19 @@ export default function ConyugueForm(props) {
                                             />
                                         </Grid>
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 ¿Tiene teléfono?:
                                             </label>
                                             <SelectField
@@ -298,22 +362,52 @@ export default function ConyugueForm(props) {
                                             />
                                             <Grid>
                                                 {valuesPhone === "Si" && (
-                                                    <div style={{ paddingTop: "10px" }}>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        style={{
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Teléfono:
                                                             </label>
-                                                            <InputField type='Number' name={family_conyugue_phone.name} label={family_conyugue_phone.label} fullWidth />
+                                                            <InputField type='Number'
+                                                                name={family_conyugue_phone.name}
+                                                                label={family_conyugue_phone.label}
+                                                                fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
 
                                                 {valuesPhone === "No" && (
-                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight: "10px",
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <label style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold"
+                                                        }}>
                                                             ¿Motivo del por qué no tiene teléfono?:
                                                         </label>
-                                                        <InputField name={family_conyugue_no_phone.name} label={family_conyugue_no_phone.label} fullWidth />
+                                                        <InputField
+                                                            name={family_conyugue_no_phone.name}
+                                                            label={family_conyugue_no_phone.label}
+                                                            fullWidth />
                                                     </div>
 
                                                 )}
@@ -321,8 +415,19 @@ export default function ConyugueForm(props) {
                                         </Grid>
 
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 ¿Labora?:
                                             </label>
                                             <SelectField
@@ -336,49 +441,117 @@ export default function ConyugueForm(props) {
                                             />
                                             <div>
                                                 {valuesWorking === "Si" && (
-                                                    <div style={{ paddingTop: "10px" }}>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        style={{
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Puesto donde labora:
                                                             </label>
-                                                            <InputField name={family_conyugue_place.name} label={family_conyugue_place.label} fullWidth />
+                                                            <InputField
+                                                                name={family_conyugue_place.name}
+                                                                label={family_conyugue_place.label}
+                                                                fullWidth />
                                                         </div>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Empresa donde labora:
                                                             </label>
-                                                            <InputField name={family_conyugue_company.name} label={family_conyugue_company.label} fullWidth />
+                                                            <InputField
+                                                                name={family_conyugue_company.name}
+                                                                label={family_conyugue_company.label}
+                                                                fullWidth />
                                                         </div>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px",
+                                                                paddingTop: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Ingresos promedio:
                                                             </label>
-                                                            <InputField type='Number' name={family_conyugue_financial_income.name} label={family_conyugue_financial_income.label}
-                                                            InputProps={{
-                                                                startAdornment: (
-                                                                    <InputAdornment position="start">
-                                                                        Q.
-                                                                    </InputAdornment>
-                                                                ),
-                                                            }}
-                                                            fullWidth />
+                                                            <InputField
+                                                                type='Number'
+                                                                name={family_conyugue_financial_income.name}
+                                                                label={family_conyugue_financial_income.label}
+                                                                InputProps={{
+                                                                    startAdornment: (
+                                                                        <InputAdornment position="start">
+                                                                            Q.
+                                                                        </InputAdornment>
+                                                                    ),
+                                                                }}
+                                                                fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
 
                                                 {valuesWorking === "No" && (
-                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight: "10px",
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <label style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold"
+                                                        }}>
                                                             ¿De quién depende económicamente?:
                                                         </label>
-                                                        <InputField name={family_conyugue_depend.name} label={family_conyugue_depend.label} fullWidth />
+                                                        <InputField
+                                                            name={family_conyugue_depend.name}
+                                                            label={family_conyugue_depend.label}
+                                                            fullWidth />
                                                     </div>
                                                 )}
                                             </div>
                                         </Grid>
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 ¿Actualmente se encuentra casad@ legalmente pero separad@?:
                                             </label>
                                             <SelectField
@@ -392,11 +565,25 @@ export default function ConyugueForm(props) {
                                             />
                                             <Grid>
                                                 {valuesMarried === "Si" && (
-                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight: "10px",
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <label style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold"
+                                                        }}>
                                                             ¿Motivo del por qué esta separad@?:
                                                         </label>
-                                                        <InputField name={family_conyugue_married.name} label={family_conyugue_married.label} fullWidth />
+                                                        <InputField
+                                                            name={family_conyugue_married.name}
+                                                            label={family_conyugue_married.label}
+                                                            fullWidth />
                                                     </div>
 
                                                 )}
@@ -409,31 +596,87 @@ export default function ConyugueForm(props) {
                                     === "No" && (
                                         <div>
                                             {/* add name and lastname */}
-                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Nombre:
-                                            </label>
-                                            <InputField name={family_conyugue_died_name.name} label={family_conyugue_died_name.label} fullWidth />
-                                        </div>
+                                            <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px"
+                                                }}>
+                                                <label style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold"
+                                                }}>
+                                                    Nombre:
+                                                </label>
+                                                <InputField
+                                                    name={family_conyugue_died_name.name}
+                                                    label={family_conyugue_died_name.label}
+                                                    fullWidth />
+                                            </div>
 
-                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                                Apellido:
-                                            </label>
-                                            <InputField name={family_conyugue_died_lastname.name} label={family_conyugue_died_lastname.label} fullWidth />
-                                        </div>
-                                        {/* --------------------- */}
-                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px"
+                                                }}>
+                                                <label style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold"
+                                                }}>
+                                                    Apellido:
+                                                </label>
+                                                <InputField
+                                                    name={family_conyugue_died_lastname.name}
+                                                    label={family_conyugue_died_lastname.label}
+                                                    fullWidth />
+                                            </div>
+                                            {/* --------------------- */}
+                                            <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px"
+                                                }}>
+                                                <label style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold"
+                                                }}>
                                                     ¿Tiempo fallecido?:
                                                 </label>
-                                                <InputField name={family_conyugue_time_died.name} label={family_conyugue_time_died.label} fullWidth />
+                                                <InputField
+                                                    name={family_conyugue_time_died.name}
+                                                    label={family_conyugue_time_died.label}
+                                                    fullWidth />
                                             </div>
-                                            <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            <div
+                                                item
+                                                xs={12}
+                                                sm={6}
+                                                style={{
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "10px"
+                                                }}>
+                                                <label style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold"
+                                                }}>
                                                     ¿Razón de fallecimiento?:
                                                 </label>
-                                                <InputField name={family_conyugue_reason_died.name} label={family_conyugue_reason_died.label} fullWidth />
+                                                <InputField
+                                                    name={family_conyugue_reason_died.name}
+                                                    label={family_conyugue_reason_died.label}
+                                                    fullWidth />
                                             </div>
                                         </div>
                                     )}
@@ -442,8 +685,19 @@ export default function ConyugueForm(props) {
                     </Grid>
 
                     {validate === "No" && (
-                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px"
+                            }}>
+                            <label style={{
+                                fontSize: "18px",
+                                fontWeight: "bold"
+                            }}>
                                 ¿Posee pareja en la actualidad?:
                             </label>
                             <SelectField
@@ -462,7 +716,10 @@ export default function ConyugueForm(props) {
                                             item
                                             xs={12}
                                             sm={6}
-                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px"
+                                            }}
                                         >
                                             <label style={{ fontSize: "18px", fontWeight: "bold" }}>
                                                 Nombre completo:
@@ -477,21 +734,38 @@ export default function ConyugueForm(props) {
                                             item
                                             xs={12}
                                             sm={6}
-                                            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px"
+                                            }}
                                         >
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 Edad:
                                             </label>
                                             <InputField
-                                                type= 'Number'
+                                                type='Number'
                                                 name={family_conyuguepat_age.name}
                                                 label={family_conyuguepat_age.label}
                                                 fullWidth
                                             />
                                         </Grid>
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 Estado civil:
                                             </label>
                                             <SelectField
@@ -503,8 +777,18 @@ export default function ConyugueForm(props) {
                                             />
                                         </Grid>
 
-                                        <Grid item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            sm={6} style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px"
+                                            }}>
+                                            <label style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold"
+                                            }}>
                                                 ¿Tiene teléfono?:
                                             </label>
                                             <SelectField
@@ -518,22 +802,51 @@ export default function ConyugueForm(props) {
                                             />
                                             <Grid>
                                                 {valuesPhonep === "Si" && (
-                                                    <div style={{ paddingTop: "10px" }}>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        style={{ paddingTop: "10px" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Teléfono:
                                                             </label>
-                                                            <InputField type='Number' name={family_conyuguepat_phone.name} label={family_conyuguepat_phone.label} fullWidth />
+                                                            <InputField
+                                                                type='Number'
+                                                                name={family_conyuguepat_phone.name}
+                                                                label={family_conyuguepat_phone.label}
+                                                                fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
 
                                                 {valuesPhonep === "No" && (
-                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight: "10px",
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <label style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold"
+                                                        }}>
                                                             ¿Motivo del por qué no tiene teléfono?:
                                                         </label>
-                                                        <InputField name={family_conyuguepat_no_phone.name} label={family_conyuguepat_no_phone.label} fullWidth />
+                                                        <InputField
+                                                            name={family_conyuguepat_no_phone.name}
+                                                            label={family_conyuguepat_no_phone.label}
+                                                            fullWidth />
                                                     </div>
 
                                                 )}
@@ -556,70 +869,207 @@ export default function ConyugueForm(props) {
                                             />
                                             <div>
                                                 {valuesWorkingp === "Si" && (
-                                                    <div style={{ paddingTop: "10px" }}>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        style={{ paddingTop: "10px" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Puesto donde labora:
                                                             </label>
-                                                            <InputField name={family_conyuguepat_place.name} label={family_conyuguepat_place.label} fullWidth />
+                                                            <InputField
+                                                                name={family_conyuguepat_place.name}
+                                                                label={family_conyuguepat_place.label}
+                                                                fullWidth />
                                                         </div>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Empresa donde labora:
                                                             </label>
-                                                            <InputField name={family_conyuguepat_company.name} label={family_conyuguepat_company.label} fullWidth />
+                                                            <InputField
+                                                                name={family_conyuguepat_company.name}
+                                                                label={family_conyuguepat_company.label}
+                                                                fullWidth />
                                                         </div>
-                                                        <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                        <div
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px",
+                                                                paddingTop: "10px"
+                                                            }}>
+                                                            <label style={{
+                                                                fontSize: "18px",
+                                                                fontWeight: "bold"
+                                                            }}>
                                                                 Ingresos promedio:
                                                             </label>
-                                                            <InputField type='Number' name={family_conyuguepat_financial_income.name} label={family_conyuguepat_financial_income.label}
-                                                            InputProps={{
-                                                                startAdornment: (
-                                                                    <InputAdornment position="start">
-                                                                        Q.
-                                                                    </InputAdornment>
-                                                                ),
-                                                            }}
-                                                            fullWidth />
+                                                            <InputField
+                                                                type='Number'
+                                                                name={family_conyuguepat_financial_income.name}
+                                                                label={family_conyuguepat_financial_income.label}
+                                                                InputProps={{
+                                                                    startAdornment: (
+                                                                        <InputAdornment position="start">
+                                                                            Q.
+                                                                        </InputAdornment>
+                                                                    ),
+                                                                }}
+                                                                fullWidth />
                                                         </div>
                                                     </div>
                                                 )}
 
                                                 {valuesWorkingp === "No" && (
-                                                    <div item xs={12} sm={6} style={{ paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px" }}>
-                                                        <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                                    <div
+                                                        item
+                                                        xs={12}
+                                                        sm={6}
+                                                        style={{
+                                                            paddingLeft: "10px",
+                                                            paddingRight: "10px",
+                                                            paddingTop: "10px"
+                                                        }}>
+                                                        <label style={{
+                                                            fontSize: "18px",
+                                                            fontWeight: "bold"
+                                                        }}>
                                                             ¿De quién depende económicamente?:
                                                         </label>
-                                                        <InputField name={family_conyuguepat_depend.name} label={family_conyuguepat_depend.label} fullWidth />
+                                                        <InputField
+                                                            name={family_conyuguepat_depend.name}
+                                                            label={family_conyuguepat_depend.label}
+                                                            fullWidth />
                                                     </div>
                                                 )}
                                             </div>
                                         </Grid>
                                         <Grid item
-                                      xs={12}
-                                      sm={6}
-                                      style={{
-                                        paddingTop: "10px",
-                                        paddingLeft: "10px",
-                                        paddingRight: "10px",
-                                      }}>
-                                      <label
-                                        style={{
-                                          fontSize: "18px",
-                                          fontWeight: "bold",
-                                        }}
-                                      >
-                                        ¿Que relación tienen?
-                                      </label>
-                                      <SelectField
-                                        id="conyuge_relation"
-                                        name={family_conyugue_relation.name}
-                                        label={family_conyugue_relation.label}
-                                        data={relation}
-                                        fullWidth
-                                      />
-                                    </Grid>
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                                paddingTop: "10px",
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                            }}>
+                                            <label
+                                                style={{
+                                                    fontSize: "18px",
+                                                    fontWeight: "bold",
+                                                }}
+                                            >
+                                                ¿Que relación tienen?
+                                            </label>
+                                            <SelectField
+                                                id="conyuge_relation"
+                                                name={family_conyugue_relation.name}
+                                                label={family_conyugue_relation.label}
+                                                data={relation}
+                                                onChange={gettingRelationTime}
+                                                fullWidth
+                                            />
+                                            {relationTime === "Noviazgo" && (
+                                                <>
+                                                    <Grid container>
+                                                        <Grid
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px",
+                                                            }}
+                                                        >
+                                                            <label
+                                                                style={{
+                                                                    fontSize: "18px",
+                                                                    fontWeight: "bold",
+                                                                }}
+                                                            >
+                                                                ¿Hace cuanto posee el noviazgo?
+                                                            </label>
+                                                            <InputField
+                                                                name={family_conyugue_time_relation.name}
+                                                                label={family_conyugue_time_relation.label}
+                                                                fullWidth
+                                                            />
+                                                        </Grid>
+                                                        <Grid
+                                                            item
+                                                            xs={12}
+                                                            sm={6}
+                                                            style={{
+                                                                paddingLeft: "10px",
+                                                                paddingRight: "10px",
+                                                            }}
+                                                        >
+                                                            <label
+                                                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                                                            >
+                                                                ¿Tiene planes de contraer matrimonio?:
+                                                            </label>
+                                                            <SelectField
+                                                                name={family_conyugue_marriage_val.name}
+                                                                label={family_conyugue_marriage_val.label}
+                                                                data={val}
+                                                                onChange={gettingTimeMarriage}
+                                                                fullWidth
+                                                            />
+                                                            {timeMarriage === "Si" && (
+                                                                <Grid
+                                                                    item
+                                                                    xs={12}
+                                                                    sm={12}
+                                                                    style={{
+                                                                        paddingLeft: "10px",
+                                                                        paddingRight: "10px",
+                                                                    }}
+                                                                >
+                                                                    <label
+                                                                        style={{
+                                                                            fontSize: "18px",
+                                                                            fontWeight: "bold",
+                                                                        }}
+                                                                    >
+                                                                        Ingrese el tiempo en que pretende contraer matrimonio:
+                                                                    </label>
+                                                                    <InputField
+                                                                        name={family_conyugue_time_marriage.name}
+                                                                        label={family_conyugue_time_marriage.label}
+                                                                        fullWidth
+                                                                    />
+                                                                </Grid>
+                                                            )}
+                                                            <Grid>
+
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+
+                                                </>
+                                            )}
+
+                                        </Grid>
                                     </Grid>
                                 )}
                             </Grid>

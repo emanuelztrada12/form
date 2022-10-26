@@ -146,7 +146,7 @@ export default function WorkForm(props) {
       work_ne_web,
       work_ne_dateInit,
       work_ne_salaryPersonal,
-      work_ne_detail,
+     // work_ne_detail,
       work_ne_detailIncome,
       work_ne_whatwill,
       /* add new data */
@@ -292,7 +292,7 @@ export default function WorkForm(props) {
                       fullWidth
                     />
                   </Grid>
-
+{/* 
                   <Grid
                     item
                     xs={12}
@@ -338,7 +338,7 @@ export default function WorkForm(props) {
                       fullWidth
                     />
                   </Grid>
-
+ */}
                   <Grid
                     item
                     xs={12}
@@ -350,7 +350,7 @@ export default function WorkForm(props) {
                     }}
                   >
                     <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Detallar ingresos:
+                      Detallar ganancias:
                     </label>
                     <InputField
                       name={work_ne_detailIncome.name}
@@ -744,7 +744,6 @@ export default function WorkForm(props) {
                                       Nombre del jefe inmediato:
                                     </label>
                                     <InputField
-                                      type="Number"
                                       name={`work.${index}.${work_boss.name}`}
                                       label={work_boss.label}
                                       fullWidth

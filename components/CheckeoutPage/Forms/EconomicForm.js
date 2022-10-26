@@ -6,7 +6,7 @@ import {
   CheckboxField,
 } from "../../FormFields";
 import { FieldArray } from "formik";
-import lodash from "lodash";
+import lodash, { result } from "lodash";
 //Material ui
 import { Grid, Typography, Box, Paper, Divider, Chip } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -60,6 +60,13 @@ const cuenta = [
     label: "otro",
   },
 ];
+
+const tarjeta = [
+  {
+    value: "Tarjeta de crédito",
+    label: "Tarjeta de crédito",
+  }
+]
 
 const pagos = [
   {
@@ -119,6 +126,9 @@ export default function EconomicForm(props) {
   if (!props.values[props.formField.economic_payment_deuda.name])
     props.values[props.formField.economic_payment_deuda.name] = 0;
 
+  if (!props.values[props.formField.economic_payment_card.name])
+  props.values[props.formField.economic_payment_card.name] = 0;
+
   if (!props.values[props.formField.economic_vivienda.name])
     props.values[props.formField.economic_vivienda.name] = 0;
 
@@ -159,7 +169,9 @@ export default function EconomicForm(props) {
     props.values[props.formField.economic_other.name] = 0;
 
   const [total, setTotal] = useState(0);
+  const [totalTar, setTotalTar] = useState(0);
   const [result, setResult] = useState(0);
+  const [resultTar, setResultTar] = useState(0);
   const [totals, set_total] = useState(0);
 
   const calculate = (nvalues) => {
@@ -187,9 +199,38 @@ export default function EconomicForm(props) {
       ...total,
       [name]: e.target.value,
     };
-
     calculate(nvalues);
   };
+
+
+
+  const calculate2 = (nvalues) => {
+    setTotalTar(nvalues);
+    let res = 0;
+    for (const v of Object.values(nvalues)) {
+      try {
+        const num = parseFloat(v);
+        res += num;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    let value;
+    if (lodash.isNaN(res)) value = 0;
+    else value = res.toFixed(2);
+    setResultTar(value);
+    props.values[props.formField.economic_payment_card.name] =
+      parseFloat(value);
+  };
+
+  const onChangeTar = (name, e) => {
+    const nvalues = {
+      ...totalTar, 
+      [name]: e.target.value
+    }
+    calculate2(nvalues)
+  }
 
   const onDelete = (arrayHelpers, index, prefix) => {
     arrayHelpers.remove(index);
@@ -198,6 +239,15 @@ export default function EconomicForm(props) {
       if (key.match(prefix)) delete nvalues[key];
     }
     calculate(nvalues);
+  };
+
+  const onDeleteTar = (arrayHelpers, index, prefix) => {
+    arrayHelpers.remove(index);
+    const nvalues = { ...total };
+    for (const key of Object.keys(nvalues)) {
+      if (key.match(prefix)) delete nvalues[key];
+    }
+    calculate2(nvalues);
   };
 
   const [valuess, set_values] = useState({
@@ -221,7 +271,7 @@ export default function EconomicForm(props) {
       ...valuess,
       [name]: e.target.value,
     };
-    // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
+    console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
     set_values(nvalues);
     calc_total(nvalues);
   };
@@ -292,6 +342,16 @@ export default function EconomicForm(props) {
       economic_monthly_paymentother,
       economic_delinquent_paymentother,
       econmic_observaciones,
+
+      // changes 2.2
+      economic_usethree,
+      economic_billthree,
+      amountthree,
+      economic_balancethree,
+      economic_monthly_paymentthree,
+      economic_delinquent_paymentthree,
+      econmic_observacionesthree,
+      economic_payment_card,
 
       economic_vivienda,
       economic_food,
@@ -500,7 +560,7 @@ export default function EconomicForm(props) {
                                       <List dense={dense}>
                                         <ListItem style={{ paddingBottom: "" }}>
                                           <ListItemText
-                                            primary="Estado de la cuenta"
+                                            primary="Tipo de deuda"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -508,7 +568,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "10px",
+                                              paddingRight: "98px",
                                             }}
                                           />
                                           <SelectField
@@ -528,7 +588,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Monto total"
+                                            primary="Monto límite de crédito"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -536,7 +596,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "65px",
+                                              paddingRight: "50px",
                                             }}
                                           />
                                           <InputField
@@ -564,7 +624,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "35px",
+                                              paddingRight: "90px",
                                             }}
                                           />
                                           <InputField
@@ -584,7 +644,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Pago mensual"
+                                            primary="Pago mensual mínimo requerido dddd"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -592,7 +652,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "45px",
+                                              paddingRight: "0px",
                                             }}
                                           />
                                           <InputField
@@ -628,7 +688,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "38px",
+                                              paddingRight: "98px",
                                             }}
                                           />
                                           <SelectField
@@ -869,7 +929,7 @@ export default function EconomicForm(props) {
                                       <List dense={dense}>
                                         <ListItem style={{ paddingBottom: "" }}>
                                           <ListItemText
-                                            primary="Estado de la cuenta"
+                                            primary="Tipo de deuda"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -877,7 +937,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "10px",
+                                              paddingRight: "98px",
                                             }}
                                           />
                                           <SelectField
@@ -897,7 +957,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Monto total"
+                                            primary="Monto límite de crédito"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -905,7 +965,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "65px",
+                                              paddingRight: "50px",
                                             }}
                                           />
                                           <InputField
@@ -933,7 +993,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "35px",
+                                              paddingRight: "90px",
                                             }}
                                           />
                                           <InputField
@@ -953,7 +1013,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Pago mensual"
+                                            primary="Pago mensual mínimo requerido"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -961,7 +1021,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "45px",
+                                              paddingRight: "0px",
                                             }}
                                           />
                                           <InputField
@@ -991,7 +1051,7 @@ export default function EconomicForm(props) {
                                             }}
                                             style={{
                                               textAlign: "start",
-                                              paddingRight: "38px",
+                                              paddingRight: "98px",
                                             }}
                                           />
                                           <SelectField
@@ -1034,6 +1094,345 @@ export default function EconomicForm(props) {
                                 arrayHelpers,
                                 index,
                                 `economicother.${index}`
+                              )
+                            }
+                            style={{ paddingTop: "10px" }}
+                          >
+                            <RemoveCircleIcon
+                              sx={{ color: "red", fontSize: 30 }}
+                            />
+                          </IconButton>
+                        </Grid>
+                      ))}
+                    </>
+                  )}
+                />
+              </Grid>
+            </div>
+          </Grid>
+
+          <Divider style={{ paddingTop: "15px" }} />
+
+          <Grid>
+            <div>
+              <p
+                style={{
+                  paddingLeft: "15px",
+                  paddingTop: "10px",
+                  fontSize: "20px",
+                  // fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                Deudas que se encuentran a su nombre, con tarjetas de crédito:
+              </p>
+
+              <Grid
+                container
+                style={{
+                  paddingTop: "18px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <FieldArray
+                  name="economicthree"
+                  render={(arrayHelpers) => (
+                    <>
+                      <IconButton
+                        onClick={() =>
+                          arrayHelpers.push({
+                            [economic_usethree.name]: "",
+                            [econmic_observacionesthree.name]: "",
+                            [economic_billthree.name]: "",
+                            [amountthree.name]: 0,
+                            [economic_balancethree.name]: 0,
+                            [economic_monthly_paymentthree.name]: 0,
+                            [economic_delinquent_paymentthree.name]: "",
+                          })
+                        }
+                      >
+                        <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                      </IconButton>
+                      {(values.economicthree || []).map((_, index) => (
+                        <Grid
+                          key={`inputeconomicthree_${index}`}
+                          item
+                          xs={12}
+                          sm={6}
+                          style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                        >
+                          <>
+                            <div
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              <Divider
+                                style={{
+                                  paddingTop: "20px",
+                                  paddingBottom: "20px",
+                                }}
+                              >
+                                <Chip
+                                  style={{
+                                    fontSize: "14px",
+                                    fontWeight: "bold",
+                                    paddingTop: "20px",
+                                    paddingBottom: "20px",
+                                    paddingLeft: "15px",
+                                    paddingRight: "15px",
+                                  }}
+                                  icon={<CreditCardOffIcon />}
+                                  color="primary"
+                                  label={`Deuda ${index + 1}`}
+                                />
+                              </Divider>
+
+                              <h1
+                                style={{
+                                  paddingBottom: "10px",
+                                  fontSize: "20px",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Detalle de la deuda :{" "}
+                              </h1>
+                              <Grid container spacing={3}>
+                                <Grid item xs={12} sm={6}>
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    ¿Para que lo utilizó?:
+                                  </label>
+                                  <InputField
+                                    name={`economicthree.${index}.${economic_usethree.name}`}
+                                    label={economic_usethree.label}
+                                    fullWidth
+                                  />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                  <label
+                                    style={{
+                                      fontSize: "18px",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    Observaciones*:
+                                  </label>
+                                  <InputField
+                                    name={`economicthree.${index}.${econmic_observacionesthree.name}`}
+                                    label={econmic_observacionesthree.label}
+                                    style={{ paddingBottom: "20px" }}
+                                    fullWidth
+                                  />
+                                </Grid>
+                              </Grid>
+
+                              <Divider />
+
+                              <Box sx={{ flexGrow: 1, maxWidth: "auto" }}>
+                                <Paper elevation={3}>
+                                  <Grid>
+                                    <Grid>
+                                      <Typography
+                                        sx={{ mt: 4, mb: 2 }}
+                                        variant="h6"
+                                        component="div"
+                                        style={{
+                                          display: "flex",
+                                          justifyContent: "center",
+                                          paddingTop: "20px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Tarjeta de crédito
+                                      </Typography>
+                                      <Divider />
+                                      <List dense={dense}>
+                                        <ListItem style={{ paddingBottom: "" }}>
+                                          <ListItemText
+                                            primary="Tipo de deuda"
+                                            primaryTypographyProps={{
+                                              fontSize: 18,
+                                              fontWeight: "medium",
+                                              letterSpacing: 0,
+                                            }}
+                                            style={{
+                                              textAlign: "start",
+                                              paddingRight: "98px",
+                                            }}
+                                          />
+                                          <SelectField
+                                            name={`economicthree.${index}.${economic_billthree.name}`}
+                                            label={economic_billthree.label}
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
+                                            data={tarjeta}
+                                            fullWidth
+                                          />
+                                        </ListItem>
+                                        <Divider />
+                                        <ListItem>
+                                          <ListItemText
+                                            primary="Monto límite de crédito"
+                                            primaryTypographyProps={{
+                                              fontSize: 18,
+                                              fontWeight: "medium",
+                                              letterSpacing: 0,
+                                            }}
+                                            style={{
+                                              textAlign: "start",
+                                              paddingRight: "50px",
+                                            }}
+                                          />
+                                          <InputField
+                                            type="Number"
+                                            name={`economicthree.${index}.${amountthree.name}`}
+                                            label={amountthree.label}
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
+                                            fullWidth
+                                          />
+                                        </ListItem>
+                                        <Divider />
+                                        <ListItem>
+                                          <ListItemText
+                                            primary="Saldo a la fecha"
+                                            primaryTypographyProps={{
+                                              fontSize: 18,
+                                              fontWeight: "medium",
+                                              letterSpacing: 0,
+                                            }}
+                                            style={{
+                                              textAlign: "start",
+                                              paddingRight: "90px",
+                                            }}
+                                          />
+                                          <InputField
+                                            type="Number"
+                                            name={`economicthree.${index}.${economic_balancethree.name}`}
+                                            label={economic_balancethree.label}
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
+                                            fullWidth
+                                          />
+                                        </ListItem>
+                                        <Divider />
+                                        <ListItem>
+                                          <ListItemText
+                                            primary="Pago mensual mínimo requerido tar"
+                                            primaryTypographyProps={{
+                                              fontSize: 18,
+                                              fontWeight: "medium",
+                                              letterSpacing: 0,
+                                            }}
+                                            style={{
+                                              textAlign: "start",
+                                              paddingRight: "0px",
+                                            }}
+                                          />
+                                          <InputField
+                                            type="Number"
+                                            name={`economicthree.${index}.${economic_monthly_paymentthree.name}`}
+                                            label={
+                                              economic_monthly_paymentthree.label
+                                            }
+                                            onChange={(e) => {
+                                              onChangeTar(
+                                                `economicthree.${index}.${economic_monthly_paymentthree.name}`,
+                                                e
+                                              );
+
+                                              gettingValue(`${economic_monthly_paymentthree}`);
+                                            }}
+                                            InputProps={{
+                                              startAdornment: (
+                                                <InputAdornment position="start">
+                                                  Q.
+                                                </InputAdornment>
+                                              ),
+                                            }}
+                                            fullWidth
+                                          />
+                                        </ListItem>
+                                        <Divider />
+                                        <ListItem>
+                                          <ListItemText
+                                            primary="Pagos en mora"
+                                            primaryTypographyProps={{
+                                              fontSize: 18,
+                                              fontWeight: "medium",
+                                              letterSpacing: 0,
+                                            }}
+                                            style={{
+                                              textAlign: "start",
+                                              paddingRight: "98px",
+                                            }}
+                                          />
+                                          <SelectField
+                                            name={`economicthree.${index}.${economic_delinquent_paymentthree.name}`}
+                                            label={
+                                              economic_delinquent_paymentthree.label
+                                            }
+                                            data={pagos}
+                                            fullWidth
+                                          />
+                                        </ListItem>
+                                        <Divider />
+                                      </List>
+                                    </Grid>
+                                  </Grid>
+                                </Paper>
+                              </Box>
+                            </div>
+                          </>
+                          <IconButton
+                            onClick={() =>
+                              arrayHelpers.push({
+                                [economic_usethree.name]: "",
+                                [economic_billthree.name]: "",
+                                [amountthree.name]: 0,
+                                [economic_balancethree.name]: 0,
+                                [economic_monthly_paymentthree.name]: 0,
+                                [economic_delinquent_paymentthree.name]: "",
+                                [econmic_observacionesthree.name]: "",
+                              })
+                            }
+                          >
+                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                          </IconButton>
+                          <IconButton
+                            onClick={() =>
+                              onDeleteTar(
+                                arrayHelpers,
+                                index,
+                                `economicthree.${index}`
                               )
                             }
                             style={{ paddingTop: "10px" }}
@@ -1533,6 +1932,37 @@ export default function EconomicForm(props) {
                       <ListItem>
                         <ListItemAvatar>
                           <Avatar style={{ background: "black" }}>
+                            <CreditCardOffIcon />
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary="Pago de tarjetas"
+                          primaryTypographyProps={{
+                            fontSize: 15,
+                            fontWeight: "medium",
+                            letterSpacing: 0,
+                          }}
+                          style={{ textAlign: "start", paddingRight: "40px" }}
+                        />
+                        <InputField
+                          type="Number"
+                          name={economic_payment_card.name}
+                          label={economic_payment_card.label}
+                          value={resultTar}
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                Q.
+                              </InputAdornment>
+                            ),
+                          }}
+                          fullWidth
+                        />
+                      </ListItem>
+                      <Divider />
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar style={{ background: "black" }}>
                             <AltRouteIcon />
                           </Avatar>
                         </ListItemAvatar>
@@ -1565,7 +1995,7 @@ export default function EconomicForm(props) {
                       <Divider />
                       <ListItem>
                         <ListItemText
-                          primary="Total: "
+                          primary="Total:"
                           primaryTypographyProps={{
                             fontSize: 15,
                             fontWeight: "medium",
@@ -1577,7 +2007,7 @@ export default function EconomicForm(props) {
                           type="Number"
                           name={economic_total.name}
                           label={economic_total.label}
-                          value={parseFloat(totals) + parseFloat(result)}
+                          value={parseFloat(totals)}
                           InputProps={{
                             startAdornment: (
                               <InputAdornment position="start">

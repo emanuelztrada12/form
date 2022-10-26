@@ -2,7 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "apollo-link-context";
 
 const httpLink = createHttpLink({
-  uri: 'https://us-central1-gtalentgt.cloudfunctions.net/apisGraphl',
+  uri: 'http://localhost:4000/',
 });
 
 const authLink = setContext((_, {headers}) => {

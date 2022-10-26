@@ -24,6 +24,21 @@ const value = [
   },
 ];
 
+const valueBackground = [
+  {
+    value: "Penales",
+    label: "Penales",
+  },
+  {
+    value: "Policiales",
+    label: "Policiales",
+  },
+  {
+    value: "Ambos",
+    label: "Ambos",
+  },
+];
+
 const civil = [
   {
     value: "Ti@",
@@ -46,9 +61,38 @@ const civil = [
     label: "Mamá",
   },
   {
+    value: "hij@",
+    label: "hij@",
+  },
+  {
+    value: "niet@",
+    label: "niet@",
+  },
+  {
     value: "Sobrin@",
     label: "Sobrin@",
   },
+  {
+    value: "Padrastro",
+    label: "Padrastro",
+  },
+  {
+    value: "Madrastra",
+    label: "Madrastra",
+  },
+  {
+    value: "hijastr@",
+    label: "hijastr@",
+  },
+  {
+    value: "Cuñad@",
+    label: "Cuñad@",
+  },
+  {
+    value: "Suegr@",
+    label: "Suegr@",
+  },
+
 ];
 
 export default function CriminalForm(props) {
@@ -84,6 +128,12 @@ export default function CriminalForm(props) {
     setFamily(value);
   };
 
+  const [criminalValue, setCriminalValue] = useState("");
+  const gettingCriminalValue = (e) => {
+    let { value } = e.target;
+    setCriminalValue(value);
+  };
+
   const [isSSR, setIsSSR] = useState(true);
   useEffect(() => {
     setIsSSR(false);
@@ -114,6 +164,16 @@ export default function CriminalForm(props) {
       criminal_you_demand,
       criminal_was_suedwhy,
       criminal_you_demandwhy,
+
+      //Changes 2.2
+      criminal_validation_background,
+      criminal_because_record,
+      criminal_because_clear,
+      criminal_becauseTwo_record,
+      criminal_becauseTwo_clear,
+      criminal_whyTwo_stained,
+      criminal_whyTwo_clear,
+      criminal_you_demandwhom,
     },
   } = props;
 
@@ -225,29 +285,240 @@ export default function CriminalForm(props) {
                 onChange={handleChangePolice}
                 fullWidth
               />
+
+
               {policiales === "Si" && (
-                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Por qué los tiene manchados?:
+                <>
+                  <Grid item
+                    xs={12}
+                    sm={12}
+                    style={{
+                      paddingTop: "10px",
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                    }}>
+                    <label
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      ¿Cuales?
                     </label>
-                    <InputField
-                      name={criminal_why_stained.name}
-                      label={criminal_why_stained.label}
+                    <SelectField
+                      id="criminal_background"
+                      name={criminal_validation_background.name}
+                      label={criminal_validation_background.label}
+                      data={valueBackground}
+                      onChange={gettingCriminalValue}
                       fullWidth
                     />
+                    {criminalValue === "Policiales" && (
+                      <>
+                        <Grid container>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              ¿Por qué los tiene manchados?
+                            </label>
+                            <InputField
+                              name={criminal_why_stained.name}
+                              label={criminal_why_stained.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿Cuando los limpio?:
+                            </label>
+                            <InputField
+                              name={criminal_why_clear.name}
+                              label={criminal_why_clear.label}
+                              fullWidth
+                            />
+                            <Grid>
+
+                            </Grid>
+                          </Grid>
+                        </Grid>
+
+                      </>
+                    )}
+                    {criminalValue === "Penales" && (
+                      <>
+                        <Grid container>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              ¿Por qué los tiene manchados?
+                            </label>
+                            <InputField
+                              name={criminal_because_record.name}
+                              label={criminal_because_record.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿Cuando los limpio?:
+                            </label>
+                            <InputField
+                              name={criminal_because_clear.name}
+                              label={criminal_because_clear.label}
+                              fullWidth
+                            />
+                            <Grid>
+
+                            </Grid>
+                          </Grid>
+                        </Grid>
+
+                      </>
+                    )}
+                    {criminalValue === "Ambos" && (
+                      <>
+                        <Grid container>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              ¿Por qué tiene los penales manchados?
+                            </label>
+                            <InputField
+                              name={criminal_becauseTwo_record.name}
+                              label={criminal_becauseTwo_record.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿Cuando limpio los penales?:
+                            </label>
+                            <InputField
+                              name={criminal_becauseTwo_clear.name}
+                              label={criminal_becauseTwo_clear.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              ¿Por qué tiene los policiales manchados?
+                            </label>
+                            <InputField
+                              name={criminal_whyTwo_stained.name}
+                              label={criminal_whyTwo_stained.label}
+                              fullWidth
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                            }}
+                          >
+                            <label
+                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                            >
+                              ¿Cuando limpio los policiales?:
+                            </label>
+                            <InputField
+                              name={criminal_whyTwo_clear.name}
+                              label={criminal_whyTwo_clear.label}
+                              fullWidth
+                            />
+                            <Grid>
+
+
+                            </Grid>
+                          </Grid>
+                        </Grid>
+
+                      </>
+                    )}
+
                   </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Cuándo los limpio?:
-                    </label>
-                    <InputField
-                      name={criminal_why_clear.name}
-                      label={criminal_why_clear.label}
-                      fullWidth
-                    />
-                  </Grid>
-                </Grid>
+                </>
               )}
             </Grid>
 
@@ -309,14 +580,36 @@ export default function CriminalForm(props) {
               />
 
               {d === "Si" && (
-                <Grid container spacing={3} style={{ paddingTop: "18px" }}>
-                  <Grid item xs={12} sm={6}>
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                <Grid container
+                  spacing={3}
+                  style={{ paddingTop: "18px" }}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                  >
+                    <label
+                      style={{ fontSize: "18px", fontWeight: "bold" }}>
                       ¿Por qué?:
                     </label>
                     <InputField
                       name={criminal_you_demandwhy.name}
                       label={criminal_you_demandwhy.label}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                  >
+                    <label
+                      style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿A quién?:
+                    </label>
+                    <InputField
+                      name={criminal_you_demandwhom.name}
+                      label={criminal_you_demandwhom.label}
                       fullWidth
                     />
                   </Grid>
@@ -593,20 +886,20 @@ export default function CriminalForm(props) {
                                 </div>
                               </>
                               <IconButton
-                            onClick={() =>
-                              arrayHelpers.push({
-                                [criminal_family_name.name]: "",
-                                [criminal_family_lastname.name]: "",
-                                [criminal_family_age.name]: "",
-                                [criminal_family_civil_status.name]: "",
-                                [criminal_family_profession.name]: "",
-                                [criminal_family_phone.name]: "",
-                                [criminal_family_reason.name]: "",
-                              })
-                            }
-                          >
-                            <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
-                          </IconButton>
+                                onClick={() =>
+                                  arrayHelpers.push({
+                                    [criminal_family_name.name]: "",
+                                    [criminal_family_lastname.name]: "",
+                                    [criminal_family_age.name]: "",
+                                    [criminal_family_civil_status.name]: "",
+                                    [criminal_family_profession.name]: "",
+                                    [criminal_family_phone.name]: "",
+                                    [criminal_family_reason.name]: "",
+                                  })
+                                }
+                              >
+                                <AddBoxIcon color="primary" sx={{ fontSize: 30 }} />
+                              </IconButton>
                               <IconButton
                                 onClick={() => arrayHelpers.remove(index)}
                               >
