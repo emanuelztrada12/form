@@ -817,6 +817,7 @@ export default {
     family_stepfather_life: {
       name: "family_stepfather_life",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
     },
     family_stepfather_phone_val: {
       name: "family_stepfather_phone_val",
@@ -836,6 +837,7 @@ export default {
     family_stepfather_val: {
       name: "family_stepfather_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
     },
     family_stepfather_nametwo: {
       name: "family_stepfather_nametwo",

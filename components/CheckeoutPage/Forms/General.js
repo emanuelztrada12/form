@@ -398,20 +398,10 @@ export default function General(props) {
               }}
             >
               <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                Tiempo de residir en la vivienda:
-
-                <span
-                  style={{
-                    paddingLeft: "15px",
-                    paddingRight: "6px",
-                    color: "red"
-                  }}
-                >
-                  Nota:</span>
-                Indicarlo en años, meses o días
+                Tiempo de residir en la vivienda en años:
               </label>
               <InputField
-
+                type="Number"
                 name={general_time_reside.name}
                 label={general_time_reside.label}
                 onChange={conditionLive}

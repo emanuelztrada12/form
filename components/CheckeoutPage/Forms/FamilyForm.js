@@ -6,7 +6,7 @@ import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import WomanIcon from "@mui/icons-material/Woman";
 import BoyIcon from "@mui/icons-material/Boy";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 
 const civil = [
   {
@@ -73,7 +73,6 @@ const relationship = [
 ];
 
 export default function FamilyForm(props) {
-
   const [values, setValue] = useState("");
   const gettingValue = (e) => {
     let { value } = e.target;
@@ -115,8 +114,7 @@ export default function FamilyForm(props) {
   const gettingResidentMomTwo = (e) => {
     let { value } = e.target;
     setResidentMomTwo(value);
-  }
-
+  };
 
   const [reason, setReason] = useState("");
   const gettingReason = (e) => {
@@ -312,7 +310,6 @@ export default function FamilyForm(props) {
       family_dad_residenttwo,
       family_dad_no_residenttwo,
       family_dad_condition_residenttwo,
-
 
       // add name died
       family_dad_died_first_name,
@@ -593,7 +590,6 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
-
                                 name={family_dad_age.name}
                                 label={family_dad_age.label}
                                 fullWidth
@@ -665,7 +661,6 @@ export default function FamilyForm(props) {
                                         Teléfono:
                                       </label>
                                       <InputField
-
                                         name={family_dad_phone.name}
                                         label={family_dad_phone.label}
                                         fullWidth
@@ -796,7 +791,6 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
-                            
                                         name={family_dad_financial_income.name}
                                         label={
                                           family_dad_financial_income.label
@@ -843,7 +837,6 @@ export default function FamilyForm(props) {
                               </Grid>
                             </Grid>
 
-
                             <Grid
                               item
                               xs={12}
@@ -868,9 +861,7 @@ export default function FamilyForm(props) {
                               />
                               <Grid>
                                 {resident === "No" ? (
-                                  <Grid
-                                    container
-                                  >
+                                  <Grid container>
                                     <Grid
                                       item
                                       xs={12}
@@ -895,14 +886,16 @@ export default function FamilyForm(props) {
                                         fullWidth
                                       />
                                     </Grid>
-                                    <Grid item
+                                    <Grid
+                                      item
                                       xs={12}
                                       sm={6}
                                       style={{
                                         paddingTop: "10px",
                                         paddingLeft: "10px",
                                         paddingRight: "10px",
-                                      }}>
+                                      }}
+                                    >
                                       <label
                                         style={{
                                           fontSize: "18px",
@@ -913,21 +906,22 @@ export default function FamilyForm(props) {
                                       </label>
                                       <SelectField
                                         id="dad_conditiontwo"
-                                        name={family_dad_condition_resident.name}
-                                        label={family_dad_condition_resident.label}
+                                        name={
+                                          family_dad_condition_resident.name
+                                        }
+                                        label={
+                                          family_dad_condition_resident.label
+                                        }
                                         data={condition_resident}
                                         fullWidth
                                       />
                                     </Grid>
                                   </Grid>
-
                                 ) : (
                                   <h1></h1>
                                 )}
                               </Grid>
                             </Grid>
-
-
                           </Grid>
                         </Grid>
                       ) : (
@@ -946,7 +940,6 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -966,17 +959,16 @@ export default function FamilyForm(props) {
                                   fontWeight: "bold",
                                 }}
                               >
-
                                 ¿Tiempo fallecido?:
                                 <span
                                   style={{
                                     paddingLeft: "15px",
                                     paddingRight: "6px",
-                                    color: "red"
+                                    color: "red",
                                   }}
                                 >
-                                  Nota:</span>
-
+                                  Nota:
+                                </span>
                                 Indicarlo en años, meses o días
                               </label>
                               <InputField
@@ -995,7 +987,6 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -1010,8 +1001,6 @@ export default function FamilyForm(props) {
                                 fullWidth
                               />
 
-
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -1025,7 +1014,6 @@ export default function FamilyForm(props) {
                                 label={family_dad_reason_died.label}
                                 fullWidth
                               />
-
                             </Grid>
                           </Grid>
                         </Grid>
@@ -1114,7 +1102,6 @@ export default function FamilyForm(props) {
                                 Edad:
                               </label>
                               <InputField
-
                                 name={family_dad_agetwo.name}
                                 label={family_dad_agetwo.label}
                                 fullWidth
@@ -1186,7 +1173,6 @@ export default function FamilyForm(props) {
                                         Teléfonos:
                                       </label>
                                       <InputField
-
                                         name={family_dad_phonetwo.name}
                                         label={family_dad_phonetwo.label}
                                         fullWidth
@@ -1318,7 +1304,6 @@ export default function FamilyForm(props) {
                                         Ingresos promedio:
                                       </label>
                                       <InputField
-
                                         name={
                                           family_dad_financial_incometwo.name
                                         }
@@ -1371,7 +1356,6 @@ export default function FamilyForm(props) {
                               </Grid>
                             </Grid>
 
-
                             <Grid
                               item
                               xs={12}
@@ -1396,17 +1380,17 @@ export default function FamilyForm(props) {
                               />
                               <Grid>
                                 {residentTwo === "No" ? (
-                                  <Grid
-                                    container
-                                  >
-                                    <Grid item
+                                  <Grid container>
+                                    <Grid
+                                      item
                                       xs={12}
                                       sm={6}
                                       style={{
                                         paddingTop: "10px",
                                         paddingLeft: "10px",
                                         paddingRight: "10px",
-                                      }}>
+                                      }}
+                                    >
                                       <label
                                         style={{
                                           fontSize: "18px",
@@ -1422,15 +1406,16 @@ export default function FamilyForm(props) {
                                       />
                                     </Grid>
 
-
-                                    <Grid item
+                                    <Grid
+                                      item
                                       xs={12}
                                       sm={6}
                                       style={{
                                         paddingTop: "10px",
                                         paddingLeft: "10px",
                                         paddingRight: "10px",
-                                      }}>
+                                      }}
+                                    >
                                       <label
                                         style={{
                                           fontSize: "18px",
@@ -1441,21 +1426,22 @@ export default function FamilyForm(props) {
                                       </label>
                                       <SelectField
                                         id="dad_condition"
-                                        name={family_dad_condition_residenttwo.name}
-                                        label={family_dad_condition_residenttwo.label}
+                                        name={
+                                          family_dad_condition_residenttwo.name
+                                        }
+                                        label={
+                                          family_dad_condition_residenttwo.label
+                                        }
                                         data={condition_resident}
                                         fullWidth
                                       />
                                     </Grid>
                                   </Grid>
-
                                 ) : (
                                   <h1></h1>
                                 )}
                               </Grid>
                             </Grid>
-
-
                           </Grid>
                         </Grid>
                       )}
@@ -1472,7 +1458,6 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -1497,11 +1482,11 @@ export default function FamilyForm(props) {
                                   style={{
                                     paddingLeft: "15px",
                                     paddingRight: "6px",
-                                    color: "red"
+                                    color: "red",
                                   }}
                                 >
-                                  Nota:</span>
-
+                                  Nota:
+                                </span>
                                 Indicarlo en años, meses o días
                               </label>
                               <InputField
@@ -1520,7 +1505,6 @@ export default function FamilyForm(props) {
                                 paddingTop: "10px",
                               }}
                             >
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -1535,8 +1519,6 @@ export default function FamilyForm(props) {
                                 fullWidth
                               />
 
-
-
                               <label
                                 style={{
                                   fontSize: "18px",
@@ -1550,7 +1532,6 @@ export default function FamilyForm(props) {
                                 label={family_dad_reason_diedtwo.label}
                                 fullWidth
                               />
-
                             </Grid>
                           </Grid>
                         </Grid>
@@ -1685,7 +1666,6 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
-
                                   name={family_mom_age.name}
                                   label={family_mom_age.label}
                                   fullWidth
@@ -1763,7 +1743,6 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
-
                                           name={family_mom_phone.name}
                                           label={family_mom_phone.label}
                                           fullWidth
@@ -1896,7 +1875,6 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
-
                                           name={
                                             family_mom_financial_income.name
                                           }
@@ -1956,7 +1934,10 @@ export default function FamilyForm(props) {
                                 }}
                               >
                                 <label
-                                  style={{ fontSize: "18px", fontWeight: "bold" }}
+                                  style={{
+                                    fontSize: "18px",
+                                    fontWeight: "bold",
+                                  }}
                                 >
                                   ¿Reside en Guatemala?:
                                 </label>
@@ -1968,11 +1949,8 @@ export default function FamilyForm(props) {
                                   fullWidth
                                 />
                                 <Grid>
-
                                   {residentMom === "No" ? (
-                                    <Grid
-                                      container
-                                    >
+                                    <Grid container>
                                       <Grid
                                         item
                                         xs={12}
@@ -1998,14 +1976,16 @@ export default function FamilyForm(props) {
                                         />
                                       </Grid>
 
-                                      <Grid item
+                                      <Grid
+                                        item
                                         xs={12}
                                         sm={6}
                                         style={{
                                           paddingTop: "10px",
                                           paddingLeft: "10px",
                                           paddingRight: "10px",
-                                        }}>
+                                        }}
+                                      >
                                         <label
                                           style={{
                                             fontSize: "18px",
@@ -2016,21 +1996,22 @@ export default function FamilyForm(props) {
                                         </label>
                                         <SelectField
                                           id="mom_condition"
-                                          name={family_mom_condition_resident.name}
-                                          label={family_mom_condition_resident.label}
+                                          name={
+                                            family_mom_condition_resident.name
+                                          }
+                                          label={
+                                            family_mom_condition_resident.label
+                                          }
                                           data={condition_resident}
                                           fullWidth
                                         />
                                       </Grid>
                                     </Grid>
-
                                   ) : (
                                     <h1></h1>
                                   )}
                                 </Grid>
                               </Grid>
-
-
                             </Grid>
                           </Grid>
                         )}
@@ -2072,11 +2053,11 @@ export default function FamilyForm(props) {
                                     style={{
                                       paddingLeft: "15px",
                                       paddingRight: "6px",
-                                      color: "red"
+                                      color: "red",
                                     }}
                                   >
-                                    Nota:</span>
-
+                                    Nota:
+                                  </span>
                                   Indicarlo en años, meses o días
                                 </label>
                                 <InputField
@@ -2213,7 +2194,6 @@ export default function FamilyForm(props) {
                                   Edad:
                                 </label>
                                 <InputField
-
                                   name={family_mom_agetwo.name}
                                   label={family_mom_agetwo.label}
                                   fullWidth
@@ -2291,7 +2271,6 @@ export default function FamilyForm(props) {
                                           Teléfono:
                                         </label>
                                         <InputField
-
                                           name={family_mom_phonetwo.name}
                                           label={family_mom_phonetwo.label}
                                           fullWidth
@@ -2424,7 +2403,6 @@ export default function FamilyForm(props) {
                                           Ingresos promedio:
                                         </label>
                                         <InputField
-
                                           name={
                                             family_mom_financial_incometwo.name
                                           }
@@ -2440,7 +2418,6 @@ export default function FamilyForm(props) {
                                           }}
                                           fullWidth
                                         />
-
                                       </Grid>
                                     </Grid>
                                   ) : (
@@ -2478,7 +2455,6 @@ export default function FamilyForm(props) {
                                 </Grid>
                               </Grid>
 
-
                               <Grid
                                 item
                                 xs={12}
@@ -2490,7 +2466,10 @@ export default function FamilyForm(props) {
                                 }}
                               >
                                 <label
-                                  style={{ fontSize: "18px", fontWeight: "bold" }}
+                                  style={{
+                                    fontSize: "18px",
+                                    fontWeight: "bold",
+                                  }}
                                 >
                                   ¿Reside en Guatemala?:
                                 </label>
@@ -2502,12 +2481,8 @@ export default function FamilyForm(props) {
                                   fullWidth
                                 />
                                 <Grid>
-
                                   {residentMomTwo === "No" ? (
-
-                                    <Grid
-                                      container
-                                    >
+                                    <Grid container>
                                       <Grid
                                         item
                                         xs={12}
@@ -2528,19 +2503,23 @@ export default function FamilyForm(props) {
                                         </label>
                                         <InputField
                                           name={family_mom_no_residenttwo.name}
-                                          label={family_mom_no_residenttwo.label}
+                                          label={
+                                            family_mom_no_residenttwo.label
+                                          }
                                           fullWidth
                                         />
                                       </Grid>
 
-                                      <Grid item
+                                      <Grid
+                                        item
                                         xs={12}
                                         sm={6}
                                         style={{
                                           paddingTop: "10px",
                                           paddingLeft: "10px",
                                           paddingRight: "10px",
-                                        }}>
+                                        }}
+                                      >
                                         <label
                                           style={{
                                             fontSize: "18px",
@@ -2551,21 +2530,22 @@ export default function FamilyForm(props) {
                                         </label>
                                         <SelectField
                                           id="mom_conditiontwo"
-                                          name={family_mom_condition_residenttwo.name}
-                                          label={family_mom_condition_residenttwo.label}
+                                          name={
+                                            family_mom_condition_residenttwo.name
+                                          }
+                                          label={
+                                            family_mom_condition_residenttwo.label
+                                          }
                                           data={condition_resident}
                                           fullWidth
                                         />
                                       </Grid>
                                     </Grid>
-
                                   ) : (
                                     <h1></h1>
                                   )}
                                 </Grid>
                               </Grid>
-
-
                             </Grid>
                           </Grid>
                         )}
@@ -2607,11 +2587,11 @@ export default function FamilyForm(props) {
                                     style={{
                                       paddingLeft: "15px",
                                       paddingRight: "6px",
-                                      color: "red"
+                                      color: "red",
                                     }}
                                   >
-                                    Nota:</span>
-
+                                    Nota:
+                                  </span>
                                   Indicarlo en años, meses o días
                                 </label>
                                 <InputField
@@ -2670,238 +2650,261 @@ export default function FamilyForm(props) {
 
           {/* Informacion adicional */}
 
-
           <Grid>
-
-            {(values === "Si" && valuesMom === "Si" ||
-              values === "Si" && valuesMomTwo === "Si" ||
-              valuesTwo === "Si" && valuesMom === "Si" ||
-              valuesTwo === "Si" && valuesMomTwo === "Si") &&
-              (
-                <>
-                  <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-                    <Chip
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        paddingTop: "20px",
-                        paddingBottom: "20px",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                      }}
-                      color="primary"
-                      label="Relación de sus padres"
-                    />
-                  </Divider>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
+            {((values === "Si" && valuesMom === "Si") ||
+              (values === "Si" && valuesMomTwo === "Si") ||
+              (valuesTwo === "Si" && valuesMom === "Si") ||
+              (valuesTwo === "Si" && valuesMomTwo === "Si")) && (
+              <>
+                <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                  <Chip
                     style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
+                      fontSize: "14px",
+                      fontWeight: "bold",
+                      paddingTop: "20px",
+                      paddingBottom: "20px",
+                      paddingLeft: "15px",
+                      paddingRight: "15px",
                     }}
-                  >
-                    <div>
-                      {" "}
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Siguen juntos sus papás?:
-                      </label>
-                      <SelectField
-                        id="you_parents_together"
-                        name={you_parents_together.name}
-                        label={you_parents_together.label}
-                        data={selectValue}
-                        onChange={gettingTogetherParents}
-                        fullWidth
-                      />
-                      {togetherParents === "No" && (
-                        <>
-                          <div style={{ paddingTop: "10px" }}>
-                            {/* CONDITION FATHER */}
+                    color="primary"
+                    label="Relación de sus padres"
+                  />
+                </Divider>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  style={{
+                    paddingLeft: "10px",
+                    paddingRight: "10px",
+                    paddingTop: "10px",
+                  }}
+                >
+                  <div>
+                    {" "}
+                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      ¿Siguen juntos sus papás?:
+                    </label>
+                    <SelectField
+                      id="you_parents_together"
+                      name={you_parents_together.name}
+                      label={you_parents_together.label}
+                      data={selectValue}
+                      onChange={gettingTogetherParents}
+                      fullWidth
+                    />
+                    {togetherParents === "No" && (
+                      <>
+                        <div style={{ paddingTop: "10px" }}>
+                          {/* CONDITION FATHER */}
 
-                            <Divider
-                              style={{ paddingTop: "20px", paddingBottom: "20px" }}
-                            >
-                              <Chip
-                                style={{
-                                  fontSize: "14px",
-                                  fontWeight: "bold",
-                                  paddingTop: "10px",
-                                  paddingBottom: "10px",
-                                  paddingLeft: "10px",
-                                  paddingRight: "10px",
-                                }}
-                                color="info"
-                                label="Pareja del padre"
-                              />
-                            </Divider>
-                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                              ¿Su papá tiene pareja?:
-                            </label>
-                            <SelectField
-                              id="has_partner_father"
-                              name={has_partner_father.name}
-                              label={has_partner_father.label}
-                              data={selectValue}
-                              onChange={gettingPartnerFather}
-                              fullWidth
+                          <Divider
+                            style={{
+                              paddingTop: "20px",
+                              paddingBottom: "20px",
+                            }}
+                          >
+                            <Chip
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                              }}
+                              color="info"
+                              label="Pareja del padre"
                             />
-                            {partnerFather === "Si" && (
-                              <>
-                                <Grid container spacing={3}>
-                                  <Grid item xs={12} sm={6}>
-                                    <div style={{ paddingTop: "10px" }}>
-                                      <label
-                                        style={{
-                                          fontSize: "18px",
-                                          fontWeight: "bold",
-                                        }}
-                                      >
-                                        Nombre:
-                                      </label>
-                                      <InputField
-                                        name={father_partner_name.name}
-                                        label={father_partner_name.label}
-                                        fullWidth
-                                      />
-                                    </div>
+                          </Divider>
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            ¿Su papá tiene pareja?:
+                          </label>
+                          <SelectField
+                            id="has_partner_father"
+                            name={has_partner_father.name}
+                            label={has_partner_father.label}
+                            data={selectValue}
+                            onChange={gettingPartnerFather}
+                            fullWidth
+                          />
+                          {partnerFather === "Si" && (
+                            <>
+                              <Grid container spacing={3}>
+                                <Grid item xs={12} sm={6}>
+                                  <div style={{ paddingTop: "10px" }}>
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Nombre:
+                                    </label>
+                                    <InputField
+                                      name={father_partner_name.name}
+                                      label={father_partner_name.label}
+                                      fullWidth
+                                    />
+                                  </div>
 
-                                    <div style={{ paddingTop: "10px" }}>
-                                      <label
-                                        style={{
-                                          fontSize: "18px",
-                                          fontWeight: "bold",
-                                        }}
-                                      >
-                                        Relación:
-                                      </label>
-                                      <SelectField
-                                        id="father_relationship"
-                                        name={father_relationship.name}
-                                        label={father_relationship.label}
-                                        data={relationship}
-                                        fullWidth
-                                      />
-                                    </div>
-                                  </Grid>
-                                  <Grid item xs={12} sm={6}>
-                                    <div style={{ paddingTop: "10px" }}>
-                                      <label
-                                        style={{
-                                          fontSize: "18px",
-                                          fontWeight: "bold",
-                                        }}
-                                      >
-                                        Apellido:
-                                      </label>
-                                      <InputField
-                                        name={father_partner_lastname.name}
-                                        label={father_partner_lastname.label}
-                                        fullWidth
-                                      />
-                                    </div>
-                                  </Grid>
+                                  <div style={{ paddingTop: "10px" }}>
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Relación:
+                                    </label>
+                                    <SelectField
+                                      id="father_relationship"
+                                      name={father_relationship.name}
+                                      label={father_relationship.label}
+                                      data={relationship}
+                                      fullWidth
+                                    />
+                                  </div>
                                 </Grid>
-                              </>
-                            )}
-                          </div>
+                                <Grid item xs={12} sm={6}>
+                                  <div style={{ paddingTop: "10px" }}>
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Apellido:
+                                    </label>
+                                    <InputField
+                                      name={father_partner_lastname.name}
+                                      label={father_partner_lastname.label}
+                                      fullWidth
+                                    />
+                                  </div>
+                                </Grid>
+                              </Grid>
+                            </>
+                          )}
+                        </div>
 
-                          {/* CONDITION MOTHER */}
-                          <div style={{ paddingTop: "10px" }}>
-                            <Divider
-                              style={{ paddingTop: "20px", paddingBottom: "20px" }}
-                            >
-                              <Chip
-                                style={{
-                                  fontSize: "14px",
-                                  fontWeight: "bold",
-                                  paddingTop: "10px",
-                                  paddingBottom: "10px",
-                                  paddingLeft: "10px",
-                                  paddingRight: "10px",
-                                }}
-                                color="info"
-                                label="Pareja de la madre"
-                              />
-                            </Divider>
-                            <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                              ¿Su mamá tiene pareja?:
-                            </label>
-                            <SelectField
-                              id="has_partner_mother"
-                              name={has_partner_mother.name}
-                              label={has_partner_mother.label}
-                              data={selectValue}
-                              onChange={gettingPartnerMom}
-                              fullWidth
+                        {/* CONDITION MOTHER */}
+                        <div style={{ paddingTop: "10px" }}>
+                          <Divider
+                            style={{
+                              paddingTop: "20px",
+                              paddingBottom: "20px",
+                            }}
+                          >
+                            <Chip
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                              }}
+                              color="info"
+                              label="Pareja de la madre"
                             />
-                            {partnerMom === "Si" && (
-                              <>
-                                <label
-                                  style={{ fontSize: "18px", fontWeight: "bold" }}
-                                >
-                                  Nombre:
-                                </label>
-                                <InputField
-                                  name={mother_partner_name.name}
-                                  label={mother_partner_name.label}
-                                  fullWidth
-                                />
-                                <label
-                                  style={{ fontSize: "18px", fontWeight: "bold" }}
-                                >
-                                  Apellido:
-                                </label>
-                                <InputField
-                                  name={mother_partner_lastname.name}
-                                  label={mother_partner_lastname.label}
-                                  fullWidth
-                                />
-                                <label
-                                  style={{ fontSize: "18px", fontWeight: "bold" }}
-                                >
-                                  Relación:
-                                </label>
-                                <SelectField
-                                  id="mother_relationship"
-                                  name={mother_relationship.name}
-                                  label={mother_relationship.label}
-                                  data={relationship}
-                                  fullWidth
-                                />
-                              </>
-                            )}
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-                      <Chip
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: "bold",
-                          paddingTop: "20px",
-                          paddingBottom: "20px",
-                          paddingLeft: "15px",
-                          paddingRight: "15px",
-                        }}
-                        // color="success"
-                        color="info"
-                        label="Información adicional"
-                      />
-                    </Divider>
-                    <div style={{ paddingTop: "10px" }}>
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Con quién vive?:
-                      </label>
-                      <InputField name={vive_family.name} label={vive_family.label} fullWidth />
-                    </div>
-                  </Grid>
-                </>
-              )}
+                          </Divider>
+                          <label
+                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                          >
+                            ¿Su mamá tiene pareja?:
+                          </label>
+                          <SelectField
+                            id="has_partner_mother"
+                            name={has_partner_mother.name}
+                            label={has_partner_mother.label}
+                            data={selectValue}
+                            onChange={gettingPartnerMom}
+                            fullWidth
+                          />
+                          {partnerMom === "Si" && (
+                            <>
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                Nombre:
+                              </label>
+                              <InputField
+                                name={mother_partner_name.name}
+                                label={mother_partner_name.label}
+                                fullWidth
+                              />
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                Apellido:
+                              </label>
+                              <InputField
+                                name={mother_partner_lastname.name}
+                                label={mother_partner_lastname.label}
+                                fullWidth
+                              />
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                Relación:
+                              </label>
+                              <SelectField
+                                id="mother_relationship"
+                                name={mother_relationship.name}
+                                label={mother_relationship.label}
+                                data={relationship}
+                                fullWidth
+                              />
+                            </>
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </Grid>
+              </>
+            )}
+          </Grid>
+          <Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingTop: "10px",
+              }}
+            >
+              <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                <Chip
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    paddingTop: "20px",
+                    paddingBottom: "20px",
+                    paddingLeft: "15px",
+                    paddingRight: "15px",
+                  }}
+                  // color="success"
+                  color="info"
+                  label="Información adicional"
+                />
+              </Divider>
+              <div style={{ paddingTop: "10px" }}>
+                <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  ¿Con quién vive?:
+                </label>
+                <InputField
+                  name={vive_family.name}
+                  label={vive_family.label}
+                  fullWidth
+                />
+              </div>
+            </Grid>
           </Grid>
 
           <Divider style={{ paddingTop: "20px", paddingBottom: "20px" }}>
@@ -2983,30 +2986,7 @@ export default function FamilyForm(props) {
                         fullWidth
                       />
 
-                    {valueValStepfather === "Si" && (
-                      <Grid
-                      item
-                      xs={12}
-                      sm={6}
-                      style={{
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        paddingTop: "10px",
-                      }}
-                    >
-                      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Posee la información de su padrastro?:
-                      </label>
-                      <SelectField
-                        id="family_stepfather_info"
-                        name={family_stepfather_info.name}
-                        label={family_stepfather_info.label}
-                        data={selectValue}
-                        onChange={gettingInfoStepfather}
-                        fullWidth
-                      />
-
-                      {valueInfoStepfather === "Si" ? (
+                      {valueValStepfather === "Si" && (
                         <Grid
                           item
                           xs={12}
@@ -3020,129 +3000,148 @@ export default function FamilyForm(props) {
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Aún vive?:
+                            ¿Posee la información de su padrastro?:
                           </label>
                           <SelectField
-                            name={family_stepfather_life.name}
-                            label={family_stepfather_life.label}
+                            id="family_stepfather_info"
+                            name={family_stepfather_info.name}
+                            label={family_stepfather_info.label}
                             data={selectValue}
-                            onChange={gettingValueStepfather}
+                            onChange={gettingInfoStepfather}
                             fullWidth
                           />
 
-                          {valuesStepfather === "Si" ? (
-                            <Grid>
-                              <Grid container style={{ paddingTop: "10px" }}>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Nombre completo de su padrastro:
-                                  </label>
-                                  <InputField
-                                    name={family_stepfather_name.name}
-                                    label={family_stepfather_name.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Edad:
-                                  </label>
-                                  <InputField
+                          {valueInfoStepfather === "Si" ? (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                ¿Aún vive?:
+                              </label>
+                              <SelectField
+                                name={family_stepfather_life.name}
+                                label={family_stepfather_life.label}
+                                data={selectValue}
+                                onChange={gettingValueStepfather}
+                                fullWidth
+                              />
 
-                                    name={family_stepfather_age.name}
-                                    label={family_stepfather_age.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
+                              {valuesStepfather === "Si" ? (
+                                <Grid>
+                                  <Grid
+                                    container
+                                    style={{ paddingTop: "10px" }}
                                   >
-                                    Estado civil:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepfather_status.name}
-                                    label={family_stepfather_status.label}
-                                    data={civil}
-                                    fullWidth
-                                  />
-                                </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Nombre completo de su padrastro fa :
+                                      </label>
+                                      <InputField
+                                        name={family_stepfather_name.name}
+                                        label={family_stepfather_name.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Edad:
+                                      </label>
+                                      <InputField
+                                        name={family_stepfather_age.name}
+                                        label={family_stepfather_age.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Estado civil:
+                                      </label>
+                                      <SelectField
+                                        name={family_stepfather_status.name}
+                                        label={family_stepfather_status.label}
+                                        data={civil}
+                                        fullWidth
+                                      />
+                                    </Grid>
 
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Tiene teléfono?:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepfather_phone_val.name}
-                                    label={family_stepfather_phone_val.label}
-                                    data={selectValue}
-                                    onChange={gettingPhoneStepfather}
-                                    fullWidth
-                                  />
-                                  <Grid>
-                                    {valuesPhoneStepfather === "Si" ? (
-                                      <Grid style={{ paddingTop: "10px" }}>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Tiene teléfono?:
+                                      </label>
+                                      <SelectField
+                                        name={family_stepfather_phone_val.name}
+                                        label={
+                                          family_stepfather_phone_val.label
+                                        }
+                                        data={selectValue}
+                                        onChange={gettingPhoneStepfather}
+                                        fullWidth
+                                      />
+                                      {valuesPhoneStepfather === "Si" && (
+                                        <Grid style={{ paddingTop: "10px" }}>
                                           <label
                                             style={{
                                               fontSize: "18px",
@@ -3152,7 +3151,6 @@ export default function FamilyForm(props) {
                                             Teléfono:
                                           </label>
                                           <InputField
-
                                             name={family_stepfather_phone.name}
                                             label={
                                               family_stepfather_phone.label
@@ -3160,346 +3158,349 @@ export default function FamilyForm(props) {
                                             fullWidth
                                           />
                                         </Grid>
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
+                                      )}
 
-                                    {valuesPhoneStepfather === "No" ? (
-                                      <Grid
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                        }}
-                                      >
-                                        <label
-                                          style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
-                                          }}
-                                        >
-                                          ¿Motivo del por qué no tiene
-                                          teléfono?:
-                                        </label>
-                                        <InputField
-                                          name={family_stepfather_no_phone.name}
-                                          label={
-                                            family_stepfather_no_phone.label
-                                          }
-                                          fullWidth
-                                        />
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-                                  </Grid>
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Labora?:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepfather_working_val.name}
-                                    label={family_stepfather_working_val.label}
-                                    data={selectValue}
-                                    onChange={gettingWorkingStepfather}
-                                    fullWidth
-                                  />
-                                  <Grid>
-                                    {valuesWorkingStepfather === "Si" ? (
-                                      <Grid
-                                        container
-                                        style={{ paddingTop: "10px" }}
-                                      >
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
+                                      {valuesPhoneStepfather === "No" && (
+                                        <Grid>
                                           <label
                                             style={{
                                               fontSize: "18px",
                                               fontWeight: "bold",
                                             }}
                                           >
-                                            Puesto donde labora:
-                                          </label>
-                                          <InputField
-                                            name={family_stepfather_place.name}
-                                            label={
-                                              family_stepfather_place.label
-                                            }
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Empresa donde labora:
+                                            ¿Motivo del por qué no tiene
+                                            teléfono?:
                                           </label>
                                           <InputField
                                             name={
-                                              family_stepfather_company.name
+                                              family_stepfather_no_phone.name
                                             }
                                             label={
-                                              family_stepfather_company.label
+                                              family_stepfather_no_phone.label
                                             }
                                             fullWidth
                                           />
                                         </Grid>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                            paddingTop: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Ingresos promedio:
-                                          </label>
-                                          <InputField
-
-                                            name={
-                                              family_stepfather_financial_income.name
-                                            }
-                                            label={
-                                              family_stepfather_financial_income.label
-                                            }
-                                            InputProps={{
-                                              startAdornment: (
-                                                <InputAdornment position="start">
-                                                  Q.
-                                                </InputAdornment>
-                                              ),
-                                            }}
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-
-                                    {valuesWorkingStepfather === "No" ? (
-                                      <Grid
-                                        item
-                                        xs={12}
-                                        sm={6}
+                                      )}
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
                                         style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
                                         }}
                                       >
-                                        <label
-                                          style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
-                                          }}
-                                        >
-                                          ¿De quién depende económicamente?:
-                                        </label>
-                                        <InputField
-                                          name={family_stepfather_depend.name}
-                                          label={family_stepfather_depend.label}
-                                          fullWidth
-                                        />
+                                        ¿Labora?:
+                                      </label>
+                                      <SelectField
+                                        name={
+                                          family_stepfather_working_val.name
+                                        }
+                                        label={
+                                          family_stepfather_working_val.label
+                                        }
+                                        data={selectValue}
+                                        onChange={gettingWorkingStepfather}
+                                        fullWidth
+                                      />
+                                      <Grid>
+                                        {valuesWorkingStepfather === "Si" ? (
+                                          <Grid
+                                            container
+                                            style={{ paddingTop: "10px" }}
+                                          >
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Puesto donde labora fa:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepfather_place.name
+                                                }
+                                                label={
+                                                  family_stepfather_place.label
+                                                }
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Empresa donde labora:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepfather_company.name
+                                                }
+                                                label={
+                                                  family_stepfather_company.label
+                                                }
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Ingresos promedio:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepfather_financial_income.name
+                                                }
+                                                label={
+                                                  family_stepfather_financial_income.label
+                                                }
+                                                InputProps={{
+                                                  startAdornment: (
+                                                    <InputAdornment position="start">
+                                                      Q.
+                                                    </InputAdornment>
+                                                  ),
+                                                }}
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
+
+                                        {valuesWorkingStepfather === "No" ? (
+                                          <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingTop: "10px",
+                                            }}
+                                          >
+                                            <label
+                                              style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
+                                              }}
+                                            >
+                                              ¿De quién depende económicamente?:
+                                            </label>
+                                            <InputField
+                                              name={
+                                                family_stepfather_depend.name
+                                              }
+                                              label={
+                                                family_stepfather_depend.label
+                                              }
+                                              fullWidth
+                                            />
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
                                       </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
+                                    </Grid>
                                   </Grid>
                                 </Grid>
+                              ) : (
+                                <h1></h1>
+                              )}
 
-
-                              </Grid>
+                              {valuesStepfather === "No" ? (
+                                <Grid>
+                                  <Grid container>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Ingrese el nombre de su padrastro:
+                                      </label>
+                                      <InputField
+                                        name={family_stepfather_nametwo.name}
+                                        label={family_stepfather_nametwo.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Ingrese los apellidos de su padrastro:
+                                      </label>
+                                      <InputField
+                                        name={family_stepfather_surnametwo.name}
+                                        label={
+                                          family_stepfather_surnametwo.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Tiempo fallecido?:
+                                      </label>
+                                      <InputField
+                                        name={family_stepfather_time_died.name}
+                                        label={
+                                          family_stepfather_time_died.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Razón de fallecimiento?:
+                                      </label>
+                                      <InputField
+                                        name={
+                                          family_stepfather_reason_died.name
+                                        }
+                                        label={
+                                          family_stepfather_reason_died.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                  </Grid>
+                                </Grid>
+                              ) : (
+                                <h1></h1>
+                              )}
                             </Grid>
                           ) : (
                             <h1></h1>
                           )}
 
-                          {valuesStepfather === "No" ? (
+                          {valueInfoStepfather === "No" ? (
                             <Grid>
-                              <Grid container>
                               <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
+                                item
+                                xs={12}
+                                sm={6}
+                                style={{
+                                  paddingLeft: "10px",
+                                  paddingRight: "10px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                <label
                                   style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
+                                    fontSize: "18px",
+                                    fontWeight: "bold",
                                   }}
                                 >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Ingrese el nombre de su padrastro:
-                                  </label>
-                                  <InputField
-                                    name={family_stepfather_nametwo.name}
-                                    label={family_stepfather_nametwo.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Ingrese los apellidos de su padrastro:
-                                  </label>
-                                  <InputField
-                                    name={family_stepfather_surnametwo.name}
-                                    label={family_stepfather_surnametwo.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Tiempo fallecido?:
-                                  </label>
-                                  <InputField
-                                    name={family_stepfather_time_died.name}
-                                    label={family_stepfather_time_died.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Razón de fallecimiento?:
-                                  </label>
-                                  <InputField
-                                    name={family_stepfather_reason_died.name}
-                                    label={family_stepfather_reason_died.label}
-                                    fullWidth
-                                  />
-                                </Grid>
+                                  ¿Razón de no poseer la información?:
+                                </label>
+                                <InputField
+                                  name={family_stepfather_noInfo.name}
+                                  label={family_stepfather_noInfo.label}
+                                  fullWidth
+                                />
                               </Grid>
                             </Grid>
                           ) : (
                             <h1></h1>
                           )}
                         </Grid>
-                      ) : (
-                        <h1></h1>
                       )}
-
-                      {valueInfoStepfather === "No" ? (
-                        <Grid>
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            style={{
-                              paddingLeft: "10px",
-                              paddingRight: "10px",
-                              paddingTop: "10px",
-                            }}
-                          >
-                            <label
-                              style={{ fontSize: "18px", fontWeight: "bold" }}
-                            >
-                              ¿Razón de no poseer la información?:
-                            </label>
-                            <InputField
-                              name={family_stepfather_noInfo.name}
-                              label={family_stepfather_noInfo.label}
-                              fullWidth
-                            />
-                          </Grid>
-                        </Grid>
-                      ) : (
-                        <h1></h1>
-                      )}
-
-                    </Grid>
-                    )}  
-                    
                     </Grid>
                   </Grid>
                   <Divider
@@ -3521,28 +3522,6 @@ export default function FamilyForm(props) {
                   </Divider>
                   <Grid>
                     <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      ¿Tiene madrastra?:
-                    </label>
-                    <SelectField
-                      id="family_stepmother_val"
-                      name={family_stepmother_val.name}
-                      label={family_stepmother_val.label}
-                      data={selectValue}
-                      onChange={gettingValStepmother}
-                      fullWidth
-                    />
-                    {valueValStepmother === "Si" &&(
-                      <Grid
                       item
                       xs={12}
                       sm={6}
@@ -3550,22 +3529,20 @@ export default function FamilyForm(props) {
                         paddingLeft: "10px",
                         paddingRight: "10px",
                         paddingTop: "10px",
-                        paddingBottom: "20px",
                       }}
                     >
                       <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                        ¿Posee la información de su madrastra?:
+                        ¿Tiene madrastra?:
                       </label>
                       <SelectField
-                        id="family_stepmother_info"
-                        name={family_stepmother_info.name}
-                        label={family_stepmother_info.label}
+                        id="family_stepmother_val"
+                        name={family_stepmother_val.name}
+                        label={family_stepmother_val.label}
                         data={selectValue}
-                        onChange={gettingInfoStepmother}
+                        onChange={gettingValStepmother}
                         fullWidth
                       />
-
-                      {valueInfoStepmother === "Si" ? (
+                      {valueValStepmother === "Si" && (
                         <Grid
                           item
                           xs={12}
@@ -3574,493 +3551,543 @@ export default function FamilyForm(props) {
                             paddingLeft: "10px",
                             paddingRight: "10px",
                             paddingTop: "10px",
+                            paddingBottom: "20px",
                           }}
                         >
                           <label
                             style={{ fontSize: "18px", fontWeight: "bold" }}
                           >
-                            ¿Aún vive?:
+                            ¿Posee la información de su madrastra?:
                           </label>
                           <SelectField
-                            name={family_stepmother_life.name}
-                            label={family_stepmother_life.label}
+                            id="family_stepmother_info"
+                            name={family_stepmother_info.name}
+                            label={family_stepmother_info.label}
                             data={selectValue}
-                            onChange={gettingValueStepmother}
+                            onChange={gettingInfoStepmother}
                             fullWidth
                           />
 
-                          {valuesStepmother === "Si" ? (
-                            <Grid>
-                              <Grid container style={{ paddingTop: "10px" }}>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Nombre completo de su madrastra:
-                                  </label>
-                                  <InputField
-                                    name={family_stepmother_name.name}
-                                    label={family_stepmother_name.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Edad:
-                                  </label>
-                                  <InputField
-
-                                    name={family_stepmother_age.name}
-                                    label={family_stepmother_age.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Estado civil:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepmother_status.name}
-                                    label={family_stepmother_status.label}
-                                    data={civil}
-                                    fullWidth
-                                  />
-                                </Grid>
-
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Tiene teléfono?:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepmother_phone_val.name}
-                                    label={family_stepmother_phone_val.label}
-                                    data={selectValue}
-                                    onChange={gettingPhoneStepmother}
-                                    fullWidth
-                                  />
-                                  <Grid>
-                                    {valuesPhoneStepmother === "Si" ? (
-                                      <Grid style={{ paddingTop: "10px" }}>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Teléfono:
-                                          </label>
-                                          <InputField
-                                            name={family_stepmother_phone.name}
-                                            label={
-                                              family_stepmother_phone.label
-                                            }
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-
-                                    {valuesPhoneStepmother === "No" ? (
-                                      <Grid
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                        }}
-                                      >
-                                        <label
-                                          style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
-                                          }}
-                                        >
-                                          ¿Motivo del por qué no tiene
-                                          teléfono?:
-                                        </label>
-                                        <InputField
-                                          name={family_stepmother_no_phone.name}
-                                          label={
-                                            family_stepmother_no_phone.label
-                                          }
-                                          fullWidth
-                                        />
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-                                  </Grid>
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                    paddingBottom: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Labora?:
-                                  </label>
-                                  <SelectField
-                                    name={family_stepmother_working_val.name}
-                                    label={family_stepmother_working_val.label}
-                                    data={selectValue}
-                                    onChange={gettingWorkingStepmother}
-                                    fullWidth
-                                  />
-                                  <Grid>
-                                    {valuesWorkingStepmother === "Si" ? (
-                                      <Grid
-                                        container
-                                        style={{ paddingTop: "10px" }}
-                                      >
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Puesto donde labora:
-                                          </label>
-                                          <InputField
-                                            name={family_stepmother_place.name}
-                                            label={
-                                              family_stepmother_place.label
-                                            }
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Empresa donde labora:
-                                          </label>
-                                          <InputField
-                                            name={
-                                              family_stepmother_company.name
-                                            }
-                                            label={
-                                              family_stepmother_company.label
-                                            }
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                        <Grid
-                                          item
-                                          xs={12}
-                                          sm={6}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            paddingRight: "10px",
-                                            paddingTop: "10px",
-                                            paddingBottom: "10px",
-                                          }}
-                                        >
-                                          <label
-                                            style={{
-                                              fontSize: "18px",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            Ingresos promedio:
-                                          </label>
-                                          <InputField
-
-                                            name={
-                                              family_stepmother_financial_income.name
-                                            }
-                                            label={
-                                              family_stepmother_financial_income.label
-                                            }
-                                            InputProps={{
-                                              startAdornment: (
-                                                <InputAdornment position="start">
-                                                  Q.
-                                                </InputAdornment>
-                                              ),
-                                            }}
-                                            fullWidth
-                                          />
-                                        </Grid>
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-
-                                    {valuesWorkingStepmother === "No" ? (
-                                      <Grid
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                          paddingBottom: "10px",
-                                        }}
-                                      >
-                                        <label
-                                          style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
-                                          }}
-                                        >
-                                          ¿De quién depende económicamente?:
-                                        </label>
-                                        <InputField
-                                          name={family_stepmother_depend.name}
-                                          label={family_stepmother_depend.label}
-                                          fullWidth
-                                        />
-                                      </Grid>
-                                    ) : (
-                                      <h1></h1>
-                                    )}
-                                  </Grid>
-                                </Grid>
-
-
-                              </Grid>
-                            </Grid>
-                          ) : (
-                            <h1></h1>
-                          )}
-
-                          {valuesStepmother === "No" ? (
-                            <Grid>
-                              <Grid container>
-                              <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Ingrese el nombre de su madrastra:
-                                  </label>
-                                  <InputField
-                                    name={family_stepmother_nametwo.name}
-                                    label={family_stepmother_nametwo.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    Ingrese los apellidos de su madrastra:
-                                  </label>
-                                  <InputField
-                                    name={family_stepmother_surnametwo.name}
-                                    label={family_stepmother_surnametwo.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Tiempo fallecido?:
-                                  </label>
-                                  <InputField
-                                    name={family_stepmother_time_died.name}
-                                    label={family_stepmother_time_died.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                                <Grid
-                                  item
-                                  xs={12}
-                                  sm={6}
-                                  style={{
-                                    paddingLeft: "10px",
-                                    paddingRight: "10px",
-                                    paddingTop: "10px",
-                                  }}
-                                >
-                                  <label
-                                    style={{
-                                      fontSize: "18px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    ¿Razón de fallecimiento?:
-                                  </label>
-                                  <InputField
-                                    name={family_stepmother_reason_died.name}
-                                    label={family_stepmother_reason_died.label}
-                                    fullWidth
-                                  />
-                                </Grid>
-                              </Grid>
-                            </Grid>
-                          ) : (
-                            <h1></h1>
-                          )}
-                        </Grid>
-                      ) : (
-                        <h1></h1>
-                      )}
-
-                      {valueInfoStepmother === "No" ? (
-                        <Grid>
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            style={{
-                              paddingLeft: "10px",
-                              paddingRight: "10px",
-                              paddingTop: "10px",
-                            }}
-                          >
-                            <label
-                              style={{ fontSize: "18px", fontWeight: "bold" }}
+                          {valueInfoStepmother === "Si" ? (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                              }}
                             >
-                              ¿Razón de no poseer la información?:
-                            </label>
-                            <InputField
-                              name={family_stepmother_noInfo.name}
-                              label={family_stepmother_noInfo.label}
-                              fullWidth
-                            />
-                          </Grid>
-                        </Grid>
-                      ) : (
-                        <h1></h1>
-                      )}
-                    </Grid>
-                    )}
+                              <label
+                                style={{ fontSize: "18px", fontWeight: "bold" }}
+                              >
+                                ¿Aún vive?:
+                              </label>
+                              <SelectField
+                                name={family_stepmother_life.name}
+                                label={family_stepmother_life.label}
+                                data={selectValue}
+                                onChange={gettingValueStepmother}
+                                fullWidth
+                              />
 
-                    
+                              {valuesStepmother === "Si" ? (
+                                <Grid>
+                                  <Grid
+                                    container
+                                    style={{ paddingTop: "10px" }}
+                                  >
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Nombre completo de su madrastra:
+                                      </label>
+                                      <InputField
+                                        name={family_stepmother_name.name}
+                                        label={family_stepmother_name.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Edad:
+                                      </label>
+                                      <InputField
+                                        name={family_stepmother_age.name}
+                                        label={family_stepmother_age.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Estado civil:
+                                      </label>
+                                      <SelectField
+                                        name={family_stepmother_status.name}
+                                        label={family_stepmother_status.label}
+                                        data={civil}
+                                        fullWidth
+                                      />
+                                    </Grid>
+
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Tiene teléfono?:
+                                      </label>
+                                      <SelectField
+                                        name={family_stepmother_phone_val.name}
+                                        label={
+                                          family_stepmother_phone_val.label
+                                        }
+                                        data={selectValue}
+                                        onChange={gettingPhoneStepmother}
+                                        fullWidth
+                                      />
+                                      <Grid>
+                                        {valuesPhoneStepmother === "Si" ? (
+                                          <Grid style={{ paddingTop: "10px" }}>
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Teléfono:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepmother_phone.name
+                                                }
+                                                label={
+                                                  family_stepmother_phone.label
+                                                }
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
+
+                                        {valuesPhoneStepmother === "No" ? (
+                                          <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingTop: "10px",
+                                            }}
+                                          >
+                                            <label
+                                              style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
+                                              }}
+                                            >
+                                              ¿Motivo del por qué no tiene
+                                              teléfono?:
+                                            </label>
+                                            <InputField
+                                              name={
+                                                family_stepmother_no_phone.name
+                                              }
+                                              label={
+                                                family_stepmother_no_phone.label
+                                              }
+                                              fullWidth
+                                            />
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
+                                      </Grid>
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                        paddingBottom: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Labora?:
+                                      </label>
+                                      <SelectField
+                                        name={
+                                          family_stepmother_working_val.name
+                                        }
+                                        label={
+                                          family_stepmother_working_val.label
+                                        }
+                                        data={selectValue}
+                                        onChange={gettingWorkingStepmother}
+                                        fullWidth
+                                      />
+                                      <Grid>
+                                        {valuesWorkingStepmother === "Si" ? (
+                                          <Grid
+                                            container
+                                            style={{ paddingTop: "10px" }}
+                                          >
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Puesto donde labora:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepmother_place.name
+                                                }
+                                                label={
+                                                  family_stepmother_place.label
+                                                }
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Empresa donde labora:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepmother_company.name
+                                                }
+                                                label={
+                                                  family_stepmother_company.label
+                                                }
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                            <Grid
+                                              item
+                                              xs={12}
+                                              sm={6}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                paddingRight: "10px",
+                                                paddingTop: "10px",
+                                                paddingBottom: "10px",
+                                              }}
+                                            >
+                                              <label
+                                                style={{
+                                                  fontSize: "18px",
+                                                  fontWeight: "bold",
+                                                }}
+                                              >
+                                                Ingresos promedio:
+                                              </label>
+                                              <InputField
+                                                name={
+                                                  family_stepmother_financial_income.name
+                                                }
+                                                label={
+                                                  family_stepmother_financial_income.label
+                                                }
+                                                InputProps={{
+                                                  startAdornment: (
+                                                    <InputAdornment position="start">
+                                                      Q.
+                                                    </InputAdornment>
+                                                  ),
+                                                }}
+                                                fullWidth
+                                              />
+                                            </Grid>
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
+
+                                        {valuesWorkingStepmother === "No" ? (
+                                          <Grid
+                                            item
+                                            xs={12}
+                                            sm={6}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              paddingRight: "10px",
+                                              paddingTop: "10px",
+                                              paddingBottom: "10px",
+                                            }}
+                                          >
+                                            <label
+                                              style={{
+                                                fontSize: "18px",
+                                                fontWeight: "bold",
+                                              }}
+                                            >
+                                              ¿De quién depende económicamente?:
+                                            </label>
+                                            <InputField
+                                              name={
+                                                family_stepmother_depend.name
+                                              }
+                                              label={
+                                                family_stepmother_depend.label
+                                              }
+                                              fullWidth
+                                            />
+                                          </Grid>
+                                        ) : (
+                                          <h1></h1>
+                                        )}
+                                      </Grid>
+                                    </Grid>
+                                  </Grid>
+                                </Grid>
+                              ) : (
+                                <h1></h1>
+                              )}
+
+                              {valuesStepmother === "No" ? (
+                                <Grid>
+                                  <Grid container>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Ingrese el nombre de su madrastra:
+                                      </label>
+                                      <InputField
+                                        name={family_stepmother_nametwo.name}
+                                        label={family_stepmother_nametwo.label}
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        Ingrese los apellidos de su madrastra:
+                                      </label>
+                                      <InputField
+                                        name={family_stepmother_surnametwo.name}
+                                        label={
+                                          family_stepmother_surnametwo.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Tiempo fallecido?:
+                                      </label>
+                                      <InputField
+                                        name={family_stepmother_time_died.name}
+                                        label={
+                                          family_stepmother_time_died.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                    <Grid
+                                      item
+                                      xs={12}
+                                      sm={6}
+                                      style={{
+                                        paddingLeft: "10px",
+                                        paddingRight: "10px",
+                                        paddingTop: "10px",
+                                      }}
+                                    >
+                                      <label
+                                        style={{
+                                          fontSize: "18px",
+                                          fontWeight: "bold",
+                                        }}
+                                      >
+                                        ¿Razón de fallecimiento?:
+                                      </label>
+                                      <InputField
+                                        name={
+                                          family_stepmother_reason_died.name
+                                        }
+                                        label={
+                                          family_stepmother_reason_died.label
+                                        }
+                                        fullWidth
+                                      />
+                                    </Grid>
+                                  </Grid>
+                                </Grid>
+                              ) : (
+                                <h1></h1>
+                              )}
+                            </Grid>
+                          ) : (
+                            <h1></h1>
+                          )}
+
+                          {valueInfoStepmother === "No" ? (
+                            <Grid>
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                style={{
+                                  paddingLeft: "10px",
+                                  paddingRight: "10px",
+                                  paddingTop: "10px",
+                                }}
+                              >
+                                <label
+                                  style={{
+                                    fontSize: "18px",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  ¿Razón de no poseer la información?:
+                                </label>
+                                <InputField
+                                  name={family_stepmother_noInfo.name}
+                                  label={family_stepmother_noInfo.label}
+                                  fullWidth
+                                />
+                              </Grid>
+                            </Grid>
+                          ) : (
+                            <h1></h1>
+                          )}
+                        </Grid>
+                      )}
                     </Grid>
                   </Grid>
                 </div>
