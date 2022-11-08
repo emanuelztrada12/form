@@ -510,6 +510,24 @@ const FORMULARIO = gql`
       estudie_primary_hasta
       #condition year study
       estudies_year_condition
+
+      # changes 2.4
+      estudie_select_basic
+      estudie {
+        estudie_select_name
+        estudie_select_department
+        estudie_select_grade
+      }
+
+      # changes 2.5
+      estudie_select_curso
+      curso {
+        estudie_name_curso
+        estudie_place_curso
+        estudie_department_curso
+        estudie_year_curso
+      }
+
       work {
         work_name
         work_position
@@ -564,6 +582,13 @@ const FORMULARIO = gql`
         economic_monthly_paymentthree
         economic_delinquent_paymentthree
         econmic_observacionesthree
+      }
+
+      workFamilyBanck {
+        work_name_entity
+        work_lsname_entity
+        work_bank
+        work_relation
       }
 
       economic_vivienda
@@ -819,12 +844,16 @@ export default function CheckoutPage() {
   }
 
   async function _submitForm(values, actions) {
-    // console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
-    var years =
+    console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
+    let years =
       new Date(new Date() - new Date(values.general_birth)).getFullYear() -
       1970;
-    //console.log(`years ${years}`);
-    var year = years.toString();
+    let year = years.toString();
+
+    let suma = parseFloat(values.economic_total) + parseFloat(values.economic_payment_card) + parseFloat(values.economic_payment_deuda); 
+    let total = suma;
+    
+    console.log(total); 
     try {
       const { data } = await newFormulario({
         variables: {
@@ -1218,6 +1247,14 @@ export default function CheckoutPage() {
             estudies_year_condition: values.estudies_year_condition,
             estudies_year_conditiontwo: values.estudies_year_conditiontwo,
 
+            // changes 2.4
+            estudie_select_basic: values.estudie_select_basic,
+            estudie: values.estudie,
+
+            // changes 2.5
+            estudie_select_curso: values.estudie_select_curso,
+            curso: values.curso,
+
             //work
             work: values.work,
             work_banrural: values.work_banrural,
@@ -1231,10 +1268,10 @@ export default function CheckoutPage() {
             work_ne_whatwill: values.work_ne_whatwill,
             /* add data */
             work_select_entity: values.work_select_entity,
-            work_name_entity: values.work_name_entity,
-            work_lsname_entity: values.work_lsname_entity,
-            work_bank: values.work_bank,
-            work_relation: values.work_relation,
+
+            // Changes 2.3
+
+            workFamilyBanck: values.workFamilyBanck,
 
             //economic
             economic: values.economic,
@@ -1255,7 +1292,7 @@ export default function CheckoutPage() {
             economic_ahorro: values.economic_ahorro,
             economic_payment_deuda: values.economic_payment_deuda,
             economic_other: values.economic_other,
-            economic_total: values.economic_total,
+            economic_total: total,
 
             //changes 2.2
             economic_payment_card: values.economic_payment_card,
@@ -1378,7 +1415,7 @@ export default function CheckoutPage() {
           },
         },
       });
-      //console.log(`data ${data}`);
+      console.log(`data ${data}`);
     } catch (error) {
       console.log(error);
     }

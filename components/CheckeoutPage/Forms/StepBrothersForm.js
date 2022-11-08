@@ -73,7 +73,7 @@ export default function StepBrothersForm(props) {
   /* funcion para obtener los datos del input */
   const conditionEdad = (e) => {
     const yearLiving = e.target.value;
-    console.log(yearLiving);
+    // console.log(yearLiving);
     setConditionYear(yearLiving);
   };
 
@@ -407,7 +407,6 @@ export default function StepBrothersForm(props) {
                                                     Edad:
                                                   </label>
                                                   <InputField
-                                                    type="Number"
                                                     name={`stepbrother.${index}.${family_stepbrother_age.name}`}
                                                     label={
                                                       family_stepbrother_age.label
@@ -469,12 +468,7 @@ export default function StepBrothersForm(props) {
                                                         family_stepbrother_phone_val.label
                                                       }
                                                       data={validate}
-                                                      onChange={(e) => {
-                                                        gettingPhone(
-                                                          `stepbrother.${index}.${family_stepbrother_phone_val.name}`,
-                                                          e
-                                                        );
-                                                      }}
+                                                      
                                                       fullWidth
                                                     />
                                                     <div>
@@ -673,7 +667,7 @@ export default function StepBrothersForm(props) {
                                                             Ingresos promedio:
                                                           </label>
                                                           <InputField
-                                                            type="Number"
+                                                            
                                                             name={`stepbrother.${index}.${family_stepbrother_financial_income.name}`}
                                                             label={
                                                               family_stepbrother_financial_income.label

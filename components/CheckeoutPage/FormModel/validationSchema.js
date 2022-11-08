@@ -300,10 +300,13 @@ const {
     family_conyuguepat_phone_val,
     family_conyuguepat_working_val,
 
-    //changes 2.1
+    //changes 2.2
     family_conyugue_time_relation,
     family_conyugue_marriage_val,
     family_conyugue_time_marriage,
+
+    //changes 2.1
+    family_conyugue_relation,
 
     //abuelos por parte del papa
     family_grandfather_name,
@@ -403,6 +406,12 @@ const {
     select_schedules,
     why_not_schedules,
 
+    // changes 2.4
+    estudie_select_basic,
+    estudie_select_name,
+    estudie_select_department,
+    estudie_select_grade,
+
     //Diversificado
     estudie_diversificado_sval,
     estudie_diversificado_name,
@@ -435,6 +444,13 @@ const {
     study_magistertwo,
     study_currently,
     estudies_year_conditiontwo,
+
+    // changes 2.5
+    estudie_select_curso,
+    estudie_name_curso,
+    estudie_place_curso,
+    estudie_department_curso,
+    estudie_year_curso,
 
     //work
     work_name,
@@ -496,6 +512,25 @@ const {
 
     //changes 2.2
     economic_payment_card,
+
+    // changes 2.3
+    economic_dateother,
+    economic_planother,
+    economic_useother,
+    economic_billother,
+    amountother,
+    economic_balanceother,
+    economic_monthly_paymentother,
+    economic_delinquent_paymentother,
+    econmic_observaciones,
+    economic_usethree,
+    econmic_observacionesthree,
+    economic_billthree,
+    amountthree,
+    economic_balancethree,
+    economic_monthly_paymentthree,
+    economic_delinquent_paymentthree,
+
 
     //economic
     social_group,
@@ -632,12 +667,13 @@ const {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  yup.object().shape({
+  
+ yup.object().shape({
     [validation_form.name]: yup
       .string()
       .required(`${validation_form.requiredErrorMsg}`),
   }),
-
+  
   yup.object().shape({
     [general_name.name]: yup
       .string()
@@ -701,6 +737,7 @@ export default [
       is: "Posee",
       then: yup
         .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
         .required(`${general_nit_select.requiredErrorMsg}`)
         .when("general_nit", {
           is: "No Posee",
@@ -722,6 +759,7 @@ export default [
           .required(`${general_brand.requiredErrorMsg}`),
         [general_model.name]: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
           .required(`${general_model.requiredErrorMsg}`),
         [general_model_propetary.name]: yup
           .string()
@@ -735,6 +773,7 @@ export default [
           .required(`${general_brand_biker.requiredErrorMsg}`),
         [general_model_biker.name]: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
           .required(`${general_model_biker.requiredErrorMsg}`),
         [general_model_propetary_biker.name]: yup
           .string()
@@ -755,7 +794,7 @@ export default [
       })
     ),
   }),
-
+    
   yup.object().shape({
     [vive_family.name]: yup
       .string()
@@ -816,6 +855,7 @@ export default [
 
     [family_dad_age.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         ["family_dad_life", "family_dad_relation", "family_dad_information"],
         {
@@ -1058,6 +1098,7 @@ export default [
             family_dad_working_val === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
             .required(`${family_dad_financial_income.requiredErrorMsg}`),
         }
       ),
@@ -1127,6 +1168,7 @@ export default [
             .required(`${family_dad_no_resident.requiredErrorMsg}`),
         }
       ),
+
 
     [family_dad_condition_resident.name]: yup
       .string()
@@ -1201,7 +1243,9 @@ export default [
             family_dad_lifetwo === "Si" &&
             family_dad_relation === "No" &&
             family_dad_information_negative === "Si",
-          then: yup.string().required(`${family_dad_agetwo.requiredErrorMsg}`),
+          then: yup.string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .required(`${family_dad_agetwo.requiredErrorMsg}`),
         }
       ),
 
@@ -1478,6 +1522,7 @@ export default [
 
     [family_dad_financial_incometwo.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         [
           "family_dad_lifetwo",
@@ -1880,6 +1925,7 @@ export default [
 
     [family_mom_financial_income.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         [
           "family_mom_life",
@@ -2028,6 +2074,7 @@ export default [
       ),
     [family_mom_agetwo.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         [
           "family_mom_lifetwo",
@@ -2320,6 +2367,7 @@ export default [
 
     [family_mom_financial_incometwo.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         [
           "family_mom_lifetwo",
@@ -2454,25 +2502,25 @@ export default [
         "family_dad_lifetwo",
         "family_mom_life",
         "family_mom_lifetwo",
-      ], 
-      {
-        is: (
-          family_dad_life,
-          family_dad_lifetwo,
-          family_mom_life,
-          family_mom_lifetwo
-        ) => 
-        (family_dad_life === "Si" &&
-        family_mom_life === "Si") || 
-        (family_dad_life === "Si" &&
-        family_mom_lifetwo === "Si") ||
-        (family_dad_lifetwo === "Si" &&
-        family_mom_life === "Si") ||
-        (family_dad_lifetwo === "Si" &&
-        family_mom_lifetwo === "Si"),    
+      ],
+        {
+          is: (
+            family_dad_life,
+            family_dad_lifetwo,
+            family_mom_life,
+            family_mom_lifetwo
+          ) =>
+            (family_dad_life === "Si" &&
+              family_mom_life === "Si") ||
+            (family_dad_life === "Si" &&
+              family_mom_lifetwo === "Si") ||
+            (family_dad_lifetwo === "Si" &&
+              family_mom_life === "Si") ||
+            (family_dad_lifetwo === "Si" &&
+              family_mom_lifetwo === "Si"),
           then: yup.string().required(`${you_parents_together.requiredErrorMsg}`)
-      })
-      ,
+        })
+    ,
 
     [has_partner_father.name]: yup.string().when(["you_parents_together"], {
       is: (you_parents_together) => you_parents_together === "No",
@@ -2535,7 +2583,7 @@ export default [
     [family_validate_stepparents.name]: yup
       .string()
       .required(`${family_validate_stepparents.requiredErrorMsg}`),
-    
+
     [family_stepfather_val.name]: yup
       .string()
       .when(["family_validate_stepparents"], {
@@ -2553,8 +2601,8 @@ export default [
         is: (family_validate_stepparents, family_stepfather_val) =>
           family_validate_stepparents === "Si" &&
           family_stepfather_val === "Si",
-        then: yup.string().required(`${family_stepfather_info.requiredErrorMsg}`), 
-    }),
+        then: yup.string().required(`${family_stepfather_info.requiredErrorMsg}`),
+      }),
 
     [family_stepfather_life.name]: yup
       .string()
@@ -2606,87 +2654,88 @@ export default [
       ),
 
     [family_stepfather_age.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_age.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_age.requiredErrorMsg}`),
+        }
+      ),
 
     [family_stepfather_status.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_status.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_status.requiredErrorMsg}`),
+        }
+      ),
 
     [family_stepfather_phone_val.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_phone_val.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_phone_val.requiredErrorMsg}`),
+        }
+      ),
 
     //die stepfather
     [family_stepfather_nametwo.name]: yup
-    .string()
-    .when(
+      .string()
+      .when(
         [
           "family_validate_stepparents",
           "family_stepfather_val",
@@ -2711,8 +2760,8 @@ export default [
       ),
 
     [family_stepfather_surnametwo.name]: yup
-    .string()
-    .when(
+      .string()
+      .when(
         [
           "family_validate_stepparents",
           "family_stepfather_val",
@@ -2737,8 +2786,8 @@ export default [
       ),
 
     [family_stepfather_time_died.name]: yup
-    .string()
-    .when(
+      .string()
+      .when(
         [
           "family_validate_stepparents",
           "family_stepfather_val",
@@ -2763,8 +2812,8 @@ export default [
       ),
 
     [family_stepfather_reason_died.name]: yup
-    .string()
-    .when(
+      .string()
+      .when(
         [
           "family_validate_stepparents",
           "family_stepfather_val",
@@ -2790,707 +2839,716 @@ export default [
 
     //phone stepfather
     [family_stepfather_no_phone.name]: yup
-    .string()
-    .when(
-      [
-        "family_stepfather_phone_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_phone_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_stepfather_phone_val === "No" &&
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_no_phone.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .when(
+        [
+          "family_stepfather_phone_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_phone_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_phone_val === "No" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_no_phone.requiredErrorMsg}`),
+        }
+      ),
 
     [family_stepfather_phone.name]: yup
-    .string()
-    .when(
-      [
-        "family_stepfather_phone_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_phone_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_stepfather_phone_val === "Si" &&
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_phone.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .min(8, "El numero telefonico debe tener 8 digitos")
+      .max(8, "El numero telefonico debe tener 8 digitos")
+      .when(
+        [
+          "family_stepfather_phone_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_phone_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_phone_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_phone.requiredErrorMsg}`),
+        }
+      ),
 
     //working stepfather
     [family_stepfather_working_val.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_working_val.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_working_val.requiredErrorMsg}`),
+        }
+      ),
 
     [family_stepfather_place.name]: yup
-    .string()
-    .when(
-      [
-        "family_stepfather_working_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_working_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-        family_stepfather_working_val === "Si" && 
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_place.requiredErrorMsg}`),
-      }
-    ),
+      .string()
+      .when(
+        [
+          "family_stepfather_working_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_working_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_place.requiredErrorMsg}`),
+        }
+      ),
 
-    [family_stepfather_company.name]:  yup
-    .string()
-    .when(
-      [
-        "family_stepfather_working_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_working_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-        family_stepfather_working_val === "Si" && 
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_company.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepfather_company.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepfather_working_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_working_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_company.requiredErrorMsg}`),
+        }
+      ),
 
-    [family_stepfather_financial_income.name]:  yup
-    .string()
-    .when(
-      [
-        "family_stepfather_working_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_working_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-        family_stepfather_working_val === "Si" && 
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_financial_income.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepfather_financial_income.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(
+        [
+          "family_stepfather_working_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_working_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_financial_income.requiredErrorMsg}`),
+        }
+      ),
 
-    [family_stepfather_depend.name]:  yup
-    .string()
-    .when(
-      [
-        "family_stepfather_working_val", 
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-        "family_stepfather_life",
-      ],
-      {
-        is: (
-          family_stepfather_working_val,
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-          family_stepfather_life
-        ) =>
-        family_stepfather_working_val === "No" && 
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "Si" &&
-          family_stepfather_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepfather_depend.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepfather_depend.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepfather_working_val",
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+          "family_stepfather_life",
+        ],
+        {
+          is: (
+            family_stepfather_working_val,
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+            family_stepfather_life
+          ) =>
+            family_stepfather_working_val === "No" &&
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "Si" &&
+            family_stepfather_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepfather_depend.requiredErrorMsg}`),
+        }
+      ),
 
-    [family_stepfather_noInfo.name]:  yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepfather_val",
-        "family_stepfather_info",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepfather_val,
-          family_stepfather_info,
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepfather_val === "Si" &&
-          family_stepfather_info === "No",
-        then: yup
-          .string()
-          .required(`${family_stepfather_noInfo.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepfather_noInfo.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepfather_val",
+          "family_stepfather_info",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepfather_val,
+            family_stepfather_info,
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepfather_val === "Si" &&
+            family_stepfather_info === "No",
+          then: yup
+            .string()
+            .required(`${family_stepfather_noInfo.requiredErrorMsg}`),
+        }
+      ),
 
     //stepmother general
-    
-  [family_stepmother_val.name]: yup
-    .string()
-    .when(["family_validate_stepparents"], {
-      is: (family_validate_stepparents) =>
-        family_validate_stepparents === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_val.requiredErrorMsg}`),
-    }),
 
-  //stepmother general
-  [family_stepmother_info.name]: yup
-    .string()
-    .when(["family_validate_stepparents", "family_stepmother_val"], {
-      is: (family_validate_stepparents, family_stepmother_val) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si",
-      then: yup.string().required(`${family_stepmother_info.requiredErrorMsg}`), 
-  }),
-
-  [family_stepmother_life.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si",
+    [family_stepmother_val.name]: yup
+      .string()
+      .when(["family_validate_stepparents"], {
+        is: (family_validate_stepparents) =>
+          family_validate_stepparents === "Si",
         then: yup
           .string()
-          .required(`${family_stepmother_life.requiredErrorMsg}`),
-      }
-    ),
+          .required(`${family_stepmother_val.requiredErrorMsg}`),
+      }),
 
-  [family_stepmother_name.name]: yup
-    .string()
-    .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-        "family_stepmother_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info,
-          family_stepmother_life
-        ) =>
+    //stepmother general
+    [family_stepmother_info.name]: yup
+      .string()
+      .when(["family_validate_stepparents", "family_stepmother_val"], {
+        is: (family_validate_stepparents, family_stepmother_val) =>
           family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si" &&
-          family_stepmother_life === "Si",
-        then: yup
-          .string()
-          .required(`${family_stepmother_name.requiredErrorMsg}`),
-      }
-    ),
+          family_stepmother_val === "Si",
+        then: yup.string().required(`${family_stepmother_info.requiredErrorMsg}`),
+      }),
 
-  [family_stepmother_age.name]: yup
-  .string()
-  .when(
-    [
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_age.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_life.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_life.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_status.name]: yup
-  .string()
-  .when(
-    [
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_status.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_name.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_name.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_phone_val.name]: yup
-  .string()
-  .when(
-    [
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_phone_val.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_age.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_age.requiredErrorMsg}`),
+        }
+      ),
 
-  //die stepmother
-  [family_stepmother_nametwo.name]: yup
-  .string()
-  .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-        "family_stepmother_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info,
-          family_stepmother_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si" &&
-          family_stepmother_life === "No",
-        then: yup
-          .string()
-          .required(`${family_stepmother_nametwo.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepmother_status.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_status.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_surnametwo.name]: yup
-  .string()
-  .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-        "family_stepmother_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info,
-          family_stepmother_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si" &&
-          family_stepmother_life === "No",
-        then: yup
-          .string()
-          .required(`${family_stepmother_surnametwo.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepmother_phone_val.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_phone_val.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_time_died.name]: yup
-  .string()
-  .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-        "family_stepmother_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info,
-          family_stepmother_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si" &&
-          family_stepmother_life === "No",
-        then: yup
-          .string()
-          .required(`${family_stepmother_time_died.requiredErrorMsg}`),
-      }
-    ),
+    //die stepmother
+    [family_stepmother_nametwo.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "No",
+          then: yup
+            .string()
+            .required(`${family_stepmother_nametwo.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_reason_died.name]: yup
-  .string()
-  .when(
-      [
-        "family_validate_stepparents",
-        "family_stepmother_val",
-        "family_stepmother_info",
-        "family_stepmother_life",
-      ],
-      {
-        is: (
-          family_validate_stepparents,
-          family_stepmother_val,
-          family_stepmother_info,
-          family_stepmother_life
-        ) =>
-          family_validate_stepparents === "Si" &&
-          family_stepmother_val === "Si" &&
-          family_stepmother_info === "Si" &&
-          family_stepmother_life === "No",
-        then: yup
-          .string()
-          .required(`${family_stepmother_reason_died.requiredErrorMsg}`),
-      }
-    ),
+    [family_stepmother_surnametwo.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "No",
+          then: yup
+            .string()
+            .required(`${family_stepmother_surnametwo.requiredErrorMsg}`),
+        }
+      ),
 
-  //phone stepmother
-  [family_stepmother_no_phone.name]: yup
-  .string()
-  .when(
-    [
-      "family_stepmother_phone_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_phone_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_stepmother_phone_val === "No" &&
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_no_phone.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_time_died.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "No",
+          then: yup
+            .string()
+            .required(`${family_stepmother_time_died.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_phone.name]: yup
-  .string()
-  .when(
-    [
-      "family_stepmother_phone_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_phone_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_stepmother_phone_val === "Si" &&
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_phone.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_reason_died.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "No",
+          then: yup
+            .string()
+            .required(`${family_stepmother_reason_died.requiredErrorMsg}`),
+        }
+      ),
 
-  //working stepmother
-  [family_stepmother_working_val.name]: yup
-  .string()
-  .when(
-    [
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_working_val.requiredErrorMsg}`),
-    }
-  ),
+    //phone stepmother
+    [family_stepmother_no_phone.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepmother_phone_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_phone_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_phone_val === "No" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_no_phone.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_place.name]: yup
-  .string()
-  .when(
-    [
-      "family_stepmother_working_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_working_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-      family_stepmother_working_val === "Si" && 
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_place.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_phone.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .min(8, "El numero telefonico debe tener 8 digitos")
+      .max(8, "El numero telefonico debe tener 8 digitos")
+      .when(
+        [
+          "family_stepmother_phone_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_phone_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_phone_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_phone.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_company.name]:  yup
-  .string()
-  .when(
-    [
-      "family_stepmother_working_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_working_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-      family_stepmother_working_val === "Si" && 
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_company.requiredErrorMsg}`),
-    }
-  ),
+    //working stepmother
+    [family_stepmother_working_val.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_working_val.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_financial_income.name]:  yup
-  .string()
-  .when(
-    [
-      "family_stepmother_working_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_working_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-      family_stepmother_working_val === "Si" && 
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_financial_income.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_place.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepmother_working_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_working_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_place.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_depend.name]:  yup
-  .string()
-  .when(
-    [
-      "family_stepmother_working_val", 
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-      "family_stepmother_life",
-    ],
-    {
-      is: (
-        family_stepmother_working_val,
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-        family_stepmother_life
-      ) =>
-      family_stepmother_working_val === "No" && 
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "Si" &&
-        family_stepmother_life === "Si",
-      then: yup
-        .string()
-        .required(`${family_stepmother_depend.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_company.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepmother_working_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_working_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_company.requiredErrorMsg}`),
+        }
+      ),
 
-  [family_stepmother_noInfo.name]:  yup
-  .string()
-  .when(
-    [
-      "family_validate_stepparents",
-      "family_stepmother_val",
-      "family_stepmother_info",
-    ],
-    {
-      is: (
-        family_validate_stepparents,
-        family_stepmother_val,
-        family_stepmother_info,
-      ) =>
-        family_validate_stepparents === "Si" &&
-        family_stepmother_val === "Si" &&
-        family_stepmother_info === "No",
-      then: yup
-        .string()
-        .required(`${family_stepmother_noInfo.requiredErrorMsg}`),
-    }
-  ),
+    [family_stepmother_financial_income.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(
+        [
+          "family_stepmother_working_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_working_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_working_val === "Si" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_financial_income.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_stepmother_depend.name]: yup
+      .string()
+      .when(
+        [
+          "family_stepmother_working_val",
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+          "family_stepmother_life",
+        ],
+        {
+          is: (
+            family_stepmother_working_val,
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+            family_stepmother_life
+          ) =>
+            family_stepmother_working_val === "No" &&
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "Si" &&
+            family_stepmother_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_stepmother_depend.requiredErrorMsg}`),
+        }
+      ),
+
+    [family_stepmother_noInfo.name]: yup
+      .string()
+      .when(
+        [
+          "family_validate_stepparents",
+          "family_stepmother_val",
+          "family_stepmother_info",
+        ],
+        {
+          is: (
+            family_validate_stepparents,
+            family_stepmother_val,
+            family_stepmother_info,
+          ) =>
+            family_validate_stepparents === "Si" &&
+            family_stepmother_val === "Si" &&
+            family_stepmother_info === "No",
+          then: yup
+            .string()
+            .required(`${family_stepmother_noInfo.requiredErrorMsg}`),
+        }
+      ),
 
   }),
 
@@ -3498,230 +3556,189 @@ export default [
     [family_validate_son.name]: yup
       .string()
       .required(`${family_validate_son.requiredErrorMsg}`),
+
     son: yup.array({}).of(
       yup.object().shape({
-        //son general
         [family_son_life.name]: yup
           .string()
           .required("Este campo es requerido"),
-        [family_son_name.name]: yup.string().when("family_son_life", {
-          is: "Si",
+        [family_son_name.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "Si",
           then: yup
             .string()
             .required(`${family_son_name.requiredErrorMsg}`)
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
         }),
-
-        [family_son_validate_age.name]: yup.string().when("family_son_life", {
-          is: "Si",
+        [family_son_validate_age.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "Si",
           then: yup
             .string()
-            .required(`${family_son_name.requiredErrorMsg}`)
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
+            .required(`${family_son_validate_age.requiredErrorMsg}`)
         }),
-
-        [family_son_lookafther.name]: yup
-          .string()
-          .when(["family_son_validate_age", "family_son_life"], {
-            is: (family_son_validate_age, family_son_life) =>
-              family_son_validate_age === "Si" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_lookafther.requiredErrorMsg}`)
-              .when(["family_son_validate_age", "family_son_life"], {
-                is: (family_son_validate_age, family_son_life) =>
-                  family_son_validate_age === "Si" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_son_age.name]: yup.string().when("family_son_life", {
-          is: "Si",
+        [family_son_age.name]: yup
+        .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        .when(["family_son_life", "family_son_validate_age"], {
+          is: (family_son_life, family_son_validate_age) =>
+          family_son_life === "Si" &&
+          family_son_validate_age === "Si",
           then: yup
             .string()
             .required(`${family_son_age.requiredErrorMsg}`)
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
+        }),
+        [family_son_lookafther.name]: yup
+        .string()
+        .when(["family_son_life", "family_son_validate_age"], {
+          is: (family_son_life, family_son_validate_age) =>
+          family_son_life === "Si" &&
+          family_son_validate_age === "Si",
+          then: yup
+            .string()
+            .required(`${family_son_lookafther.requiredErrorMsg}`)
         }),
 
-        [family_son_status.name]: yup.string().when("family_son_life", {
-          is: "Si",
+        [family_son_phone_val.name]: yup
+        .string()
+        .when(["family_son_life", "family_son_validate_age"], {
+          is: (family_son_life, family_son_validate_age) =>
+          family_son_life === "Si" &&
+          family_son_validate_age === "No",
+          then: yup
+            .string()
+            .required(`${family_son_phone_val.requiredErrorMsg}`)
+        }),
+
+        [family_son_phone.name]: yup
+        .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        .min(8, "El numero telefonico debe tener 8 digitos")
+        .max(8, "El numero telefonico debe tener 8 digitos")
+        .when(["family_son_life", "family_son_validate_age", "family_son_phone_val"], {
+          is: (family_son_life, family_son_validate_age, family_son_phone_val) =>
+          family_son_life === "Si" &&
+          family_son_validate_age === "No" &&
+          family_son_phone_val === "Si",
+          then: yup
+            .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+              .min(8, "El numero telefonico debe tener 8 digitos")
+              .max(8, "El numero telefonico debe tener 8 digitos")
+            .required(`${family_son_phone.requiredErrorMsg}`)
+        }),
+
+        [family_son_no_phone.name]: yup
+        .string()
+        .when(["family_son_life", "family_son_validate_age", "family_son_phone_val"], {
+          is: (family_son_life, family_son_validate_age, family_son_phone_val) =>
+          family_son_life === "Si" &&
+          family_son_validate_age === "No" &&
+          family_son_phone_val === "No",
+          then: yup
+            .string()
+            .required(`${family_son_no_phone.requiredErrorMsg}`)
+        }),
+
+        [family_son_status.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "Si",
           then: yup
             .string()
             .required(`${family_son_status.requiredErrorMsg}`)
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
         }),
 
-        [family_son_phone_val.name]: yup.string().when("family_son_life", {
-          is: "Si",
+        [family_son_working_val.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "Si",
           then: yup
             .string()
-            .required("Este campo es requerido")
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
-        }),
-
-        //die son
-        [family_son_time_died.name]: yup.string().when("family_son_life", {
-          is: "No",
-          then: yup
-            .string()
-            .required(`${family_son_time_died.requiredErrorMsg}`)
-            .when(["family_son_life"], {
-              is: (family_son_life) => family_son_life === "Si",
-              then: yup.string(),
-            }),
-        }),
-        // add name and lastname
-        [family_son_died_name.name]: yup.string().when("family_son_life", {
-          is: "No",
-          then: yup
-            .string()
-            .required(`${family_son_died_name.requiredErrorMsg}`)
-            .when(["family_son_life"], {
-              is: (family_son_life) => family_son_life === "Si",
-              then: yup.string(),
-            }),
-        }),
-        [family_son_died_lastname.name]: yup.string().when("family_son_life", {
-          is: "No",
-          then: yup
-            .string()
-            .required(`${family_son_died_lastname.requiredErrorMsg}`)
-            .when(["family_son_life"], {
-              is: (family_son_life) => family_son_life === "Si",
-              then: yup.string(),
-            }),
-        }),
-
-        [family_son_reason_died.name]: yup.string().when("family_son_life", {
-          is: "No",
-          then: yup
-            .string()
-            .required(`${family_son_reason_died.requiredErrorMsg}`)
-            .when(["family_son_life"], {
-              is: (family_son_life) => family_son_life === "Si",
-              then: yup.string(),
-            }),
-        }),
-
-        //phone son
-        [family_son_no_phone.name]: yup
-          .string()
-          .when(["family_son_phone_val", "family_son_life"], {
-            is: (family_son_phone_val, family_son_life) =>
-              family_son_phone_val === "No" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_no_phone.requiredErrorMsg}`)
-              .when(["family_son_phone_val", "family_son_life"], {
-                is: (family_son_phone_val, family_son_life) =>
-                  family_son_phone_val === "No" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_son_phone.name]: yup
-          .string()
-          .when(["family_son_phone_val", "family_son_life"], {
-            is: (family_son_phone_val, family_son_life) =>
-              family_son_phone_val === "Si" && family_son_life === "Si",
-            then: yup
-              .string()
-              .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
-              .min(8, "El numero telefonico debe tener 8 digitos")
-              .max(8, "El numero telefonico debe tener 8 digitos")
-              .required(`${family_son_no_phone.requiredErrorMsg}`)
-              .when(["family_son_phone_val", "family_son_life"], {
-                is: (family_son_phone_val, family_son_life) =>
-                  family_son_phone_val === "Si" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
-        //working son
-        [family_son_working_val.name]: yup.string().when("family_son_life", {
-          is: "Si",
-          then: yup
-            .string()
-            .required("El campo es requerido")
-            .when("family_son_life", {
-              is: "No",
-              then: yup.string(),
-            }),
+            .required(`${family_son_working_val.requiredErrorMsg}`)
         }),
 
         [family_son_place.name]: yup
-          .string()
-          .when(["family_son_working_val", "family_son_life"], {
-            is: (family_son_working_val, family_son_life) =>
-              family_son_working_val === "Si" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_place.requiredErrorMsg}`)
-              .when(["family_son_working_val", "family_son_life"], {
-                is: (family_son_working_val, family_son_life) =>
-                  family_son_working_val === "Si" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .when(["family_son_life", "family_son_working_val"], {
+          is: (family_son_life, family_son_working_val) =>
+          family_son_life === "Si" &&
+          family_son_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_son_place.requiredErrorMsg}`)
+        }),
 
         [family_son_company.name]: yup
-          .string()
-          .when(["family_son_working_val", "family_son_life"], {
-            is: (family_son_working_val, family_son_life) =>
-              family_son_working_val === "Si" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_company.requiredErrorMsg}`)
-              .when(["family_son_working_val", "family_son_life"], {
-                is: (family_son_working_val, family_son_life) =>
-                  family_son_working_val === "Si" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .when(["family_son_life", "family_son_working_val"], {
+          is: (family_son_life, family_son_working_val) =>
+          family_son_life === "Si" &&
+          family_son_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_son_company.requiredErrorMsg}`)
+        }),
 
         [family_son_financial_income.name]: yup
-          .string()
-          .when(["family_son_working_val", "family_son_life"], {
-            is: (family_son_working_val, family_son_life) =>
-              family_son_working_val === "Si" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_financial_income.requiredErrorMsg}`)
-              .when(["family_son_working_val", "family_son_life"], {
-                is: (family_son_working_val, family_son_life) =>
-                  family_son_working_val === "Si" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        .when(["family_son_life", "family_son_working_val"], {
+          is: (family_son_life, family_son_working_val) =>
+          family_son_life === "Si" &&
+          family_son_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_son_financial_income.requiredErrorMsg}`)
+        }),
 
-        [family_son_depend.name]: yup
-          .string()
-          .when(["family_son_working_val", "family_son_life"], {
-            is: (family_son_working_val, family_son_life) =>
-              family_son_working_val === "No" && family_son_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_son_depend.requiredErrorMsg}`)
-              .when(["family_son_working_val", "family_son_life"], {
-                is: (family_son_working_val, family_son_life) =>
-                  family_son_working_val === "No" && family_son_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        // =========================================================
+
+        [family_son_died_name.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "No",
+          then: yup
+            .string()
+            .required(`${family_son_died_name.requiredErrorMsg}`)
+        }),
+
+        [family_son_died_lastname.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "No",
+          then: yup
+            .string()
+            .required(`${family_son_died_lastname.requiredErrorMsg}`)
+        }),
+
+        [family_son_time_died.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "No",
+          then: yup
+            .string()
+            .required(`${family_son_time_died.requiredErrorMsg}`)
+        }),
+
+        [family_son_reason_died.name]: yup
+        .string()
+        .when(["family_son_life"], {
+          is: (family_son_life) =>
+          family_son_life === "No",
+          then: yup
+            .string()
+            .required(`${family_son_reason_died.requiredErrorMsg}`)
+        }),
+      
       })
     ),
   }),
@@ -3732,125 +3749,38 @@ export default [
       .required(`${family_validate_brothers.requiredErrorMsg}`),
     brothers: yup.array({}).of(
       yup.object().shape({
-        //brothers general
         [family_brothers_life.name]: yup
           .string()
           .required("Este campo es requerido"),
-        [family_brothers_name.name]: yup.string().when("family_brothers_life", {
-          is: "Si",
+
+          [family_brothers_name.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "Si",
           then: yup
             .string()
             .required(`${family_brothers_name.requiredErrorMsg}`)
-            .when("family_brothers_life", {
-              is: "No",
-              then: yup.string(),
-            }),
         }),
-
-        [family_brothers_age.name]: yup.string().when("family_brothers_life", {
-          is: "Si",
+        [family_brothers_age.name]: yup
+        .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "Si",
           then: yup
             .string()
             .required(`${family_brothers_age.requiredErrorMsg}`)
-            .when("family_brothers_life", {
-              is: "No",
-              then: yup.string(),
-            }),
         }),
 
-        [family_brothers_status.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_status.requiredErrorMsg}`)
-              .when("family_brothers_life", {
-                is: "No",
-                then: yup.string(),
-              }),
-          }),
-
         [family_brothers_phone_val.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "Si",
-            then: yup
-              .string()
-              .required("Este campo es requerido")
-              .when("family_brothers_life", {
-                is: "No",
-                then: yup.string(),
-              }),
-          }),
-        [family_brothers_died_name.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_brothers_died_name.requiredErrorMsg}`)
-              .when(["family_brothers_life"], {
-                is: (family_brothers_life) => family_brothers_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_brothers_died_lastname.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_brothers_died_lastname.requiredErrorMsg}`)
-              .when(["family_brothers_life"], {
-                is: (family_brothers_life) => family_brothers_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-        //die brothers
-        [family_brothers_time_died.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_brothers_time_died.requiredErrorMsg}`)
-              .when(["family_brothers_life"], {
-                is: (family_brothers_life) => family_brothers_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-        [family_brothers_reason_died.name]: yup
-          .string()
-          .when("family_brothers_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_brothers_reason_died.requiredErrorMsg}`)
-              .when(["family_brothers_life"], {
-                is: (family_brothers_life) => family_brothers_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        //phone brothers
-        [family_brothers_no_phone.name]: yup
-          .string()
-          .when(["family_brothers_phone_val", "family_brothers_life"], {
-            is: (family_brothers_phone_val, family_brothers_life) =>
-              family_brothers_phone_val === "No" &&
-              family_brothers_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_no_phone.requiredErrorMsg}`)
-              .when(["family_brothers_phone_val", "family_brothers_life"], {
-                is: (family_brothers_phone_val, family_brothers_life) =>
-                  family_brothers_phone_val === "No" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .when("family_brothers_life", {
+          is: "Si",
+          then: yup
+            .string()
+            .required("Este campo es requerido")
+        }),
 
         [family_brothers_phone.name]: yup
           .string()
@@ -3864,94 +3794,123 @@ export default [
               .min(8, "El numero telefonico debe tener 8 digitos")
               .max(8, "El numero telefonico debe tener 8 digitos")
               .required(`${family_brothers_no_phone.requiredErrorMsg}`)
-              .when(["family_brothers_phone_val", "family_brothers_life"], {
-                is: (family_brothers_phone_val, family_brothers_life) =>
-                  family_brothers_phone_val === "Si" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
           }),
-        //working brothers
-        [family_brothers_working_val.name]: yup
+
+        [family_brothers_no_phone.name]: yup
           .string()
-          .when("family_brothers_life", {
-            is: "Si",
+          .when(["family_brothers_phone_val", "family_brothers_life"], {
+            is: (family_brothers_phone_val, family_brothers_life) =>
+              family_brothers_phone_val === "No" &&
+              family_brothers_life === "Si",
             then: yup
               .string()
-              .required("El campo es requerido")
-              .when("family_brothers_life", {
-                is: "No",
-                then: yup.string(),
-              }),
+              .required(`${family_brothers_no_phone.requiredErrorMsg}`)
           }),
+
+    
+        [family_brothers_status.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_status.requiredErrorMsg}`)
+        }),
+
+        [family_brothers_working_val.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_working_val.requiredErrorMsg}`)
+        }),
 
         [family_brothers_place.name]: yup
-          .string()
-          .when(["family_brothers_working_val", "family_brothers_life"], {
-            is: (family_brothers_working_val, family_brothers_life) =>
-              family_brothers_working_val === "Si" &&
-              family_brothers_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_place.requiredErrorMsg}`)
-              .when(["family_brothers_working_val", "family_brothers_life"], {
-                is: (family_brothers_working_val, family_brothers_life) =>
-                  family_brothers_working_val === "Si" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
-          }),
-
+        .string()
+        .when(["family_brothers_life", "family_brothers_working_val"], {
+          is: (family_brothers_life, family_brothers_working_val) =>
+          family_brothers_life === "Si" &&
+          family_brothers_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_place.requiredErrorMsg}`)
+        }),
         [family_brothers_company.name]: yup
-          .string()
-          .when(["family_brothers_working_val", "family_brothers_life"], {
-            is: (family_brothers_working_val, family_brothers_life) =>
-              family_brothers_working_val === "Si" &&
-              family_brothers_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_company.requiredErrorMsg}`)
-              .when(["family_brothers_working_val", "family_brothers_life"], {
-                is: (family_brothers_working_val, family_brothers_life) =>
-                  family_brothers_working_val === "Si" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
-          }),
-
+        .string()
+        .when(["family_brothers_life", "family_brothers_working_val"], {
+          is: (family_brothers_life, family_brothers_working_val) =>
+          family_brothers_life === "Si" &&
+          family_brothers_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_company.requiredErrorMsg}`)
+        }),
         [family_brothers_financial_income.name]: yup
-          .string()
-          .when(["family_brothers_working_val", "family_brothers_life"], {
-            is: (family_brothers_working_val, family_brothers_life) =>
-              family_brothers_working_val === "Si" &&
-              family_brothers_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_financial_income.requiredErrorMsg}`)
-              .when(["family_brothers_working_val", "family_brothers_life"], {
-                is: (family_brothers_working_val, family_brothers_life) =>
-                  family_brothers_working_val === "Si" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        .when(["family_brothers_life", "family_brothers_working_val"], {
+          is: (family_brothers_life, family_brothers_working_val) =>
+          family_brothers_life === "Si" &&
+          family_brothers_working_val === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_financial_income.requiredErrorMsg}`)
+        }),
 
         [family_brothers_depend.name]: yup
-          .string()
-          .when(["family_brothers_working_val", "family_brothers_life"], {
-            is: (family_brothers_working_val, family_brothers_life) =>
-              family_brothers_working_val === "No" &&
-              family_brothers_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_brothers_depend.requiredErrorMsg}`)
-              .when(["family_brothers_working_val", "family_brothers_life"], {
-                is: (family_brothers_working_val, family_brothers_life) =>
-                  family_brothers_working_val === "No" &&
-                  family_brothers_life === "No",
-                then: yup.string(),
-              }),
-          }),
+        .string()
+        .when(["family_brothers_working_val", "family_brothers_life"], {
+          is: (family_brothers_working_val, family_brothers_life) =>
+            family_brothers_working_val === "No" &&
+            family_brothers_life === "Si",
+          then: yup
+            .string()
+            .required(`${family_brothers_depend.requiredErrorMsg}`)
+        }),
+
+        // =============================
+        
+        [family_brothers_died_name.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "No",
+          then: yup
+            .string()
+            .required(`${family_brothers_died_name.requiredErrorMsg}`)
+        }),
+
+        [family_brothers_died_lastname.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "No",
+          then: yup
+            .string()
+            .required(`${family_brothers_died_lastname.requiredErrorMsg}`)
+        }),
+        [family_brothers_time_died.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "No",
+          then: yup
+            .string()
+            .required(`${family_brothers_time_died.requiredErrorMsg}`)
+        }),
+        [family_brothers_reason_died.name]: yup
+        .string()
+        .when(["family_brothers_life"], {
+          is: (family_brothers_life) =>
+          family_brothers_life === "No",
+          then: yup
+            .string()
+            .required(`${family_brothers_reason_died.requiredErrorMsg}`)
+        }),
+      
       })
     ),
   }),
@@ -3965,282 +3924,210 @@ export default [
         [family_stepbrother_has_information.name]: yup
           .string()
           .required(`${family_stepbrother_has_information.requiredErrorMsg}`),
-        [family_stepbrother_reason_dont_has.name]: yup
+          [family_stepbrother_life.name]: yup
           .string()
-          .when("family_stepbrother_has_information", {
-            is: "No",
+          .when(["family_stepbrother_has_information"], {
+            is: (family_stepbrother_has_information) =>
+            family_stepbrother_has_information === "Si",
             then: yup
               .string()
-              .required(
-                `${family_stepbrother_has_information.requiredErrorMsg}`
-              ),
+              .required(`${family_stepbrother_life.requiredErrorMsg}`)
           }),
-        //stepbrother general
-        [family_stepbrother_life.name]: yup
+
+          [family_stepbrother_name.name]: yup
           .string()
-          .when("family_stepbrother_has_information", {
-            is: "Si",
-            then: yup.string().required("Este campo es requerido"),
-          }),
-        [family_stepbrother_name.name]: yup
-          .string()
-          .when("family_stepbrother_life", {
-            is: "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si",
             then: yup
               .string()
               .required(`${family_stepbrother_name.requiredErrorMsg}`)
-              .when("family_stepbrother_life", {
-                is: "No",
-                then: yup.string(),
-              }),
           }),
 
-        [family_stepbrother_age.name]: yup
+          [family_stepbrother_age.name]: yup
           .string()
-          .when("family_stepbrother_life", {
-            is: "Si",
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si",
             then: yup
               .string()
               .required(`${family_stepbrother_age.requiredErrorMsg}`)
-              .when("family_stepbrother_life", {
-                is: "No",
-                then: yup.string(),
-              }),
           }),
 
-        [family_stepbrother_status.name]: yup
+          [family_stepbrother_status.name]: yup
           .string()
-          .when("family_stepbrother_life", {
-            is: "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si",
             then: yup
               .string()
               .required(`${family_stepbrother_status.requiredErrorMsg}`)
-              .when("family_stepbrother_life", {
-                is: "No",
-                then: yup.string(),
-              }),
           }),
-
-        [family_stepbrother_phone_val.name]: yup
+        
+          [family_stepbrother_working_val.name]: yup
           .string()
-          .when("family_stepbrother_life", {
-            is: "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si",
             then: yup
               .string()
-              .required("Este campo es requerido")
-              .when("family_stepbrother_life", {
-                is: "No",
-                then: yup.string(),
-              }),
+              .required(`${family_stepbrother_working_val.requiredErrorMsg}`)
           }),
 
-        //die stepbrother
-        [family_stepbrother_time_died.name]: yup
+          [family_stepbrother_place.name]: yup
           .string()
-          .when("family_stepbrother_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_stepbrother_time_died.requiredErrorMsg}`)
-              .when(["family_stepbrother_life"], {
-                is: (family_stepbrother_life) =>
-                  family_stepbrother_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_stepbrother_died_name.name]: yup
-          .string()
-          .when("family_stepbrother_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_stepbrother_died_name.requiredErrorMsg}`)
-              .when(["family_stepbrother_life"], {
-                is: (family_stepbrother_life) =>
-                  family_stepbrother_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_stepbrother_died_lastname.name]: yup
-          .string()
-          .when("family_stepbrother_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_stepbrother_died_lastname.requiredErrorMsg}`)
-              .when(["family_stepbrother_life"], {
-                is: (family_stepbrother_life) =>
-                  family_stepbrother_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_stepbrother_reason_died.name]: yup
-          .string()
-          .when("family_stepbrother_life", {
-            is: "No",
-            then: yup
-              .string()
-              .required(`${family_stepbrother_reason_died.requiredErrorMsg}`)
-              .when(["family_stepbrother_life"], {
-                is: (family_stepbrother_life) =>
-                  family_stepbrother_life === "Si",
-                then: yup.string(),
-              }),
-          }),
-
-        //phone stepbrother
-        [family_stepbrother_no_phone.name]: yup
-          .string()
-          .when(["family_stepbrother_phone_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_phone_val, family_stepbrother_life) =>
-              family_stepbrother_phone_val === "No" &&
-              family_stepbrother_life === "Si",
-            then: yup
-              .string()
-              .required(`${family_stepbrother_no_phone.requiredErrorMsg}`)
-              .when(
-                ["family_stepbrother_phone_val", "family_stepbrother_life"],
-                {
-                  is: (family_stepbrother_phone_val, family_stepbrother_life) =>
-                    family_stepbrother_phone_val === "No" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
-          }),
-
-        [family_stepbrother_phone.name]: yup
-          .string()
-          .when(["family_stepbrother_phone_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_phone_val, family_stepbrother_life) =>
-              family_stepbrother_phone_val === "Si" &&
-              family_stepbrother_life === "Si",
-            then: yup
-              .string()
-              .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
-              .min(8, "El numero telefonico debe tener 8 digitos")
-              .max(8, "El numero telefonico debe tener 8 digitos")
-              .required(`${family_stepbrother_no_phone.requiredErrorMsg}`)
-              .when(
-                ["family_stepbrother_phone_val", "family_stepbrother_life"],
-                {
-                  is: (family_stepbrother_phone_val, family_stepbrother_life) =>
-                    family_stepbrother_phone_val === "Si" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
-          }),
-        //working stepbrother
-        [family_stepbrother_working_val.name]: yup
-          .string()
-          .when("family_stepbrother_life", {
-            is: "Si",
-            then: yup
-              .string()
-              .required("El campo es requerido")
-              .when("family_stepbrother_life", {
-                is: "No",
-                then: yup.string(),
-              }),
-          }),
-
-        [family_stepbrother_place.name]: yup
-          .string()
-          .when(["family_stepbrother_working_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_working_val, family_stepbrother_life) =>
-              family_stepbrother_working_val === "Si" &&
-              family_stepbrother_life === "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life", "family_stepbrother_working_val"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life, family_stepbrother_working_val) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si" &&
+            family_stepbrother_working_val === "Si",
             then: yup
               .string()
               .required(`${family_stepbrother_place.requiredErrorMsg}`)
-              .when(
-                ["family_stepbrother_working_val", "family_stepbrother_life"],
-                {
-                  is: (
-                    family_stepbrother_working_val,
-                    family_stepbrother_life
-                  ) =>
-                    family_stepbrother_working_val === "Si" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
           }),
 
-        [family_stepbrother_company.name]: yup
+          [family_stepbrother_company.name]: yup
           .string()
-          .when(["family_stepbrother_working_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_working_val, family_stepbrother_life) =>
-              family_stepbrother_working_val === "Si" &&
-              family_stepbrother_life === "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life", "family_stepbrother_working_val"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life, family_stepbrother_working_val) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si" &&
+            family_stepbrother_working_val === "Si",
             then: yup
               .string()
               .required(`${family_stepbrother_company.requiredErrorMsg}`)
-              .when(
-                ["family_stepbrother_working_val", "family_stepbrother_life"],
-                {
-                  is: (
-                    family_stepbrother_working_val,
-                    family_stepbrother_life
-                  ) =>
-                    family_stepbrother_working_val === "Si" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
           }),
+          
 
-        [family_stepbrother_financial_income.name]: yup
+          [family_stepbrother_financial_income.name]: yup
           .string()
-          .when(["family_stepbrother_working_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_working_val, family_stepbrother_life) =>
-              family_stepbrother_working_val === "Si" &&
-              family_stepbrother_life === "Si",
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+          .when(["family_stepbrother_has_information", "family_stepbrother_life", "family_stepbrother_working_val"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life, family_stepbrother_working_val) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si" &&
+            family_stepbrother_working_val === "Si",
             then: yup
               .string()
-              .required(
-                `${family_stepbrother_financial_income.requiredErrorMsg}`
-              )
-              .when(
-                ["family_stepbrother_working_val", "family_stepbrother_life"],
-                {
-                  is: (
-                    family_stepbrother_working_val,
-                    family_stepbrother_life
-                  ) =>
-                    family_stepbrother_working_val === "Si" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
+              .required(`${family_stepbrother_financial_income.requiredErrorMsg}`)
           }),
 
-        [family_stepbrother_depend.name]: yup
+          [family_stepbrother_depend.name]: yup
           .string()
-          .when(["family_stepbrother_working_val", "family_stepbrother_life"], {
-            is: (family_stepbrother_working_val, family_stepbrother_life) =>
-              family_stepbrother_working_val === "No" &&
-              family_stepbrother_life === "Si",
+          .when(["family_stepbrother_has_information", "family_stepbrother_life", "family_stepbrother_working_val"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life, family_stepbrother_working_val) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "Si" &&
+            family_stepbrother_working_val === "No",
             then: yup
               .string()
               .required(`${family_stepbrother_depend.requiredErrorMsg}`)
-              .when(
-                ["family_stepbrother_working_val", "family_stepbrother_life"],
-                {
-                  is: (
-                    family_stepbrother_working_val,
-                    family_stepbrother_life
-                  ) =>
-                    family_stepbrother_working_val === "No" &&
-                    family_stepbrother_life === "No",
-                  then: yup.string(),
-                }
-              ),
           }),
+
+          // ======================================================
+
+
+          [family_stepbrother_reason_dont_has.name]: yup
+          .string()
+          .when(["family_stepbrother_has_information"], {
+            is: (family_stepbrother_has_information) =>
+            family_stepbrother_has_information === "No",
+            then: yup
+              .string()
+              .required(`${family_stepbrother_reason_dont_has.requiredErrorMsg}`)
+          }),
+
+
+          [family_stepbrother_died_name.name]: yup
+          .string()
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "No",
+            then: yup
+              .string()
+              .required(`${family_stepbrother_died_name.requiredErrorMsg}`)
+          }),
+          [family_stepbrother_died_lastname.name]: yup
+          .string()
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "No",
+            then: yup
+              .string()
+              .required(`${family_stepbrother_died_lastname.requiredErrorMsg}`)
+          }),
+          [family_stepbrother_time_died.name]: yup
+          .string()
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "No",
+            then: yup
+              .string()
+              .required(`${family_stepbrother_time_died.requiredErrorMsg}`)
+          }),
+          [family_stepbrother_reason_died.name]: yup
+          .string()
+          .when(["family_stepbrother_has_information", "family_stepbrother_life"], {
+            is: (family_stepbrother_has_information, family_stepbrother_life) =>
+            family_stepbrother_has_information === "Si" &&
+            family_stepbrother_life === "No",
+            then: yup
+              .string()
+              .required(`${family_stepbrother_reason_died.requiredErrorMsg}`)
+          }),
+          
+        //phone stepbrother
+        // [family_stepbrother_no_phone.name]: yup
+        //   .string()
+        //   .when(["family_stepbrother_phone_val", "family_stepbrother_life"], {
+        //     is: (family_stepbrother_phone_val, family_stepbrother_life) =>
+        //       family_stepbrother_phone_val === "No" &&
+        //       family_stepbrother_life === "Si",
+        //     then: yup
+        //       .string()
+        //       .required(`${family_stepbrother_no_phone.requiredErrorMsg}`)
+        //       .when(
+        //         ["family_stepbrother_phone_val", "family_stepbrother_life"],
+        //         {
+        //           is: (family_stepbrother_phone_val, family_stepbrother_life) =>
+        //             family_stepbrother_phone_val === "No" &&
+        //             family_stepbrother_life === "No",
+        //           then: yup.string(),
+        //         }
+        //       ),
+        //   }),
+
+        // [family_stepbrother_phone.name]: yup
+        //   .string()
+        //   .when(["family_stepbrother_phone_val", "family_stepbrother_life"], {
+        //     is: (family_stepbrother_phone_val, family_stepbrother_life) =>
+        //       family_stepbrother_phone_val === "Si" &&
+        //       family_stepbrother_life === "Si",
+        //     then: yup
+        //       .string()
+        //       .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+        //       .min(8, "El numero telefonico debe tener 8 digitos")
+        //       .max(8, "El numero telefonico debe tener 8 digitos")
+        //       .required(`${family_stepbrother_no_phone.requiredErrorMsg}`)
+        //       .when(
+        //         ["family_stepbrother_phone_val", "family_stepbrother_life"],
+        //         {
+        //           is: (family_stepbrother_phone_val, family_stepbrother_life) =>
+        //             family_stepbrother_phone_val === "Si" &&
+        //             family_stepbrother_life === "No",
+        //           then: yup.string(),
+        //         }
+        //       ),
+        //   }),
+        //working stepbrother
       })
     ),
   }),
@@ -4258,10 +4145,6 @@ export default [
         then: yup
           .string()
           .required("Este campo es requerido")
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "No",
-            then: yup.string(),
-          }),
       }),
 
     [family_conyugue_name.name]: yup
@@ -4272,42 +4155,56 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_name.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
+
+    // changes 2.2
+
+    [family_conyugue_relation.name]: yup.string()
+    .when(["family_conyugue_partner_val", "family_validate_conyugue"], {
+      is: (family_conyugue_partner_val, family_validate_conyugue) =>
+      family_conyugue_partner_val === "Si" && family_validate_conyugue === "No",
+      then: yup
+        .string()
+        .required(`${family_conyugue_relation.requiredErrorMsg}`)
+    }),
+
+    [family_conyugue_time_relation.name]: yup.string()
+    .when(["family_conyugue_partner_val", "family_validate_conyugue"], {
+      is: (family_conyugue_partner_val, family_validate_conyugue) =>
+      family_conyugue_partner_val === "Si" && family_validate_conyugue === "No",
+      then: yup
+        .string()
+        .required(`${family_conyugue_time_relation.requiredErrorMsg}`)
+    }),
+
+    [family_conyugue_marriage_val.name]: yup.string()
+    .when(["family_conyugue_partner_val", "family_validate_conyugue"], {
+      is: (family_conyugue_partner_val, family_validate_conyugue) =>
+      family_conyugue_partner_val === "Si" && family_validate_conyugue === "No",
+      then: yup
+        .string()
+        .required(`${family_conyugue_marriage_val.requiredErrorMsg}`)
+    }),
+
+    [family_conyugue_time_marriage.name]: yup.string()
+    .when(["family_conyugue_partner_val", "family_validate_conyugue", "family_conyugue_marriage_val"], {
+      is: (family_conyugue_partner_val, family_validate_conyugue, family_conyugue_marriage_val) =>
+      family_conyugue_partner_val === "Si" && family_validate_conyugue === "No" && family_conyugue_marriage_val === "Si",
+      then: yup
+        .string()
+        .required(`${family_conyugue_time_marriage.requiredErrorMsg}`)
+    }),
+
 
     [family_conyugue_age.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["family_conyugue_life", "family_validate_conyugue"], {
         is: (family_conyugue_life, family_validate_conyugue) =>
           family_conyugue_life === "Si" && family_validate_conyugue === "Si",
         then: yup
           .string()
           .required(`${family_conyugue_age.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
 
     [family_conyugue_status.name]: yup
@@ -4318,19 +4215,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_status.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
 
     [family_conyugue_phone_val.name]: yup
@@ -4341,19 +4225,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_phone_val.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
 
     //die conyugue
@@ -4365,20 +4236,8 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_time_died.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
+
     [family_conyugue_died_name.name]: yup
       .string()
       .when(["family_conyugue_life", "family_validate_conyugue"], {
@@ -4387,12 +4246,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_died_name.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "No" &&
-              family_validate_conyugue === "No",
-            then: yup.string(),
-          }),
       }),
 
     [family_conyugue_died_lastname.name]: yup
@@ -4403,12 +4256,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_died_lastname.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "No" &&
-              family_validate_conyugue === "No",
-            then: yup.string(),
-          }),
       }),
 
     [family_conyugue_reason_died.name]: yup
@@ -4418,20 +4265,7 @@ export default [
           family_conyugue_life === "No" && family_validate_conyugue === "Si",
         then: yup
           .string()
-          .required(`${family_conyugue_time_died.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
+          .required(`${family_conyugue_reason_died.requiredErrorMsg}`)
       }),
 
     //phone conyugue
@@ -4455,17 +4289,6 @@ export default [
           then: yup
             .string()
             .required(`${family_conyugue_no_phone.requiredErrorMsg}`)
-            .when(["family_conyugue_phone_val", "family_conyugue_life"], {
-              is: (
-                family_conyugue_phone_val,
-                family_conyugue_life,
-                family_validate_conyugue
-              ) =>
-                family_conyugue_phone_val === "No" &&
-                family_conyugue_life === "No" &&
-                family_validate_conyugue === "Si",
-              then: yup.string(),
-            }),
         }
       ),
 
@@ -4491,18 +4314,7 @@ export default [
             .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
             .min(8, "El numero telefonico debe tener 8 digitos")
             .max(8, "El numero telefonico debe tener 8 digitos")
-            .required(`${family_conyugue_no_phone.requiredErrorMsg}`)
-            .when(["family_conyugue_phone_val", "family_conyugue_life"], {
-              is: (
-                family_conyugue_phone_val,
-                family_conyugue_life,
-                family_validate_conyugue
-              ) =>
-                family_conyugue_phone_val === "Si" &&
-                family_conyugue_life === "No" &&
-                family_validate_conyugue === "Si",
-              then: yup.string(),
-            }),
+            .required(`${family_conyugue_phone.requiredErrorMsg}`)
         }
       ),
     //working conyugue
@@ -4514,19 +4326,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyugue_working_val.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
       }),
 
     [family_conyugue_place.name]: yup
@@ -4549,43 +4348,6 @@ export default [
           then: yup
             .string()
             .required(`${family_conyugue_place.requiredErrorMsg}`)
-            .when(
-              [
-                "family_conyugue_working_val",
-                "family_conyugue_life",
-                "family_validate_conyugue",
-              ],
-              {
-                is: (
-                  family_conyugue_working_val,
-                  family_conyugue_life,
-                  family_validate_conyugue
-                ) =>
-                  family_conyugue_working_val === "Si" &&
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyugue_working_val",
-                      "family_conyugue_life",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyugue_working_val,
-                        family_conyugue_life,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyugue_working_val === "No" &&
-                        family_conyugue_life === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
         }
       ),
 
@@ -4608,49 +4370,13 @@ export default [
             family_validate_conyugue === "Si",
           then: yup
             .string()
-            .required(`${family_conyugue_place.requiredErrorMsg}`)
-            .when(
-              [
-                "family_conyugue_working_val",
-                "family_conyugue_life",
-                "family_validate_conyugue",
-              ],
-              {
-                is: (
-                  family_conyugue_working_val,
-                  family_conyugue_life,
-                  family_validate_conyugue
-                ) =>
-                  family_conyugue_working_val === "Si" &&
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyugue_working_val",
-                      "family_conyugue_life",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyugue_working_val,
-                        family_conyugue_life,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyugue_working_val === "No" &&
-                        family_conyugue_life === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyugue_company.requiredErrorMsg}`)
         }
       ),
 
     [family_conyugue_financial_income.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(
         [
           "family_conyugue_working_val",
@@ -4668,44 +4394,7 @@ export default [
             family_validate_conyugue === "Si",
           then: yup
             .string()
-            .required(`${family_conyugue_place.requiredErrorMsg}`)
-            .when(
-              [
-                "family_conyugue_working_val",
-                "family_conyugue_life",
-                "family_validate_conyugue",
-              ],
-              {
-                is: (
-                  family_conyugue_working_val,
-                  family_conyugue_life,
-                  family_validate_conyugue
-                ) =>
-                  family_conyugue_working_val === "Si" &&
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyugue_working_val",
-                      "family_conyugue_life",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyugue_working_val,
-                        family_conyugue_life,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyugue_working_val === "No" &&
-                        family_conyugue_life === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyugue_financial_income.requiredErrorMsg}`)
         }
       ),
 
@@ -4728,44 +4417,7 @@ export default [
             family_validate_conyugue === "Si",
           then: yup
             .string()
-            .required(`${family_conyugue_place.requiredErrorMsg}`)
-            .when(
-              [
-                "family_conyugue_working_val",
-                "family_conyugue_life",
-                "family_validate_conyugue",
-              ],
-              {
-                is: (
-                  family_conyugue_working_val,
-                  family_conyugue_life,
-                  family_validate_conyugue
-                ) =>
-                  family_conyugue_working_val === "Si" &&
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyugue_working_val",
-                      "family_conyugue_life",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyugue_working_val,
-                        family_conyugue_life,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyugue_working_val === "No" &&
-                        family_conyugue_life === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyugue_depend.requiredErrorMsg}`)
         }
       ),
 
@@ -4776,20 +4428,7 @@ export default [
           family_conyugue_life === "Si" && family_validate_conyugue === "Si",
         then: yup
           .string()
-          .required(`${family_conyugue_name.requiredErrorMsg}`)
-          .when(["family_conyugue_life", "family_validate_conyugue"], {
-            is: (family_conyugue_life, family_validate_conyugue) =>
-              family_conyugue_life === "Si" &&
-              family_validate_conyugue === "No",
-            then: yup
-              .string()
-              .when(["family_conyugue_life", "family_validate_conyugue"], {
-                is: (family_conyugue_life, family_validate_conyugue) =>
-                  family_conyugue_life === "No" &&
-                  family_validate_conyugue === "No",
-                then: yup.string(),
-              }),
-          }),
+          .required(`${family_conyugue_married_val.requiredErrorMsg}`)
       }),
 
     [family_conyugue_married.name]: yup
@@ -4811,30 +4450,7 @@ export default [
             family_conyugue_married_val === "Si",
           then: yup
             .string()
-            .required(`${family_conyugue_name.requiredErrorMsg}`)
-            .when(["family_conyugue_life", "family_validate_conyugue"], {
-              is: (
-                family_conyugue_life,
-                family_validate_conyugue,
-                family_conyugue_married_val
-              ) =>
-                family_conyugue_life === "Si" &&
-                family_validate_conyugue === "No" &&
-                family_conyugue_married_val === "Si",
-              then: yup
-                .string()
-                .when(["family_conyugue_life", "family_validate_conyugue"], {
-                  is: (
-                    family_conyugue_life,
-                    family_validate_conyugue,
-                    family_conyugue_married_val
-                  ) =>
-                    family_conyugue_life === "No" &&
-                    family_validate_conyugue === "No" &&
-                    family_conyugue_married_val === "Si",
-                  then: yup.string(),
-                }),
-            }),
+            .required(`${family_conyugue_married.requiredErrorMsg}`)
         }
       ),
 
@@ -4862,15 +4478,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyuguepat_name.requiredErrorMsg}`)
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "Si",
-            then: yup.string().when(["family_validate_conyugue"], {
-              is: (family_validate_conyugue, family_conyugue_partner_val) =>
-                family_conyugue_partner_val === "No" &&
-                family_validate_conyugue === "No",
-              then: yup.string(),
-            }),
-          }),
       }),
 
     [family_conyuguepat_age.name]: yup
@@ -4882,15 +4489,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyuguepat_age.requiredErrorMsg}`)
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "Si",
-            then: yup.string().when(["family_validate_conyugue"], {
-              is: (family_validate_conyugue, family_conyugue_partner_val) =>
-                family_conyugue_partner_val === "No" &&
-                family_validate_conyugue === "No",
-              then: yup.string(),
-            }),
-          }),
       }),
 
     [family_conyuguepat_status.name]: yup
@@ -4902,15 +4500,6 @@ export default [
         then: yup
           .string()
           .required(`${family_conyuguepat_status.requiredErrorMsg}`)
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "Si",
-            then: yup.string().when(["family_validate_conyugue"], {
-              is: (family_validate_conyugue, family_conyugue_partner_val) =>
-                family_conyugue_partner_val === "No" &&
-                family_validate_conyugue === "No",
-              then: yup.string(),
-            }),
-          }),
       }),
 
     [family_conyuguepat_phone_val.name]: yup
@@ -4921,16 +4510,7 @@ export default [
           family_conyugue_partner_val === "Si",
         then: yup
           .string()
-          .required(`${family_conyuguepat_status.requiredErrorMsg}`)
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "Si",
-            then: yup.string().when(["family_validate_conyugue"], {
-              is: (family_validate_conyugue, family_conyugue_partner_val) =>
-                family_conyugue_partner_val === "No" &&
-                family_validate_conyugue === "No",
-              then: yup.string(),
-            }),
-          }),
+          .required(`${family_conyuguepat_phone_val.requiredErrorMsg}`)
       }),
 
     //phone conyuguepat
@@ -4954,13 +4534,6 @@ export default [
           then: yup
             .string()
             .required(`${family_conyuguepat_no_phone.requiredErrorMsg}`)
-            .when(["family_conyuguepat_phone_val", "family_conyuguepat_life"], {
-              is: (family_conyuguepat_phone_val, family_validate_conyugue) =>
-                family_conyuguepat_phone_val === "Si" &&
-                family_conyuguepat_life === "No" &&
-                family_validate_conyugue === "Si",
-              then: yup.string(),
-            }),
         }
       ),
 
@@ -4983,14 +4556,7 @@ export default [
             family_conyugue_partner_val === "Si",
           then: yup
             .string()
-            .required(`${family_conyuguepat_no_phone.requiredErrorMsg}`)
-            .when(["family_conyuguepat_phone_val", "family_conyuguepat_life"], {
-              is: (family_conyuguepat_phone_val, family_validate_conyugue) =>
-                family_conyuguepat_phone_val === "Si" &&
-                family_conyuguepat_life === "No" &&
-                family_validate_conyugue === "Si",
-              then: yup.string(),
-            }),
+            .required(`${family_conyuguepat_phone.requiredErrorMsg}`)
         }
       ),
 
@@ -5003,16 +4569,7 @@ export default [
           family_conyugue_partner_val === "Si",
         then: yup
           .string()
-          .required(`${family_conyuguepat_age.requiredErrorMsg}`)
-          .when(["family_validate_conyugue"], {
-            is: (family_validate_conyugue) => family_validate_conyugue === "Si",
-            then: yup.string().when(["family_validate_conyugue"], {
-              is: (family_validate_conyugue, family_conyugue_partner_val) =>
-                family_conyugue_partner_val === "No" &&
-                family_validate_conyugue === "No",
-              then: yup.string(),
-            }),
-          }),
+          .required(`${family_conyuguepat_working_val.requiredErrorMsg}`)
       }),
 
     [family_conyuguepat_place.name]: yup
@@ -5035,34 +4592,6 @@ export default [
           then: yup
             .string()
             .required(`${family_conyuguepat_place.requiredErrorMsg}`)
-            .when(
-              ["family_conyuguepat_working_val", "family_validate_conyugue"],
-              {
-                is: (
-                  family_conyuguepat_working_val,
-                  family_validate_conyugue
-                ) =>
-                  family_conyuguepat_working_val === "Si" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyuguepat_working_val",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyuguepat_working_val,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyuguepat_working_val === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
         }
       ),
 
@@ -5085,35 +4614,7 @@ export default [
             family_conyugue_partner_val === "Si",
           then: yup
             .string()
-            .required(`${family_conyuguepat_place.requiredErrorMsg}`)
-            .when(
-              ["family_conyuguepat_working_val", "family_validate_conyugue"],
-              {
-                is: (
-                  family_conyuguepat_working_val,
-                  family_validate_conyugue
-                ) =>
-                  family_conyuguepat_working_val === "Si" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyuguepat_working_val",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyuguepat_working_val,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyuguepat_working_val === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyuguepat_company.requiredErrorMsg}`)
         }
       ),
 
@@ -5136,35 +4637,7 @@ export default [
             family_conyugue_partner_val === "Si",
           then: yup
             .string()
-            .required(`${family_conyuguepat_place.requiredErrorMsg}`)
-            .when(
-              ["family_conyuguepat_working_val", "family_validate_conyugue"],
-              {
-                is: (
-                  family_conyuguepat_working_val,
-                  family_validate_conyugue
-                ) =>
-                  family_conyuguepat_working_val === "Si" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyuguepat_working_val",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyuguepat_working_val,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyuguepat_working_val === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyuguepat_financial_income.requiredErrorMsg}`)
         }
       ),
 
@@ -5187,35 +4660,7 @@ export default [
             family_conyugue_partner_val === "Si",
           then: yup
             .string()
-            .required(`${family_conyuguepat_place.requiredErrorMsg}`)
-            .when(
-              ["family_conyuguepat_working_val", "family_validate_conyugue"],
-              {
-                is: (
-                  family_conyuguepat_working_val,
-                  family_validate_conyugue
-                ) =>
-                  family_conyuguepat_working_val === "Si" &&
-                  family_validate_conyugue === "No",
-                then: yup
-                  .string()
-                  .when(
-                    [
-                      "family_conyuguepat_working_val",
-                      "family_validate_conyugue",
-                    ],
-                    {
-                      is: (
-                        family_conyuguepat_working_val,
-                        family_validate_conyugue
-                      ) =>
-                        family_conyuguepat_working_val === "No" &&
-                        family_validate_conyugue === "No",
-                      then: yup.string(),
-                    }
-                  ),
-              }
-            ),
+            .required(`${family_conyuguepat_depend.requiredErrorMsg}`)
         }
       ),
   }),
@@ -5235,6 +4680,7 @@ export default [
       }),
     [family_grandfather_age.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["family_grandfather_life"], {
         is: (family_grandfather_life) => family_grandfather_life === "Si",
         then: yup
@@ -5378,6 +4824,7 @@ export default [
       }),
     [family_grandmother_age.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["family_grandmother_life"], {
         is: (family_grandmother_life) => family_grandmother_life === "Si",
         then: yup
@@ -5519,6 +4966,7 @@ export default [
       }),
     [family_grandfather_agetwo.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["family_grandfather_lifetwo"], {
         is: (family_grandfather_lifetwo) => family_grandfather_lifetwo === "Si",
         then: yup
@@ -5674,6 +5122,7 @@ export default [
       }),
     [family_grandmother_agetwo.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["family_grandmother_lifetwo"], {
         is: (family_grandmother_lifetwo) => family_grandmother_lifetwo === "Si",
         then: yup
@@ -5818,11 +5267,256 @@ export default [
           ),
       }),
   }),
-
+  
   yup.object().shape({
-    [estudie_university_sval.name]: yup
+      // changes 2.2
+      // Primaria
+      [estudie_primary_sval.name]: yup
       .string()
-      .required(`${estudie_university_sval.requiredErrorMsg}`),
+      .required(`${estudie_primary_sval.requiredErrorMsg}`),
+
+      [estudie_primary_uniname.name]: yup
+      .string()
+      .when(["estudie_primary_sval"], {
+        is: (estudie_primary_sval) => estudie_primary_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_primary_uniname.requiredErrorMsg}`)
+      }),
+
+      [estudie_primary_department.name]: yup.string()
+      .when(["estudie_primary_sval"], {
+        is: (estudie_primary_sval) =>
+        estudie_primary_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_primary_department.requiredErrorMsg}`)
+      }),
+
+    [estudie_primary_desde.name]: yup
+    .string()
+    .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+    .when(["estudie_primary_sval"], {
+      is: (estudie_primary_sval) => estudie_primary_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_primary_desde.requiredErrorMsg}`)
+        .when(["estudie_primary_sval"], {
+          is: (estudie_primary_sval) => estudie_primary_sval === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    [estudie_primary_hasta.name]: yup
+    .string()
+    .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+    .when(["estudie_primary_sval"], {
+      is: (estudie_primary_sval) => estudie_primary_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_primary_hasta.requiredErrorMsg}`)
+        .when(["estudie_primary_sval"], {
+          is: (estudie_primary_sval) => estudie_primary_sval === "No",
+          then: yup.string(),
+        }),
+    }),
+
+    // basicos
+  
+    [estudie_basic_sval.name]: yup
+    .string()
+    .when(["estudie_primary_sval"], {
+      is: (estudie_primary_sval) => 
+      estudie_primary_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_basic_sval.requiredErrorMsg}`)
+    }),
+
+    [estudie_select_basic.name]: yup
+    .string()
+    .when([ "estudie_basic_sval", "estudie_primary_sval"], {
+      is: (estudie_basic_sval, estudie_primary_sval) =>
+       estudie_basic_sval === "Si" &&
+       estudie_primary_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_select_basic.requiredErrorMsg}`)
+    }),
+
+    [estudie_basic_uniname.name]: yup.string()
+    .when(["estudie_basic_sval", "estudie_select_basic"], {
+      is: (estudie_basic_sval, estudie_select_basic) =>
+       estudie_basic_sval === "Si" &&
+       estudie_select_basic === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_basic_uniname.requiredErrorMsg}`)
+    }),
+
+    [estudie_basic_desde.name]: yup
+    .string()
+    .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+    .when(["estudie_basic_sval", "estudie_select_basic"], {
+      is: (estudie_basic_sval, estudie_select_basic) => 
+      estudie_basic_sval === "Si" &&
+      estudie_select_basic === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_basic_desde.requiredErrorMsg}`)
+    }),
+
+    [estudie_basic_hasta.name]: yup
+    .string()
+    .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+    .when(["estudie_basic_sval","estudie_select_basic"], {
+      is: (estudie_basic_sval, estudie_select_basic) => 
+      estudie_basic_sval === "Si" &&
+      estudie_select_basic === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_basic_hasta.requiredErrorMsg}`)
+    }),
+
+    [estudie_basic_department.name]: yup.string()
+    .when(["estudie_basic_sval" ,"estudie_select_basic"], {
+      is: (estudie_basic_sval, estudie_select_basic) =>
+      estudie_basic_sval === "Si" &&
+      estudie_select_basic === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_basic_department.requiredErrorMsg}`)
+    }),
+
+
+    estudie: yup.array({}).of(
+      yup.object().shape({
+        [estudie_select_name.name]: yup
+          .string()
+          .required(`${estudie_select_name.requiredErrorMsg}`),
+        [estudie_select_department.name]: yup
+          .string()
+          .required(`${estudie_select_department.requiredErrorMsg}`),
+          [estudie_select_grade.name]: yup
+          .string()
+          .required(`${estudie_select_grade.requiredErrorMsg}`),
+      })
+    ),
+
+    // diversificado
+
+    [estudie_diversificado_sval.name]: yup
+    .string()
+    .when(["estudie_primary_sval", "estudie_basic_sval"], {
+      is: (estudie_primary_sval, estudie_basic_sval) =>
+       estudie_primary_sval === "Si" &&
+       estudie_basic_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_diversificado_sval.requiredErrorMsg}`)
+    }),
+
+
+    [estudie_diversificado_name.name]: yup
+      .string()
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_name.requiredErrorMsg}`)
+          .when(["estudie_diversificado_sval"], {
+            is: (estudie_diversificado_sval) =>
+              estudie_diversificado_sval === "No",
+            then: yup.string(),
+          }),
+      }),
+
+    [estudie_diversificado_uniname.name]: yup
+      .string()
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_uniname.requiredErrorMsg}`)
+          .when(["estudie_diversificado_sval"], {
+            is: (estudie_diversificado_sval) =>
+              estudie_diversificado_sval === "No",
+            then: yup.string(),
+          }),
+      }),
+
+    [estudie_diversificado_desde.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_desde.requiredErrorMsg}`)
+          .when(["estudie_diversificado_sval"], {
+            is: (estudie_diversificado_sval) =>
+              estudie_diversificado_sval === "No",
+            then: yup.string(),
+          }),
+      }),
+
+    [estudie_diversificado_hasta.name]: yup
+      .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_hasta.requiredErrorMsg}`)
+          .when(["estudie_diversificado_sval"], {
+            is: (estudie_diversificado_sval) =>
+              estudie_diversificado_sval === "No",
+            then: yup.string(),
+          }),
+      }),
+
+    [estudie_diversificado_place.name]: yup
+      .string()
+      .when(["estudie_diversificado_sval"], {
+        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
+        then: yup
+          .string()
+          .required(`${estudie_diversificado_place.requiredErrorMsg}`),
+      }),
+
+    diversificado: yup.array({}).of(
+      yup.object().shape({
+        [estudies_diversificado_finish_place.name]: yup
+          .string()
+          .required(`${estudies_diversificado_finish_place.requiredErrorMsg}`),
+        [estudies_diversificado_finish_grade.name]: yup
+          .string()
+          .required(`${estudies_diversificado_finish_grade.requiredErrorMsg}`),
+      })
+    ),
+
+    [estudie_diversificado_department.name]: yup.string()
+    .when(["estudie_diversificado_sval" ], {
+      is: (estudie_diversificado_sval) =>
+      estudie_diversificado_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_diversificado_department.requiredErrorMsg}`)
+    }),
+
+    // Universidad
+    [estudie_university_sval.name]: yup
+    .string()
+    .when(["estudie_primary_sval", "estudie_basic_sval", "estudie_diversificado_sval"], {
+      is: (estudie_primary_sval, estudie_basic_sval, estudie_diversificado_sval) =>
+       estudie_primary_sval === "Si" &&
+       estudie_basic_sval === "Si" &&
+       estudie_diversificado_sval === "Si",
+      then: yup
+        .string()
+        .required(`${estudie_university_sval.requiredErrorMsg}`)
+    }),
+
     [estudie_university_name.name]: yup
       .string()
       .when(["estudie_university_sval"], {
@@ -5870,12 +5564,7 @@ export default [
         then: yup
           .string()
           .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "No" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
+        
       }),
 
     [estudie_university_sede.name]: yup
@@ -5910,6 +5599,9 @@ export default [
         [study_master_schedule.name]: yup
           .string()
           .required(`${study_master_schedule.requiredErrorMsg}`),
+          [study_master_semester.name]: yup
+          .string()
+          .required(`${study_master_semester.requiredErrorMsg}`),
       })
     ),
 
@@ -5947,6 +5639,7 @@ export default [
 
     [estudie_university_year_graduation.name]: yup
       .string()
+      .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
       .when(["estudie_university_val", "estudie_university_sval"], {
         is: (estudie_university_val, estudie_university_sval) =>
           estudie_university_val === "Si" && estudie_university_sval === "Si",
@@ -5963,12 +5656,6 @@ export default [
         then: yup
           .string()
           .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "Si" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
       }),
 
     [estudie_university_semester.name]: yup
@@ -5979,12 +5666,6 @@ export default [
         then: yup
           .string()
           .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "Si" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
       }),
 
     [estudie_university_hour.name]: yup
@@ -5995,308 +5676,112 @@ export default [
         then: yup
           .string()
           .required(`${estudie_university_title.requiredErrorMsg}`)
-          .when(["estudie_university_val"], {
-            is: (estudie_university_val, estudie_university_sval) =>
-              estudie_university_val === "Si" &&
-              estudie_university_sval === "Si",
-            then: yup.string(),
-          }),
       }),
 
-    //diversificado
-    [estudie_diversificado_sval.name]: yup
-      .string()
-      .required(`${estudie_diversificado_sval.requiredErrorMsg}`),
-
-    [estudie_diversificado_name.name]: yup
-      .string()
-      .when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_diversificado_name.requiredErrorMsg}`)
-          .when(["estudie_diversificado_sval"], {
-            is: (estudie_diversificado_sval) =>
-              estudie_diversificado_sval === "No",
-            then: yup.string(),
-          }),
-      }),
-
-    [estudie_diversificado_uniname.name]: yup
-      .string()
-      .when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_diversificado_uniname.requiredErrorMsg}`)
-          .when(["estudie_diversificado_sval"], {
-            is: (estudie_diversificado_sval) =>
-              estudie_diversificado_sval === "No",
-            then: yup.string(),
-          }),
-      }),
-
-    [estudie_diversificado_desde.name]: yup
-      .string()
-      .when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_diversificado_desde.requiredErrorMsg}`)
-          .when(["estudie_diversificado_sval"], {
-            is: (estudie_diversificado_sval) =>
-              estudie_diversificado_sval === "No",
-            then: yup.string(),
-          }),
-      }),
-
-    [estudie_diversificado_hasta.name]: yup
-      .string()
-      .when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_diversificado_hasta.requiredErrorMsg}`)
-          .when(["estudie_diversificado_sval"], {
-            is: (estudie_diversificado_sval) =>
-              estudie_diversificado_sval === "No",
-            then: yup.string(),
-          }),
-      }),
-
-    [estudie_diversificado_place.name]: yup
-      .string()
-      .when(["estudie_diversificado_sval"], {
-        is: (estudie_diversificado_sval) => estudie_diversificado_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_diversificado_place.requiredErrorMsg}`),
-      }),
-
-    diversificado: yup.array({}).of(
-      yup.object().shape({
-        [estudies_diversificado_finish_place.name]: yup
-          .string()
-          .required(`${estudies_diversificado_finish_place.requiredErrorMsg}`),
-        [estudies_diversificado_finish_grade.name]: yup
-          .string()
-          .required(`${estudies_diversificado_finish_grade.requiredErrorMsg}`),
-      })
-    ),
-
-    //Basico
-    [estudie_basic_sval.name]: yup
-      .string()
-      .required(`${estudie_basic_sval.requiredErrorMsg}`),
-
-    [estudie_basic_uniname.name]: yup.string().when(["estudie_basic_sval"], {
-      is: (estudie_basic_sval) => estudie_basic_sval === "Si",
+      [estudie_university_department.name]: yup.string()
+    .when(["estudie_university_sval" ], {
+      is: (estudie_university_sval) =>
+      estudie_university_sval === "Si",
       then: yup
         .string()
-        .required(`${estudie_basic_uniname.requiredErrorMsg}`)
-        .when(["estudie_basic_sval"], {
-          is: (estudie_basic_sval) => estudie_basic_sval === "No",
-          then: yup.string(),
-        }),
+        .required(`${estudie_university_department.requiredErrorMsg}`)
     }),
 
-    [estudie_basic_desde.name]: yup.string().when(["estudie_basic_sval"], {
-      is: (estudie_basic_sval) => estudie_basic_sval === "Si",
+    [study_currently.name]: yup.string()
+    .when(["estudie_university_sval" ], {
+      is: (estudie_university_sval) =>
+      estudie_university_sval === "Si",
       then: yup
         .string()
-        .required(`${estudie_basic_desde.requiredErrorMsg}`)
-        .when(["estudie_basic_sval"], {
-          is: (estudie_basic_sval) => estudie_basic_sval === "No",
-          then: yup.string(),
-        }),
+        .required(`${study_currently.requiredErrorMsg}`)
     }),
 
-    [estudie_basic_hasta.name]: yup.string().when(["estudie_basic_sval"], {
-      is: (estudie_basic_sval) => estudie_basic_sval === "Si",
-      then: yup
-        .string()
-        .required(`${estudie_basic_hasta.requiredErrorMsg}`)
-        .when(["estudie_basic_sval"], {
-          is: (estudie_basic_sval) => estudie_basic_sval === "No",
-          then: yup.string(),
-        }),
-    }),
-
-    //Primario
-    [estudie_primary_sval.name]: yup
+    [study_magistertwo.name]: yup
       .string()
-      .required(`${estudie_primary_sval.requiredErrorMsg}`),
-
-    [estudie_primary_uniname.name]: yup
-      .string()
-      .when(["estudie_primary_sval"], {
-        is: (estudie_primary_sval) => estudie_primary_sval === "Si",
-        then: yup
-          .string()
-          .required(`${estudie_primary_uniname.requiredErrorMsg}`)
-          .when(["estudie_primary_sval"], {
-            is: (estudie_primary_sval) => estudie_primary_sval === "No",
-            then: yup.string(),
-          }),
+      .when(["estudie_university_val", "estudie_university_sval"], {
+        is: (estudie_university_val, estudie_university_sval) =>
+          estudie_university_val === "No" &&
+           estudie_university_sval === "Si",
+        then: yup.string().required(`${study_magistertwo.requiredErrorMsg}`),
       }),
 
-    [estudie_primary_desde.name]: yup.string().when(["estudie_primary_sval"], {
-      is: (estudie_primary_sval) => estudie_primary_sval === "Si",
-      then: yup
-        .string()
-        .required(`${estudie_primary_desde.requiredErrorMsg}`)
-        .when(["estudie_primary_sval"], {
-          is: (estudie_primary_sval) => estudie_primary_sval === "No",
-          then: yup.string(),
-        }),
-    }),
+      magistertwo: yup.array({}).of(
+        yup.object().shape({
+          [study_master_nametwo.name]: yup
+            .string()
+            .required(`${study_master_nametwo.requiredErrorMsg}`),
+          [study_master_placetwo.name]: yup
+            .string()
+            .required(`${study_master_placetwo.requiredErrorMsg}`),
+          [study_master_completetwo.name]: yup
+            .string()
+            .required(`${study_master_completetwo.requiredErrorMsg}`),
+          [study_master_scheduletwo.name]: yup
+            .string()
+            .required(`${study_master_scheduletwo.requiredErrorMsg}`),
+            [study_master_semestertwo.name]: yup
+            .string()
+            .required(`${study_master_semestertwo.requiredErrorMsg}`),
+        })
+      ),
 
-    [estudie_primary_hasta.name]: yup.string().when(["estudie_primary_sval"], {
-      is: (estudie_primary_sval) => estudie_primary_sval === "Si",
-      then: yup
-        .string()
-        .required(`${estudie_primary_hasta.requiredErrorMsg}`)
-        .when(["estudie_primary_sval"], {
-          is: (estudie_primary_sval) => estudie_primary_sval === "No",
-          then: yup.string(),
-        }),
-    }),
-    [estudies_year_condition.name]: yup
-      .string()
-      .when(["estudie_primary_desde", "estudie_primary_hasta"], {
-        is: (estudie_primary_desde, estudie_primary_hasta) =>
-          estudie_primary_hasta - estudie_primary_desde > "6",
-        then: yup
-          .string()
-          .required(`${estudies_year_condition.requiredErrorMsg}`),
-      }),
+       [estudie_select_curso.name]: yup
+       .string()
+       .required(`${estudie_select_curso.requiredErrorMsg}`),
+
+        curso: yup.array({}).of(
+        yup.object().shape({
+          [estudie_name_curso.name]: yup
+            .string()
+            .required(`${estudie_name_curso.requiredErrorMsg}`),
+            [estudie_place_curso.name]: yup
+            .string()
+            .required(`${estudie_place_curso.requiredErrorMsg}`),
+            [estudie_department_curso.name]: yup
+            .string()
+            .required(`${estudie_department_curso.requiredErrorMsg}`),
+          [estudie_year_curso.name]: yup
+            .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .required(`${estudie_year_curso.requiredErrorMsg}`),
+        })
+      ),
+
   }),
 
   yup.object().shape({
     [work_banrural.name]: yup
       .string()
       .required(`${work_banrural.requiredErrorMsg}`),
+      
     [work_valNe.name]: yup.string().required(`${work_valNe.requiredErrorMsg}`),
     [work_ne_name.name]: yup.string().when(["work_valNe"], {
       is: (work_valNe) => work_valNe === "Si",
       then: yup
         .string()
         .required(`${work_ne_name.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
-    }),
-    [work_select_entity.name]: yup
-      .string()
-      .required(`${work_select_entity.requiredErrorMsg}`),
-    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
-      is: (work_select_entity) => work_select_entity === "Si",
-      then: yup
-        .string()
-        .required(`${work_name_entity.requiredErrorMsg}`)
-        .when(["work_select_entity"], {
-          is: (work_select_entity) => work_select_entity === "No",
-          then: yup.string(),
-        }),
-    }),
-    // work_select_entity
-
-    [work_lsname_entity.name]: yup.string().when(["work_select_entity"], {
-      is: (work_select_entity) => work_select_entity === "Si",
-      then: yup
-        .string()
-        .required(`${work_lsname_entity.requiredErrorMsg}`)
-        .when(["work_select_entity"], {
-          is: (work_select_entity) => work_select_entity === "No",
-          then: yup.string(),
-        }),
     }),
 
-    [work_name_entity.name]: yup.string().when(["work_select_entity"], {
-      is: (work_select_entity) => work_select_entity === "Si",
-      then: yup
-        .string()
-        .required(`${work_name_entity.requiredErrorMsg}`)
-        .when(["work_select_entity"], {
-          is: (work_select_entity) => work_select_entity === "No",
-          then: yup.string(),
-        }),
-    }),
-
-    [work_bank.name]: yup.string().when(["work_select_entity"], {
-      is: (work_select_entity) => work_select_entity === "Si",
-      then: yup
-        .string()
-        .required(`${work_bank.requiredErrorMsg}`)
-        .when(["work_select_entity"], {
-          is: (work_select_entity) => work_select_entity === "No",
-          then: yup.string(),
-        }),
-    }),
-
-    [work_relation.name]: yup.string().when(["work_select_entity"], {
-      is: (work_select_entity) => work_select_entity === "Si",
-      then: yup
-        .string()
-        .required(`${work_relation.requiredErrorMsg}`)
-        .when(["work_select_entity"], {
-          is: (work_select_entity) => work_select_entity === "No",
-          then: yup.string(),
-        }),
-    }),
-    [work_ne_web.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si",
-      then: yup
-        .string()
-        .required(`${work_ne_web.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
-    }),
     [work_had_page.name]: yup.string().when(["work_valNe"], {
       is: (work_valNe) => work_valNe === "Si",
       then: yup
         .string()
         .required(`${work_had_page.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
     }),
+
+    [work_ne_web.name]: yup.string().when(["work_valNe", "work_had_page"], {
+      is: (work_valNe, work_had_page) => work_valNe === "Si" && work_had_page === "Si",
+      then: yup
+        .string()
+        .required(`${work_ne_web.requiredErrorMsg}`)
+    }),
+   
 
     [work_ne_dateInit.name]: yup.string().when(["work_valNe"], {
       is: (work_valNe) => work_valNe === "Si",
       then: yup
         .string()
         .required(`${work_ne_dateInit.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
-    }),
-
-    [work_ne_salaryPersonal.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si",
-      then: yup
-        .string()
-        .required(`${work_ne_salaryPersonal.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
-    }),
-
-    [work_ne_detail.name]: yup.string().when(["work_valNe"], {
-      is: (work_valNe) => work_valNe === "Si",
-      then: yup
-        .string()
-        .required(`${work_ne_detail.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
     }),
 
     [work_ne_detailIncome.name]: yup.string().when(["work_valNe"], {
@@ -6304,10 +5789,6 @@ export default [
       then: yup
         .string()
         .required(`${work_ne_detailIncome.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
     }),
 
     [work_ne_whatwill.name]: yup.string().when(["work_valNe"], {
@@ -6315,11 +5796,32 @@ export default [
       then: yup
         .string()
         .required(`${work_ne_whatwill.requiredErrorMsg}`)
-        .when(["work_valNe"], {
-          is: (work_valNe) => work_valNe === "No",
-          then: yup.string(),
-        }),
     }),
+
+    [work_select_entity.name]: yup
+      .string()
+      .required(`${work_select_entity.requiredErrorMsg}`),
+    
+    // workFamilyBanck changes 2.3
+    workFamilyBanck: yup.array({}).of(
+      yup.object().shape({
+        [work_name_entity.name]: yup
+          .string()
+          .required(`${work_name_entity.requiredErrorMsg}`),
+        [work_lsname_entity.name]: yup
+          .string()
+          .required(`${work_lsname_entity.requiredErrorMsg}`),
+        [work_bank.name]: yup
+          .string()
+          .required(`${work_bank.requiredErrorMsg}`),
+        [work_relation.name]: yup
+          .string()
+          .required(`${work_relation.requiredErrorMsg}`),
+      })
+    ),
+    
+    
+    // work_select_entity
 
     work: yup.array({}).of(
       yup.object().shape({
@@ -6335,6 +5837,7 @@ export default [
         [work_withdrawal.name]: yup.string(),
         [work_salary.name]: yup
           .string()
+          .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
           .required(`${work_salary.requiredErrorMsg}`),
         [work_boss.name]: yup
           .string()
@@ -6367,6 +5870,9 @@ export default [
           is: (work_phone_val) => work_phone_val === "Si",
           then: yup
             .string()
+            .matches(/^[0-9]+$/, "Ingrese unicamente numeros")
+            .min(8, "El numero telefonico debe tener 8 digitos")
+            .max(8, "El numero telefonico debe tener 8 digitos")
             .required(`${work_phone.requiredErrorMsg}`)
             .when(["work_phone_val"], {
               is: (work_phone_val) => work_phone_val === "No",
@@ -6435,8 +5941,10 @@ export default [
     [economic_other.name]: yup
       .string()
       .required(`${economic_other.requiredErrorMsg}`),
-    [economic_total.name]: yup.string(),
-    economic: yup.array({}).of(
+   
+      [economic_total.name]: yup.string(),
+    
+      economic: yup.array({}).of(
       yup.object().shape({
         [economic_date.name]: yup
           .string()
@@ -6450,16 +5958,49 @@ export default [
         [economic_bill.name]: yup
           .string()
           .required(`${economic_bill.requiredErrorMsg}`),
-        [amount.name]: yup.string().required(`${amount.requiredErrorMsg}`),
-        [economic_balance.name]: yup
-          .string()
-          .required(`${economic_balance.requiredErrorMsg}`),
-        [economic_monthly_payment.name]: yup
-          .string()
-          .required(`${economic_monthly_payment.requiredErrorMsg}`),
         [economic_delinquent_payment.name]: yup
           .string()
           .required(`${economic_delinquent_payment.requiredErrorMsg}`),
+      })
+    ),
+
+    economicother: yup.array({}).of(
+      yup.object().shape({
+        [economic_dateother.name]: yup
+          .string()
+          .required(`${economic_dateother.requiredErrorMsg}`),
+        [economic_useother.name]: yup
+          .string()
+          .required(`${economic_useother.requiredErrorMsg}`),
+        [economic_planother.name]: yup
+          .string()
+          .required(`${economic_planother.requiredErrorMsg}`),
+        [econmic_observaciones.name]: yup
+          .string()
+          .required(`${econmic_observaciones.requiredErrorMsg}`),
+        [economic_billother.name]: yup
+        .string()
+        .required(`${economic_billother.requiredErrorMsg}`),
+        [economic_delinquent_paymentother.name]: yup
+          .string()
+          .required(`${economic_delinquent_paymentother.requiredErrorMsg}`),
+      })
+    ),
+
+    economicthree: yup.array({}).of(
+      yup.object().shape({
+        [economic_usethree.name]: yup
+          .string()
+          .required(`${economic_usethree.requiredErrorMsg}`),
+        [econmic_observacionesthree.name]: yup
+          .string()
+          .required(`${econmic_observacionesthree.requiredErrorMsg}`),
+        [economic_billthree.name]: yup
+          .string()
+          .required(`${economic_billthree.requiredErrorMsg}`),
+        [economic_delinquent_paymentthree.name]: yup
+          .string()
+          .required(`${economic_delinquent_paymentthree.requiredErrorMsg}`),
       })
     ),
   }),
@@ -6471,6 +6012,28 @@ export default [
     [social_gtime.name]: yup.string().when(["social_group"], {
       is: (social_group) => social_group === "Si",
       then: yup.string().required(`${social_gtime.requiredErrorMsg}`),
+    }),
+
+    // changes 2.2
+    [social_value_gather.name]: yup.string().when(["social_group"], {
+      is: (social_group) => social_group === "Si",
+      then: yup.string().required(`${social_value_gather.requiredErrorMsg}`),
+    }),
+
+    [social_value_howOften.name]: yup.string()
+    .when(["social_group", "social_value_gather"], {
+      is: (social_group, social_value_gather) => 
+      social_group === "Si" &&
+      social_value_gather === "Si",
+      then: yup.string().required(`${social_value_howOften.requiredErrorMsg}`),
+    }),
+
+    [social_value_time.name]: yup.string()
+    .when(["social_group", "social_value_gather"], {
+      is: (social_group, social_value_gather) => 
+      social_group === "Si" &&
+      social_value_gather === "Si",
+      then: yup.string().required(`${social_value_time.requiredErrorMsg}`),
     }),
 
     [social_politic.name]: yup
@@ -6502,6 +6065,12 @@ export default [
     [social_fuma_frequency.name]: yup.string().when(["social_fuma"], {
       is: (social_fuma) => social_fuma === "Si",
       then: yup.string().required(`${social_fuma_time.requiredErrorMsg}`),
+    }),
+
+    // changes 2.2
+    [social_value_conditionWork.name]: yup.string().when(["social_alco"], {
+      is: (social_alco) => social_alco === "Si",
+      then: yup.string().required(`${social_value_conditionWork.requiredErrorMsg}`),
     }),
 
     [social_alco.name]: yup
@@ -6539,6 +6108,12 @@ export default [
     [social_drug.name]: yup.string().when(["social_drog"], {
       is: (social_drog) => social_drog === "Si",
       then: yup.string().required(`${social_drug.requiredErrorMsg}`),
+    }),
+
+    // changes 2.2
+    [social_value_amount.name]: yup.string().when(["social_drog"], {
+      is: (social_drog) => social_drog === "Si",
+      then: yup.string().required(`${social_value_amount.requiredErrorMsg}`),
     }),
 
     //changes 2.1
@@ -6615,15 +6190,96 @@ export default [
       .string()
       .required(`${criminal_police_option.requiredErrorMsg}`),
 
-    [criminal_why_stained.name]: yup.string().when(["criminal_police_option"], {
-      is: (criminal_police_option) => criminal_police_option === "Si",
-      then: yup.string().required(`${criminal_why_stained.requiredErrorMsg}`),
-    }),
+      // change 2.2
+      [criminal_validation_background.name]: yup
+      .string()
+      .when(["criminal_police_option"], {
+        is: (criminal_police_option) =>
+        criminal_police_option === "Si",
+        then: yup.string()
+        .required(`${criminal_validation_background.requiredErrorMsg}`),
+      }),
 
-    [criminal_why_clear.name]: yup.string().when(["criminal_police_option"], {
-      is: (criminal_police_option) => criminal_police_option === "Si",
-      then: yup.string().required(`${criminal_why_clear.requiredErrorMsg}`),
-    }),
+      // ? VALIDACION PENALES
+
+      [criminal_because_record.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Penales",
+        then: yup.string()
+        .required(`${criminal_because_record.requiredErrorMsg}`),
+      }),
+
+      [criminal_because_clear.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Penales",
+        then: yup.string()
+        .required(`${criminal_because_clear.requiredErrorMsg}`),
+      }),
+
+      // ? FIN VALIDACION PENALES
+
+      [criminal_becauseTwo_record.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Ambos",
+        then: yup.string()
+        .required(`${criminal_becauseTwo_record.requiredErrorMsg}`),
+      }),
+
+      [criminal_becauseTwo_clear.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Ambos",
+        then: yup.string()
+        .required(`${criminal_becauseTwo_clear.requiredErrorMsg}`),
+      }),
+
+      [criminal_whyTwo_stained.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Ambos",
+        then: yup.string()
+        .required(`${criminal_whyTwo_stained.requiredErrorMsg}`),
+      }),
+
+      [criminal_whyTwo_clear.name]: yup
+      .string()
+      .when(["criminal_police_option", "criminal_validation_background"], {
+        is: (criminal_police_option, criminal_validation_background) =>
+        criminal_police_option === "Si" &&
+        criminal_validation_background === "Ambos",
+        then: yup.string()
+        .required(`${criminal_whyTwo_clear.requiredErrorMsg}`),
+      }),
+
+
+    //  ? VALIDACION POLICIALES 
+
+    // [criminal_why_stained.name]: yup.string()
+    // .when(["criminal_police_option"], {
+    //   is: (criminal_police_option) => criminal_police_option === "Si",
+    //   then: yup.string().required(`${criminal_why_stained.requiredErrorMsg}`),
+    // }),
+
+    // [criminal_why_clear.name]: yup.string().when(["criminal_police_option"], {
+    //   is: (criminal_police_option) => criminal_police_option === "Si",
+    //   then: yup.string().required(`${criminal_why_clear.requiredErrorMsg}`),
+    // }),
+
+    // ? FIN VALIDACION POLICIALES
+
 
     [criminal_was_sued.name]: yup
       .string()
@@ -6640,6 +6296,12 @@ export default [
       then: yup.string().required(`${criminal_you_demandwhy.requiredErrorMsg}`),
     }),
 
+    // changes 2.2
+    [criminal_you_demandwhom.name]: yup.string().when(["criminal_you_demand"], {
+      is: (criminal_you_demand) => criminal_you_demand === "Si",
+      then: yup.string().required(`${criminal_you_demandwhom.requiredErrorMsg}`),
+    }),
+
     [criminal_was_suedwhy.name]: yup.string().when(["criminal_was_sued"], {
       is: (criminal_was_sued) => criminal_was_sued === "Si",
       then: yup.string().required(`${criminal_was_suedwhy.requiredErrorMsg}`),
@@ -6653,9 +6315,6 @@ export default [
         [criminal_family_lastname.name]: yup
           .string()
           .required(`${criminal_family_lastname.requiredErrorMsg}`),
-        [criminal_family_age.name]: yup
-          .string()
-          .required(`${criminal_family_age.requiredErrorMsg}`),
         [criminal_family_civil_status.name]: yup
           .string()
           .required(`${criminal_family_civil_status.requiredErrorMsg}`),
@@ -6694,6 +6353,7 @@ export default [
     [disease_cardiopatias_option.name]: yup
       .string()
       .required(`${disease_cardiopatias_option.requiredErrorMsg}`),
+
 
     [disease_hipertension_observacion.name]: yup.string(),
     [disease_diabetes_observacion.name]: yup.string(),
@@ -6881,4 +6541,5 @@ export default [
       then: yup.string().required(`${red_faccebookval_two.requiredErrorMsg}`),
     }),
   }),
+  
 ];

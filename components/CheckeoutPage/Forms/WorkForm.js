@@ -7,6 +7,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { InputField, SelectField, DatePickerField } from "../../FormFields";
 import { FieldArray } from "formik";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import Alert from "@mui/material/Alert";
+
 
 const life = [
   {
@@ -75,6 +78,9 @@ const value_relation = [
   },
 ];
 export default function WorkForm(props) {
+  const [dateYear, setDateYear] = useState("");
+  const [yearLive, setYearLive] = useState("");
+  const [yearActual, setYearActual] = useState("");
   let [valuess, setValue] = useState({});
   const gettingValue = (name, e) => {
     const nvalues = {
@@ -84,6 +90,15 @@ export default function WorkForm(props) {
     // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
     setValue(nvalues);
   };
+
+
+  const dateFuncion = () => {
+    const time = new Date();
+    const [dateIso, date] = time.toISOString().split('T'); 
+    // console.log([dateIso]);
+    return [dateIso]; 
+  }
+
 
   const [entity, setEntity] = useState("");
   const gettinEntity = (e) => {
@@ -123,6 +138,45 @@ export default function WorkForm(props) {
     setIsSSR(false);
   }, []);
 
+  /* funcion para obtener los datos del input */
+  const conditionLive = (e) => {
+    const yearLiving = e.target.value;
+    setYearLive(yearLiving);
+  };
+
+  const alertLive = () => {
+    if (yearLive > dateYear) {
+      return (
+        <Alert severity="warning">
+          Tu fecha de ingreso no puede ser mayor a la de egreso
+        </Alert>
+      );
+    }
+  };
+
+  /* funcion para obtener los datos del input */
+  const conditionLiveTwo = (e) => {
+    const yearLivingTwo = e.target.value;
+    setDateYear(yearLivingTwo);
+  };
+
+  const alertLiveTwo = () => {
+    if (dateYear < yearLive) {
+      return (
+        <Alert severity="warning">
+          Tu fecha de egreso no puede ser menor a la de ingreso
+        </Alert>
+      );
+    } 
+    // else if (dateYear > yearActual) {
+    //   return (
+    //     <Alert severity="warning">
+    //       Tu fecha de egreso no puede ser mayor al año actual
+    //     </Alert>
+    //   );
+    // }
+  };
+
   const {
     values,
     formField: {
@@ -145,17 +199,17 @@ export default function WorkForm(props) {
       work_ne_name,
       work_ne_web,
       work_ne_dateInit,
-      work_ne_salaryPersonal,
-     // work_ne_detail,
       work_ne_detailIncome,
       work_ne_whatwill,
       /* add new data */
       work_select_entity,
+      work_had_page,
+
+      // changes 2.3
       work_name_entity,
       work_lsname_entity,
       work_bank,
       work_relation,
-      work_had_page,
     },
   } = props;
 
@@ -205,7 +259,6 @@ export default function WorkForm(props) {
                 ¿Posee algún negocio?:
               </label>
               <SelectField
-                // key={`inputwork_${index}`}
                 name={work_valNe.name}
                 label={work_valNe.label}
                 data={validate}
@@ -292,53 +345,6 @@ export default function WorkForm(props) {
                       fullWidth
                     />
                   </Grid>
-{/* 
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Salarios:
-                    </label>
-                    <InputField
-                      type="Number"
-                      name={work_ne_salaryPersonal.name}
-                      label={work_ne_salaryPersonal.label}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">Q.</InputAdornment>
-                        ),
-                      }}
-                      fullWidth
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Detallar de que trata el negocio:
-                    </label>
-                    <InputField
-                      name={work_ne_detail.name}
-                      label={work_ne_detail.label}
-                      fullWidth
-                    />
-                  </Grid>
- */}
                   <Grid
                     item
                     xs={12}
@@ -398,113 +404,257 @@ export default function WorkForm(props) {
             paddingTop: "10px",
           }}
         >
-          <Grid container spacing={5}>
-            <Grid item xs={12} sm={6}>
-              <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                ¿Posee un familiar en una entidad bancaria?:
-              </label>
-              <SelectField
-                // key={`inputwork_${index}`}
-                name={work_select_entity.name}
-                label={work_select_entity.label}
-                data={banking}
-                onChange={(e) => {
-                  gettinEntity(e);
-                }}
-                fullWidth
-              />
-              {entity === "Si" && (
-                <Grid container>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Nombre del familiar:
-                    </label>
-                    <InputField
-                      name={work_name_entity.name}
-                      label={work_name_entity.label}
-                      fullWidth
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Apellido del familiar:
-                    </label>
-                    <InputField
-                      name={work_lsname_entity.name}
-                      label={work_lsname_entity.label}
-                      fullWidth
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Banco:
-                    </label>
-                    <InputField
-                      name={work_bank.name}
-                      label={work_bank.label}
-                      fullWidth
-                    />
-                  </Grid>
-
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    style={{
-                      paddingLeft: "10px",
-                      paddingRight: "10px",
-                      paddingTop: "10px",
-                    }}
-                  >
-                    <label style={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Relación:
-                    </label>
-                    <SelectField
-                      // key={`inputwork_${index}`}
-                      name={work_relation.name}
-                      label={work_relation.label}
-                      data={value_relation}
-                      onChange={(e) => {
-                        gettinRelation(e);
-                      }}
-                      fullWidth
-                    />
-                  </Grid>
-                </Grid>
-              )}
-            </Grid>
-          </Grid>
         </Grid>
 
+        <Grid item xs={12} sm={6} style={{
+          paddingLeft: "10px",
+          paddingRight: "10px",
+        }}>
+          <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+            ¿Posee un familiar en una entidad bancaria?:
+          </label>
+          <SelectField
+            // key={`inputwork_${index}`}
+            name={work_select_entity.name}
+            label={work_select_entity.label}
+            data={banking}
+            onChange={(e) => {
+              gettinEntity(e);
+            }}
+            fullWidth
+          />
+          {entity === "Si" && (
+            <Grid container>
+              <Grid
+                container
+                style={{
+                  paddingTop: "18px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <p
+                  style={{
+                    paddingLeft: "15px",
+                    paddingTop: "10px",
+                    fontSize: "20px",
+                    // fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                </p>
+                <Grid
+                  container
+                  style={{
+                    paddingTop: "18px",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <FieldArray
+                    name="workFamilyBanck"
+                    render={(arrayHelpers) => (
+                      <>
+                        <IconButton
+                          onClick={() =>
+                            arrayHelpers.push({
+                              [work_name_entity.name]: "",
+                              [work_lsname_entity.name]: "",
+                              [work_bank.name]: "",
+                              [work_relation.name]: "",
+                            })
+                          }
+                        >
+                          <AddBoxIcon
+                            color="primary"
+                            sx={{ fontSize: 30 }}
+                          />
+                        </IconButton>
+                        {(values.workFamilyBanck || []).map(
+                          (_, index) => (
+                            <Grid
+                              key={`inputWorkFamilyBanck${index}`}
+                              item
+                              xs={12}
+                              sm={6}
+                              style={{
+                                paddingLeft: "10px",
+                                paddingRight: "10px",
+                              }}
+                            >
+                              <Divider
+                                style={{
+                                  paddingTop: "20px",
+                                  paddingBottom: "20px",
+                                }}
+                              >
+                                <Chip
+                                  style={{
+                                    fontSize: "14px",
+                                    fontWeight: "bold",
+                                    paddingTop: "20px",
+                                    paddingBottom: "20px",
+                                    paddingLeft: "15px",
+                                    paddingRight: "15px",
+                                  }}
+                                  icon={<MenuBookIcon />}
+                                  color="primary"
+                                  label={`Familiar ${index + 1}`}
+                                />
+                              </Divider>
+                              <Box
+                                sx={{ flexGrow: 1, maxWidth: "auto" }}
+                              >
+                                <Paper elevation={3}>
+                                  <div
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    style={{
+                                      paddingLeft: "10px",
+                                      paddingRight: "10px",
+                                      paddingTop: "15px",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Nombres del familiar:
+                                    </label>
+                                    <InputField
+                                      name={`workFamilyBanck.${index}.${work_name_entity.name}`}
+                                      label={
+                                        work_name_entity.label
+                                      }
+                                      fullWidth
+                                    />
+                                  </div>
+                                  <div
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    style={{
+                                      paddingLeft: "10px",
+                                      paddingRight: "10px",
+                                      paddingBottom: "10px",
+                                      paddingTop: "10px",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Apellido del familiar:
+                                    </label>
+                                    <InputField
+                                      name={`workFamilyBanck.${index}.${work_lsname_entity.name}`}
+                                      label={
+                                        work_lsname_entity.label
+                                      }
+                                      fullWidth
+                                    />
+                                  </div>
+                                  <div
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    style={{
+                                      paddingLeft: "10px",
+                                      paddingRight: "10px",
+                                      paddingBottom: "10px",
+                                      paddingTop: "10px",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Banco:
+                                    </label>
+                                    <InputField
+                                      name={`workFamilyBanck.${index}.${work_bank.name}`}
+                                      label={
+                                        work_bank.label
+                                      }
+                                      fullWidth
+                                    />
+                                  </div>
+                                  <div
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    style={{
+                                      paddingLeft: "10px",
+                                      paddingRight: "10px",
+                                      paddingBottom: "10px",
+                                      paddingTop: "10px",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        fontSize: "18px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      Relación:
+                                    </label>
+                                    <SelectField
+                                      name={`workFamilyBanck.${index}.${work_relation.name}`}
+                                      label={
+                                        work_relation.label
+                                      }
+                                      data={value_relation}
+                                      onChange={(e) => {
+                                        gettinRelation(e);
+                                      }}
+                                      fullWidth
+                                    />
+                                  </div>
+                                </Paper>
+                              </Box>
+
+                              <IconButton
+                                onClick={() =>
+                                  arrayHelpers.push({
+                                    [work_name_entity.name]: "",
+                                    [work_lsname_entity.name]: "",
+                                    [work_bank.name]: "",
+                                    [work_relation.name]: "",
+                                  })
+                                }
+                              >
+                                <AddBoxIcon
+                                  color="primary"
+                                  sx={{ fontSize: 30 }}
+                                />
+                              </IconButton>
+                              <IconButton
+                                onClick={() =>
+                                  arrayHelpers.remove(index)
+                                }
+                              >
+                                <RemoveCircleIcon
+                                  sx={{ color: "red" }}
+                                />
+                              </IconButton>
+                            </Grid>
+                          )
+                        )}
+                      </>
+                    )}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          )}
+        </Grid>
         <Grid>
           <Divider style={{ paddingTop: "20px" }}></Divider>
           <Grid>
@@ -666,8 +816,11 @@ export default function WorkForm(props) {
                                     <DatePickerField
                                       name={`work.${index}.${work_entry.name}`}
                                       label={work_entry.label}
+                                      InputProps={{ inputProps: { min: "1950-01-01", max: dateFuncion() } }}
+                                      onChange={conditionLive}
                                       fullWidth
                                     />
+                                    {alertLive()}
                                   </div>
                                   <div
                                     item
@@ -690,8 +843,11 @@ export default function WorkForm(props) {
                                     <DatePickerField
                                       name={`work.${index}.${work_withdrawal.name}`}
                                       label={work_withdrawal.label}
+                                      InputProps={{ inputProps: { min: "1950-01-01", max: dateFuncion() } }}
+                                      onChange={conditionLiveTwo}
                                       fullWidth
                                     />
+                                    {alertLiveTwo()}
                                   </div>
                                   <div
                                     item
@@ -712,7 +868,6 @@ export default function WorkForm(props) {
                                       Salario devengado:
                                     </label>
                                     <InputField
-                                      type="Number"
                                       name={`work.${index}.${work_salary.name}`}
                                       label={work_salary.label}
                                       InputProps={{
@@ -835,61 +990,60 @@ export default function WorkForm(props) {
                                     {valuess[
                                       `work.${index}.${work_phone_val.name}`
                                     ] === "Si" && (
-                                      <div
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                        }}
-                                      >
-                                        <label
+                                        <div
+                                          item
+                                          xs={12}
+                                          sm={6}
                                           style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
+                                            paddingLeft: "10px",
+                                            paddingRight: "10px",
+                                            paddingTop: "10px",
                                           }}
                                         >
-                                          Número de la empresa:
-                                        </label>
-                                        <InputField
-                                          type="Number"
-                                          name={`work.${index}.${work_phone.name}`}
-                                          label={work_phone.label}
-                                          fullWidth
-                                        />
-                                      </div>
-                                    )}
+                                          <label
+                                            style={{
+                                              fontSize: "18px",
+                                              fontWeight: "bold",
+                                            }}
+                                          >
+                                            Número de la empresa:
+                                          </label>
+                                          <InputField
+                                            name={`work.${index}.${work_phone.name}`}
+                                            label={work_phone.label}
+                                            fullWidth
+                                          />
+                                        </div>
+                                      )}
 
                                     {valuess[
                                       `work.${index}.${work_phone_val.name}`
                                     ] === "No" && (
-                                      <div
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                        }}
-                                      >
-                                        <label
+                                        <div
+                                          item
+                                          xs={12}
+                                          sm={6}
                                           style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
+                                            paddingLeft: "10px",
+                                            paddingRight: "10px",
+                                            paddingTop: "10px",
                                           }}
                                         >
-                                          ¿Motivo de no poseer el teléfono?:
-                                        </label>
-                                        <InputField
-                                          name={`work.${index}.${work_phone_reason.name}`}
-                                          label={work_phone_reason.label}
-                                          fullWidth
-                                        />
-                                      </div>
-                                    )}
+                                          <label
+                                            style={{
+                                              fontSize: "18px",
+                                              fontWeight: "bold",
+                                            }}
+                                          >
+                                            ¿Motivo de no poseer el teléfono?:
+                                          </label>
+                                          <InputField
+                                            name={`work.${index}.${work_phone_reason.name}`}
+                                            label={work_phone_reason.label}
+                                            fullWidth
+                                          />
+                                        </div>
+                                      )}
                                   </div>
 
                                   <div
@@ -953,31 +1107,31 @@ export default function WorkForm(props) {
                                     {valueValidate[
                                       `work.${index}.${work_reference.name}`
                                     ] === "No" && (
-                                      <div
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        style={{
-                                          paddingLeft: "10px",
-                                          paddingRight: "10px",
-                                          paddingTop: "10px",
-                                        }}
-                                      >
-                                        <label
+                                        <div
+                                          item
+                                          xs={12}
+                                          sm={6}
                                           style={{
-                                            fontSize: "18px",
-                                            fontWeight: "bold",
+                                            paddingLeft: "10px",
+                                            paddingRight: "10px",
+                                            paddingTop: "10px",
                                           }}
                                         >
-                                          ¿Por qué?:
-                                        </label>
-                                        <InputField
-                                          name={`work.${index}.${work_reference_reason.name}`}
-                                          label={work_reference_reason.label}
-                                          fullWidth
-                                        />
-                                      </div>
-                                    )}
+                                          <label
+                                            style={{
+                                              fontSize: "18px",
+                                              fontWeight: "bold",
+                                            }}
+                                          >
+                                            ¿Por qué?:
+                                          </label>
+                                          <InputField
+                                            name={`work.${index}.${work_reference_reason.name}`}
+                                            label={work_reference_reason.label}
+                                            fullWidth
+                                          />
+                                        </div>
+                                      )}
                                   </div>
                                 </Paper>
                               </Box>

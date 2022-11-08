@@ -3056,7 +3056,7 @@ export default function FamilyForm(props) {
                                           fontWeight: "bold",
                                         }}
                                       >
-                                        Nombre completo de su padrastro fa :
+                                        Nombre completo de su padrastro:
                                       </label>
                                       <InputField
                                         name={family_stepfather_name.name}
