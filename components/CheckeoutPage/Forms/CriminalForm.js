@@ -748,7 +748,7 @@ export default function CriminalForm(props) {
                                               style={{ paddingBottom: "" }}
                                             >
                                               <ListItemText
-                                                primary="Nombre "
+                                                primary="Nombre"
                                                 primaryTypographyProps={{
                                                   fontSize: 18,
                                                   fontWeight: "medium",

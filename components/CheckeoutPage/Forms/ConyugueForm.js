@@ -306,7 +306,7 @@ export default function ConyugueForm(props) {
                                                 Edad:
                                             </label>
                                             <InputField
-                                                type='Number'
+                                                
                                                 name={family_conyugue_age.name}
                                                 label={family_conyugue_age.label}
                                                 fullWidth
@@ -380,7 +380,7 @@ export default function ConyugueForm(props) {
                                                             }}>
                                                                 Teléfono:
                                                             </label>
-                                                            <InputField type='Number'
+                                                            <InputField 
                                                                 name={family_conyugue_phone.name}
                                                                 label={family_conyugue_phone.label}
                                                                 fullWidth />
@@ -499,7 +499,7 @@ export default function ConyugueForm(props) {
                                                                 Ingresos promedio:
                                                             </label>
                                                             <InputField
-                                                                type='Number'
+                                                                
                                                                 name={family_conyugue_financial_income.name}
                                                                 label={family_conyugue_financial_income.label}
                                                                 InputProps={{
@@ -746,7 +746,7 @@ export default function ConyugueForm(props) {
                                                 Edad:
                                             </label>
                                             <InputField
-                                                type='Number'
+                                                
                                                 name={family_conyuguepat_age.name}
                                                 label={family_conyuguepat_age.label}
                                                 fullWidth
@@ -819,7 +819,7 @@ export default function ConyugueForm(props) {
                                                                 Teléfono:
                                                             </label>
                                                             <InputField
-                                                                type='Number'
+                                                                
                                                                 name={family_conyuguepat_phone.name}
                                                                 label={family_conyuguepat_phone.label}
                                                                 fullWidth />
@@ -925,7 +925,7 @@ export default function ConyugueForm(props) {
                                                                 Ingresos promedio:
                                                             </label>
                                                             <InputField
-                                                                type='Number'
+                                                                
                                                                 name={family_conyuguepat_financial_income.name}
                                                                 label={family_conyuguepat_financial_income.label}
                                                                 InputProps={{
@@ -978,10 +978,10 @@ export default function ConyugueForm(props) {
                                                     fontWeight: "bold",
                                                 }}
                                             >
-                                                ¿Que relación tienen?
+                                                ¿Que relación tiene?
                                             </label>
                                             <SelectField
-                                                id="conyuge_relation"
+                                                id="family_conyugue_relation"
                                                 name={family_conyugue_relation.name}
                                                 label={family_conyugue_relation.label}
                                                 data={relation}

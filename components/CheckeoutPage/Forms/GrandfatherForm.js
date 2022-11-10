@@ -1666,7 +1666,6 @@ export default function GrandfatherForm(props) {
                                       Teléfono:
                                     </label>
                                     <InputField
-                                      type='Number'
                                       name={family_grandmother_phonetwo.name}
                                       label={family_grandmother_phonetwo.label}
                                       fullWidth

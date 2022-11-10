@@ -138,12 +138,12 @@ export default {
     general_married_name: {
       name: "general_married_name",
       label: "Seleccione una de las opciones*",
-      requiredErrorMsg: "El estado civil es requerido",
+      requiredErrorMsg: "La información es requerida",
     },
     general_nit_select: {
       name: "general_nit_select",
       label: "Seleccione una de las opciones*",
-      requiredErrorMsg: "Debe de seleccionar una de las opciones",
+      requiredErrorMsg: "La información es requerida",
     },
     general_afilacion_select: {
       name: "general_afilacion_select",
@@ -1278,6 +1278,7 @@ export default {
     family_conyugue_phone_val: {
       name: "family_conyugue_phone_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_conyugue_working_val: {
       name: "family_conyugue_working_val",
@@ -1346,10 +1347,12 @@ export default {
     family_conyuguepat_phone_val: {
       name: "family_conyuguepat_phone_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
     family_conyuguepat_working_val: {
       name: "family_conyuguepat_working_val",
       label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida"
     },
 
     // changes 2.2
@@ -1955,7 +1958,55 @@ export default {
       label: "Seleccione una de las opciones*",
       requiredErrorMsg: "La información es requerida",
     },
-    
+
+    //changes 2.4
+    estudie_select_basic: {
+      name: "estudie_select_basic",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_select_name: {
+      name: "estudie_select_name",
+      label: "Ingrese el nombre del establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_select_department: {
+      name: "estudie_select_department",
+      label: "Ingrese el departamento donde se encuentra el establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_select_grade: {
+      name: "estudie_select_grade",
+      label: "Ingrese el grado que curso*",
+      requiredErrorMsg: "La información es requerida",
+    },
+
+    // changes 2.5
+    estudie_select_curso: {
+      name: "estudie_select_curso",
+      label: "Seleccione una de las opciones*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_name_curso: {
+      name: "estudie_name_curso",
+      label: "Ingrese el nombre del curso*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_place_curso: {
+      name: "estudie_place_curso",
+      label: "Ingrese el establecimiento donde curso*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_department_curso: {
+      name: "estudie_department_curso",
+      label: "Ingrese el departamento donde se encuentra el establecimiento*",
+      requiredErrorMsg: "La información es requerida",
+    },
+    estudie_year_curso: {
+      name: "estudie_year_curso",
+      label: "Ingrese en que año curso*",
+      requiredErrorMsg: "La información es requerida",
+    },
 
     //working
     work_name: {
