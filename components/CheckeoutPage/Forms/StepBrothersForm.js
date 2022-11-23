@@ -922,9 +922,6 @@ export default function StepBrothersForm(props) {
               )}
             </Grid>
           </Grid>
-
-          {/* </Paper>
-                    </Box> */}
         </Grid>
       </>
     )
