@@ -85,6 +85,7 @@ const {
     family_validate_stepbrother,
     family_validate_conyugue,
     family_validate_grandfather,
+    family_conyuguepat_working_val,
 
     family_mom_name,
     family_mom_age,
@@ -360,6 +361,12 @@ const {
     study_magistertwo,
     study_currently,
     estudies_year_conditiontwo,
+
+    // changes 2.4
+    estudie_select_basic,
+
+    // changes 2.5
+    estudie_select_curso,
 
     //work
     work_name,
@@ -775,7 +782,8 @@ export default {
   [family_conyugue_died_name.name]: "",
   [family_conyugue_died_lastname.name]: "",
   // changes 2.1 conyugue
-  [family_conyugue_relation.name]:"",
+  [family_conyugue_relation.name]: "",
+  [family_conyuguepat_working_val.name]: "",
 
   // conyuguepat
   [family_conyuguepat_name.name]: "",
@@ -889,6 +897,14 @@ export default {
   [study_magistertwo.name]: "",
   [study_currently.name]: "",
 
+  // changes 2.4
+  estudie: [],
+  [estudie_select_basic.name]: "",
+
+  // changes 2.5
+  curso: [],
+  [estudie_select_curso.name]: "",
+
   // Diversificado
   [estudie_diversificado_sval.name]: "",
   [estudie_diversificado_name.name]: "",
@@ -947,13 +963,16 @@ export default {
   [work_ne_detail.name]: "",
   [work_ne_detailIncome.name]: "",
   [work_ne_whatwill.name]: "",
-  /* add data work */
+  // /* add data work */
   [work_select_entity.name]: "",
-  [work_name_entity.name]: "",
-  [work_lsname_entity.name]: "",
-  [work_bank.name]: "",
-  [work_relation.name]: "",
+  // Changes 2.3
+  // [work_name_entity.name]: "",
+  // [work_lsname_entity.name]: "",
+  // [work_bank.name]: "",
+  // [work_relation.name]: "",
 
+  // changes 2.3
+  workFamilyBanck: [],
   //Economic
   economic: [],
   economicother: [], 

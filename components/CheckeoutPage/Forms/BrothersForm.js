@@ -63,7 +63,7 @@ export default function BrothersForm(props) {
   /* funcion para obtener los datos del input */
   const conditionEdad = (e) => {
     const yearLiving = e.target.value;
-    console.log(yearLiving);
+    // console.log(yearLiving);
     setConditionYear(yearLiving);
   };
 
@@ -350,7 +350,6 @@ export default function BrothersForm(props) {
                                                 Edad:
                                               </label>
                                               <InputField
-                                                type="Number"
                                                 name={`brothers.${index}.${family_brothers_age.name}`}
                                                 label={
                                                   family_brothers_age.label
@@ -446,7 +445,6 @@ export default function BrothersForm(props) {
                                                           Teléfono:
                                                         </label>
                                                         <InputField
-                                                          type="Number"
                                                           name={`brothers.${index}.${family_brothers_phone.name}`}
                                                           label={
                                                             family_brothers_phone.label
@@ -603,7 +601,6 @@ export default function BrothersForm(props) {
                                                         Ingresos promedio:
                                                       </label>
                                                       <InputField
-                                                        type="Number"
                                                         name={`brothers.${index}.${family_brothers_financial_income.name}`}
                                                         label={
                                                           family_brothers_financial_income.label

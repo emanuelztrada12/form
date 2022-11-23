@@ -401,7 +401,6 @@ export default function General(props) {
                 Tiempo de residir en la vivienda en años:
               </label>
               <InputField
-                type="Number"
                 name={general_time_reside.name}
                 label={general_time_reside.label}
                 onChange={conditionLive}
@@ -635,7 +634,6 @@ export default function General(props) {
                       Afiliación IRTRA:
                     </label>
                     <InputField
-                      type='number'
                       name={general_irtra.name}
                       label={general_irtra.label}
                       fullWidth
@@ -651,7 +649,6 @@ export default function General(props) {
                       Afiliación IGSS:
                     </label>
                     <InputField
-                      type='number'
                       name={general_igss.name}
                       label={general_igss.label}
                       fullWidth
@@ -757,7 +754,7 @@ export default function General(props) {
                               Modelo:
                             </label>
                             <InputField
-                              type='number'
+                              
                               name={`vehicle.${index}.${general_model.name}`}
                               label={general_model.label}
                               fullWidth
@@ -919,7 +916,7 @@ export default function General(props) {
                               Modelo:
                             </label>
                             <InputField
-                              type='number'
+                              
                               name={`biker.${index}.${general_model_biker.name}`}
                               label={general_model_biker.label}
                               fullWidth

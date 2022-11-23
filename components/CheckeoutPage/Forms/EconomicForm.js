@@ -644,7 +644,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Pago mensual mínimo requerido dddd"
+                                            primary="Pago mensual mínimo requerido"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -1228,7 +1228,7 @@ export default function EconomicForm(props) {
                                       fontWeight: "bold",
                                     }}
                                   >
-                                    Observaciones*:
+                                    Observaciones:
                                   </label>
                                   <InputField
                                     name={`economicthree.${index}.${econmic_observacionesthree.name}`}
@@ -1346,7 +1346,7 @@ export default function EconomicForm(props) {
                                         <Divider />
                                         <ListItem>
                                           <ListItemText
-                                            primary="Pago mensual mínimo requerido tar"
+                                            primary="Pago mensual mínimo requerido"
                                             primaryTypographyProps={{
                                               fontSize: 18,
                                               fontWeight: "medium",
@@ -1368,8 +1368,6 @@ export default function EconomicForm(props) {
                                                 `economicthree.${index}.${economic_monthly_paymentthree.name}`,
                                                 e
                                               );
-
-                                              gettingValue(`${economic_monthly_paymentthree}`);
                                             }}
                                             InputProps={{
                                               startAdornment: (
@@ -2007,7 +2005,7 @@ export default function EconomicForm(props) {
                           type="Number"
                           name={economic_total.name}
                           label={economic_total.label}
-                          value={parseFloat(totals)}
+                          value={parseFloat(totals) + parseFloat(result) + parseFloat(resultTar)}
                           InputProps={{
                             startAdornment: (
                               <InputAdornment position="start">
