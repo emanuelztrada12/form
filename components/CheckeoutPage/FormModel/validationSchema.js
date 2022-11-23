@@ -6541,4 +6541,5 @@ export default [
       then: yup.string().required(`${red_faccebookval_two.requiredErrorMsg}`),
     }),
   }),
+  
 ];
