@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useMutation, useQuery, gql } from "@apollo/client";
-import { DELETED, FORMULARIO, GET_USERS, QUERY } from "./query_graphql.model";
+import { useMutation } from "@apollo/client";
+import { FORMULARIO } from "./query_graphql.model";
 
 export default function modelForm() {
     const [newFormulario] = useMutation(FORMULARIO);
@@ -9,7 +8,7 @@ export default function modelForm() {
         let years = new Date(new Date() - new Date(values.general_birth)).getFullYear() - 1970;
         let year = years.toString();
 
-        let suma = parseFloat(values.economic_total) + parseFloat(values.economic_payment_card) + parseFloat(values.economic_payment_deuda); 
+        let suma = parseFloat(values.economic_total) + parseFloat(values.economic_payment_card) + parseFloat(values.economic_payment_deuda);
         let total = suma;
 
         const { data } = await newFormulario({
@@ -214,8 +213,6 @@ export default function modelForm() {
                     son: values.son,
                     brothers: values.brothers,
                     stepbrother: values.stepbrother,
-
-
                     // conyugue
                     family_conyugue_name: values.family_conyugue_name,
                     family_conyugue_age: values.family_conyugue_age,
@@ -235,7 +232,6 @@ export default function modelForm() {
                     /* add name and lastname */
                     family_conyugue_died_name: values.family_conyugue_died_name,
                     family_conyugue_died_lastname: values.family_conyugue_died_lastname,
-
                     family_conyugue_married_val: values.family_conyugue_married_val,
                     family_conyugue_married: values.family_conyugue_married,
                     family_conyugue_partner_val: values.family_conyugue_partner_val,
@@ -301,7 +297,6 @@ export default function modelForm() {
                         values.family_grandmother_lifeno_name,
                     family_grandmother_lifeno_firstname:
                         values.family_grandmother_lifeno_firstname,
-
                     //madre
                     family_grandfather_nametwo: values.family_grandfather_nametwo,
                     family_grandfather_agetwo: values.family_grandfather_agetwo,
@@ -572,6 +567,7 @@ export default function modelForm() {
                 },
             },
         });
+        console.log(data); 
     }
 
     return inputValues;

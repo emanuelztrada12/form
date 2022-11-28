@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useLocalStorage } from "../../Context/useLocalStorage";
 import { useRouter } from "next/router";
 import { Formik, Form } from "formik";
 import useStyles from "./styles";
 
-import { GET_USERS } from "../CheckeoutPage/models/query_graphql.model"; 
-import modelForm from "../CheckeoutPage/models/input.model"; 
+import { GET_USERS } from "../CheckeoutPage/models/query_graphql.model";
+import modelForm from "../CheckeoutPage/models/input.model";
 import _renderStepContent from "./helpers/renderStepContent";
 import validationSchema from "./FormModel/validationSchema";
 import generalFormModel from "./FormModel/generalFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
-import {steps} from "./helpers/steps";
+import { steps } from "./helpers/steps";
 import CheckoutSuccess from "./CheckoutSuccess";
+import { valuesAirtble } from "../CheckeoutPage/services/airtable.service"; 
 
 // Material ui librery
 import Stepper from "@mui/material/Stepper";
@@ -23,7 +24,7 @@ import Typography from "@mui/material/Typography";
 import MobileStepper from "@mui/material/MobileStepper";
 import CircularProgress from "@mui/material/CircularProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import json2mq from "json2mq"; 
+import json2mq from "json2mq";
 
 const { formId, formField } = generalFormModel;
 
@@ -41,20 +42,22 @@ export default function CheckoutPage() {
 
   const getInitialValues = () => {
     const formData = getLocal();
-    // console.log(formData);
     if (formData == null) {
       return formInitialValues;
     }
     return formData;
   };
+
   const [initialData, setInitialData] = useState(getInitialValues());
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
-  const inputValues = modelForm(); 
+  const inputValues = modelForm();
+  
   async function _submitForm(values, actions) {
     try {
-        inputValues(values);
-        console.log(`data ${data}`);
+      await valuesAirtble(values); 
+      inputValues(values);
+      // console.log(`data ${data}`);
     } catch (error) {
       console.log(error);
     }

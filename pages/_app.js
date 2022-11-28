@@ -4,7 +4,6 @@ import client from "../config/apollo";
 import AuthenticationContext from '../Context/AuthenticationContext';
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <ApolloProvider client={client}>
       <AuthenticationContext>
