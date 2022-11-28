@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Login from "../components/LoginPage";
 
-function LoginPage(){
+function LoginPage() {
   const [isSSR, setIsSSR] = useState(true);
   useEffect(() => {
     setIsSSR(false);

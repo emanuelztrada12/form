@@ -667,7 +667,7 @@ const {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
-  
+  /*
  yup.object().shape({
     [validation_form.name]: yup
       .string()
@@ -6540,5 +6540,5 @@ export default [
       is: (red_faccebookval) => red_faccebookval === "No",
       then: yup.string().required(`${red_faccebookval_two.requiredErrorMsg}`),
     }),
-  }),
+  }), */
 ];
