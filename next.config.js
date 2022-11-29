@@ -8,9 +8,10 @@ module.exports = {
     ],
   },
   env: {
-    URL_API: process.env.NEXT_PUBLIC_URL_API, 
-    API_KEY: process.env.NEXT_PUBLIC_API_KEY,
-    URL_API_VEHICLE: process.env.NEXT_PUBLIC_URL_API_VEHICLE,
+    AIR_URL:      process.env.NEXT_PUBLIC_URL, 
+    AIR_GENERAL:  process.env.NEXT_PUBLIC_GENERAL,
+    AIR_FATHER:   process.env.NEXT_PUBLIC_URL_FATHER,
+    AIR_API_KEY:  process.env.NEXT_PUBLIC_API_KEY,
   },
   trailingSlash: true,
 }
