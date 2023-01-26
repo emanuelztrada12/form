@@ -1364,7 +1364,6 @@ export default function EducacionalForm(props) {
                                                         Año graduación:
                                                       </label>
                                                       <InputField
-                                                        
                                                         name={estudie_university_year_graduation.name}
                                                         label={estudie_university_year_graduation.label}
                                                         fullWidth

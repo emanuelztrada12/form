@@ -1774,7 +1774,7 @@ export default {
       requiredErrorMsg: "La información es requerida",
     },
     estudie_university_year_graduation: {
-      name: "estudie_university_year_graduation*",
+      name: "estudie_university_year_graduation",
       label: "Ingrese su año de graduación*",
       requiredErrorMsg: "La información es requerida",
     },

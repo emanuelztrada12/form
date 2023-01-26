@@ -399,6 +399,7 @@ export const FORMULARIO = gql`
       estudie_university_year_graduation
       estudie_university_no_sede
       estudie_university_hour
+      estudie_university_sval
       # add information extra
       magister {
         study_master_name
