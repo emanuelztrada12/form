@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client";
 import { FORMULARIO } from "./query_graphql.model";
 
 export default function modelForm() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [newFormulario] = useMutation(FORMULARIO);
     const inputValues = async (values) => {
         // console.info(`\n\n==> { _submitForm }\n`, values, `\n`, ``);
@@ -268,6 +269,7 @@ export default function modelForm() {
                     family_grandfather_time_died: values.family_grandfather_time_died,
                     family_grandfather_reason_died:
                         values.family_grandfather_reason_died,
+                    family_grandfather_statustwo: values.family_grandfather_statustwo,
                     family_grandfather_life: values.family_grandfather_life,
                     family_grandfather_phone_val: values.family_grandfather_phone_val,
                     family_grandfather_working_val:
@@ -345,15 +347,14 @@ export default function modelForm() {
                         values.family_grandmother_lifeno_nametwo,
                     family_grandmother_lifeno_firstnametwo:
                         values.family_grandmother_lifeno_firstnametwo,
-
+                    estudie_university_sval: values.estudie_university_sval,
                     estudie_university_name: values.estudie_university_name,
                     estudie_university_uniname: values.estudie_university_uniname,
                     estudie_university_semester: values.estudie_university_semester,
                     estudie_university_val: values.estudie_university_val,
                     estudie_university_title: values.estudie_university_title,
                     estudie_university_sede: values.estudie_university_sede,
-                    estudie_university_year_graduation:
-                        values.estudie_university_year_graduation,
+                    estudie_university_year_graduation: values.estudie_university_year_graduation,
                     estudie_university_no_sede: values.estudie_university_no_sede,
                     estudie_university_hour: values.estudie_university_hour,
                     /* add */
