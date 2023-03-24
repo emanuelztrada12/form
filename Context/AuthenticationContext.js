@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import Login from "../components/LoginPage";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 function AuthenticationContext({ children }) {
@@ -13,11 +12,6 @@ function AuthenticationContext({ children }) {
       router.push("/LoginPage");
     }
   }, []);
-
-  setTimeout(async function () {
-    await localStorage.clear();
-    router.push("/LoginPage");
-  }, 86400000);
 
   return !isSSR && <>{children}</>;
 }

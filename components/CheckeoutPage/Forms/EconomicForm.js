@@ -3,7 +3,6 @@ import {
   InputField,
   SelectField,
   DatePickerField,
-  CheckboxField,
 } from "../../FormFields";
 import { FieldArray } from "formik";
 import lodash, { result } from "lodash";

@@ -13,7 +13,6 @@ import generalFormModel from "./FormModel/generalFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
 import { steps } from "./helpers/steps";
 import CheckoutSuccess from "./CheckoutSuccess";
-import { valuesAirtble } from "../CheckeoutPage/services/airtable.service"; 
 
 // Material ui librery
 import Stepper from "@mui/material/Stepper";
@@ -55,7 +54,6 @@ export default function CheckoutPage() {
   
   async function _submitForm(values, actions) {
     try {
-      await valuesAirtble(values); 
       inputValues(values);
       // console.log(`data ${data}`);
     } catch (error) {

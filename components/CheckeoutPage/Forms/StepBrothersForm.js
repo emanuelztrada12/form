@@ -59,7 +59,6 @@ const validate = [
 
 export default function StepBrothersForm(props) {
   let [valuess, setValue] = useState({});
-  const [conditionYear, setConditionYear] = useState("");
   let [information, setInformation] = useState({});
   const gettingInformation = (name, e) => {
     const nvalues = {
@@ -69,14 +68,23 @@ export default function StepBrothersForm(props) {
     // console.info(`\n\n==> { nvalues }\n`, nvalues, `\n`, ``);
     setInformation(nvalues);
   };
-
+  
   /* funcion para obtener los datos del input */
+  const [conditionYear, setConditionYear] = useState("");
   const conditionEdad = (e) => {
     const yearLiving = e.target.value;
     // console.log(yearLiving);
     setConditionYear(yearLiving);
   };
+  
+  const [conditionPhone, setContidionPhone] = useState("");
+  const phone = (e) => {
+    const phone = e.target.value; 
+    console.log(phone);
+    setContidionPhone(phone); 
+  }; 
 
+  
   const gettingValue = (name, e) => {
     const nvalues = {
       ...valuess,
@@ -460,21 +468,20 @@ export default function StepBrothersForm(props) {
                                                         fontWeight: "bold",
                                                       }}
                                                     >
-                                                      ¿Tiene teléfono?:
+                                                      ¿Tiene teléfono? :
                                                     </label>
                                                     <SelectField
                                                       name={`stepbrother.${index}.${family_stepbrother_phone_val.name}`}
                                                       label={
                                                         family_stepbrother_phone_val.label
                                                       }
+                                                      onChange={phone}
                                                       data={validate}
                                                       
                                                       fullWidth
                                                     />
                                                     <div>
-                                                      {valuesPhone[
-                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
-                                                      ] === "Si" && (
+                                                      {conditionPhone  === "Si" && (
                                                         <div
                                                           style={{
                                                             paddingTop: "10px",
@@ -512,9 +519,7 @@ export default function StepBrothersForm(props) {
                                                         </div>
                                                       )}
 
-                                                      {valuesPhone[
-                                                        `stepbrother.${index}.${family_stepbrother_phone_val.name}`
-                                                      ] === "No" && (
+                                                      {conditionPhone === "No" && (
                                                         <div
                                                           item
                                                           xs={12}
